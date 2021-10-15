@@ -7,4 +7,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Exadel lerning center (FE)';
+
+  user = "developer"; // отправная точка - от бэкенда сюда должен присваиваться итог проверки авторизации в приложении  (строка - recruter || interviewer || mentor || manager || admin)
+
+  constructor() 
+  {
+
+  }
 }
