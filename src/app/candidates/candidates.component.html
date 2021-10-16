@@ -1,8 +1,14 @@
-<ul>
-  <li 
-    *ngFor="let candidate of candidates" 
-    (click)="selectCandidate(candidate.id)" 
-    [ngClass]="candidate.isActive ? 'active' : ''">
-    {{ candidate.firstName }} {{ candidate.lastName }}
-  </li>
-</ul>
+<div class="candidates">
+  <ul>
+    <div class="filters">
+      <span *ngFor="let filter of filters" (click)="filterCandidates(filter)" [class.active-filter]="filter===activeFilter">{{ filter }}</span>
+    </div>
+    <li 
+      *ngFor="let candidate of resultedArray" 
+      (click)="selectCandidate(candidate.id)" 
+      [ngClass]="candidate.isActive ? 'active' : ''">
+      {{ candidate.firstName }} {{ candidate.lastName }}
+      <span *ngIf="candidate.solution" [ngClass]= "{'color-red': candidate.solution === 'declined', 'color-green': candidate.solution === 'accepted', 'color-black': candidate.solution === 'questionable'}">{{ candidate.solution }}</span>
+    </li>
+  </ul>
+</div>
