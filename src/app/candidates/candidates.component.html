@@ -1,0 +1,8 @@
+<ul>
+  <li 
+    *ngFor="let candidate of candidates" 
+    (click)="selectCandidate(candidate.id)" 
+    [ngClass]="candidate.isActive ? 'active' : ''">
+    {{ candidate.firstName }} {{ candidate.lastName }}
+  </li>
+</ul>

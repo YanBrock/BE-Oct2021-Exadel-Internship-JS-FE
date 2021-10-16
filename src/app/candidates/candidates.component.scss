@@ -1,0 +1,26 @@
+ul {
+  padding: 1rem .5rem;
+  list-style-type: none;
+  background-color: #E4EBEF;
+
+  li {
+    display: flex;
+    justify-content: left;
+    padding: .5rem 10rem .5rem .5rem;
+    border: solid 3px transparent;
+    border-radius: .3rem 0 0 .3rem;
+    background-color: #F0F0F0;
+    cursor: pointer;
+    font-size: 1.5rem;
+  }
+
+  li:not(:first-child) {
+    margin-top: .5rem;
+  }
+
+  .active {
+    border: solid 3px #1E90CF;
+    color: #1E90CF;
+    border-radius: .3rem;
+  }
+}
