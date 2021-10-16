@@ -6,16 +6,51 @@
 			<img src="../assets/images/logo.png" alt="Logo">
 		</div>
 		<div class="header__user">
-			<div class="name">{{user | uppercase}}</div>
-			<div class="avatar">
-				<img src="../assets/images/avatar.jpg" alt="Avatar">
+			<div *ngIf="user === 'recruter'" class="header__user-wrapper">
+				<div class="name">{{user | uppercase}}</div>
+				<div class="avatar">
+					<img src="../assets/images/avatar.jpg" alt="Avatar">
+				</div>
 			</div>
+
+			<div *ngIf="user === 'interviewer'" class="header__user-wrapper">
+				<div class="name">{{user | uppercase}}</div>
+				<div class="avatar">
+					<img src="../assets/images/avatar.jpg" alt="Avatar">
+				</div>
+			</div>
+
+			<div *ngIf="user === 'mentor'" class="header__user-wrapper">
+				<div class="name">{{user | uppercase}}</div>
+				<div class="avatar">
+					<img src="../assets/images/avatar.jpg" alt="Avatar">
+				</div>
+			</div>
+
+			<div *ngIf="user === 'manager'" class="header__user-wrapper">
+				<div class="name">{{user | uppercase}}</div>
+				<div class="avatar">
+					<img src="../assets/images/avatar.jpg" alt="Avatar">
+				</div>
+			</div>
+
+			<div *ngIf="user === 'admin'" class="header__user-wrapper">
+				<div class="name">{{user | uppercase}}</div>
+				<div class="avatar">
+					<img src="../assets/images/avatar.jpg" alt="Avatar">
+				</div>
+			</div>
+
+			<div *ngIf="user === 'guest'" class="guest">{{title | uppercase}}</div>
+			
 		</div>
 	</div>
 </header>
 
 <main class="main">
-	<!--Сюда рендрим компоненты ролей ( которые тоже будем делить на компоненты )-->
+	<div class="container">
+		<!--Сюда рендрим компоненты ролей ( которые тоже будем делить на компоненты )-->
+	</div>
 </main>
 
 <footer class="footer">

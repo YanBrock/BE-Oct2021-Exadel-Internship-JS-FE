@@ -28,11 +28,23 @@
 	justify-content: right;
 	align-items: center;
 
+	&-wrapper
+	{
+		display: inherit;
+		align-items: center;
+	}
+
 	.name
 	{
 		margin-right: 1rem;
 		color: #1E90CF;
 		font-weight: bold;
+	}
+
+	.guest
+	{
+		@extend .name;
+		margin-right: 0;
 	}
 
 	.avatar img
