@@ -1,11 +1,11 @@
 <h2>Fill out the form</h2>
 
 <form class = "form intern" action="">
-  <input type="text" name="name" id="" placeholder="First name">
-  <input type="text" name="name" id="" placeholder="Last name">
-  <input type="email" name="email" id="" placeholder="Email">
-  <input type="text" name="skype" id="" placeholder="Skype">
-  <input type="text" name="phone" id="" placeholder="Phone">
+  <input type="text" name="name" id="" placeholder="First name" [(ngModel)]="firstName">
+  <input type="text" name="name" id="" placeholder="Last name"[(ngModel)]="lastName">
+  <input type="email" name="email" id="" placeholder="Email" [(ngModel)]="email">
+  <input type="text" name="skype" id="" placeholder="Skype" [(ngModel)]="skype">
+  <input type="text" name="phone" id="" placeholder="Phone" [(ngModel)]="phone">
   <select>
     <option >Specialisation</option>
     <option >Javascript</option>
