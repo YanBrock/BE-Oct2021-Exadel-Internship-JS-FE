@@ -22,23 +22,27 @@ import { Component, OnInit } from '@angular/core';
 export class CandidatesComponent implements OnInit {
 
   candidates: any[] = [
-    {id: 1, firstName: 'John', lastName: 'Smith', isActive: false, solution: 'accepted'},
-    {id: 2, firstName: 'Anna', lastName: 'Donovan', isActive: false, solution: 'declined'},
-    {id: 3, firstName: 'Rick', lastName: 'Gonsales', isActive: false, solution: 'declined'},
-    {id: 4, firstName: 'Mark', lastName: 'Tornhes', isActive: false, solution: 'accepted'},
-    {id: 5, firstName: 'Britney', lastName: 'Sterry', isActive: false, solution: 'questionable'},
-    {id: 6, firstName: 'George', lastName: 'McTanney', isActive: false, solution: 'declined'},
-    {id: 7, firstName: 'Bich', lastName: 'Bichovich', isActive: false, solution: 'declined'},
-    {id: 8, firstName: 'Morgan', lastName: 'Freeman', isActive: false, solution: 'questionable'},
-    {id: 9, firstName: 'Lucas', lastName: 'Tounsend', isActive: false, solution: 'accepted'},
-    {id: 10, firstName: 'Charles', lastName: 'Brighton', isActive: false, solution: 'declined'},
+    {id: 1, firstName: 'John', lastName: 'Smith', specialisation: 'fe', isActive: false, solution: 'accepted'},
+    {id: 2, firstName: 'Anna', lastName: 'Donovan', specialisation: 'be', isActive: false, solution: 'declined'},
+    {id: 3, firstName: 'Rick', lastName: 'Gonsales', specialisation: 'ba', isActive: false, solution: 'declined'},
+    {id: 4, firstName: 'Mark', lastName: 'Tornhes', specialisation: 'ba', isActive: false, solution: 'accepted'},
+    {id: 5, firstName: 'Britney', lastName: 'Sterry', specialisation: 'fe', isActive: false, solution: 'questionable'},
+    {id: 6, firstName: 'George', lastName: 'McTanney', specialisation: 'be', isActive: false, solution: 'declined'},
+    {id: 7, firstName: 'Bich', lastName: 'Bichovich', specialisation: 'fe', isActive: false, solution: 'declined'},
+    {id: 8, firstName: 'Morgan', lastName: 'Freeman', specialisation: 'be', isActive: false, solution: 'questionable'},
+    {id: 9, firstName: 'Lucas', lastName: 'Tounsend', specialisation: 'be', isActive: false, solution: 'accepted'},
+    {id: 10, firstName: 'Charles', lastName: 'Brighton', specialisation: 'fe', isActive: false, solution: 'declined'},
   ]
 
   resultedArray: any[] = this.candidates
 
   activeFilter: string = 'all'
 
+  activeTab: string = 'all'
+
   filters: string[] = ['all', 'accepted', 'questionable', 'declined']
+
+  tabs: string[] = ['all', 'fe', 'be', 'ba']
 
   constructor() { }
 
@@ -51,14 +55,27 @@ export class CandidatesComponent implements OnInit {
     this.resultedArray[index].isActive = true;
   }
 
-  filterCandidates(filter: string) {
-    this.activeFilter = filter
-    console.log(this.activeFilter)
+  filterCandidatesWithSpecialisation(tab: string) {
+    this.activeTab = tab
     this.resultedArray.forEach(candidate => candidate.isActive = false)
-    if (filter === 'all') {
+    this.filteringArray(this.activeTab, this.activeFilter, this.candidates)
+  }
+
+  filterCandidatesWithSolution(filter: string) {
+    this.activeFilter = filter
+    this.resultedArray.forEach(candidate => candidate.isActive = false)
+    this.filteringArray(this.activeTab, this.activeFilter, this.candidates)
+  }
+
+  filteringArray(tab: string, filter: string, array: any[]) {
+    if (tab === 'all' && filter === 'all') {
       this.resultedArray = this.candidates
-    } else {
+    } else if (tab === 'all' && filter !== 'all') {
       this.resultedArray = this.candidates.filter(candidate => candidate.solution === filter)
+    } else if (tab !== 'all' && filter === 'all') {
+      this.resultedArray = this.candidates.filter(cacndidate => cacndidate.specialisation === tab)
+    } else {
+      this.resultedArray = this.candidates.filter(candidate => candidate.solution === filter).filter(candidate => candidate.specialisation === tab)
     }
   }
 
