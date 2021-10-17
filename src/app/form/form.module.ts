@@ -8,6 +8,9 @@ import { FormComponent } from '../form/form.component';
   declarations: [
     FormComponent
   ],
+  exports: [
+    FormComponent
+  ],
   imports: [
     CommonModule
   ]

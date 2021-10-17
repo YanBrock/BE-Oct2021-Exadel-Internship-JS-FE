@@ -1,1 +1,33 @@
-<p>form works!</p>
+<h2>Fill out the form</h2>
+
+<form class = "form intern" action="">
+  <input type="text" name="name" id="" placeholder="First name">
+  <input type="text" name="name" id="" placeholder="Last name">
+  <input type="email" name="email" id="" placeholder="Email">
+  <input type="text" name="skype" id="" placeholder="Skype">
+  <input type="text" name="phone" id="" placeholder="Phone">
+  <select>
+    <option >Specialisation</option>
+    <option >Javascript</option>
+    <option >.Net</option>
+    <option >business analyst</option>
+  </select>
+  <input type="text" id="" placeholder="Location">
+  <select>
+    <option >English level</option>
+    <option >A 1</option>
+    <option >A 2</option>
+    <option >B 1</option>
+    <option >B 2</option>
+    <option >C 1</option>
+    <option >C 2</option>
+  </select>
+
+
+  <div class="wrapperCheckBox">
+  <input type="checkbox" name="checkbox" id="checkbox_id" value="value" class="checkboxForm">
+   <label for="checkbox_id">I accept the terms of processing and storage of the provided data <a href="#">link to the terms</a></label>
+
+</div>
+  <input type="submit" value="Submit" class="buttonForm" (click)="clickSubmit($event)">
+</form>

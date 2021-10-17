@@ -12,4 +12,10 @@ export class FormComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  clickSubmit(event:Event): void {
+    event.preventDefault()
+    console.log(event)
+    console.log(event)
+  }
+
 }
