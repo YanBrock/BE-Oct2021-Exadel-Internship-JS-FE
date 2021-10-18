@@ -1,0 +1,19 @@
+
+<div class="skils-lvl">
+   <h1>Skils Lvl</h1>
+   <div class="row">
+   <div class="skils-lvl-text">
+      <p>English</p>
+   </div>
+   <a *ngFor="let rait of ratingArr; index as i"
+      (click)="onClick(i)">
+      <mat-icon>
+         {{returnStar(i)}}
+      </mat-icon> 
+   </a>
+   <div class="rating">Final grade: {{rating}}/{{starCount}}</div>
+</div>
+</div>
+
+
+
