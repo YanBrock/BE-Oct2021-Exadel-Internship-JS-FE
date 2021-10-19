@@ -1,41 +1,47 @@
 import { Component, OnInit } from '@angular/core';
+import { FormService } from '../services/form.service';
+
 
 @Component({
   selector: 'app-form',
   templateUrl: './form.component.html',
-  styleUrls: ['./form.component.scss']
+  styleUrls: ['./form.component.scss'],
+  providers: [FormService]
 })
+
 export class FormComponent implements OnInit {
+  isSpecialisation: string[] = []
+  isEnglishlevel: string[] = []
+  checkboxClick = false
 
-  firstName = ""
-  lastName = ""
-  email = ""
-  skype = ""
-  phone = ""
+   intern = {
+    firstName:  '',
+    lastName:  '',
+    email: '',
+    skype: '',
+    phone: '',
+    location: '',
+   }
 
-  intern={}
+  constructor(private formService: FormService) {
 
-
-  constructor() { }
+  }
 
   ngOnInit(): void {
-  }
+    this.isSpecialisation = this.formService.isSpecialisation
+    this.isEnglishlevel = this.formService.isEnglishlevel
 
-  clickSubmit(event:Event): void {
+   }
+
+  clickSubmit(event: Event, internForm:HTMLFormElement): void {
     event.preventDefault()
-    this.intern = {
-      firstName: this.firstName,
-      lastName: this.lastName,
-      email: this.email,
-      skype: this.skype,
-      phone: this.phone
-    }
-    console.log(this.intern)
-    this.firstName = ""
-    this.lastName = ""
-    this.email = ""
-    this.skype = ""
-    this.phone = ""
-  }
 
+    if (this.checkboxClick) {
+      // this.intern = this.formService.intern
+      console.log(this.intern)
+      internForm.reset()
+    } else {
+      console.log(`Checkbox checked: ${this.checkboxClick}`);
+    }
+  }
 }
