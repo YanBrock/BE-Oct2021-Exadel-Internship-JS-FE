@@ -6,7 +6,7 @@ import { FormService } from '../services/form.service';
   selector: 'app-form',
   templateUrl: './form.component.html',
   styleUrls: ['./form.component.scss'],
-  providers: [FormService]
+  providers: [FormService],
 })
 
 export class FormComponent implements OnInit {
@@ -37,8 +37,7 @@ export class FormComponent implements OnInit {
     event.preventDefault()
 
     if (this.checkboxClick) {
-      // this.intern = this.formService.intern
-      console.log(this.intern)
+      this.formService.saveDataIntern(this.intern)
       internForm.reset()
     } else {
       console.log(`Checkbox checked: ${this.checkboxClick}`);
