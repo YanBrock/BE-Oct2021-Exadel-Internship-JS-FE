@@ -10,6 +10,7 @@ import { Component, Input, OnInit} from '@angular/core';
 export class CandidateComponent implements OnInit {
 
   @Input() candidate: Candidate
+  @Input() first: boolean
   // @Input() selectedCandidate: Candidate
   selectedCandidate: Candidate
 

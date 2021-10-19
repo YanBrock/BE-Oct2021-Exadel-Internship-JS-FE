@@ -7,6 +7,7 @@ import { CandidatesComponent } from './candidates/candidates.component';
 import { CandidatesViewComponent } from './components/candidates-view/candidates-view.component';
 import { CandidatesListComponent } from './components/candidates-list/candidates-list.component';
 import { CandidateComponent } from './components/candidate/candidate.component';
+import { StatusFiltersComponent } from './components/status-filters/status-filters.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { CandidateComponent } from './components/candidate/candidate.component';
     CandidatesViewComponent,
     CandidatesListComponent,
     CandidateComponent,
+    StatusFiltersComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,1 +1,4 @@
-<app-candidates-list [candidates]="candidates$ | async" (selectCandidate)="onCandidateSelect($event)"></app-candidates-list>
+<div>
+  <app-status-filters></app-status-filters>
+  <app-candidates-list [candidates]="candidates$ | async" (selectCandidate)="onCandidateSelect($event)"></app-candidates-list>
+</div>

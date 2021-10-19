@@ -10,8 +10,14 @@ export class CandidatesService {
   
   selectedCandidate$ = new Subject<Candidate>()
   selectedCandidate = this.selectedCandidate$.asObservable()
+  selectedFilter$ = new Subject<string>()
+  selectedFilter = this.selectedFilter$.asObservable()
 
   constructor() { }
+
+  selectFilter(filter: string) {
+    this.selectedFilter$.next(filter)
+  }
 
   selectCandidate(candidate: Candidate) {
     this.selectedCandidate$.next(candidate);

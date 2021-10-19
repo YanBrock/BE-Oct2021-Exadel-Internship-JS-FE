@@ -19,6 +19,7 @@ export class CandidatesListComponent implements OnInit {
     // this.candidatesService.selectedCandidate.subscribe(value => this.selectedCandidate = value);
   }
 
+  // сделать так же с фильтрами
   onClick(candidate: Candidate) {
     this.selectCandidate.emit(candidate)
   }
