@@ -1,7 +1,7 @@
 export enum Status {
-  Declined = 0,
-  Accepted = 1,
-  Questionable = 2
+  Declined = 'declined',
+  Accepted = 'accepted',
+  Questionable = 'questionable'
 }
 
 export interface Candidate {
@@ -15,5 +15,7 @@ export interface Candidate {
   specialisation: string
   // location: string
   // englishLevel: string
+  isInterviewedByHr?: boolean
+  isInterviewedByTech?: boolean
   status?: Status
 }

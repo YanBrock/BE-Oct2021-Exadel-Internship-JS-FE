@@ -26,6 +26,8 @@ export class CandidatesService {
           lastName: 'Smith',
           specialisation: 'fe',
           isActive: false,
+          isInterviewedByHr: true,
+          isInterviewedByTech: true,
           status: Status.Accepted
         },
         {
@@ -34,7 +36,8 @@ export class CandidatesService {
           lastName: 'Donovan',
           specialisation: 'be',
           isActive: false,
-          status: Status.Declined
+          isInterviewedByHr: false,
+          isInterviewedByTech: false,
         },
         {
           id: 3,
@@ -42,7 +45,8 @@ export class CandidatesService {
           lastName: 'Gonsales',
           specialisation: 'ba',
           isActive: false,
-          status: Status.Declined
+          isInterviewedByHr: true,
+          isInterviewedByTech: false,
         },
         {
           id: 4,
@@ -50,6 +54,8 @@ export class CandidatesService {
           lastName: 'Tornhes',
           specialisation: 'ba',
           isActive: false,
+          isInterviewedByHr: true,
+          isInterviewedByTech: true,
           status: Status.Accepted
         },
         {
@@ -58,6 +64,8 @@ export class CandidatesService {
           lastName: 'Sterry',
           specialisation: 'fe',
           isActive: false,
+          isInterviewedByHr: true,
+          isInterviewedByTech: true,
           status: Status.Questionable
         },
         {
@@ -66,7 +74,8 @@ export class CandidatesService {
           lastName: 'McTanney',
           specialisation: 'be',
           isActive: false,
-          status: Status.Declined
+          isInterviewedByHr: true,
+          isInterviewedByTech: false,
         },
         {
           id: 7,
@@ -74,6 +83,8 @@ export class CandidatesService {
           lastName: 'Bichovich',
           specialisation: 'fe',
           isActive: false,
+          isInterviewedByHr: true,
+          isInterviewedByTech: true,
           status: Status.Declined
         },
         {
@@ -82,7 +93,8 @@ export class CandidatesService {
           lastName: 'Freeman',
           specialisation: 'be',
           isActive: false,
-          status: Status.Questionable
+          isInterviewedByHr: false,
+          isInterviewedByTech: false,
         },
         {
           id: 9,
@@ -90,7 +102,8 @@ export class CandidatesService {
           lastName: 'Tounsend',
           specialisation: 'be',
           isActive: false,
-          status: Status.Accepted
+          isInterviewedByHr: true,
+          isInterviewedByTech: false,
         },
         {
           id: 10,
@@ -98,6 +111,8 @@ export class CandidatesService {
           lastName: 'Brighton',
           specialisation: 'fe',
           isActive: false,
+          isInterviewedByHr: true,
+          isInterviewedByTech: true,
           status: Status.Declined
         }
       ]
