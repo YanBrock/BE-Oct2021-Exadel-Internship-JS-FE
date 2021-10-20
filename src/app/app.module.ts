@@ -3,22 +3,26 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ManagerComponent } from './Manager/manager/manager.component';
-import { RouterModule } from '@angular/router';
+import { CandidatesComponent } from './candidates/candidates.component';
+import { CandidatesViewComponent } from './components/candidates-view/candidates-view.component';
+import { CandidatesListComponent } from './components/candidates-list/candidates-list.component';
+import { CandidateComponent } from './components/candidate/candidate.component';
+import { StatusFiltersComponent } from './components/status-filters/status-filters.component';
+import { RecruterComponent } from './recruter/recruter/recruter.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ManagerComponent
+    CandidatesComponent,
+    CandidatesViewComponent,
+    CandidatesListComponent,
+    CandidateComponent,
+    StatusFiltersComponent,
+    RecruterComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    RouterModule.forRoot([
-      {path: 'manager', component: ManagerComponent},
-      {path: 'app', component: AppComponent},
-      
-    ]),
   ],
   providers: [],
   bootstrap: [AppComponent]
