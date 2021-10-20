@@ -1,30 +1,43 @@
 <h2>Fill out the form</h2>
 
-<form class="form intern" action="" #internForm>
-  <input type="text" name="name" id="" placeholder="First name" [(ngModel)]="intern.firstName">
+<form class="form intern" action="" #internForm ="ngForm" >
+  <!-- <input type="text" name="name" id="" placeholder="First name" [(ngModel)]="intern.firstName">
   <input type="text" name="name" id="" placeholder="Last name" [(ngModel)]="intern.lastName">
   <input type="email" name="email" id="" placeholder="Email" [(ngModel)]="intern.email">
   <input type="text" name="skype" id="" placeholder="Skype" [(ngModel)]="intern.skype">
-  <input type="text" name="phone" id="" placeholder="Phone" [(ngModel)]="intern.phone">
+  <input type="phone" name="phone" id="" placeholder="Phone" [(ngModel)]="intern.phone"> -->
 
   <!-- selected disabled hidden -->
-  <select>
+  <!-- <select>
     <option *ngFor='let key of isSpecialisation; let i = index'>{{key}}</option>
   </select>
 
-  <input type="text" name = "location" id="" placeholder="Location" [(ngModel)]="intern.location">
+  <input type="text" name="location" id="" placeholder="Location" [(ngModel)]="intern.location">
 
-  <select >
+  <select>
     <option *ngFor='let key of isEnglishlevel'>{{key}}</option>
-  </select>
+  </select> -->
 
-  <div class="wrapperCheckBox">
+  <mat-form-field>
+    <mat-label>vcvcvcvcvcv</mat-label>
+    <mat-select [(ngModel)]="zzz" name="englishlevel">
+      <mat-option *ngFor='let key of isEnglishlevel' >{{key}}</mat-option>
+    </mat-select>
 
-    <input type="checkbox" name="checkbox" id="checkbox_id" value="value" class="checkboxForm" [(ngModel)]="checkboxClick">
+  </mat-form-field>
+
+
+  <!-- <div class="wrapperCheckBox">
+
+    <input type="checkbox" name="checkbox" id="checkbox_id" value="value" class="checkboxForm"
+      [(ngModel)]="checkboxClick">
 
     <label for="checkbox_id">I accept the terms of processing and storage of the provided data <a href="#">link to the
-        terms</a></label>
+        terms</a></label> -->
 
-  </div>
-  <input type="submit" value="Submit" class="buttonForm" (click)="clickSubmit($event, internForm)">
+  <!-- </div> -->
+  <!-- <input type="submit" value="Submit" class="buttonForm" (click)="clickSubmit($event, internForm)"> -->
+
 </form>
+
+{{internForm | json}}
