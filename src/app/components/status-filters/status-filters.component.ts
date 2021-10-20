@@ -1,5 +1,5 @@
 import { CandidatesService } from 'src/app/services/candidates.service';
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-status-filters',
@@ -10,6 +10,7 @@ export class StatusFiltersComponent implements OnInit {
 
    filters: string[] = ['all', 'accepted', 'questionable', 'declined']
    selectedFilter: string = 'all'
+   @Output() filterWithStatus = new EventEmitter<string>()
 
   constructor(public candidatesService: CandidatesService) { }
 
@@ -18,6 +19,7 @@ export class StatusFiltersComponent implements OnInit {
   }
 
   onClick(filter: string) {
+    this.filterWithStatus.emit(filter)
     this.selectedFilter = filter
     this.candidatesService.selectFilter(filter)
   }

@@ -2,7 +2,7 @@ import { Candidate } from '../../types/candidate';
 import { Component, OnInit } from '@angular/core';
 import { CandidatesService } from 'src/app/services/candidates.service';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators'
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-candidates-view',
@@ -12,17 +12,30 @@ import { map } from 'rxjs/operators'
 export class CandidatesViewComponent implements OnInit {
 
   candidates$: Observable<Candidate[]>;
+  cc: any
   // selectedCandidate: Candidate = null
 
   constructor(public candidatesService: CandidatesService) { }
 
   ngOnInit(): void {
+    console.log('init')
     this.candidates$ = this.candidatesService.getCandidates()
   }
 
   onCandidateSelect(candidate: Candidate) {
     // this.selectedCandidate = candidate
     this.candidatesService.selectCandidate(candidate)
+
   }
 
+  filterCandidatesWithStatus(filter: string) {
+    if (filter === 'all') {
+      this.candidates$ = this.candidatesService.getCandidates()
+    } else {
+      this.candidates$ = this.candidatesService.getCandidates().pipe(
+        map(candidate => candidate.filter(candidate => candidate.status === filter))
+      )
+    }
+
+  }
 }
