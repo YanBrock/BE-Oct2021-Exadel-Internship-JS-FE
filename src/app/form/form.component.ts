@@ -10,8 +10,9 @@ import { FormService } from '../services/form.service';
 export class FormComponent implements OnInit {
   isSpecialisation: string[] = [];
   isEnglishlevel: string[] = [];
+  isLocation: string[] = [];
   checkboxClick = false;
-  zzz = '';
+
   intern = {
     firstName: '',
     lastName: '',
@@ -19,6 +20,8 @@ export class FormComponent implements OnInit {
     skype: '',
     phone: '',
     location: '',
+    english: '',
+    specialisation: ''
   };
 
   constructor(private formService: FormService) {}
@@ -26,6 +29,7 @@ export class FormComponent implements OnInit {
   ngOnInit(): void {
     this.isSpecialisation = this.formService.isSpecialisation;
     this.isEnglishlevel = this.formService.isEnglishlevel;
+    this.isLocation = this.formService.isLocation;
   }
 
   clickSubmit(event: Event, internForm: any): void {
@@ -33,7 +37,7 @@ export class FormComponent implements OnInit {
 
     if (this.checkboxClick) {
       this.formService.saveDataIntern(this.intern);
-      internForm.reset();
+      // internForm.reset();
     } else {
       console.log(`Checkbox checked: ${this.checkboxClick}`);
     }

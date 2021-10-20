@@ -1,43 +1,54 @@
 <h2>Fill out the form</h2>
 
-<form class="form intern" action="" #internForm ="ngForm" >
-  <!-- <input type="text" name="name" id="" placeholder="First name" [(ngModel)]="intern.firstName">
+<form class="form intern" #internForm ="ngForm" >
+  <input type="text" name="name" id="" placeholder="First name" [(ngModel)]="intern.firstName">
   <input type="text" name="name" id="" placeholder="Last name" [(ngModel)]="intern.lastName">
   <input type="email" name="email" id="" placeholder="Email" [(ngModel)]="intern.email">
   <input type="text" name="skype" id="" placeholder="Skype" [(ngModel)]="intern.skype">
-  <input type="phone" name="phone" id="" placeholder="Phone" [(ngModel)]="intern.phone"> -->
+  <input type="phone" name="phone" id="" placeholder="Phone" [(ngModel)]="intern.phone">
 
-  <!-- selected disabled hidden -->
-  <!-- <select>
-    <option *ngFor='let key of isSpecialisation; let i = index'>{{key}}</option>
-  </select>
+  <!-- Закомментированный инпут ниже все ломает, почему? Что я делаю не так? -->
 
-  <input type="text" name="location" id="" placeholder="Location" [(ngModel)]="intern.location">
-
-  <select>
-    <option *ngFor='let key of isEnglishlevel'>{{key}}</option>
-  </select> -->
+  <!-- <mat-form-field>
+    <mat-label>Phone</mat-label>
+    <input matInput name="phone" #phone="ngModel" required [(ngModel)]="intern.phone" />
+    <mat-error *ngIf="phone.invalid && phone.touched">Phone must be specified</mat-error>
+  </mat-form-field> -->
 
   <mat-form-field>
-    <mat-label>vcvcvcvcvcv</mat-label>
-    <mat-select [(ngModel)]="zzz" name="englishlevel">
-      <mat-option *ngFor='let key of isEnglishlevel' >{{key}}</mat-option>
+    <mat-label>Specialisation</mat-label>
+    <mat-select [(ngModel)]="intern.specialisation" name="location" #location="ngModel" required>
+      <mat-option *ngFor='let key of isSpecialisation'[value]="key" >{{key}}</mat-option>
     </mat-select>
-
+    <mat-error *ngIf="location.hasError('required')">Location must be specified</mat-error>
   </mat-form-field>
 
+  <mat-form-field>
+    <mat-label>Location</mat-label>
+    <mat-select [(ngModel)]="intern.location" name="location" #location="ngModel" required>
+      <mat-option *ngFor='let key of isLocation'[value]="key" >{{key}}</mat-option>
+    </mat-select>
+    <mat-error *ngIf="location.hasError('required')">Location must be specified</mat-error>
+  </mat-form-field>
 
-  <!-- <div class="wrapperCheckBox">
+  <mat-form-field >
+    <mat-label>English level</mat-label>
+    <mat-select [(ngModel)]="intern.english" name="englishLevel" #englishLevel="ngModel" required>
+      <mat-option *ngFor='let key of isEnglishlevel'[value]="key" >{{key}}</mat-option>
+    </mat-select>
+    <mat-error *ngIf="englishLevel.hasError('required')">English level must be specified</mat-error>
+  </mat-form-field>
 
+  <div class="wrapperCheckBox">
     <input type="checkbox" name="checkbox" id="checkbox_id" value="value" class="checkboxForm"
       [(ngModel)]="checkboxClick">
 
     <label for="checkbox_id">I accept the terms of processing and storage of the provided data <a href="#">link to the
-        terms</a></label> -->
+        terms</a></label>
 
-  <!-- </div> -->
-  <!-- <input type="submit" value="Submit" class="buttonForm" (click)="clickSubmit($event, internForm)"> -->
+  </div>
+  <input type="submit" value="Submit" class="buttonForm" (click)="clickSubmit($event, internForm)">
 
 </form>
 
-{{internForm | json}}
+{{internForm.value | json}}
