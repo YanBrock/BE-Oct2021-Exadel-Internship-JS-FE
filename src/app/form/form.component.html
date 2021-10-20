@@ -1,40 +1,56 @@
 <h2>Fill out the form</h2>
 
-<form class="form intern" #internForm ="ngForm" >
-  <input type="text" name="name" id="" placeholder="First name" [(ngModel)]="intern.firstName">
-  <input type="text" name="name" id="" placeholder="Last name" [(ngModel)]="intern.lastName">
-  <input type="email" name="email" id="" placeholder="Email" [(ngModel)]="intern.email">
-  <input type="text" name="skype" id="" placeholder="Skype" [(ngModel)]="intern.skype">
-  <input type="phone" name="phone" id="" placeholder="Phone" [(ngModel)]="intern.phone">
+<form class="form intern" #internForm="ngForm">
+  <mat-form-field>
+    <mat-label>First name</mat-label>
+    <input matInput name="firstName" #firstName="ngModel" required [(ngModel)]="intern.firstName" />
+    <mat-error *ngIf="firstName.invalid && firstName.touched">First name must be specified</mat-error>
+  </mat-form-field>
 
-  <!-- Закомментированный инпут ниже все ломает, почему? Что я делаю не так? -->
+  <mat-form-field>
+    <mat-label>Last name</mat-label>
+    <input matInput name="lastName" #lastName="ngModel" required [(ngModel)]="intern.lastName" />
+    <mat-error *ngIf="lastName.invalid && lastName.touched">Last name must be specified</mat-error>
+  </mat-form-field>
 
-  <!-- <mat-form-field>
+  <mat-form-field>
+    <mat-label>Email</mat-label>
+    <input matInput name="email" #email="ngModel" required [(ngModel)]="intern.email" />
+    <mat-error *ngIf="email.invalid && email.touched">Email must be specified</mat-error>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Skype</mat-label>
+    <input matInput name="skype" #skype="ngModel" required [(ngModel)]="intern.skype" />
+    <mat-error *ngIf="skype.invalid && skype.touched">Skype must be specified</mat-error>
+  </mat-form-field>
+
+  <mat-form-field>
     <mat-label>Phone</mat-label>
     <input matInput name="phone" #phone="ngModel" required [(ngModel)]="intern.phone" />
     <mat-error *ngIf="phone.invalid && phone.touched">Phone must be specified</mat-error>
-  </mat-form-field> -->
+  </mat-form-field>
 
   <mat-form-field>
     <mat-label>Specialisation</mat-label>
-    <mat-select [(ngModel)]="intern.specialisation" name="location" #location="ngModel" required>
-      <mat-option *ngFor='let key of isSpecialisation'[value]="key" >{{key}}</mat-option>
+    <mat-select [(ngModel)]="intern.specialisation" name="specialisation" #specialisation="ngModel" required>
+      <mat-option *ngFor='let key of isSpecialisation' [value]="key">{{key}}</mat-option>
     </mat-select>
-    <mat-error *ngIf="location.hasError('required')">Location must be specified</mat-error>
+    <mat-error *ngIf="specialisation.hasError('required')">Specialisation must be specified</mat-error>
   </mat-form-field>
 
   <mat-form-field>
     <mat-label>Location</mat-label>
     <mat-select [(ngModel)]="intern.location" name="location" #location="ngModel" required>
-      <mat-option *ngFor='let key of isLocation'[value]="key" >{{key}}</mat-option>
+      <mat-option *ngFor='let key of isLocation' [value]="key">{{key}}</mat-option>
     </mat-select>
     <mat-error *ngIf="location.hasError('required')">Location must be specified</mat-error>
   </mat-form-field>
 
-  <mat-form-field >
+  <mat-form-field>
     <mat-label>English level</mat-label>
     <mat-select [(ngModel)]="intern.english" name="englishLevel" #englishLevel="ngModel" required>
-      <mat-option *ngFor='let key of isEnglishlevel'[value]="key" >{{key}}</mat-option>
+      <mat-option *ngFor='let key of isEnglishlevel' [value]="key">{{key}}</mat-option>
     </mat-select>
     <mat-error *ngIf="englishLevel.hasError('required')">English level must be specified</mat-error>
   </mat-form-field>
@@ -43,7 +59,7 @@
     <input type="checkbox" name="checkbox" id="checkbox_id" value="value" class="checkboxForm"
       [(ngModel)]="checkboxClick">
 
-    <label for="checkbox_id">I accept the terms of processing and storage of the provided data <a href="#">link to the
+      <label for="checkbox_id">I accept the terms of processing and storage of the provided data <a href="#">link to the
         terms</a></label>
 
   </div>
@@ -51,4 +67,4 @@
 
 </form>
 
-{{internForm.value | json}}
+<!-- {{internForm.value | json}} -->

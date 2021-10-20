@@ -37,7 +37,7 @@ export class FormComponent implements OnInit {
 
     if (this.checkboxClick) {
       this.formService.saveDataIntern(this.intern);
-      // internForm.reset();
+      internForm.reset();
     } else {
       console.log(`Checkbox checked: ${this.checkboxClick}`);
     }

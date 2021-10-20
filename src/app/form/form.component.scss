@@ -19,25 +19,25 @@ h2{
     cursor: pointer;
   }
 
-  input,
-  select {
-    margin-bottom: 5px;
-    border-radius: 5px;
-    border: 1px solid #1e90cf;
-    padding: 10px 15px;
-    font-size: 16px;
-    font-weight: 300;
-  }
+  // input,
+  // select {
+  //   margin-bottom: 5px;
+  //   border-radius: 5px;
+  //   border: 1px solid #1e90cf;
+  //   padding: 10px 15px;
+  //   font-size: 16px;
+  //   font-weight: 300;
+  // }
 
-  input:focus,
-  select:focus,
-  input:-webkit-autofill,
-  input:-webkit-autofill:hover,
-  input:-webkit-autofill:focus,
-  input:-webkit-autofill:active {
-    transition: color 9999s ease-out, background-color 9999s ease-out;
-    outline: none;
-  }
+  // input:focus,
+  // select:focus,
+  // input:-webkit-autofill,
+  // input:-webkit-autofill:hover,
+  // input:-webkit-autofill:focus,
+  // input:-webkit-autofill:active {
+  //   transition: color 9999s ease-out, background-color 9999s ease-out;
+  //   outline: none;
+  // }
 
   .wrapperCheckBox {
     display: flex;

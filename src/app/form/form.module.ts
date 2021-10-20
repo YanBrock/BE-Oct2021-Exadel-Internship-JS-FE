@@ -5,6 +5,8 @@ import { FormComponent } from '../form/form.component';
 import { FormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
+import { MatInputModule } from '@angular/material/input';
+
 
 
 @NgModule({
@@ -19,6 +21,7 @@ import { MatSelectModule } from '@angular/material/select';
     FormsModule,
     MatSelectModule,
     MatFormFieldModule,
+    MatInputModule
   ]
 
 })
