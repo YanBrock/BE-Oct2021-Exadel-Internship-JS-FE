@@ -40,6 +40,7 @@ export class FormComponent implements OnInit {
     if (internForm.valid) {
       this.formService.saveDataIntern(this.intern);
       internForm.reset();
+      internForm.valid = true;
     }
   }
 }
