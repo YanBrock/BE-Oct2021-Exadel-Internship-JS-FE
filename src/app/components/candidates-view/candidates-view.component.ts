@@ -12,8 +12,6 @@ import { map } from 'rxjs/operators';
 export class CandidatesViewComponent implements OnInit {
 
   candidates$: Observable<Candidate[]>;
-  cc: any
-  // selectedCandidate: Candidate = null
 
   constructor(public candidatesService: CandidatesService) { }
 
@@ -23,7 +21,6 @@ export class CandidatesViewComponent implements OnInit {
   }
 
   onCandidateSelect(candidate: Candidate) {
-    // this.selectedCandidate = candidate
     this.candidatesService.selectCandidate(candidate)
 
   }

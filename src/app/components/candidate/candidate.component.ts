@@ -11,7 +11,6 @@ export class CandidateComponent implements OnInit {
 
   @Input() candidate: Candidate
   @Input() first: boolean
-  // @Input() selectedCandidate: Candidate
   selectedCandidate: Candidate
 
   constructor(public candidatesService: CandidatesService) { }

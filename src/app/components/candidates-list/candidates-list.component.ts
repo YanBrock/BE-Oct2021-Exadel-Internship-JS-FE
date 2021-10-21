@@ -11,15 +11,13 @@ export class CandidatesListComponent implements OnInit {
 
   @Input() candidates: Candidate[]
   @Output() selectCandidate = new EventEmitter<Candidate>()
-  // selectedCandidate: Candidate
 
   constructor(public candidatesService: CandidatesService) { }
 
   ngOnInit(): void {
-    // this.candidatesService.selectedCandidate.subscribe(value => this.selectedCandidate = value);
+    
   }
 
-  // сделать так же с фильтрами
   onClick(candidate: Candidate) {
     this.selectCandidate.emit(candidate)
   }

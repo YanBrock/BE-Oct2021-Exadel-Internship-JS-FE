@@ -1,4 +1,9 @@
 <div>
-  <app-candidate *ngFor="let candidate of candidates; let first = first" [candidate]="candidate" [first]="first" (click)="onClick(candidate)"></app-candidate>
+  <app-candidate
+  *ngFor="let candidate of candidates; let first = first"
+  [candidate]="candidate"
+  [first]="first"
+  (click)="onClick(candidate)">
+  </app-candidate>
 </div>
 
