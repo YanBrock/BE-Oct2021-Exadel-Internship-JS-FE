@@ -1,11 +1,16 @@
-*{
+* {
   font-family: "Poppins", sans-serif;
+  box-sizing: border-box;
 }
 
-h2{
+.container_form {
+  margin: 30px 15px;
+}
+
+h2 {
   font-size: 34px;
   color: #1e90cf;
-  margin: 30px auto 15px;
+  margin-bottom: 15px;
   font-weight: 400;
   text-align: center;
 }
@@ -14,62 +19,54 @@ h2{
   width: 100%;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
-   select{
-    cursor: pointer;
+  mat-form-field{
+    width: 100%;
   }
 
-  // input,
-  // select {
-  //   margin-bottom: 5px;
-  //   border-radius: 5px;
-  //   border: 1px solid #1e90cf;
-  //   padding: 10px 15px;
-  //   font-size: 16px;
-  //   font-weight: 300;
-  // }
+  .mat-error{
+    font-size: 12px;
+  }
 
-  // input:focus,
-  // select:focus,
-  // input:-webkit-autofill,
-  // input:-webkit-autofill:hover,
-  // input:-webkit-autofill:focus,
-  // input:-webkit-autofill:active {
-  //   transition: color 9999s ease-out, background-color 9999s ease-out;
-  //   outline: none;
-  // }
+//   .mat-form-field-infix.ng-tns-c69-0 {
+//     padding: 0px!important;
+// }
+
+
+
+  input:focus {
+    border: green;
+  }
+
+  input:-webkit-autofill {
+    box-shadow: 0 0 0 0px;
+    -webkit-box-shadow: 0 0 0 50px #ffffff inset; /* можно изменить на любой вариант цвета */
+    -webkit-text-fill-color: #333;
+  }
 
   .wrapperCheckBox {
+    width: 100%;
     display: flex;
     margin: 25px 0px 30px;
     justify-content: space-between;
-    align-items: center;
+    position: relative;
 
-      label {
-        width: 90%;
-        font-size: 14px;
-        a{
-          text-decoration: none;
-          color:#1e90cf;
-        }
-      }
+    a {
+      text-decoration: none;
+      color: #1e90cf;
+    }
 
+    .wcheckBoxError{
+      position: absolute;
+      top: 100%;
+      left: 25px;
+    }
   }
 
-  .checkboxForm {
-    width: 30px;
-    height: 30px;
-  }
-
-  .buttonForm {
-    background-color: #1e90cf;
-    color: #ffffff;
-    cursor: pointer;
-    transition: 0.1s;
-  }
-
-  .buttonForm:hover {
-    background-color: #40bfef;
-    border-color: #40bfef;
+  .mat-raised-button {
+    padding: 0px 35px;
+    margin: auto;
   }
 }

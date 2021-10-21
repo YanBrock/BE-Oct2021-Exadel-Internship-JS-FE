@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormService } from '../services/form.service';
 
 @Component({
@@ -11,7 +11,6 @@ export class FormComponent implements OnInit {
   isSpecialisation: string[] = [];
   isEnglishlevel: string[] = [];
   isLocation: string[] = [];
-  checkboxClick = false;
 
   intern = {
     firstName: '',
@@ -21,10 +20,11 @@ export class FormComponent implements OnInit {
     phone: '',
     location: '',
     english: '',
-    specialisation: ''
+    specialisation: '',
+    checkbox: false
   };
 
-  constructor(private formService: FormService) {}
+  constructor(private formService: FormService) { }
 
   ngOnInit(): void {
     this.isSpecialisation = this.formService.isSpecialisation;
@@ -32,14 +32,14 @@ export class FormComponent implements OnInit {
     this.isLocation = this.formService.isLocation;
   }
 
-  clickSubmit(event: Event, internForm: any): void {
-    event.preventDefault();
+  clickSubmit(internForm: any): void {
+    console.log(internForm.valid)
 
-    if (this.checkboxClick) {
+    if (internForm.valid) {
       this.formService.saveDataIntern(this.intern);
-      internForm.reset();
-    } else {
-      console.log(`Checkbox checked: ${this.checkboxClick}`);
+      internForm.reset(" ");
     }
   }
+
+
 }
