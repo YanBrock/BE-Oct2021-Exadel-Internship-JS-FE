@@ -21,10 +21,10 @@ export class FormComponent implements OnInit {
     location: '',
     english: '',
     specialisation: '',
-    checkbox: false
+    checkbox: true,
   };
 
-  constructor(private formService: FormService) { }
+  constructor(private formService: FormService) {}
 
   ngOnInit(): void {
     this.isSpecialisation = this.formService.isSpecialisation;
@@ -32,14 +32,14 @@ export class FormComponent implements OnInit {
     this.isLocation = this.formService.isLocation;
   }
 
-  clickSubmit(internForm: any): void {
-    console.log(internForm.valid)
-
-    if (internForm.valid) {
-      this.formService.saveDataIntern(this.intern);
-      internForm.reset(" ");
-    }
+  csvInputChange(fileInputEvent: any) {
+    console.log(fileInputEvent.target.files[0]);
   }
 
-
+  clickSubmit(internForm: any): void {
+    if (internForm.valid) {
+      this.formService.saveDataIntern(this.intern);
+      internForm.reset();
+    }
+  }
 }

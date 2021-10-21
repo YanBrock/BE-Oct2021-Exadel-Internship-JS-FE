@@ -17,24 +17,19 @@ h2 {
 
 .form.intern {
   width: 100%;
+  max-width: 700px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 
-  mat-form-field{
+  mat-form-field {
     width: 100%;
   }
 
-  .mat-error{
+  .mat-error {
     font-size: 12px;
   }
-
-//   .mat-form-field-infix.ng-tns-c69-0 {
-//     padding: 0px!important;
-// }
-
-
 
   input:focus {
     border: green;
@@ -52,21 +47,32 @@ h2 {
     margin: 25px 0px 30px;
     justify-content: space-between;
     position: relative;
+    box-sizing: border-box;
+
+    span {
+      display: block;
+      white-space: normal;
+      margin-left: 10px;
+    }
 
     a {
       text-decoration: none;
       color: #1e90cf;
     }
 
-    .wcheckBoxError{
+    .wcheckBoxError {
       position: absolute;
       top: 100%;
-      left: 25px;
+      left: 35px;
     }
   }
 
   .mat-raised-button {
     padding: 0px 35px;
     margin: auto;
+  }
+
+  .wrapperCv {
+    margin-left: 45px;
   }
 }

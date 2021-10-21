@@ -1,81 +1,87 @@
-<div class="container_form"><h2>Fill out the form</h2>
+<div class="container_form">
+  <h2>Fill out the form</h2>
 
-<form class="form intern" #internForm="ngForm">
+  <form class="form intern" #internForm="ngForm">
 
-  <mat-form-field appearance="outline">
-    <mat-label>First name</mat-label>
-    <input matInput placeholder="First name" name="firstName" #firstName="ngModel" required [(ngModel)]="intern.firstName" />
-    <mat-error *ngIf="firstName.hasError('required')">First name must be specified</mat-error>
-  </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>First name</mat-label>
+      <input matInput placeholder="First name" name="firstName" #firstName="ngModel" required
+        [(ngModel)]="intern.firstName" />
+      <mat-error *ngIf="firstName.hasError('required')">First name must be specified</mat-error>
+    </mat-form-field>
 
-  <mat-form-field appearance="outline">
-    <mat-label>Last name</mat-label>
-    <input matInput name="lastName" #lastName="ngModel" required [(ngModel)]="intern.lastName" />
-    <mat-error *ngIf="lastName.hasError('required')">Last name must be specified</mat-error>
-  </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Last name</mat-label>
+      <input matInput name="lastName" #lastName="ngModel" required [(ngModel)]="intern.lastName" />
+      <mat-error *ngIf="lastName.hasError('required')">Last name must be specified</mat-error>
+    </mat-form-field>
 
-  <mat-form-field appearance="outline">
-    <mat-label>Email</mat-label>
-    <input matInput name="email" #email="ngModel" required [(ngModel)]="intern.email" />
-    <mat-error *ngIf="email.hasError('required')">Email must be specified</mat-error>
-  </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Email</mat-label>
+      <input matInput name="email" #email="ngModel" required [(ngModel)]="intern.email" />
+      <mat-error *ngIf="email.hasError('required')">Email must be specified</mat-error>
+    </mat-form-field>
 
-  <mat-form-field appearance="outline">
-    <mat-label>Skype</mat-label>
-    <input matInput name="skype" #skype="ngModel" required [(ngModel)]="intern.skype" />
-    <mat-error *ngIf="skype.hasError('required')">Skype must be specified</mat-error>
-  </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Skype</mat-label>
+      <input matInput name="skype" #skype="ngModel" required [(ngModel)]="intern.skype" />
+      <mat-error *ngIf="skype.hasError('required')">Skype must be specified</mat-error>
+    </mat-form-field>
 
-  <mat-form-field appearance="outline">
-    <mat-label>Phone</mat-label>
-    <input matInput type="tel" name="phone" #phone="ngModel" required [(ngModel)]="intern.phone" />
-    <mat-error *ngIf="phone.hasError('required')">Phone must be specified</mat-error>
-  </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Phone</mat-label>
+      <input matInput type="tel" name="phone" #phone="ngModel" required [(ngModel)]="intern.phone" />
+      <mat-error *ngIf="phone.hasError('required')">Phone must be specified</mat-error>
+    </mat-form-field>
 
-  <mat-form-field appearance="outline">
-    <mat-label>Specialisation</mat-label>
-    <mat-select [(ngModel)]="intern.specialisation" name="specialisation" #specialisation="ngModel" required>
-      <mat-option *ngFor='let key of isSpecialisation' [value]="key">{{key}}</mat-option>
-    </mat-select>
-    <mat-error *ngIf="specialisation.hasError('required')">Specialisation must be specified</mat-error>
-  </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Specialisation</mat-label>
+      <mat-select [(ngModel)]="intern.specialisation" name="specialisation" #specialisation="ngModel" required>
+        <mat-option *ngFor='let key of isSpecialisation' [value]="key">{{key}}</mat-option>
+      </mat-select>
+      <mat-error *ngIf="specialisation.hasError('required')">Specialisation must be specified</mat-error>
+    </mat-form-field>
 
-  <mat-form-field appearance="outline">
-    <mat-label>Location</mat-label>
-    <mat-select [(ngModel)]="intern.location" name="location" #location="ngModel" required>
-      <mat-option *ngFor='let key of isLocation' [value]="key">{{key}}</mat-option>
-    </mat-select>
-    <mat-error *ngIf="location.hasError('required')">Location must be specified</mat-error>
-  </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Location</mat-label>
+      <mat-select [(ngModel)]="intern.location" name="location" #location="ngModel" required>
+        <mat-option *ngFor='let key of isLocation' [value]="key">{{key}}</mat-option>
+      </mat-select>
+      <mat-error *ngIf="location.hasError('required')">Location must be specified</mat-error>
+    </mat-form-field>
 
-  <mat-form-field appearance="outline">
-    <mat-label>English level</mat-label>
-    <mat-select [(ngModel)]="intern.english" name="englishLevel" #englishLevel="ngModel" required>
-      <mat-option *ngFor='let key of isEnglishlevel' [value]="key">{{key}}</mat-option>
-    </mat-select>
-    <mat-error *ngIf="englishLevel.hasError('required')">English level must be specified</mat-error>
-  </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>English level</mat-label>
+      <mat-select [(ngModel)]="intern.english" name="englishLevel" #englishLevel="ngModel" required>
+        <mat-option *ngFor='let key of isEnglishlevel' [value]="key">{{key}}</mat-option>
+      </mat-select>
+      <mat-error *ngIf="englishLevel.hasError('required')">English level must be specified</mat-error>
+    </mat-form-field>
 
-  <div class="wrapperCheckBox">
-    <mat-checkbox class="checkbox" name="checkbox" #checkbox2="ngModel"
-    [(ngModel)]="intern.checkbox" color="primary"  required >
-      accept the terms of processing and storage of the provided data
-      <a href="#">link to the terms</a>
-    </mat-checkbox>
-    <mat-error class="wcheckBoxError" *ngIf="checkbox2.hasError('required')">Checkbox must be specified</mat-error>
-  </div>
+    <div class="wrapperCheckBox">
+
+      <mat-checkbox class="checkbox" name="checkbox" #checkbox2="ngModel" [(ngModel)]="intern.checkbox" color="primary"
+        required><span>
+          accept the terms of processing and storage of the provided data
+          <a href="#">link to the terms</a></span>
+      </mat-checkbox>
+
+      <mat-error class="wcheckBoxError" *ngIf="checkbox2.hasError('required')">Checkbox must be specified</mat-error>
+
+      <div class="wrapperCv">
+        <input #csvInput hidden="true" type="file" onclick="this.value=null" (change)="csvInputChange($event)"
+          accept=".pdf" />
+        <button mat-stroked-button (click)="csvInput.click()">Attach CV (PDF)</button>
+      </div>
+
+    </div>
 
 
-  <!-- <input type="submit" value="Submit" class="buttonForm" (click)="clickSubmit($event, internForm)"> -->
+    <div class="example-button-row">
+      <button mat-raised-button color="primary" (click)="clickSubmit(internForm)">Submit</button>
+    </div>
 
-
-  <div class="example-button-row">
-    <button mat-raised-button color="primary" (click)="clickSubmit(internForm)">Submit</button>
-  </div>
-
-
-
-</form>
+  </form>
 </div>
 
 <!-- {{internForm.value | json}} -->
