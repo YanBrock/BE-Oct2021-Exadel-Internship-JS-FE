@@ -18,7 +18,6 @@ import { CandidateComponent } from './components/candidate/candidate.component';
 import { CandidatesViewComponent } from './components/candidates-view/candidates-view.component';
 import { StatusFiltersComponent } from './components/status-filters/status-filters.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,6 +42,8 @@ import { StatusFiltersComponent } from './components/status-filters/status-filte
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

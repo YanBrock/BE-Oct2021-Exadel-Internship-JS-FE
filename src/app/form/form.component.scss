@@ -1,0 +1,80 @@
+* {
+  font-family: "Poppins", sans-serif;
+  box-sizing: border-box;
+}
+
+.container_form {
+  margin: 30px 15px;
+}
+
+h2 {
+  font-size: 34px;
+  color: #1e90cf;
+  margin-bottom: 15px;
+  font-weight: 400;
+  text-align: center;
+}
+
+.form.intern {
+  width: 100%;
+  max-width: 700px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+
+
+  mat-form-field {
+    width: 100%;
+  }
+
+  .mat-error {
+    font-size: 12px;
+  }
+
+  input:focus {
+    border: green;
+  }
+
+  input:-webkit-autofill {
+    box-shadow: 0 0 0 0px;
+    -webkit-box-shadow: 0 0 0 50px #ffffff inset; /* можно изменить на любой вариант цвета */
+    -webkit-text-fill-color: #333;
+  }
+
+  .wrapperCheckBox {
+    width: 100%;
+    display: flex;
+    margin: 25px 0px 30px;
+    justify-content: space-between;
+    position: relative;
+    box-sizing: border-box;
+
+    span {
+      display: block;
+      white-space: normal;
+      margin-left: 10px;
+    }
+
+    a {
+      text-decoration: none;
+      color: #1e90cf;
+    }
+
+    .wcheckBoxError {
+      position: absolute;
+      top: 100%;
+      left: 35px;
+    }
+  }
+
+  .mat-raised-button {
+    padding: 0px 35px;
+    margin: auto;
+  }
+
+  .wrapperCv {
+    margin-left: 45px;
+  }
+}
