@@ -1,0 +1,20 @@
+<div [ngClass]="first ? '' : 'margin-top'" class="candidate" [class.active]="candidate===selectedCandidate">
+  {{ candidate.firstName }} {{ candidate.lastName }}
+  <div class="status">
+    <span
+      *ngIf="candidate.status === 'questionable' || !candidate.status"
+      [ngClass]="candidate.isInterviewedByHr ? 'color-green' : 'color-grey'">
+      HR
+    </span>
+    <span
+      *ngIf="candidate.status === 'questionable' || !candidate.status"
+      [ngClass]="candidate.isInterviewedByTech ? 'color-green' : 'color-grey'">
+      TECH
+    </span>
+    <span
+      *ngIf="candidate.status"
+      [ngClass]="{'color-red': candidate.status === 'declined', 'color-green': candidate.status === 'accepted', 'color-blue': candidate.status === 'questionable'}">
+      {{ candidate.status }}
+    </span>
+  </div>
+</div>

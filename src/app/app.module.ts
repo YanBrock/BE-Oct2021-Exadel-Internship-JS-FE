@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -15,7 +14,6 @@ import { ManagerComponent } from './pages/manager/manager.component';
 import { AdminComponent } from './pages/admin/admin.component';
 import { CalendarComponent } from './components/calendar/calendar.component';
 import { CandidateListComponent } from './components/candidate-list/candidate-list.component';
-
 
 @NgModule({
   declarations: [
