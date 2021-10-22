@@ -27,7 +27,6 @@ import { UserLoginModule } from './pages/user-login/user-login.module';
     HeaderComponent,
     MainComponent,
     FooterComponent,
-    UserLoginComponent,
     RecruiterComponent,
     TechInterviewerComponent,
     MentorComponent,

@@ -1,0 +1,25 @@
+h2 {
+  text-align: center;
+  font-size: 34px;
+  color: #1e90cf;
+}
+
+form{
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  mat-form-field {
+    width: 100%;
+  }
+
+  .example-button-row {
+   margin: auto;
+  }
+
+  .example-button-row>button {
+    padding: 0px 40px;
+  }
+
+}

@@ -6,10 +6,25 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./user-login.component.scss']
 })
 export class UserLoginComponent implements OnInit {
+  hide = true;
+
+  userData = {
+    email: '',
+    password: ''
+  }
+
+  user = {
+    email: 'zzz@zzz.zzz',
+    password: 'zzz'
+  }
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  submit(userForm: any) {
+    console.log(userForm.value)
   }
 
 }

@@ -1,14 +1,43 @@
 <div class="wrapper_user_login">
   <h2>Please sign in</h2>
+
   <div class="wrapper_form">
 
     <form #userForm="ngForm">
       <mat-form-field appearance="outline">
         <mat-label>Email</mat-label>
-        <input matInput name="email" required  placeholder="ex@ex.ex" />
-        <mat-error *ngIf="email.hasError('required')">Email must be specified</mat-error>
+        <input matInput name="email" #emailId = "ngModel" [(ngModel)]="userData.email" required  placeholder="ex@ex.ex" />
+        <mat-error *ngIf="emailId.hasError('required')">Email must be specified</mat-error>
       </mat-form-field>
+
+      <div class="example-container">
+        <mat-form-field appearance="outline">
+          <mat-label>Enter your password</mat-label>
+          <input matInput name="input" [type]="hide ? 'password' : 'text'" #passwordId = "ngModel" [(ngModel)]="userData.password" required>
+          <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+        </mat-form-field>
+        <mat-error e>Email or the password is not correct</mat-error>
+      </div>
+
+
+      <div class="example-button-row">
+        <button mat-raised-button color="primary" (click)="submit(userForm)">Log in</button>
+      </div>
+
     </form>
+
+
+    {{userForm.value |json}}
+    <br>
+
+    {{passwordId.value}}
+
+    <br>
+    {{user.password}}
+
+
 
   </div>
 </div>
