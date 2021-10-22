@@ -5,7 +5,6 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { MainComponent } from './components/main/main.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { FormComponent } from './pages/candidate-form/form.component';
 import { UserLoginComponent } from './pages/user-login/user-login.component';
 import { RecruiterComponent } from './pages/recruiter/recruiter.component';
 import { TechInterviewerComponent } from './pages/tech-interviewer/tech-interviewer.component';

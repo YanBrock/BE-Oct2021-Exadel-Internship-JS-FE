@@ -1,5 +1,4 @@
 * {
-  font-family: "Poppins", sans-serif;
   box-sizing: border-box;
 }
 
@@ -23,18 +22,12 @@ h2 {
   justify-content: center;
   align-items: center;
 
-
-
   mat-form-field {
     width: 100%;
   }
 
   .mat-error {
     font-size: 12px;
-  }
-
-  input:focus {
-    border: green;
   }
 
   input:-webkit-autofill {
@@ -49,7 +42,6 @@ h2 {
     margin: 25px 0px 30px;
     justify-content: space-between;
     position: relative;
-    box-sizing: border-box;
 
     span {
       display: block;
@@ -71,7 +63,6 @@ h2 {
 
   .mat-raised-button {
     padding: 0px 35px;
-    margin: auto;
   }
 
   .wrapperCv {
