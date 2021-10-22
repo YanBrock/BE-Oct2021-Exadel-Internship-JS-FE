@@ -13,23 +13,32 @@ import { MentorComponent } from './pages/mentor/mentor.component';
 import { ManagerComponent } from './pages/manager/manager.component';
 import { AdminComponent } from './pages/admin/admin.component';
 import { CalendarComponent } from './components/calendar/calendar.component';
-import { CandidateListComponent } from './components/candidate-list/candidate-list.component';
+import { CandidatesListComponent } from './components/candidates-list/candidates-list.component';
+import { CandidateComponent } from './components/candidate/candidate.component';
+import { CandidatesViewComponent } from './components/candidates-view/candidates-view.component';
+import { StatusFiltersComponent } from './components/status-filters/status-filters.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     MainComponent,
-	FooterComponent,
-	CandidateFormComponent,
-	UserLoginComponent,
-	RecruiterComponent,
-	TechInterviewerComponent,
-	MentorComponent,
-	ManagerComponent,
-	AdminComponent,
-	CalendarComponent,
-	CandidateListComponent,
+    FooterComponent,
+    CandidateFormComponent,
+    UserLoginComponent,
+    RecruiterComponent,
+    TechInterviewerComponent,
+    MentorComponent,
+    ManagerComponent,
+    AdminComponent,
+    CalendarComponent,
+    CandidatesListComponent,
+    CandidateComponent,
+    CandidatesViewComponent,
+    StatusFiltersComponent
+    
+
   ],
   imports: [
     BrowserModule,
