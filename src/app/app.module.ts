@@ -18,6 +18,7 @@ import { CandidatesViewComponent } from './components/candidates-view/candidates
 import { StatusFiltersComponent } from './components/status-filters/status-filters.component';
 import { FormModule } from './pages/candidate-form/form.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { UserLoginModule } from './pages/user-login/user-login.module';
 
 
 @NgModule({
@@ -36,15 +37,16 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     CandidatesListComponent,
     CandidateComponent,
     CandidatesViewComponent,
-    StatusFiltersComponent,
-
+    StatusFiltersComponent
 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    UserLoginModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
