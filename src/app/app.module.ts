@@ -38,9 +38,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     CandidateComponent,
     CandidatesViewComponent,
     StatusFiltersComponent,
-    FormComponent,
-    FormModule,
-    BrowserAnimationsModule
+
 
   ],
   imports: [

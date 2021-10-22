@@ -7,7 +7,7 @@ const routes: Routes = [
 		path: "recruiter",
 		component: RecruiterComponent
 	}
-	
+
 ];
 
 @NgModule({
