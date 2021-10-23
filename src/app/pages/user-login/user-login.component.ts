@@ -7,8 +7,10 @@ import { UserLoginService } from 'src/app/services/user-login.service';
   styleUrls: ['./user-login.component.scss'],
   providers: [UserLoginService]
 })
+
 export class UserLoginComponent implements OnInit {
   hide = true;
+  validEmail = '^([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,6}$';
   errorLogIn = 'p_error';
   errorLogInTwo = 'p_error';
 
@@ -17,8 +19,7 @@ export class UserLoginComponent implements OnInit {
     password: ''
   }
 
-
-  constructor(private loginService: UserLoginService) {}
+  constructor(private loginService: UserLoginService) { }
 
   ngOnInit(): void {
   }
@@ -27,30 +28,25 @@ export class UserLoginComponent implements OnInit {
     userForm.controls.input.value.length > 0 ?
       this.errorLogIn = 'p_error' :
       this.errorLogIn = 'p_error active';
-}
-  
+  }
+
 
   submit(userForm: any) {
 
-    console.log(userForm.controls.input.value)
-    console.log(userForm.controls.input.value.length<1)
-
-    if (userForm.controls.input.value.length<1) {
+    if (userForm.controls.input.value.length < 1) {
       this.errorLogIn = 'p_error active';
 
     } else {
       this.errorLogIn = 'p_error';
       if (this.userData.password === this.loginService.user.password && this.userData.email === this.loginService.user.email) {
-        console.log('User true:');
         this.errorLogInTwo = 'p_error';
+        console.log('You are logged in');
+
       } else {
         console.log('User false:');
         this.errorLogInTwo = 'p_error two active';
+
       }
     }
-
-
-
   }
-
 }

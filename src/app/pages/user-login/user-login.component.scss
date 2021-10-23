@@ -4,7 +4,7 @@ h2 {
   color: #1e90cf;
 }
 
-form{
+form {
   width: 500px;
   display: flex;
   flex-direction: column;
@@ -20,34 +20,32 @@ form{
     -webkit-text-fill-color: #333;
   }
 
-  .example-container{
+  .example-container {
     position: relative;
   }
 
-  .p_error{
+  .p_error {
     position: absolute;
-    top:70%;
+    top: 70%;
     left: 13px;
     color: #f44336;
     font-size: 15px;
     opacity: 0;
-    transition: .1s;
+    transition: 0.1s;
   }
 
   .p_error.active,
-  .p_error.two.active{
-
-    top:75%;
+  .p_error.two.active {
+    top: 75%;
     opacity: 1;
-    transition: .65s;
+    transition: 0.65s;
   }
 
   .example-button-row {
-   margin: auto;
+    margin: auto;
   }
 
-  .example-button-row>button {
+  .example-button-row > button {
     padding: 0px 40px;
   }
-
 }
