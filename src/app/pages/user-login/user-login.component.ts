@@ -10,6 +10,7 @@ import { UserLoginService } from 'src/app/services/user-login.service';
 export class UserLoginComponent implements OnInit {
   hide = true;
   errorLogIn = 'p_error';
+  errorLogInTwo = 'p_error';
 
   userData = {
     email: '',
@@ -22,16 +23,34 @@ export class UserLoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onFocus(userForm: any) {
+    userForm.controls.input.value.length > 0 ?
+      this.errorLogIn = 'p_error' :
+      this.errorLogIn = 'p_error active';
+}
+  
+
   submit(userForm: any) {
-    console.log(this.userData);
-    if (this.userData.password === this.loginService.user.password && this.userData.email === this.loginService.user.email) {
-      console.log('User true:');
-      this.errorLogIn = 'p_error';
+
+    console.log(userForm.controls.input.value)
+    console.log(userForm.controls.input.value.length<1)
+
+    if (userForm.controls.input.value.length<1) {
+      this.errorLogIn = 'p_error active';
 
     } else {
-      console.log('User false:');
-      this.errorLogIn = 'p_error activ';
+      this.errorLogIn = 'p_error';
+      if (this.userData.password === this.loginService.user.password && this.userData.email === this.loginService.user.email) {
+        console.log('User true:');
+        this.errorLogInTwo = 'p_error';
+      } else {
+        console.log('User false:');
+        this.errorLogInTwo = 'p_error two active';
+      }
     }
+
+
+
   }
 
 }

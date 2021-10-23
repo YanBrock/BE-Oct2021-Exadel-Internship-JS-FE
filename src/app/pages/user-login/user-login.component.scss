@@ -13,7 +13,7 @@ form{
   mat-form-field {
     width: 100%;
   }
-  
+
   input:-webkit-autofill {
     box-shadow: 0 0 0 0px;
     -webkit-box-shadow: 0 0 0 50px #ffffff inset; /* можно изменить на любой вариант цвета */
@@ -26,17 +26,20 @@ form{
 
   .p_error{
     position: absolute;
-    top:50%;
+    top:70%;
     left: 13px;
     color: #f44336;
     font-size: 15px;
     opacity: 0;
-    transition: .35s;
+    transition: .1s;
   }
 
-  .p_error.activ{
+  .p_error.active,
+  .p_error.two.active{
+
     top:75%;
     opacity: 1;
+    transition: .65s;
   }
 
   .example-button-row {
