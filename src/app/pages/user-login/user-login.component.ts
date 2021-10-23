@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserLoginService } from 'src/app/services/user-login.service';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-user-login',
@@ -8,20 +10,25 @@ import { UserLoginService } from 'src/app/services/user-login.service';
   providers: [UserLoginService]
 })
 
+
 export class UserLoginComponent implements OnInit {
   hide = true;
   validEmail = '^([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,6}$';
   errorLogIn = 'p_error';
   errorLogInTwo = 'p_error';
 
+
   userData = {
     email: '',
     password: ''
   }
 
-  constructor(private loginService: UserLoginService) { }
+  constructor(private loginService: UserLoginService, private router: Router) { }
 
-  ngOnInit(): void {
+  ngOnInit(): void { }
+
+  goPlaces(url) {
+    this.router.navigate(url)
   }
 
   onFocus(userForm: any) {
@@ -40,13 +47,13 @@ export class UserLoginComponent implements OnInit {
       this.errorLogIn = 'p_error';
       if (this.userData.password === this.loginService.user.password && this.userData.email === this.loginService.user.email) {
         this.errorLogInTwo = 'p_error';
-        console.log('You are logged in');
+
+        this.goPlaces(['/', 'recruiter']);
 
       } else {
-        console.log('User false:');
         this.errorLogInTwo = 'p_error two active';
-
       }
     }
   }
+  
 }
