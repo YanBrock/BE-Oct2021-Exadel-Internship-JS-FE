@@ -16,6 +16,8 @@ export class UserLoginComponent implements OnInit {
   validEmail = '^([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,6}$';
   errorLogIn = 'p_error';
   errorLogInTwo = 'p_error';
+  validLogin = false;
+  goUrl = '';
 
 
   userData = {
@@ -28,7 +30,7 @@ export class UserLoginComponent implements OnInit {
   ngOnInit(): void { }
 
   goPlaces(url) {
-    this.router.navigate(url)
+    this.router.navigate(url);
   }
 
   onFocus(userForm: any) {
@@ -37,23 +39,32 @@ export class UserLoginComponent implements OnInit {
       this.errorLogIn = 'p_error active';
   }
 
-
   submit(userForm: any) {
+    console.log(this.loginService.users);
 
     if (userForm.controls.input.value.length < 1) {
       this.errorLogIn = 'p_error active';
 
     } else {
       this.errorLogIn = 'p_error';
-      if (this.userData.password === this.loginService.user.password && this.userData.email === this.loginService.user.email) {
-        this.errorLogInTwo = 'p_error';
 
-        this.goPlaces(['/', 'recruiter']);
+      this.loginService.users.map(person => {
+        if (person.email === this.userData.email && person.password === this.userData.password) {
+          this.validLogin = true;
+          this.goUrl = person.role;
+        }
+      })
+
+      if ( this.validLogin) {
+        this.errorLogInTwo = 'p_error';
+        this.goPlaces(['/', this.goUrl]);
 
       } else {
         this.errorLogInTwo = 'p_error two active';
       }
+
     }
+
   }
-  
+
 }
