@@ -1,0 +1,35 @@
+:host {
+  margin-top: 2.5rem;
+}
+
+h3 {
+  font-size: 2rem;
+  color: #1e90cf;
+}
+
+div {
+  display: flex;
+  max-height: 9rem;
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    min-width: 40rem;
+    list-style-type: none;
+
+    li:not(:nth-child(4n + 1)) {
+      margin-top: 1rem;
+    }
+
+    li {
+      min-width: 20rem;
+      font-size: 1.3rem;
+
+      span {
+        // margin-left: 1rem;
+        font-size: inherit;
+      }
+    }
+  }
+}

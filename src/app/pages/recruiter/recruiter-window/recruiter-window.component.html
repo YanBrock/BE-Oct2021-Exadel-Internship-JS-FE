@@ -1,6 +1,9 @@
-<app-candidate-data *ngIf="selectedCandidate" [candidate]="selectedCandidate">
-  <!-- здесь данные кандидата -->
-</app-candidate-data>
-<app-recruiter-assesment>
-  <!-- здесь оценки рекрутера -->
-</app-recruiter-assesment>
+<div *ngIf="selectedCandidate">
+  <h2>{{ selectedCandidate.firstName }} {{ selectedCandidate.lastName }}</h2>
+  <app-candidate-data class="ss" [candidate]="selectedCandidate">
+    <!-- здесь данные кандидата -->
+  </app-candidate-data>
+  <app-recruiter-assesment>
+    <!-- здесь оценки рекрутера -->
+  </app-recruiter-assesment>
+</div>

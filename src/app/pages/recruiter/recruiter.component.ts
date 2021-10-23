@@ -1,3 +1,5 @@
+import { Candidate } from './../../types/candidate';
+import { CandidatesService } from 'src/app/services/candidates.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RecruiterComponent implements OnInit {
 
-  constructor() { }
+  selectedCandidate: Candidate
+
+  constructor(private candidatesService: CandidatesService) { }
 
   ngOnInit(): void {
+    this.candidatesService.selectedCandidate.subscribe(candidate => this.selectedCandidate = candidate)
   }
 
 }
