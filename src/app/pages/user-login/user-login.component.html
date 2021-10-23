@@ -18,26 +18,13 @@
             <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
           </button>
         </mat-form-field>
-        <mat-error e>Email or the password is not correct</mat-error>
+        <p [class]="errorLogIn">Email or the password is not correct</p>
       </div>
-
 
       <div class="example-button-row">
         <button mat-raised-button color="primary" (click)="submit(userForm)">Log in</button>
       </div>
 
     </form>
-
-
-    {{userForm.value |json}}
-    <br>
-
-    {{passwordId.value}}
-
-    <br>
-    {{user.password}}
-
-
-
   </div>
 </div>
