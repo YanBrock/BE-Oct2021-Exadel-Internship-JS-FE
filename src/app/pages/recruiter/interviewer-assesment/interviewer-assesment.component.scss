@@ -1,6 +1,5 @@
 :host {
-  margin: 1rem 0;
-  padding-right: 2rem;
+  margin-top: 1rem;
 }
 
 h3 {
@@ -20,25 +19,20 @@ div {
     }
 
     li {
-      font-size: 1.1rem;
-  
-      input {
-        width: 1rem;
+      font-size: 1rem;
+
+      span {
         margin-left: 1rem;
-        border: none;
-        outline: none;
-        text-align: center;
       }
     }
   }
 
   textarea {
     min-width: 20rem;
-    margin-left: 5.8rem;
+    margin-left: 12.2rem;
     border: none;
     outline: none;
     resize: none;
     text-indent: 1rem;
   }
-
 }

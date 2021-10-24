@@ -8,6 +8,7 @@ import { RecruiterComponent } from './recruiter.component';
 import { CandidateDataComponent } from './candidate-data/candidate-data.component';
 import { RecruiterAssesmentComponent } from './recruiter-assesment/recruiter-assesment.component';
 import { RecruiterWindowComponent } from './recruiter-window/recruiter-window.component';
+import { InterviewerAssesmentComponent } from './interviewer-assesment/interviewer-assesment.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { RecruiterWindowComponent } from './recruiter-window/recruiter-window.co
     RecruiterComponent,
     CandidateDataComponent,
     RecruiterAssesmentComponent,
-    RecruiterWindowComponent],
+    RecruiterWindowComponent,
+    InterviewerAssesmentComponent],
   imports: [
     CommonModule
   ],
