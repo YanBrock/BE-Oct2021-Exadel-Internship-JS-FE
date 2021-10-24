@@ -1,13 +1,13 @@
-<div [ngClass]="first ? '' : 'margin-top'" class="candidate" [class.active]="candidate===selectedCandidate">
+<div [ngClass]="first ? '' : 'margin-top'" class="candidate" [class.active]="candidate?.id===selectedCandidate?.id">
   {{ candidate.firstName }} {{ candidate.lastName }}
   <div class="status">
     <span
-      *ngIf="candidate.status === 'questionable' || !candidate.status"
+      *ngIf="!candidate.status"
       [ngClass]="candidate.isInterviewedByHr ? 'color-green' : 'color-grey'">
       HR
     </span>
     <span
-      *ngIf="candidate.status === 'questionable' || !candidate.status"
+      *ngIf="!candidate.status"
       [ngClass]="candidate.isInterviewedByTech ? 'color-green' : 'color-grey'">
       TECH
     </span>

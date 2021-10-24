@@ -12,12 +12,13 @@ import { map } from 'rxjs/operators';
 export class CandidatesViewComponent implements OnInit {
 
   candidates$: Observable<Candidate[]>;
+  selectedCandidate: Candidate
 
   constructor(public candidatesService: CandidatesService) { }
 
   ngOnInit(): void {
-    console.log('init')
     this.candidates$ = this.candidatesService.getCandidates()
+    this.candidatesService.selectedCandidate.subscribe(candidate => this.selectedCandidate = candidate)
   }
 
   onCandidateSelect(candidate: Candidate) {

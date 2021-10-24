@@ -11,12 +11,11 @@ export class CandidateComponent implements OnInit {
 
   @Input() candidate: Candidate
   @Input() first: boolean
-  selectedCandidate: Candidate
+  @Input() selectedCandidate: Candidate
 
   constructor(public candidatesService: CandidatesService) { }
 
   ngOnInit(): void {
-    this.candidatesService.selectedCandidate.subscribe(value => this.selectedCandidate = value);
   }
 
 }
