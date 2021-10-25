@@ -68,4 +68,20 @@ h2 {
   .wrapperCv {
     margin-left: 45px;
   }
+
+  .wrapper_location{
+    width: 100%;
+
+    display: flex;
+  }
+  .wrapper_country{
+    width: 100%;
+    margin-right: 5px;
+  }
+
+  .wrapper_city{
+    width: 100%;
+    margin-left: 5px;
+  }
+
 }

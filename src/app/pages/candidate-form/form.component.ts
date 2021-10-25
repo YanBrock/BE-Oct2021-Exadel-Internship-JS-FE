@@ -11,6 +11,7 @@ export class FormComponent implements OnInit {
   isSpecialization: string[] = [];
   isEnglishlevel: string[] = [];
   isLocation: string[] = [];
+  isLocationCity: string[] = [];
   validEmail = '^([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,6}$';
 
   intern = {
@@ -20,6 +21,7 @@ export class FormComponent implements OnInit {
     skype: '',
     phone: '',
     location: '',
+    city: '',
     english: '',
     specialization: '',
     checkbox: true,
@@ -31,6 +33,7 @@ export class FormComponent implements OnInit {
     this.isSpecialization = this.formService.isSpecialization;
     this.isEnglishlevel = this.formService.isEnglishlevel;
     this.isLocation = this.formService.isLocation;
+    this.isLocationCity = this.formService.isLocationCity;
   }
 
   csvInputChange(fileInputEvent: any) {
