@@ -87,19 +87,12 @@
       </mat-checkbox>
       <p [class]="errorCheckBox">Checkbox must be specified</p>
 
-
       <div class="wrapperCv">
-        <input #csvInput type="file" (change)="csvInputChange($event)"
-          accept=".pdf" />
-        <button mat-stroked-button (click)="csvInput.click()">Add your CV (PDF)</button>
-      </div>
-    </div>
-      <!-- <div class="wrapperCv">
         <input #csvInput hidden="true" type="file" onclick="this.value=null" (change)="csvInputChange($event)"
           accept=".pdf" />
-        <button mat-stroked-button (click)="csvInput.click()">Add your CV (PDF)</button>
+        <div class="buttonCv" (click)="csvInput.click()"><p>Add your CV (PDF)</p></div>
       </div>
-    </div> -->
+    </div>
 
 
     <div class="example-button-row">
