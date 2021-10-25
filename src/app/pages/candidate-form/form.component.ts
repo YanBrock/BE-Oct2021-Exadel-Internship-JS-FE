@@ -13,6 +13,7 @@ export class FormComponent implements OnInit {
   isLocation: string[] = [];
   isLocationCity: string[] = [];
   validEmail = '^([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,6}$';
+  errorCheckBox= 'errorCheckBox'
 
   intern = {
     firstName: '',
@@ -24,7 +25,7 @@ export class FormComponent implements OnInit {
     city: '',
     english: '',
     specialization: '',
-    checkbox: true,
+    checkbox: false,
   };
 
   constructor(private formService: FormService) {}
@@ -40,14 +41,23 @@ export class FormComponent implements OnInit {
     console.log(fileInputEvent.target.files[0]);
   }
 
+  toggleClassCheckBox() {
+    this.intern.checkbox ?
+      this.errorCheckBox = 'errorCheckBox active' :
+      this.errorCheckBox = 'errorCheckBox';
+  }
+
   clickSubmit(internForm: any): void {
 
+    if (this.intern.checkbox) {
       if (internForm.valid) {
         this.formService.saveDataIntern(this.intern);
         internForm.reset();
-        internForm.valid = true;
+        this.errorCheckBox = 'errorCheckBox';
+        internForm.valid = null;
       }
-
-
+    } else {
+      this.errorCheckBox = 'errorCheckBox active';
+    }
   }
 }

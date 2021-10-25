@@ -54,11 +54,37 @@ h2 {
       color: #1e90cf;
     }
 
-    .wcheckBoxError {
+    .errorCheckBox {
       position: absolute;
-      top: 100%;
+      font-size: 12px;
+      top: 75%;
       left: 35px;
+      color: #F44336;
+      opacity: 0;
+      transition: 0.1s;
     }
+    .errorCheckBox.active {
+      top: 95%;
+      opacity: 1;
+      transition: 0.5s;
+    }
+
+    // .p_error {
+    //   position: absolute;
+    //   top: 70%;
+    //   left: 13px;
+    //   color: #f44336;
+    //   font-size: 15px;
+    //   opacity: 0;
+    //   transition: 0.1s;
+    // }
+
+    // .p_error.active,
+    // .p_error.two.active {
+    //   top: 75%;
+    //   opacity: 1;
+    //   transition: 0.65s;
+    // }
   }
 
   .mat-raised-button {
@@ -69,19 +95,18 @@ h2 {
     margin-left: 45px;
   }
 
-  .wrapper_location{
+  .wrapper_location {
     width: 100%;
 
     display: flex;
   }
-  .wrapper_country{
+  .wrapper_country {
     width: 100%;
     margin-right: 5px;
   }
 
-  .wrapper_city{
+  .wrapper_city {
     width: 100%;
     margin-left: 5px;
   }
-
 }

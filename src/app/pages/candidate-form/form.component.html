@@ -79,21 +79,27 @@
     <div class="wrapperCheckBox">
 
       <mat-checkbox class="checkbox" name="checkbox" #checkbox2="ngModel" [(ngModel)]="intern.checkbox" color="primary"
-        required>
+      (click)="toggleClassCheckBox()" required>
         <span>
           accept the terms of processing and storage of the provided data
           <a href="#">link to the terms</a>
         </span>
       </mat-checkbox>
+      <p [class]="errorCheckBox">Checkbox must be specified</p>
 
-      <mat-error class="wcheckBoxError" *ngIf="intern.checkbox">Checkbox must be specified</mat-error>
 
       <div class="wrapperCv">
-        <input #csvInput hidden="true" type="file" onclick="this.value=null" (change)="csvInputChange($event)"
+        <input #csvInput type="file" (change)="csvInputChange($event)"
           accept=".pdf" />
         <button mat-stroked-button (click)="csvInput.click()">Add your CV (PDF)</button>
       </div>
     </div>
+      <!-- <div class="wrapperCv">
+        <input #csvInput hidden="true" type="file" onclick="this.value=null" (change)="csvInputChange($event)"
+          accept=".pdf" />
+        <button mat-stroked-button (click)="csvInput.click()">Add your CV (PDF)</button>
+      </div>
+    </div> -->
 
 
     <div class="example-button-row">
