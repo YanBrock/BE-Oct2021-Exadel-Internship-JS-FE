@@ -11,6 +11,7 @@ export class FormComponent implements OnInit {
   isSpecialisation: string[] = [];
   isEnglishlevel: string[] = [];
   isLocation: string[] = [];
+  validEmail = '^([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,6}$';
 
   intern = {
     firstName: '',
