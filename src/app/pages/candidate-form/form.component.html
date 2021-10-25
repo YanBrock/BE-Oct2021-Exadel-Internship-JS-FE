@@ -25,22 +25,23 @@
 
     <mat-form-field appearance="outline">
       <mat-label>Skype</mat-label>
-      <input matInput name="skype" #skype="ngModel" required [(ngModel)]="intern.skype" />
+      <input matInput name="skype" #skype="ngModel" required [(ngModel)]="intern.skype" placeholder="@Skype"/>
       <mat-error *ngIf="skype.hasError('required')">Skype must be specified</mat-error>
     </mat-form-field>
 
     <mat-form-field appearance="outline">
       <mat-label>Phone</mat-label>
-      <input matInput type="tel" name="phone" #phone="ngModel" required [(ngModel)]="intern.phone" placeholder="+000 00 000 00 00" />
+      <input matInput type="tel" name="phone" #phone="ngModel" required [(ngModel)]="intern.phone" placeholder="+123 45 678 91 23"  pattern="[+]{1}[0-9]{12,14}"/>
       <mat-error *ngIf="phone.hasError('required')">Phone must be specified</mat-error>
+      <mat-error *ngIf="phone.hasError('pattern')">+123 45 678 91 23</mat-error>
     </mat-form-field>
 
     <mat-form-field appearance="outline">
-      <mat-label>Specialisation</mat-label>
-      <mat-select [(ngModel)]="intern.specialisation" name="specialisation" #specialisation="ngModel" required>
-        <mat-option *ngFor='let key of isSpecialisation' [value]="key">{{key}}</mat-option>
+      <mat-label>Specialization</mat-label>
+      <mat-select [(ngModel)]="intern.specialization" name="specialization" #specialization="ngModel" required>
+        <mat-option *ngFor='let key of isSpecialization' [value]="key">{{key}}</mat-option>
       </mat-select>
-      <mat-error *ngIf="specialisation.hasError('required')">Specialisation must be specified</mat-error>
+      <mat-error *ngIf="specialization.hasError('required')">Specialization must be specified</mat-error>
     </mat-form-field>
 
     <mat-form-field appearance="outline">
@@ -62,12 +63,14 @@
     <div class="wrapperCheckBox">
 
       <mat-checkbox class="checkbox" name="checkbox" #checkbox2="ngModel" [(ngModel)]="intern.checkbox" color="primary"
-        required><span>
+        required>
+        <span>
           accept the terms of processing and storage of the provided data
-          <a href="#">link to the terms</a></span>
+          <a href="#">link to the terms</a>
+        </span>
       </mat-checkbox>
 
-      <mat-error class="wcheckBoxError" *ngIf="checkbox2.hasError('required')">Checkbox must be specified</mat-error>
+      <mat-error class="wcheckBoxError" *ngIf="intern.checkbox">Checkbox must be specified</mat-error>
 
       <div class="wrapperCv">
         <input #csvInput hidden="true" type="file" onclick="this.value=null" (change)="csvInputChange($event)"

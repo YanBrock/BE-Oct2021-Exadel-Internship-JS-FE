@@ -8,7 +8,7 @@ import { FormService } from '../../services/form.service';
   providers: [FormService],
 })
 export class FormComponent implements OnInit {
-  isSpecialisation: string[] = [];
+  isSpecialization: string[] = [];
   isEnglishlevel: string[] = [];
   isLocation: string[] = [];
   validEmail = '^([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,6}$';
@@ -21,14 +21,14 @@ export class FormComponent implements OnInit {
     phone: '',
     location: '',
     english: '',
-    specialisation: '',
-    checkbox: true,
+    specialization: '',
+    checkbox: false,
   };
 
   constructor(private formService: FormService) {}
 
   ngOnInit(): void {
-    this.isSpecialisation = this.formService.isSpecialisation;
+    this.isSpecialization = this.formService.isSpecialization;
     this.isEnglishlevel = this.formService.isEnglishlevel;
     this.isLocation = this.formService.isLocation;
   }
@@ -38,10 +38,13 @@ export class FormComponent implements OnInit {
   }
 
   clickSubmit(internForm: any): void {
-    if (internForm.valid) {
-      this.formService.saveDataIntern(this.intern);
-      internForm.reset();
-      internForm.valid = true;
-    }
+
+      if (internForm.valid) {
+        this.formService.saveDataIntern(this.intern);
+        internForm.reset();
+        // internForm.valid = true;
+      }
+
+
   }
 }
