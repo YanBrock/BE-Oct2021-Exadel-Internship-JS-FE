@@ -35,11 +35,11 @@
     </mat-form-field>
 
     <mat-form-field appearance="outline">
-      <mat-label>Specialisation</mat-label>
-      <mat-select [(ngModel)]="intern.specialisation" name="specialisation" #specialisation="ngModel" required>
-        <mat-option *ngFor='let key of isSpecialisation' [value]="key">{{key}}</mat-option>
+      <mat-label>Specialization</mat-label>
+      <mat-select [(ngModel)]="intern.specialization" name="specialization" #specialization="ngModel" required>
+        <mat-option *ngFor='let key of isSpecialization' [value]="key">{{key}}</mat-option>
       </mat-select>
-      <mat-error *ngIf="specialisation.hasError('required')">Specialisation must be specified</mat-error>
+      <mat-error *ngIf="specialization.hasError('required')">Specialization must be specified</mat-error>
     </mat-form-field>
 
     <mat-form-field appearance="outline">

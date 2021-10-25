@@ -8,7 +8,7 @@ import { FormService } from '../../services/form.service';
   providers: [FormService],
 })
 export class FormComponent implements OnInit {
-  isSpecialisation: string[] = [];
+  isSpecialization: string[] = [];
   isEnglishlevel: string[] = [];
   isLocation: string[] = [];
 
@@ -20,14 +20,14 @@ export class FormComponent implements OnInit {
     phone: '',
     location: '',
     english: '',
-    specialisation: '',
+    specialization: '',
     checkbox: true,
   };
 
   constructor(private formService: FormService) {}
 
   ngOnInit(): void {
-    this.isSpecialisation = this.formService.isSpecialisation;
+    this.isSpecialization = this.formService.isSpecialization;
     this.isEnglishlevel = this.formService.isEnglishlevel;
     this.isLocation = this.formService.isLocation;
   }
