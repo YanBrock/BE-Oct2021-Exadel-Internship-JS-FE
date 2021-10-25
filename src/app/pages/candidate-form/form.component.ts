@@ -22,7 +22,7 @@ export class FormComponent implements OnInit {
     location: '',
     english: '',
     specialization: '',
-    checkbox: false,
+    checkbox: true,
   };
 
   constructor(private formService: FormService) {}
@@ -42,7 +42,7 @@ export class FormComponent implements OnInit {
       if (internForm.valid) {
         this.formService.saveDataIntern(this.intern);
         internForm.reset();
-        // internForm.valid = true;
+        internForm.valid = true;
       }
 
 
