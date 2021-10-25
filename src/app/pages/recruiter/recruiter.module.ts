@@ -9,6 +9,8 @@ import { CandidateDataComponent } from './candidate-data/candidate-data.componen
 import { RecruiterAssesmentComponent } from './recruiter-assesment/recruiter-assesment.component';
 import { RecruiterWindowComponent } from './recruiter-window/recruiter-window.component';
 import { InterviewerAssesmentComponent } from './interviewer-assesment/interviewer-assesment.component';
+import { MatListModule } from '@angular/material/list';
+import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { InterviewerAssesmentComponent } from './interviewer-assesment/interview
     RecruiterWindowComponent,
     InterviewerAssesmentComponent],
   imports: [
-    CommonModule
+    CommonModule,
+    MatListModule,
+    MatInputModule
   ],
   exports: [RecruiterComponent]
 })

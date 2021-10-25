@@ -1,29 +1,30 @@
 <h3>FORM DATA:</h3>
+<hr>
 <div>
-  <ul>
-    <li>First name
+  <mat-list role="list">
+    <mat-list-item role="listitem">First name
       <span>{{ candidate.firstName }}</span>
-    </li>
-    <li>Last name
-      <span>{{ candidate.lastName }}</span>
-    </li>
-    <li>Email
-      <span>{{ candidate.email }}</span>
-    </li>
-    <li>Skype
-      <span>{{ candidate.skype }}</span>
-    </li>
-    <li>Phone
-      <span>{{ candidate.phone }}</span>
-    </li>
-    <li>English level
-      <span>{{ candidate.englishLevel }}</span>
-    </li>
-    <li>Location
+    </mat-list-item>
+    <mat-list-item role="listitem">Location
       <span>{{ candidate.location }}</span>
-    </li>
-    <li>Specialization
+    </mat-list-item>
+    <mat-list-item role="listitem">Phone
+      <span>{{ candidate.phone }}</span>
+    </mat-list-item>
+    <mat-list-item role="listitem">Specialization
       <span>{{ candidate.specialization }}</span>
-    </li>
-  </ul>
+    </mat-list-item>
+    <mat-list-item role="listitem">Last name
+      <span>{{ candidate.lastName }}</span>
+    </mat-list-item>
+    <mat-list-item role="listitem">Email
+      <span>{{ candidate.email }}</span>
+    </mat-list-item>
+    <mat-list-item role="listitem">Skype
+      <span>{{ candidate.skype }}</span>
+    </mat-list-item>
+    <mat-list-item role="listitem">English level
+      <span>{{ candidate.englishLevel }}</span>
+    </mat-list-item>
+  </mat-list>
 </div>
