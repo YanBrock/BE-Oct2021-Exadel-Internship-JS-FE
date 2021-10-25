@@ -5,7 +5,7 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { MainComponent } from './components/main/main.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { UserLoginComponent } from './pages/user-login/user-login.component';
+// import { UserLoginComponent } from './pages/user-login/user-login.component';
 import { RecruiterComponent } from './pages/recruiter/recruiter.component';
 import { TechInterviewerComponent } from './pages/tech-interviewer/tech-interviewer.component';
 import { MentorComponent } from './pages/mentor/mentor.component';
@@ -18,6 +18,7 @@ import { CandidatesViewComponent } from './components/candidates-view/candidates
 import { StatusFiltersComponent } from './components/status-filters/status-filters.component';
 import { FormModule } from './pages/candidate-form/form.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { UserLoginModule } from './pages/user-login/user-login.module';
 
 
 @NgModule({
@@ -26,7 +27,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HeaderComponent,
     MainComponent,
     FooterComponent,
-    UserLoginComponent,
     RecruiterComponent,
     TechInterviewerComponent,
     MentorComponent,
@@ -36,15 +36,16 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     CandidatesListComponent,
     CandidateComponent,
     CandidatesViewComponent,
-    StatusFiltersComponent,
-
+    StatusFiltersComponent
 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    UserLoginModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
