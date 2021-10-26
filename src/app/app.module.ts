@@ -8,7 +8,6 @@ import { FooterComponent } from './components/footer/footer.component';
 // import { UserLoginComponent } from './pages/user-login/user-login.component';
 import { RecruiterComponent } from './pages/recruiter/recruiter.component';
 import { TechInterviewerComponent } from './pages/tech-interviewer/tech-interviewer.component';
-import { MentorComponent } from './pages/mentor/mentor.component';
 import { ManagerComponent } from './pages/manager/manager.component';
 import { AdminComponent } from './pages/admin/admin.component';
 import { CalendarComponent } from './components/calendar/calendar.component';
@@ -19,6 +18,7 @@ import { StatusFiltersComponent } from './components/status-filters/status-filte
 import { FormModule } from './pages/candidate-form/form.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { UserLoginModule } from './pages/user-login/user-login.module';
+import { MentorModule } from './pages/mentor/mentor.module';
 
 
 @NgModule({
@@ -29,7 +29,6 @@ import { UserLoginModule } from './pages/user-login/user-login.module';
     FooterComponent,
     RecruiterComponent,
     TechInterviewerComponent,
-    MentorComponent,
     ManagerComponent,
     AdminComponent,
     CalendarComponent,
@@ -44,7 +43,8 @@ import { UserLoginModule } from './pages/user-login/user-login.module';
     AppRoutingModule,
     FormModule,
     BrowserAnimationsModule,
-    UserLoginModule
+    UserLoginModule,
+    MentorModule
 
   ],
   providers: [],
