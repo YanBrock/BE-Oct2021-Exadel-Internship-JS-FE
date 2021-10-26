@@ -13,7 +13,7 @@ export class FormComponent implements OnInit {
   isLocation: string[] = [];
   isLocationCity: string[] = [];
   validEmail = '^([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,6}$';
-  errorCheckBox= 'errorCheckBox'
+  errorCheckBox = 'errorCheckBox';
 
   intern = {
     firstName: '',
@@ -48,13 +48,17 @@ export class FormComponent implements OnInit {
   }
 
   clickSubmit(internForm: any): void {
+    console.log(internForm)
 
     if (this.intern.checkbox) {
       if (internForm.valid) {
         this.formService.saveDataIntern(this.intern);
         internForm.reset();
         this.errorCheckBox = 'errorCheckBox';
-        internForm.valid = null;
+
+        internForm.submitted = false;
+        internForm.$setPristine();
+
       }
     } else {
       this.errorCheckBox = 'errorCheckBox active';
