@@ -1,9 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MatTabGroup } from '@angular/material/tabs/tab-group';
-import { MatTabLabel } from '@angular/material/tabs/tab-label';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MentorComponent } from './mentor.component'
+import { MatButtonModule } from '@angular/material/button';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatListModule } from '@angular/material/list';
+import { NgRatingBarModule } from 'ng-rating-bar';
+import { MentorServise } from './mentor.servise';
+import { FormsModule } from '@angular/forms';
+
 
 
 @NgModule({
@@ -13,12 +18,15 @@ import { MentorComponent } from './mentor.component'
   exports: [
     MentorComponent
   ],
+  providers: [MentorServise],
   imports: [
     CommonModule,
+    MatButtonModule,
     MatTabsModule,
-    MatTabGroup,
-    MatTabLabel
-
+    MatDividerModule,
+    MatListModule,
+    NgRatingBarModule,
+    FormsModule
   ]
 })
 export class MentorModule { }

@@ -45,7 +45,6 @@ import { MentorModule } from './pages/mentor/mentor.module';
     BrowserAnimationsModule,
     UserLoginModule,
     MentorModule
-
   ],
   providers: [],
   bootstrap: [AppComponent]
