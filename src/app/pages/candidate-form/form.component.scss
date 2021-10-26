@@ -109,3 +109,37 @@ h2 {
     margin-left: 5px;
   }
 }
+
+.wrapper_terms{
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.363);
+  top:0;
+  left: 0;
+  transform: .3s;
+
+  .wrapper_content{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    background-color: #ffffff;
+    padding: 40px 20px 40px 30px;
+    position: absolute;               /* 2 */
+    top: 50%;
+    left: 25%;                         /* 3 */
+   transform: translate(0, -50%);
+   border-radius: 5px;
+
+  }
+
+  p{
+    margin-bottom: 40px;
+  }
+
+}
+
+.wrapper_terms.disable{
+  display: none;
+}

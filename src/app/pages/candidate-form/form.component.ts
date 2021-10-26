@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-// import * as internal from 'stream';
 import { FormService } from '../../services/form.service';
 
 @Component({
@@ -15,6 +14,7 @@ export class FormComponent implements OnInit {
   isLocationCity: string[] = [];
   validEmail = '^([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,6}$';
   errorCheckBox = 'errorCheckBox';
+  isCloseTermsClass = 'wrapper_terms disable';
 
   intern = {
     firstName: '',
@@ -29,7 +29,7 @@ export class FormComponent implements OnInit {
     checkbox: false,
   };
 
-  constructor(private formService: FormService) {}
+  constructor(private formService: FormService) { }
 
   ngOnInit(): void {
     this.isSpecialization = this.formService.isSpecialization;
@@ -42,10 +42,20 @@ export class FormComponent implements OnInit {
     console.log(fileInputEvent.target.files[0]);
   }
 
-  toggleClassCheckBox() {
-    this.intern.checkbox ?
+  closeTerms() {
+    this.isCloseTermsClass === 'wrapper_terms'?
+    this.isCloseTermsClass = 'wrapper_terms disable' :
+    this.isCloseTermsClass = 'wrapper_terms';
+  }
+
+  toggleClassCheckBox(event) {
+    if (event.target.className === 'linkCheckBox') {
+      this.closeTerms();
+    } else {
+      this.intern.checkbox ?
       this.errorCheckBox = 'errorCheckBox active' :
       this.errorCheckBox = 'errorCheckBox';
+    }
   }
 
   clickSubmit(internForm: any): void {
