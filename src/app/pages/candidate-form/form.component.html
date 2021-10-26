@@ -44,13 +44,14 @@
       <div class="wrapper_city">
         <mat-form-field appearance="outline">
           <mat-label>City</mat-label>
-          <mat-select [(ngModel)]="intern.city" name="city" #locationCity="ngModel" required>
+          <mat-select [disabled] = !intern.location  [(ngModel)]="intern.city" name="city" #locationCity="ngModel" required>
             <mat-option *ngFor='let key of isLocationCity' [value]="key">{{key}}</mat-option>
           </mat-select>
           <mat-error *ngIf="locationCity.hasError('required')">City must be specified</mat-error>
         </mat-form-field>
       </div>
     </div>
+
 
     <mat-form-field appearance="outline">
       <mat-label>Phone</mat-label>
@@ -101,3 +102,4 @@
 
   </form>
 </div>
+
