@@ -1,4 +1,3 @@
-import { RecruiterModule } from './pages/recruiter/recruiter.module';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
@@ -6,7 +5,6 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { MainComponent } from './components/main/main.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { UserLoginComponent } from './pages/user-login/user-login.component';
 import { TechInterviewerComponent } from './pages/tech-interviewer/tech-interviewer.component';
 import { MentorComponent } from './pages/mentor/mentor.component';
 import { ManagerComponent } from './pages/manager/manager.component';
@@ -14,6 +12,7 @@ import { AdminComponent } from './pages/admin/admin.component';
 import { CalendarComponent } from './components/calendar/calendar.component';
 import { FormModule } from './pages/candidate-form/form.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { UserLoginModule } from './pages/user-login/user-login.module';
 
 
 @NgModule({
@@ -22,7 +21,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HeaderComponent,
     MainComponent,
     FooterComponent,
-    UserLoginComponent,
     TechInterviewerComponent,
     MentorComponent,
     ManagerComponent,
@@ -34,6 +32,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AppRoutingModule,
     FormModule,
     BrowserAnimationsModule,
+    UserLoginModule
     RecruiterModule
   ],
   providers: [],

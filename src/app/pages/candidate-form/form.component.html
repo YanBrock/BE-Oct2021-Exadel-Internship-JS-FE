@@ -18,36 +18,56 @@
 
     <mat-form-field appearance="outline">
       <mat-label>Email</mat-label>
-      <input matInput name="email" #email="ngModel" required [(ngModel)]="intern.email" placeholder="ex@ex.ex" />
+      <input matInput name="email" #email="ngModel" required [(ngModel)]="intern.email" placeholder="ex@ex.ex"
+        [pattern]="validEmail" />
       <mat-error *ngIf="email.hasError('required')">Email must be specified</mat-error>
+      <mat-error *ngIf="email.hasError('pattern')">Incorrect email</mat-error>
     </mat-form-field>
 
     <mat-form-field appearance="outline">
       <mat-label>Skype</mat-label>
-      <input matInput name="skype" #skype="ngModel" required [(ngModel)]="intern.skype" />
+      <input matInput name="skype" #skype="ngModel" required [(ngModel)]="intern.skype" placeholder="@Skype" />
       <mat-error *ngIf="skype.hasError('required')">Skype must be specified</mat-error>
     </mat-form-field>
 
+    <div class="wrapper_location">
+      <div class="wrapper_country">
+        <mat-form-field appearance="outline">
+          <mat-label>Location</mat-label>
+          <mat-select [(ngModel)]="intern.location" name="location" #location="ngModel" required>
+            <mat-option *ngFor='let key of isLocation' [value]="key">{{key}}</mat-option>
+          </mat-select>
+          <mat-error *ngIf="location.hasError('required')">Location must be specified</mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="wrapper_city">
+        <mat-form-field appearance="outline">
+          <mat-label>City</mat-label>
+          <mat-select [disabled]=!intern.location [(ngModel)]="intern.city" name="city" #locationCity="ngModel"
+            required>
+            <mat-option *ngFor='let key of isLocationCity' [value]="key">{{key}}</mat-option>
+          </mat-select>
+          <mat-error *ngIf="locationCity.hasError('required')">City must be specified</mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+
+
     <mat-form-field appearance="outline">
       <mat-label>Phone</mat-label>
-      <input matInput type="tel" name="phone" #phone="ngModel" required [(ngModel)]="intern.phone" placeholder="+000 00 000 00 00" />
+      <input matInput type="tel" name="phone" #phone="ngModel" required [(ngModel)]="intern.phone"
+        placeholder="+123 45 678 91 23" pattern="[+]{1}[0-9]{12,14}" />
       <mat-error *ngIf="phone.hasError('required')">Phone must be specified</mat-error>
+      <mat-error *ngIf="phone.hasError('pattern')">+123 45 678 91 23</mat-error>
     </mat-form-field>
 
     <mat-form-field appearance="outline">
-      <mat-label>Specialisation</mat-label>
-      <mat-select [(ngModel)]="intern.specialisation" name="specialisation" #specialisation="ngModel" required>
-        <mat-option *ngFor='let key of isSpecialisation' [value]="key">{{key}}</mat-option>
+      <mat-label>Specialization</mat-label>
+      <mat-select [(ngModel)]="intern.specialization" name="specialization" #specialization="ngModel" required>
+        <mat-option *ngFor='let key of isSpecialization' [value]="key">{{key}}</mat-option>
       </mat-select>
-      <mat-error *ngIf="specialisation.hasError('required')">Specialisation must be specified</mat-error>
-    </mat-form-field>
-
-    <mat-form-field appearance="outline">
-      <mat-label>Location</mat-label>
-      <mat-select [(ngModel)]="intern.location" name="location" #location="ngModel" required>
-        <mat-option *ngFor='let key of isLocation' [value]="key">{{key}}</mat-option>
-      </mat-select>
-      <mat-error *ngIf="location.hasError('required')">Location must be specified</mat-error>
+      <mat-error *ngIf="specialization.hasError('required')">Specialization must be specified</mat-error>
     </mat-form-field>
 
     <mat-form-field appearance="outline">
@@ -61,17 +81,20 @@
     <div class="wrapperCheckBox">
 
       <mat-checkbox class="checkbox" name="checkbox" #checkbox2="ngModel" [(ngModel)]="intern.checkbox" color="primary"
-        required><span>
+        (click)="toggleClassCheckBox($event)" required>
+        <span>
           accept the terms of processing and storage of the provided data
-          <a href="#">link to the terms</a></span>
+          <a class="linkCheckBox">link to the terms</a>
+        </span>
       </mat-checkbox>
-
-      <mat-error class="wcheckBoxError" *ngIf="checkbox2.hasError('required')">Checkbox must be specified</mat-error>
+      <p [class]="errorCheckBox">Checkbox must be specified</p>
 
       <div class="wrapperCv">
         <input #csvInput hidden="true" type="file" onclick="this.value=null" (change)="csvInputChange($event)"
           accept=".pdf" />
-        <button mat-stroked-button (click)="csvInput.click()">Add your CV (PDF)</button>
+        <div class="buttonCv" mat-raised-button (click)="csvInput.click()">
+          <p>Add your CV (PDF)</p>
+        </div>
       </div>
     </div>
 
@@ -83,3 +106,27 @@
   </form>
 </div>
 
+<div [class]="isCloseTermsClass">
+  <div class="wrapper_content">
+    <h2>Terms</h2>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam provident eius dolor voluptates dolore ab,
+      incidunt sit tenetur voluptate officiis officia temporibus. Libero tenetur dolores deserunt nostrum, nam repellat
+      vitae!
+      Necessitatibus totam, id illum iure earum at adipisci beatae? Totam neque eos, doloremque dignissimos cum fugiat
+      soluta fugit rem atque dolore consectetur nisi. Nulla repellendus harum cupiditate maxime soluta quisquam.
+      Aperiam exercitationem ea dignissimos voluptatibus, quas quidem commodi necessitatibus optio excepturi tempore cum
+      neque rerum nisi perspiciatis provident fuga ducimus facilis corporis perferendis consequuntur saepe autem,
+      aliquid laudantium fugit. Officia.
+      Quam, quaerat. Error, neque! Sequi reprehenderit assumenda est dolore ducimus eum, inventore illum in a qui
+      excepturi pariatur suscipit doloribus dicta. Tempora ratione magnam odit cumque dolorum, debitis illo accusamus!
+      Similique atque magnam ullam obcaecati possimus in fuga fugit hic, recusandae ratione unde excepturi non enim,
+      tempore rem odio quaerat blanditiis ad velit amet a facere nisi sapiente quasi! Officiis.
+      Itaque harum vel repellat, distinctio ducimus hic id cum temporibus voluptas excepturi sed cumque et quos
+      voluptatum dolore commodi neque esse! Consequatur animi sed assumenda totam fugiat magni dignissimos autem!
+
+    <div class="example-button-row">
+      <button mat-raised-button (click)="closeTerms()">Сlose</button>
+    </div>
+
+  </div>
+</div>
