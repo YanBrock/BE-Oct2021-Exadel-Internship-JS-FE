@@ -8,7 +8,12 @@ export interface Candidate {
   id: number
   firstName: string
   lastName: string
-  specialisation: string
+  email: string
+  skype: string
+  phone: string
+  specialization: string
+  location: string
+  englishLevel: string
   isInterviewedByHr?: boolean
   isInterviewedByTech?: boolean
   status?: Status

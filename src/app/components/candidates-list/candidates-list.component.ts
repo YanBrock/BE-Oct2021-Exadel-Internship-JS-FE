@@ -10,6 +10,7 @@ import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 export class CandidatesListComponent implements OnInit {
 
   @Input() candidates: Candidate[]
+  @Input() selectedCandidate: Candidate
   @Output() selectCandidate = new EventEmitter<Candidate>()
 
   constructor(public candidatesService: CandidatesService) { }

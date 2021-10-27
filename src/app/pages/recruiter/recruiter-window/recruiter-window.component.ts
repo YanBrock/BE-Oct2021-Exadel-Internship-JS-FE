@@ -1,13 +1,13 @@
-import { Candidate } from './../../types/candidate';
+import { Candidate } from './../../../types/candidate';
 import { CandidatesService } from 'src/app/services/candidates.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-recruiter',
-  templateUrl: './recruiter.component.html',
-  styleUrls: ['./recruiter.component.scss']
+  selector: 'app-recruiter-window',
+  templateUrl: './recruiter-window.component.html',
+  styleUrls: ['./recruiter-window.component.scss']
 })
-export class RecruiterComponent implements OnInit {
+export class RecruiterWindowComponent implements OnInit {
 
   selectedCandidate: Candidate
 
