@@ -41,6 +41,7 @@ h2 {
     display: flex;
     margin: 25px 0px 30px;
     justify-content: space-between;
+    align-items: center;
     position: relative;
 
     span {
@@ -54,10 +55,19 @@ h2 {
       color: #1e90cf;
     }
 
-    .wcheckBoxError {
+    .errorCheckBox {
       position: absolute;
-      top: 100%;
+      font-size: 12px;
+      top: 75%;
       left: 35px;
+      color: #f44336;
+      opacity: 0;
+      transition: 0.1s;
+    }
+    .errorCheckBox.active {
+      top: 95%;
+      opacity: 1;
+      transition: 0.5s;
     }
   }
 
@@ -67,5 +77,66 @@ h2 {
 
   .wrapperCv {
     margin-left: 45px;
+    cursor: pointer;
   }
+
+  .buttonCv {
+    border-radius: 5px;
+    box-shadow: 0px 1px 2px 1px rgb(0 0 0 / 30%);
+
+    p {
+      white-space: nowrap;
+      padding: 10px 35px;
+      font-weight: 600;
+      text-align: center;
+      margin-bottom: 0px;
+    }
+  }
+
+  .wrapper_location {
+    width: 100%;
+
+    display: flex;
+  }
+  .wrapper_country {
+    width: 100%;
+    margin-right: 5px;
+  }
+
+  .wrapper_city {
+    width: 100%;
+    margin-left: 5px;
+  }
+}
+
+.wrapper_terms {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.363);
+  top: 0;
+  left: 0;
+  transform: 0.3s;
+
+  .wrapper_content {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    background-color: #ffffff;
+    padding: 40px 20px 40px 30px;
+    position: absolute;
+    top: 50%;
+    left: 25%;
+    transform: translate(0, -50%);
+    border-radius: 5px;
+  }
+
+  p {
+    margin-bottom: 40px;
+  }
+}
+
+.wrapper_terms.disable {
+  display: none;
 }

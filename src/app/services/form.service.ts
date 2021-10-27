@@ -8,8 +8,9 @@ export class FormService {
 
   dataIntern: object = { }
   isSpecialization = ['Javascript', '.Net', 'Business analyst']
-  isEnglishlevel = ['A 1', 'A 2', 'B 1', 'B 2', 'C 1', 'C 2']
+  isEnglishlevel = ['Elementary', 'Pre-Intermediate', 'Intermediate', 'Upper-Intermediate', 'Advanced', 'Proficiency']
   isLocation = ['Belarus', 'Poland', 'Russia', 'Georgia', 'Ukraine', 'other...']
+  isLocationCity = ['Minsk', 'Warsaw', 'Moscow', 'Tbilisi', 'Kiev', 'other...']
 
   constructor() { }
 
