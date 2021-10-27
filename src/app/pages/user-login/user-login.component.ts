@@ -55,7 +55,7 @@ export class UserLoginComponent implements OnInit {
         }
       })
 
-      if ( this.validLogin) {
+      if (this.validLogin) {
         this.errorLogInTwo = 'p_error';
         this.goPlaces(['/', this.goUrl]);
 

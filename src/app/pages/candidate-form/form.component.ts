@@ -43,9 +43,9 @@ export class FormComponent implements OnInit {
   }
 
   closeTerms() {
-    this.isCloseTermsClass === 'wrapper_terms'?
-    this.isCloseTermsClass = 'wrapper_terms disable' :
-    this.isCloseTermsClass = 'wrapper_terms';
+    this.isCloseTermsClass === 'wrapper_terms' ?
+      this.isCloseTermsClass = 'wrapper_terms disable' :
+      this.isCloseTermsClass = 'wrapper_terms';
   }
 
   toggleClassCheckBox(event) {
@@ -53,14 +53,12 @@ export class FormComponent implements OnInit {
       this.closeTerms();
     } else {
       this.intern.checkbox ?
-      this.errorCheckBox = 'errorCheckBox active' :
-      this.errorCheckBox = 'errorCheckBox';
+        this.errorCheckBox = 'errorCheckBox active' :
+        this.errorCheckBox = 'errorCheckBox';
     }
   }
 
   clickSubmit(internForm: any): void {
-    console.log(internForm)
-
     if (this.intern.checkbox) {
       if (internForm.valid) {
         this.formService.saveDataIntern(this.intern);
@@ -69,7 +67,6 @@ export class FormComponent implements OnInit {
 
         internForm.submitted = false;
         internForm.$setPristine();
-
       }
     } else {
       this.errorCheckBox = 'errorCheckBox active';
