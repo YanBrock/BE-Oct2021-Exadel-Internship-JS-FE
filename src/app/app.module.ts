@@ -13,7 +13,7 @@ import { CalendarComponent } from './components/calendar/calendar.component';
 import { FormModule } from './pages/candidate-form/form.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { UserLoginModule } from './pages/user-login/user-login.module';
-
+import { RecruiterModule } from './pages/recruiter/recruiter.module';
 
 @NgModule({
   declarations: [
@@ -32,7 +32,7 @@ import { UserLoginModule } from './pages/user-login/user-login.module';
     AppRoutingModule,
     FormModule,
     BrowserAnimationsModule,
-    UserLoginModule
+    UserLoginModule,
     RecruiterModule
   ],
   providers: [],
