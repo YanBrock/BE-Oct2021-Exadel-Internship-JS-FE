@@ -1,5 +1,5 @@
+import { Candidate } from './../../../types/candidate';
 import { CandidatesService } from 'src/app/services/candidates.service';
-import { Candidate } from './../../types/candidate';
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
