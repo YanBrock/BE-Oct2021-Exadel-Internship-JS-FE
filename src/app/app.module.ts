@@ -14,6 +14,11 @@ import { FormModule } from './pages/candidate-form/form.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { UserLoginModule } from './pages/user-login/user-login.module';
 import { RecruiterModule } from './pages/recruiter/recruiter.module';
+import { TranslateModule } from '@ngx-translate/core';
+import { translateModuleConfig } from './app.i18n';
+import { HttpClientModule } from '@angular/common/http';
+
+
 
 @NgModule({
   declarations: [
@@ -26,15 +31,20 @@ import { RecruiterModule } from './pages/recruiter/recruiter.module';
     ManagerComponent,
     AdminComponent,
     CalendarComponent,
+
   ],
+
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormModule,
     BrowserAnimationsModule,
     UserLoginModule,
-    RecruiterModule
+    RecruiterModule,
+    HttpClientModule,
+    TranslateModule.forRoot(translateModuleConfig)
   ],
+  
   providers: [],
   bootstrap: [AppComponent]
 })

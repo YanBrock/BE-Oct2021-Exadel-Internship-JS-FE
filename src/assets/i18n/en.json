@@ -1,0 +1,20 @@
+{
+  "button": {
+    "lang": {
+      "en": "English",
+      "ru": "Русский"
+    }
+  },
+
+   "header": {
+     "label": "Here is a header"
+   },
+   "footer": {
+     "label": "Here is a footer"
+   },
+   "main": {
+     "greeting": "Hello",
+     "switchLang": "Switch to RU"
+   }
+ }
+ 

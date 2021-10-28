@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { TranslateModule } from '@ngx-translate/core';
 import { AdminComponent } from './pages/admin/admin.component';
 import { FormComponent } from './pages/candidate-form/form.component';
 import { ManagerComponent } from './pages/manager/manager.component';
@@ -21,6 +22,6 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule,]
 })
 export class AppRoutingModule { }
