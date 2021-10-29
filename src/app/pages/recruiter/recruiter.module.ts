@@ -1,7 +1,4 @@
-import { CandidatesViewComponent } from './../../components/candidates-view/candidates-view.component';
-import { StatusFiltersComponent } from './../../components/status-filters/status-filters.component';
-import { CandidatesListComponent } from './../../components/candidates-list/candidates-list.component';
-import { CandidateComponent } from './../../components/candidate/candidate.component';
+import { CandidatesModule } from './../../components/candidates/candidates.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RecruiterComponent } from './recruiter.component';
@@ -11,13 +8,10 @@ import { RecruiterWindowComponent } from './recruiter-window/recruiter-window.co
 import { InterviewerAssesmentComponent } from './interviewer-assesment/interviewer-assesment.component';
 import { MatListModule } from '@angular/material/list';
 import { MatInputModule } from '@angular/material/input';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   declarations: [
-    CandidateComponent,
-    CandidatesListComponent,
-    StatusFiltersComponent,
-    CandidatesViewComponent,
     RecruiterComponent,
     CandidateDataComponent,
     RecruiterAssesmentComponent,
@@ -26,7 +20,9 @@ import { MatInputModule } from '@angular/material/input';
   imports: [
     CommonModule,
     MatListModule,
-    MatInputModule
+    MatInputModule,
+    TranslateModule,
+    CandidatesModule
   ],
   exports: [RecruiterComponent]
 })

@@ -1,5 +1,5 @@
 import { CandidatesService } from 'src/app/services/candidates.service';
-import { Candidate } from './../../types/candidate';
+import { Candidate } from 'src/app/types/candidate';
 import { Component, Input, OnInit} from '@angular/core';
 
 @Component({

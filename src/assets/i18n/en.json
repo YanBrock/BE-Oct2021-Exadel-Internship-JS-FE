@@ -1,0 +1,58 @@
+{
+
+  
+  "SignIn": {
+      "h2": "Please sign in",
+      "email": "Email",
+      "email-required": "Email must be specified",
+      "email-incorrect": "Incorrect email",
+      "password": "Enter your password",
+      "password-required": "Password must be specified",
+      "passwordEmail-incorrect": "Email or the password incorrect",
+      "btn": "Log in"
+  },
+  
+  "rectuiter": {
+    "candidate-data": {
+      "label": "Form Date",
+      "firstName": "First name",
+      "location": "Location",
+      "phone": "Phone",
+      "specialization": "Specialization",
+      "lastName": "Last name",
+      "email": "Email",
+      "skype": "Skype",
+      "englishLevel": "English Level"
+    },
+    "interviewer-assesment": {
+      "label": "TECH SKILLS",
+      "comment": "Leave your comment here"
+    },
+    "recruiter-assesment": {
+      "label": "SOFT SKILLS",
+      "english": "English",
+      "communicationSkills": "Communication skills",
+      "abilityToListen": "Ability to listen",
+      "selfConfidence": "Self-confidence"
+    }
+  },
+
+  "button": {
+    "lang": {
+      "en": "English",
+      "ru": "Русский"
+    }
+  },
+
+   "footer": {
+     "label": "Povered by [Team3] Oct2021 Exadel Internship JS&.NET&BA"
+   }
+
+
+
+
+ }
+
+
+
+ 
