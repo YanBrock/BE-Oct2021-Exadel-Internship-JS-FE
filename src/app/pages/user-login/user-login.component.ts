@@ -22,7 +22,9 @@ export class UserLoginComponent implements OnInit {
 
   userData = {
     email: '',
-    password: ''
+    password: '',
+    role: '',
+    token: 'bvdjjji439hgiiig55999999999999999'
   }
 
   constructor(private loginService: UserLoginService, private router: Router) { }
@@ -51,12 +53,15 @@ export class UserLoginComponent implements OnInit {
       this.loginService.users.map(person => {
         if (person.email === this.userData.email && person.password === this.userData.password) {
           this.validLogin = true;
+          this.userData.role = person.role;
           this.goUrl = person.role;
         }
       })
 
       if (this.validLogin) {
         this.errorLogInTwo = 'p_error';
+        // console.log(this.userData);
+        this.loginService.saveDataUser(this.userData.role, this.userData.token);
         this.goPlaces(['/', this.goUrl]);
 
       } else {

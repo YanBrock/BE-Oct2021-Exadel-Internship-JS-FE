@@ -8,7 +8,7 @@ export class UserLoginService {
   users = [{
     email: 're@re.re',
     password: 're',
-    role: 'recruiter'
+    role: 'recruiter',
   },
   {
     email: 'te@te.te',
@@ -32,5 +32,34 @@ export class UserLoginService {
     },
   ]
 
+
+
+  activeUser = {
+    role: null,
+    token: null
+  }
+
   constructor() { }
+
+  saveDataUser(userRole: string, userToken: string): any{
+    this.activeUser.role = userRole;
+    this.activeUser.token = userToken;
+
+  }
+
+  isAuthenticated(): boolean {
+    console.log(this.activeUser);
+    return !!this.activeUser.token;
+  }
+
+  getToken() {
+    console.log(this.activeUser);
+    return this.activeUser.token;
+  }
+
+  getRole() {
+    console.log(this.activeUser);
+    return this.activeUser.role;
+  }
+
 }
