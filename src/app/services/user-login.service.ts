@@ -38,25 +38,26 @@ export class UserLoginService {
   ]
 
 
-  // activeUser = {
-  //   email: 're@re.re',
-  //   password: 're',
-  //   role: 'recruiter',
-  //   token: 'bvdjjji439hgiiig559999999999999993'
-  // }
   activeUser = {
-    email: null,
-    password: null,
-    role: null,
-    token: null
+    email: 'ad@ad.ad',
+    password: 'ad',
+    role: 'admin',
+    token: 'bvdjjji439hgiiig559999999997999999'
   }
+
+  // activeUser = {
+  //   email: null,
+  //   password: null,
+  //   role: null,
+  //   token: null
+  // }
 
   constructor() { }
 
-  saveDataUser(userData: any): any{
-    this.activeUser = userData;
+  // saveDataUser(userData: any): any{
+  //   this.activeUser = userData;
 
-   }
+  //  }
 
   isAuthenticated(): boolean {
     console.log(this.activeUser.token);

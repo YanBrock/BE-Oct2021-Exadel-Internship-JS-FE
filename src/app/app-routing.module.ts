@@ -4,6 +4,7 @@ import { AdminComponent } from './pages/admin/admin.component';
 import { FormComponent } from './pages/candidate-form/form.component';
 import { ManagerComponent } from './pages/manager/manager.component';
 import { MentorComponent } from './pages/mentor/mentor.component';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { RecruiterComponent } from './pages/recruiter/recruiter.component';
 import { TechInterviewerComponent } from './pages/tech-interviewer/tech-interviewer.component';
 import { UserLoginComponent } from './pages/user-login/user-login.component';
@@ -19,6 +20,7 @@ const routes: Routes = [
 	{ path: 'mentor', component: MentorComponent, canActivate: [UserGuard]},
 	{ path: 'manager', component: ManagerComponent, canActivate: [UserGuard]},
 	{ path: 'admin', component: AdminComponent, canActivate: [UserGuard]},
+	{ path: '**', component: NotFoundComponent},
 	// { path: '', component: UserLoginComponent},
 	// { path: 'form', component: FormComponent},
 	// { path: 'recruiter', component: RecruiterComponent, canActivate: [UserGuard], canActivateChild: [RoleGuard] },

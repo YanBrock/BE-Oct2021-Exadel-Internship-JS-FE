@@ -61,7 +61,7 @@ export class UserLoginComponent implements OnInit {
       if (this.validLogin) {
         this.errorLogInTwo = 'p_error';
 
-        this.loginService.saveDataUser(this.userData);
+        // this.loginService.saveDataUser(this.userData);
         this.goPlaces(['/', this.goUrl]);
 
       } else {
