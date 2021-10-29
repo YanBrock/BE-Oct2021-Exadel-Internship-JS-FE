@@ -21,7 +21,7 @@ import { TranslateModule } from '@ngx-translate/core';
     CommonModule,
     MatListModule,
     MatInputModule,
-    TranslateModule
+    TranslateModule,
     CandidatesModule
   ],
   exports: [RecruiterComponent]
