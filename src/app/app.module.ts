@@ -17,10 +17,8 @@ import { RecruiterModule } from './pages/recruiter/recruiter.module';
 import { TranslateModule } from '@ngx-translate/core';
 import { translateModuleConfig } from './app.i18n';
 import { HttpClientModule } from '@angular/common/http';
-import {MatSlideToggleModule} from '@angular/material/slide-toggle';
-
-
-
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { NotFoundModule } from './pages/not-found/not-found.module';
 
 @NgModule({
   declarations: [
@@ -33,9 +31,7 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
     ManagerComponent,
     AdminComponent,
     CalendarComponent,
-
   ],
-
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -45,10 +41,9 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
     RecruiterModule,
     HttpClientModule,
     MatSlideToggleModule,
-    TranslateModule.forRoot(translateModuleConfig)
+    TranslateModule.forRoot(translateModuleConfig),
+	  NotFoundModule,
   ],
-
-  
   providers: [],
   bootstrap: [AppComponent]
 })

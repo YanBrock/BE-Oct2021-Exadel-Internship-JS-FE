@@ -5,6 +5,7 @@ import { AdminComponent } from './pages/admin/admin.component';
 import { FormComponent } from './pages/candidate-form/form.component';
 import { ManagerComponent } from './pages/manager/manager.component';
 import { MentorComponent } from './pages/mentor/mentor.component';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { RecruiterComponent } from './pages/recruiter/recruiter.component';
 import { TechInterviewerComponent } from './pages/tech-interviewer/tech-interviewer.component';
 import { UserLoginComponent } from './pages/user-login/user-login.component';
@@ -16,7 +17,8 @@ const routes: Routes = [
 	{ path: 'mentor', component: MentorComponent },
 	{ path: 'manager', component: ManagerComponent },
 	{ path: 'admin', component: AdminComponent },
-	{ path: 'form', component: FormComponent }
+	{ path: 'form', component: FormComponent },
+	{ path: '**', component: NotFoundComponent }
 
 ];
 

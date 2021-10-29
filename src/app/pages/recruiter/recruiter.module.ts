@@ -1,7 +1,4 @@
-import { CandidatesViewComponent } from './../../components/candidates-view/candidates-view.component';
-import { StatusFiltersComponent } from './../../components/status-filters/status-filters.component';
-import { CandidatesListComponent } from './../../components/candidates-list/candidates-list.component';
-import { CandidateComponent } from './../../components/candidate/candidate.component';
+import { CandidatesModule } from './../../components/candidates/candidates.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RecruiterComponent } from './recruiter.component';
@@ -15,10 +12,6 @@ import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   declarations: [
-    CandidateComponent,
-    CandidatesListComponent,
-    StatusFiltersComponent,
-    CandidatesViewComponent,
     RecruiterComponent,
     CandidateDataComponent,
     RecruiterAssesmentComponent,
@@ -29,6 +22,7 @@ import { TranslateModule } from '@ngx-translate/core';
     MatListModule,
     MatInputModule,
     TranslateModule
+    CandidatesModule
   ],
   exports: [RecruiterComponent]
 })
