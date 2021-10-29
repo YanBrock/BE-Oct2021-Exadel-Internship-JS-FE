@@ -5,11 +5,11 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 @Component({
-  selector: 'app-candidates-view',
-  templateUrl: './candidates-view.component.html',
-  styleUrls: ['./candidates-view.component.scss']
+  selector: 'app-candidates',
+  templateUrl: './candidates.component.html',
+  styleUrls: ['./candidates.component.scss']
 })
-export class CandidatesViewComponent implements OnInit {
+export class CandidatesComponent implements OnInit {
 
   candidates$: Observable<Candidate[]>;
   selectedCandidate: Candidate
