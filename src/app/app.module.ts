@@ -14,6 +14,10 @@ import { FormModule } from './pages/candidate-form/form.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { UserLoginModule } from './pages/user-login/user-login.module';
 import { RecruiterModule } from './pages/recruiter/recruiter.module';
+import { TranslateModule } from '@ngx-translate/core';
+import { translateModuleConfig } from './app.i18n';
+import { HttpClientModule } from '@angular/common/http';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { NotFoundModule } from './pages/not-found/not-found.module';
 
 @NgModule({
@@ -35,7 +39,10 @@ import { NotFoundModule } from './pages/not-found/not-found.module';
     BrowserAnimationsModule,
     UserLoginModule,
     RecruiterModule,
-	NotFoundModule,
+    HttpClientModule,
+    MatSlideToggleModule,
+    TranslateModule.forRoot(translateModuleConfig),
+	  NotFoundModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
