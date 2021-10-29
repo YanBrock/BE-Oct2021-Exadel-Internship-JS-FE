@@ -1,16 +1,48 @@
 {
+
+  "SignIn": {
+    "h2": "Вход в Личный кабинет",
+    "email": "Почта",
+    "email-required": "Необходимо указать электронную почту",
+    "email-incorrect": "Неправильная электронная почта",
+    "password": "Введите пароль",
+    "password-required": "Укажите пароль",
+    "passwordEmail-incorrect": "Неверный адрес электронной почты или пароль",
+    "btn": "Войти"
+},
+
+"rectuiter": {
+  "candidate-data": {
+    "label": "Данные кандидата",
+    "firstName": "Имя",
+    "location": "Расположение",
+    "phone": "Телефон",
+    "specialization": "Специальность",
+    "lastName": "Фамилия",
+    "email": "Почта",
+    "skype": "Скайп",
+    "englishLevel": "Уровень английского языка"
+  },
+  "interviewer-assesment": {
+    "label": "Технические навыки",
+    "comment": "Оставь свой комментарий"
+  },
+  "recruiter-assesment": {
+    "label": "Профессиональные навыки",
+    "english": "Английский язык",
+    "communicationSkills": "Коммуникативные навыки",
+    "abilityToListen": "Умение слушать",
+    "selfConfidence": "Уверенность в себе"
+  }
+},
+
   "button": {
     "lang": "Русский"
   },
-   "header": {
-     "label": "Это верхняя часть страницы"
-   },
-   "footer": {
-     "label": "Это нижняя часть страницы"
-   },
-   "main": {
-     "greeting": "Привет",
-     "switchLang": "Переключиться на EN"
-   }
+
+  "footer": {
+    "label": "Povered by [Team3] Oct2021 Exadel Internship JS&.NET&BA"
+  }
+
  }
  

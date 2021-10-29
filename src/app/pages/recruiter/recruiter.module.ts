@@ -11,6 +11,7 @@ import { RecruiterWindowComponent } from './recruiter-window/recruiter-window.co
 import { InterviewerAssesmentComponent } from './interviewer-assesment/interviewer-assesment.component';
 import { MatListModule } from '@angular/material/list';
 import { MatInputModule } from '@angular/material/input';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { MatInputModule } from '@angular/material/input';
   imports: [
     CommonModule,
     MatListModule,
-    MatInputModule
+    MatInputModule,
+    TranslateModule
   ],
   exports: [RecruiterComponent]
 })

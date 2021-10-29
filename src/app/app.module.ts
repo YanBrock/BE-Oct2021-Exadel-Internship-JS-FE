@@ -17,6 +17,8 @@ import { RecruiterModule } from './pages/recruiter/recruiter.module';
 import { TranslateModule } from '@ngx-translate/core';
 import { translateModuleConfig } from './app.i18n';
 import { HttpClientModule } from '@angular/common/http';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+
 
 
 
@@ -42,8 +44,10 @@ import { HttpClientModule } from '@angular/common/http';
     UserLoginModule,
     RecruiterModule,
     HttpClientModule,
+    MatSlideToggleModule,
     TranslateModule.forRoot(translateModuleConfig)
   ],
+
   
   providers: [],
   bootstrap: [AppComponent]
