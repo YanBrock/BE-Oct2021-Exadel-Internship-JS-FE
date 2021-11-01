@@ -10,7 +10,6 @@ import { RecruiterComponent } from './pages/recruiter/recruiter.component';
 import { TechInterviewerComponent } from './pages/tech-interviewer/tech-interviewer.component';
 import { UserLoginComponent } from './pages/user-login/user-login.component';
 import { UserGuard } from './guards/user.guard';
-// import { RoleGuard } from './guards/role.guard';
 
 
 const routes: Routes = [
@@ -22,14 +21,6 @@ const routes: Routes = [
 	{ path: 'manager', component: ManagerComponent, canActivate: [UserGuard]},
 	{ path: 'admin', component: AdminComponent, canActivate: [UserGuard]},
 	{ path: '**', component: NotFoundComponent},
-	// { path: '', component: UserLoginComponent},
-	// { path: 'form', component: FormComponent},
-	// { path: 'recruiter', component: RecruiterComponent, canActivate: [UserGuard], canActivateChild: [RoleGuard] },
-	// { path: 'tech-interviewer', component: TechInterviewerComponent, canActivate: [UserGuard], canActivateChild: [RoleGuard] },
-	// { path: 'mentor', component: MentorComponent, canActivate: [UserGuard], canActivateChild: [RoleGuard] },
-	// { path: 'manager', component: ManagerComponent, canActivate: [UserGuard], canActivateChild: [RoleGuard]},
-	// { path: 'admin', component: AdminComponent, canActivate: [UserGuard], canActivateChild: [RoleGuard] },
-
 ];
 
 @NgModule({
