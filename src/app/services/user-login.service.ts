@@ -34,43 +34,33 @@ export class UserLoginService {
       password: 'ad',
       role: 'admin',
       token: 'bvdjjji439hgiiig559999999997999999'
-    },
+    }
   ]
 
 
   activeUser = {
-    email: 'ad@ad.ad',
-    password: 'ad',
-    role: 'admin',
-    token: 'bvdjjji439hgiiig559999999997999999'
+    email: null,
+    password: null,
+    role: null,
+    token: null
   }
-
-  // activeUser = {
-  //   email: null,
-  //   password: null,
-  //   role: null,
-  //   token: null
-  // }
 
   constructor() { }
 
-  // saveDataUser(userData: any): any{
-  //   this.activeUser = userData;
+  saveDataUser(userData: any): any{
+    this.activeUser = {...userData};
 
-  //  }
+   }
 
   isAuthenticated(): boolean {
-    console.log(this.activeUser.token);
     return !!this.activeUser.token;
   }
 
   getToken() {
-    console.log('getToken');
     return this.activeUser.token;
   }
 
   getRole() {
-    console.log('getRole');
     return this.activeUser.role;
   }
 

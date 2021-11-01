@@ -20,13 +20,6 @@ export class UserGuard implements CanActivate {
   constructor (private userLoginService: UserLoginService, private routerService: Router){}
 
   canActivate(route: ActivatedRouteSnapshot,  state: RouterStateSnapshot):  boolean | UrlTree {
-    // state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    // if (this.userLoginService.isAuthenticated()) {
-    //   return true;
-    // } else {
-    //   return this.routerService.parseUrl('');
-    // }
-
     const role = this.userLoginService.getRole();
 
     const rolePath = ROLE_TO_PATH_MAP[role];
@@ -36,7 +29,6 @@ export class UserGuard implements CanActivate {
     if (rolePath === state.url) {
       return true;
     }
-    // return this.routerService.parseUrl(rolePath);
     return this.routerService.parseUrl('');
   }
 }

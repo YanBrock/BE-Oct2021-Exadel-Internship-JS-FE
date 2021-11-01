@@ -7,7 +7,6 @@ import { Router } from '@angular/router';
   selector: 'app-user-login',
   templateUrl: './user-login.component.html',
   styleUrls: ['./user-login.component.scss'],
-  providers: [UserLoginService]
 })
 
 
@@ -31,26 +30,20 @@ export class UserLoginComponent implements OnInit {
 
   ngOnInit(): void { }
 
-  goPlaces(url) {
-    this.router.navigate(url);
-  }
-
   onFocus(userForm: any) {
     userForm.controls.input.value.length > 0 ?
       this.errorLogIn = 'p_error' :
-      this.errorLogIn = 'p_error active';
+      (this.errorLogIn = 'p_error active',  this.errorLogInTwo = 'p_error');
   }
 
   submit(userForm: any) {
-    console.log(this.loginService.users);
-
     if (userForm.controls.input.value.length < 1) {
       this.errorLogIn = 'p_error active';
 
     } else {
       this.errorLogIn = 'p_error';
 
-      this.loginService.users.map(person => {
+      this.loginService.users.find(person => {
         if (person.email === this.userData.email && person.password === this.userData.password) {
           this.validLogin = true;
           this.userData.role = person.role;
@@ -61,8 +54,8 @@ export class UserLoginComponent implements OnInit {
       if (this.validLogin) {
         this.errorLogInTwo = 'p_error';
 
-        // this.loginService.saveDataUser(this.userData);
-        this.goPlaces(['/', this.goUrl]);
+        this.loginService.saveDataUser(this.userData);
+        this.router.navigate(['/', this.goUrl]);
 
       } else {
         this.errorLogInTwo = 'p_error two active';
