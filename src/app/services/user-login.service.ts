@@ -8,29 +8,60 @@ export class UserLoginService {
   users = [{
     email: 're@re.re',
     password: 're',
-    role: 'recruiter'
+    role: 'recruiter',
+    token: 'bvdjjji439hgiiig559999999999999993'
   },
   {
     email: 'te@te.te',
     password: 'te',
-    role: 'tech-interviewer'
+    role: 'tech-interviewer',
+    token: 'bvdjjji439hgiiig559999999499999999'
     },
     {
       email: 'me@me.me',
       password: 'me',
-      role: 'mentor'
+      role: 'mentor',
+      token: 'bvdjjji439hgiiig559999599999999999'
     },
     {
       email: 'ma@ma.ma',
       password: 'ma',
-      role: 'manager'
+      role: 'manager',
+      token: 'bvdjjji439hgiiig559996999999999999'
     },
     {
       email: 'ad@ad.ad',
       password: 'ad',
-      role: 'admin'
-    },
+      role: 'admin',
+      token: 'bvdjjji439hgiiig559999999997999999'
+    }
   ]
 
+
+  activeUser = {
+    email: null,
+    password: null,
+    role: null,
+    token: null
+  }
+
   constructor() { }
+
+  saveDataUser(userData: any): any{
+    this.activeUser = {...userData};
+
+   }
+
+  isAuthenticated(): boolean {
+    return !!this.activeUser.token;
+  }
+
+  getToken() {
+    return this.activeUser.token;
+  }
+
+  getRole() {
+    return this.activeUser.role;
+  }
+
 }

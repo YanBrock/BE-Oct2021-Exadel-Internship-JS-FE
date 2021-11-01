@@ -9,17 +9,18 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { RecruiterComponent } from './pages/recruiter/recruiter.component';
 import { TechInterviewerComponent } from './pages/tech-interviewer/tech-interviewer.component';
 import { UserLoginComponent } from './pages/user-login/user-login.component';
+import { UserGuard } from './guards/user.guard';
+
 
 const routes: Routes = [
-	{ path: '', component: UserLoginComponent },
-	{ path: 'recruiter', component: RecruiterComponent },
-	{ path: 'tech-interviewer', component: TechInterviewerComponent },
-	{ path: 'mentor', component: MentorComponent },
-	{ path: 'manager', component: ManagerComponent },
-	{ path: 'admin', component: AdminComponent },
-	{ path: 'form', component: FormComponent },
-	{ path: '**', component: NotFoundComponent }
-
+	{ path: '', component: UserLoginComponent},
+	{ path: 'form', component: FormComponent},
+	{ path: 'recruiter', component: RecruiterComponent, canActivate: [UserGuard]},
+	{ path: 'tech-interviewer', component: TechInterviewerComponent, canActivate: [UserGuard]},
+	{ path: 'mentor', component: MentorComponent, canActivate: [UserGuard]},
+	{ path: 'manager', component: ManagerComponent, canActivate: [UserGuard]},
+	{ path: 'admin', component: AdminComponent, canActivate: [UserGuard]},
+	{ path: '**', component: NotFoundComponent},
 ];
 
 @NgModule({
