@@ -1,5 +1,6 @@
 <div class="header__user">
-	<div class="user_name"></div>
+	<div class="name" *ngIf="userTitle">{{userTitle | uppercase}}</div>
+	<div class="name" *ngIf="title">{{title | uppercase}}</div>
 
 	<div class="avatar">
 		<img src="../assets/images/avatar.jpg" alt="Avatar">

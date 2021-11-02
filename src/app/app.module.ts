@@ -19,6 +19,7 @@ import { translateModuleConfig } from './app.i18n';
 import { HttpClientModule } from '@angular/common/http';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { NotFoundModule } from './pages/not-found/not-found.module';
+import { HeaderUserNameModule } from './components/header-user-name/header-user-name.module';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { NotFoundModule } from './pages/not-found/not-found.module';
     HttpClientModule,
     MatSlideToggleModule,
     TranslateModule.forRoot(translateModuleConfig),
-	  NotFoundModule,
+	NotFoundModule,
+	HeaderUserNameModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

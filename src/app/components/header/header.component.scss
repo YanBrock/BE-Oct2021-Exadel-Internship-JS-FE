@@ -1,7 +1,7 @@
 .container
 {
 	justify-content: space-between;
-  align-items: center;
+  	align-items: center;
 
 	.header__logo
 	{
@@ -14,42 +14,14 @@
 		}
 	}
 
-	.header__user
+	.header__wrapper
 	{
 		display: inherit;
-		justify-content: right;
 		align-items: center;
-
-		&-wrapper
+		
+		.switchLang 
 		{
-			display: inherit;
-			align-items: center;
+			margin-right: 20px;
 		}
-
-		.name
-		{
-			margin-right: 1rem;
-			color: #1E90CF;
-			font-weight: bold;
-			text-transform: uppercase;
-		}
-
-		.guest
-		{
-			@extend .name;
-			margin-right: 0;
-		}
-
-		.avatar img
-		{
-			height: 2rem;
-			width: 100%;
-			border-radius: 50%;
-		}
-    
-    .switchLang 
-    {
-      margin-right: 20px;
-    }
 	}
 }

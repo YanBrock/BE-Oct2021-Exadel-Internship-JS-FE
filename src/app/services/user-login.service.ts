@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -64,4 +65,8 @@ export class UserLoginService {
     return this.activeUser.role;
   }
 
+  getRoleHeader(): Observable<any>
+  {
+	return this.activeUser.role;
+  }
 }
