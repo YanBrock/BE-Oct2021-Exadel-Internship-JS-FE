@@ -4,12 +4,13 @@
 		<img src="../assets/images/logo.png" alt="Logo">
 	</div>
 
+	<!-- <mat-slide-toggle class="slider" (click)="onClick()" color="primary">EN/RU</mat-slide-toggle> -->
+
 	<div class="header__wrapper">
-		<div class="switchLang">
-			<mat-slide-toggle (click)="onClick()" color="primary"></mat-slide-toggle>
-		</div>
-	
-		<app-header-user-name [title]=""></app-header-user-name>
+		
+		<mat-slide-toggle class="slider" (click)="onClick()" color="primary">en/ru</mat-slide-toggle>
+
+		<app-header-user-name></app-header-user-name>
 	</div>
 	
 

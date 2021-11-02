@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HeaderUserNameComponent } from './header-user-name.component';
-import { UserLoginModule } from 'src/app/pages/user-login/user-login.module';
-
+// import { UserLoginModule } from 'src/app/pages/user-login/user-login.module';
+// import { UserLoginService } from 'src/app/services/user-login.service';
 
 
 @NgModule({
@@ -11,7 +11,8 @@ import { UserLoginModule } from 'src/app/pages/user-login/user-login.module';
   ],
   imports: [
     CommonModule,
-	UserLoginModule,
+	// UserLoginModule,
+	// UserLoginService,
   ],
   exports: [
 	HeaderUserNameComponent,

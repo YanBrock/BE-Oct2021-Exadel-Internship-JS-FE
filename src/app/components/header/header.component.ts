@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
+import { UserLoginService } from 'src/app/services/user-login.service';
+
 
 
 
@@ -12,7 +14,7 @@ export class HeaderComponent implements OnInit {
 
   lang: string = 'en'
 
-  constructor(private translateService: TranslateService) {
+  constructor(private translateService: TranslateService, private _userLoginService: UserLoginService) {
     this.translateService.setDefaultLang(this.lang);
   }
 
