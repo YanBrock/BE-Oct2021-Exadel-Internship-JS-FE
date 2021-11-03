@@ -3,18 +3,16 @@
 	<div class="header__logo">
 		<img src="../assets/images/logo.png" alt="Logo">
 	</div>
-	<div class="header__user">
-		
 
-<div class="switchLang">
-	<mat-slide-toggle (click)="onClick()" color="primary"></mat-slide-toggle>
-</div>		
+	<!-- <mat-slide-toggle class="slider" (click)="onClick()" color="primary">EN/RU</mat-slide-toggle> -->
 
-			
-		<div class="name">role</div>
-		<div class="avatar">
-			<img src="../assets/images/avatar.jpg" alt="Avatar">
-		</div>
+	<div class="header__wrapper">
 		
+		<mat-slide-toggle class="slider" (click)="onClick()" color="primary">en/ru</mat-slide-toggle>
+
+		<app-header-user-name></app-header-user-name>
 	</div>
+	
+
+	
 </div>

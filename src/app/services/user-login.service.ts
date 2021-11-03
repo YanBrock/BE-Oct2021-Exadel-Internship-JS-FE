@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Subject } from 'rxjs';
 
 
 @Injectable({
@@ -59,7 +60,6 @@ export class UserLoginService {
     token: null
   }
 
-
   constructor(private http: HttpClient) { }
 
   postData(userData: any): Observable<any> {
@@ -84,10 +84,15 @@ export class UserLoginService {
   }
 
 
-  saveDataUser(userData: any): any {
-    this.activeUser = { ...userData };
+  userRole$ = new Subject<string>()
+  userRole = this.userRole$.asObservable()
 
-  }
+  // constructor() { }
+
+  saveDataUser(userData: any): any{
+    this.activeUser = {...userData};
+   }
+
 
   isAuthenticated(): boolean {
     return !!this.activeUser.token;
@@ -98,7 +103,7 @@ export class UserLoginService {
   }
 
   getRole() {
+	this.userRole$.next(this.activeUser.role)
     return this.activeUser.role;
   }
-
 }
