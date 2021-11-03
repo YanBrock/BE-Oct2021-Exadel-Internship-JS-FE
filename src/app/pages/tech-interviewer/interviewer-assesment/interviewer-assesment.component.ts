@@ -6,10 +6,25 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./interviewer-assesment.component.scss']
 })
 export class InterviewerAssesmentComponent implements OnInit {
-
+  scores = {
+    html: '',
+    css: '',
+    javascript: '',
+    review: ''
+  }
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  onSubmit() {
+    console.log(this.scores)
+    this.scores = {
+      html: '',
+      css: '',
+      javascript: '',
+      review: ''
+    }
   }
 
 }

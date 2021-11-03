@@ -17,7 +17,9 @@ export class TechInterviewerComponent implements OnInit {
   constructor(public candidatesService: CandidatesService) { }
 
   ngOnInit(): void {
-    this.candidates$ = this.candidatesService.getCandidates()
+    this.candidates$ = this.candidatesService.getCandidates().pipe(
+      map(candidate => candidate.filter(candidate => candidate.status === 'accepted'))
+    )
     this.candidatesService.selectedCandidate.subscribe(candidate => this.selectedCandidate = candidate)
   }
 
@@ -25,16 +27,4 @@ export class TechInterviewerComponent implements OnInit {
     this.candidatesService.selectCandidate(candidate)
 
   }
-
-  filterCandidatesWithStatus(filter: string) {
-    if (filter === 'all') {
-      this.candidates$ = this.candidatesService.getCandidates()
-    } else {
-      this.candidates$ = this.candidatesService.getCandidates().pipe(
-        map(candidate => candidate.filter(candidate => candidate.status === filter))
-      )
-    }
-
-  }
-
 }

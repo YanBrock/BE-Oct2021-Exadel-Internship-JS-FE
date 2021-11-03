@@ -10,7 +10,8 @@ import { TranslateModule } from '@ngx-translate/core';
 import { TechInterviewerWindowComponent } from './tech-interviewer-window/tech-interviewer-window.component';
 import { CandidateDataComponent } from './candidate-data/candidate-data.component';
 import { RecruiterAssesmentComponent } from './recruiter-assesment/recruiter-assesment.component'
-
+import { MatButtonModule } from '@angular/material/button';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -21,11 +22,13 @@ import { RecruiterAssesmentComponent } from './recruiter-assesment/recruiter-ass
     RecruiterAssesmentComponent
   ],
   imports: [
+    FormsModule,
     CommonModule,
     CandidatesModule,
     MatListModule,
     MatInputModule,
     TranslateModule,
+    MatButtonModule
   ],
   exports: [
     TechInterviewerComponent
