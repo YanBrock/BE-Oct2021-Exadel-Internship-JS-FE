@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
   selector: 'app-user-login',
   templateUrl: './user-login.component.html',
   styleUrls: ['./user-login.component.scss'],
+  // providers: [UserLoginService]
 })
 
 
@@ -53,6 +54,13 @@ export class UserLoginComponent implements OnInit {
 
       if (this.validLogin) {
         this.errorLogInTwo = 'p_error';
+
+        this.loginService.postData({email : this.userData.email, password : this.userData.password})
+        .subscribe(
+          (data: any) => console.log(data),
+          error => console.log(error)
+      );
+
 
         this.loginService.saveDataUser(this.userData);
         this.router.navigate(['/', this.goUrl]);
