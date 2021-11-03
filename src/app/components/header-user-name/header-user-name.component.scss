@@ -1,0 +1,19 @@
+.header__user
+{
+	display: flex;
+	align-items: center;
+
+	.name
+	{
+		margin-right: 1rem;
+		color: #1E90CF;
+		font-weight: bold;
+	}
+
+	.avatar img
+	{
+		height: 2rem;
+		width: 100%;
+		border-radius: 50%;
+	}
+}
