@@ -1,5 +1,5 @@
 import { CandidatesService } from 'src/app/services/candidates.service';
-import { Candidate } from 'src/app/types/candidate';
+import { Candidate, Status } from 'src/app/types/candidate';
 import { Component, Input, OnInit} from '@angular/core';
 
 @Component({
@@ -8,7 +8,7 @@ import { Component, Input, OnInit} from '@angular/core';
   styleUrls: ['./candidate.component.scss']
 })
 export class CandidateComponent implements OnInit {
-
+  @Input() Status: Status
   @Input() candidate: Candidate
   @Input() first: boolean
   @Input() selectedCandidate: Candidate

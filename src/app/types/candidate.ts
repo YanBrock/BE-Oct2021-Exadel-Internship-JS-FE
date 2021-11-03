@@ -1,7 +1,14 @@
 export enum Status {
-  Declined = 'declined',
+  Questionable = 'questionable',
   Accepted = 'accepted',
-  Questionable = 'questionable'
+  Declined = 'declined'
+}
+
+export type EnglishLevel = 'beginner' | 'pre-intermediate' | 'intermediate' | 'upper-intermediate' | 'advanced';
+
+export interface CandidatesFilter {
+  status: Status | 'all';  // ???
+  englishLevel: EnglishLevel | 'all'; // ???
 }
 
 export interface Candidate {

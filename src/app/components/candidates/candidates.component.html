@@ -1,7 +1,7 @@
 <div>
-  <app-status-filters (filterWithStatus)="filterCandidatesWithStatus($event)"></app-status-filters>
+  <app-candidates-filter (filterChanged)="onFilterChange($event)"></app-candidates-filter>
   <app-candidates-list
-  [candidates]="candidates$ | async"
+  [candidates]="candidatesService.candidatesList$ | async"
   [selectedCandidate]="selectedCandidate"
   (selectCandidate)="onCandidateSelect($event)">
   </app-candidates-list>

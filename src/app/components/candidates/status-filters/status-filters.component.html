@@ -1,9 +1,0 @@
-<div>
-  <span
-  *ngFor="let filter of filters; let first = first"
-  (click)="onClick(filter)"
-  [class.active]="filter===selectedFilter"
-  [ngClass]="first ? '' : 'margin-left'">
-    {{ filter }}
-  </span>
-</div>
