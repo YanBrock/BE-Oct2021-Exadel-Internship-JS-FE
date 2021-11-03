@@ -1,4 +1,4 @@
-import { EnglishLevel, Status } from './../../../types/candidate';
+import { Status, Specialization } from './../../../types/candidate';
 import { Component, OnDestroy, OnInit, EventEmitter, Output } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Subscription } from 'rxjs';
@@ -10,13 +10,11 @@ import { Subscription } from 'rxjs';
 })
 export class CandidatesFilterComponent implements OnInit, OnDestroy {
 
-  englishLevelOptions: { label: string, value: EnglishLevel }[] = [
-    { label: 'Beginner', value: 'beginner' },
-    { label: 'Pre-Intermediate', value: 'pre-intermediate' },
-    { label: 'Intermediate', value: 'intermediate' },
-    { label: 'Upper-Intermediate', value: 'upper-intermediate' },
-    { label: 'Advanced', value: 'advanced' }
-  ]
+  specializationOptions: { label: string, value: Specialization}[] = [
+    { label: 'Front-end', value: 'front-end' },
+    { label: 'Back-end', value: 'back-end' },
+    { label: 'Business analyst', value: 'business analyst'}
+  ];
 
   statusOptions: {label: string, value: Status}[] = [
     { label: 'Questionable', value: Status.Questionable },
@@ -27,7 +25,7 @@ export class CandidatesFilterComponent implements OnInit, OnDestroy {
   @Output() filterChanged = new EventEmitter();
 
   filterForm = new FormGroup({
-    englishLevel: new FormControl(null),
+    specialization: new FormControl(null),
     status: new FormControl(null)
   });
 

@@ -6,9 +6,11 @@ export enum Status {
 
 export type EnglishLevel = 'beginner' | 'pre-intermediate' | 'intermediate' | 'upper-intermediate' | 'advanced';
 
+export type Specialization = 'front-end' | 'back-end' | 'business analyst'
+
 export interface CandidatesFilter {
   status: Status | 'all';  // ???
-  englishLevel: EnglishLevel | 'all'; // ???
+  specialization: Specialization | 'all' // ???
 }
 
 export interface Candidate {

@@ -19,7 +19,6 @@ export class CandidatesComponent implements OnInit {
 
   ngOnInit(): void {
     this.candidatesService.selectedCandidate.subscribe(candidate => this.selectedCandidate = candidate)
-    // this.candidatesService.loadCandidates();
   }
 
   onCandidateSelect(candidate: Candidate) {

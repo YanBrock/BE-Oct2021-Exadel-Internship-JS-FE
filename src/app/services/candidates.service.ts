@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, of } from 'rxjs';
-import { Candidate, CandidatesFilter, Status, EnglishLevel } from '../types/candidate';
+import { Candidate, CandidatesFilter, Status, EnglishLevel, Specialization } from '../types/candidate';
 import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 
@@ -37,7 +37,7 @@ export class CandidatesService {
         email: 'jsmith@gmail.com',
         skype: 'jsmith332',
         phone: '+827169129317',
-        specialization: 'front-end',
+        specialization: 'front-end' as Specialization,
         location: 'New-Your, USA',
         englishLevel: 'advanced' as EnglishLevel,
         isInterviewedByHr: true,
@@ -51,7 +51,7 @@ export class CandidatesService {
         email: 'donovan721@yahoo.com',
         skype: 'Annie78',
         phone: '+912313871293',
-        specialization: 'back-end',
+        specialization: 'back-end' as Specialization,
         location: 'Colchester, England',
         englishLevel: 'intermediate' as EnglishLevel,
         isInterviewedByHr: false,
@@ -64,7 +64,7 @@ export class CandidatesService {
         email: 'neversleep@gmail.com',
         skype: 'rick gonsales',
         phone: '+183131831',
-        specialization: 'business analyst',
+        specialization: 'business analyst' as Specialization,
         location: 'Mexico, Mexico',
         englishLevel: 'pre-intermediate' as EnglishLevel,
         isInterviewedByHr: true,
@@ -77,7 +77,7 @@ export class CandidatesService {
         email: 'markT@gmail.com',
         skype: 'tornhes99',
         phone: '+878247878782',
-        specialization: 'business analyst',
+        specialization: 'business analyst' as Specialization,
         location: 'Oslo, Norway',
         englishLevel: 'beginner' as EnglishLevel,
         isInterviewedByHr: true,
@@ -91,7 +91,7 @@ export class CandidatesService {
         email: 'kittieB@domain.com',
         skype: 'kittiekittie',
         phone: '+19128828112',
-        specialization: 'front-end',
+        specialization: 'front-end' as Specialization,
         location: 'Toronto, Canada',
         englishLevel: 'beginner' as EnglishLevel,
         isInterviewedByHr: true,
@@ -105,7 +105,7 @@ export class CandidatesService {
         email: 'george@gmail.com',
         skype: 'georgeC++',
         phone: '+192381378217',
-        specialization: 'back-end',
+        specialization: 'back-end' as Specialization,
         location: 'Helsinki, Finland',
         englishLevel: 'advanced' as EnglishLevel,
         isInterviewedByHr: true,
@@ -118,7 +118,7 @@ export class CandidatesService {
         email: 'bred@mail.ru',
         skype: 'imnot',
         phone: '+192381283921',
-        specialization: 'business analyst',
+        specialization: 'business analyst' as Specialization,
         location: 'Moscow, Russia',
         englishLevel: 'beginner' as EnglishLevel,
         isInterviewedByHr: true,
@@ -132,7 +132,7 @@ export class CandidatesService {
         email: 'justagod@gmail.com',
         skype: 'godlike',
         phone: '+1111111111111111',
-        specialization: 'back-end',
+        specialization: 'back-end' as Specialization,
         location: 'Washington, USA',
         englishLevel: 'pre-intermediate' as EnglishLevel,
         isInterviewedByHr: false,
@@ -145,7 +145,7 @@ export class CandidatesService {
         email: 'lucaslucas@gmail.com',
         skype: 'TounsendL',
         phone: '+93824787284',
-        specialization: 'back-end',
+        specialization: 'back-end' as Specialization,
         location: 'Kingston, Jamaica',
         englishLevel: 'pre-intermediate' as EnglishLevel,
         isInterviewedByHr: true,
@@ -158,7 +158,7 @@ export class CandidatesService {
         email: 'charleyb@gmail.com',
         skype: 'chrlsbrghtn',
         phone: '+2389482982',
-        specialization: 'fe',
+        specialization: 'front-end' as Specialization,
         location: 'Ontario, Canada',
         englishLevel: 'intermediate' as EnglishLevel,
         isInterviewedByHr: true,
@@ -168,8 +168,8 @@ export class CandidatesService {
     ].filter(candidate =>{
       if (!filter) { return true }
       const fitsStatus = filter.status === 'all' ? candidate : filter.status === null || filter.status === candidate.status;
-      const fitsEnglishLevel = filter.englishLevel === "all" ? candidate : filter.englishLevel === null || filter.englishLevel === candidate.englishLevel;
-      return fitsStatus && fitsEnglishLevel;
+      const fitsSpecialization = filter.specialization === 'all' ? candidate : filter.specialization === null || filter.specialization === candidate.specialization;
+      return fitsStatus && fitsSpecialization;
     });
     
     return of(candidates);
