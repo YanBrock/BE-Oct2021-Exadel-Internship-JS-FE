@@ -1,3 +1,4 @@
+import { CandidatesResolver } from './resolvers/candidates.resolver';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
@@ -15,7 +16,7 @@ import { UserGuard } from './guards/user.guard';
 const routes: Routes = [
 	{ path: '', component: UserLoginComponent},
 	{ path: 'form', component: FormComponent},
-	{ path: 'recruiter', component: RecruiterComponent, canActivate: [UserGuard]},
+	{ path: 'recruiter', component: RecruiterComponent, canActivate: [UserGuard], resolve: { candidates: CandidatesResolver }},
 	{ path: 'tech-interviewer', component: TechInterviewerComponent, canActivate: [UserGuard]},
 	{ path: 'mentor', component: MentorComponent, canActivate: [UserGuard]},
 	{ path: 'manager', component: ManagerComponent, canActivate: [UserGuard]},
