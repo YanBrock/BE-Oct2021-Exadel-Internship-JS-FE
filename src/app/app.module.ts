@@ -18,6 +18,7 @@ import { translateModuleConfig } from './app.i18n';
 import { HttpClientModule } from '@angular/common/http';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { NotFoundModule } from './pages/not-found/not-found.module';
+import { HeaderUserNameModule } from './components/header-user-name/header-user-name.module';
 import { TechInterviewerModule } from './pages/tech-interviewer/tech-interviewer.module';
 
 @NgModule({
@@ -42,6 +43,7 @@ import { TechInterviewerModule } from './pages/tech-interviewer/tech-interviewer
     MatSlideToggleModule,
     TranslateModule.forRoot(translateModuleConfig),
     NotFoundModule,
+    HeaderUserNameModule,
     TechInterviewerModule,
   ],
   providers: [],
