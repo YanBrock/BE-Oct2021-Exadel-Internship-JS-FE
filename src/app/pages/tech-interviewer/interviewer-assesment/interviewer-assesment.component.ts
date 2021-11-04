@@ -26,10 +26,8 @@ export class InterviewerAssesmentComponent implements OnInit {
       review: ''
     }
   }
-  OnlyNumbersAllowed(event): boolean {
-    return ['1', '2', '3', '4'].includes(event.key) && this.scores.html.length == 0
-
-
+  OnlyNumbersAllowed(event, str): boolean {
+    return ['1', '2', '3', '4'].includes(event.key) && this.scores[str].length == 0
   }
 
 }
