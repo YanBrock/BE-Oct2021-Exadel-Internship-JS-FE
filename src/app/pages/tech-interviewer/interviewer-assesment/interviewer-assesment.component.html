@@ -4,13 +4,16 @@
   <form class="tech-div" (ngSubmit)="onSubmit()">
     <mat-list role="list">
       <mat-list-item role="listitem">HTML:
-        <span><input name="input" [(ngModel)]="scores.html" class="input-text" type="text">/4</span>
+        <span><input min="0" max="4" name="input" [(ngModel)]="scores.html" class="input-text" type="text"
+            (keypress)="OnlyNumbersAllowed($event)">/4</span>
       </mat-list-item>
       <mat-list-item role="listitem">CSS:
-        <span><input name="input" [(ngModel)]="scores.css" class="input-text" type="text">/4</span>
+        <span><input min="0" max="4" name="input" [(ngModel)]="scores.css" class="input-text" type="text"
+            (keypress)="OnlyNumbersAllowed($event)">/4</span>
       </mat-list-item>
       <mat-list-item role="listitem">JavaScript:
-        <span><input name="input" [(ngModel)]="scores.javascript" class="input-text" type="text">/4</span>
+        <span><input min="0" max="4" name="input" [(ngModel)]="scores.javascript" class="input-text" type="text"
+            (keypress)="OnlyNumbersAllowed($event)">/4</span>
       </mat-list-item>
     </mat-list>
     <mat-form-field appearance="outline">
