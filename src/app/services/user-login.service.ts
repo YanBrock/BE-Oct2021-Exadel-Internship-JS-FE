@@ -15,7 +15,7 @@ export class UserLoginService {
 
   users = [{
     email: 're@re.re',
-    password: 're',
+    password: 're1!',
     role: 'recruiter',
     token: 'bvdjjji439hgiiig559999999999999993'
   },
@@ -49,6 +49,12 @@ export class UserLoginService {
     password: 'Test1!',
     role: 'admin',
     token: 'bvdjjji439hgiiig559999999997999999'
+  },
+  {
+    email: 'admin@exadel.com',
+    password: 'Admin1!',
+    role: 'admin',
+    token: 'bvdjjji439hgiiig559999999997999999'
   }
   ]
 
@@ -77,7 +83,7 @@ export class UserLoginService {
         'Access-Control-Allow-Headers': 'Content-Type,X-Auth-Token,Origin',
         'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE'
       }),
-      withCredentials: true
+      // withCredentials: true
     };
 
     return this.http.post(this.baseURL, userDataJson, httpOptions);
