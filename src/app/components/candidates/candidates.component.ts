@@ -1,3 +1,4 @@
+import { CandidatesFilter } from './../../types/candidate';
 import { Candidate } from '../../types/candidate';
 import { Component, OnInit } from '@angular/core';
 import { CandidatesService } from 'src/app/services/candidates.service';
@@ -17,23 +18,15 @@ export class CandidatesComponent implements OnInit {
   constructor(public candidatesService: CandidatesService) { }
 
   ngOnInit(): void {
-    this.candidates$ = this.candidatesService.getCandidates()
     this.candidatesService.selectedCandidate.subscribe(candidate => this.selectedCandidate = candidate)
   }
 
   onCandidateSelect(candidate: Candidate) {
     this.candidatesService.selectCandidate(candidate)
-
   }
 
-  filterCandidatesWithStatus(filter: string) {
-    if (filter === 'all') {
-      this.candidates$ = this.candidatesService.getCandidates()
-    } else {
-      this.candidates$ = this.candidatesService.getCandidates().pipe(
-        map(candidate => candidate.filter(candidate => candidate.status === filter))
-      )
-    }
-
+  onFilterChange(filterValue: CandidatesFilter) {
+    this.candidatesService.loadCandidates(filterValue);
   }
+
 }
