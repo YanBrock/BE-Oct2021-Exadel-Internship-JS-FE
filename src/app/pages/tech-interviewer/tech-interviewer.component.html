@@ -1,5 +1,5 @@
 <div>
-  <app-candidates-list [candidates]="candidates$ | async" [selectedCandidate]="selectedCandidate"
+  <app-candidates-list [candidates]="candidatesService.candidatesList$ | async | filterByStatus: 'accepted'" [selectedCandidate]="selectedCandidate"
     (selectCandidate)="onCandidateSelect($event)">
   </app-candidates-list>
 </div>

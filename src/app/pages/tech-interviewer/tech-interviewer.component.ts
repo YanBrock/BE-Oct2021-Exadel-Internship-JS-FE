@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Candidate } from '../../types/candidate';
 import { CandidatesService } from 'src/app/services/candidates.service';
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-tech-interviewer',
@@ -11,20 +9,15 @@ import { map } from 'rxjs/operators';
 })
 export class TechInterviewerComponent implements OnInit {
 
-  candidates$: Observable<Candidate[]>;
   selectedCandidate: Candidate
 
   constructor(public candidatesService: CandidatesService) { }
 
   ngOnInit(): void {
-    this.candidates$ = this.candidatesService.getCandidates().pipe(
-      map(candidate => candidate.filter(candidate => candidate.status === 'accepted'))
-    )
     this.candidatesService.selectedCandidate.subscribe(candidate => this.selectedCandidate = candidate)
   }
 
   onCandidateSelect(candidate: Candidate) {
     this.candidatesService.selectCandidate(candidate)
-
   }
 }
