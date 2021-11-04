@@ -1,8 +1,19 @@
 <div>
-  <app-candidates-filter (filterChanged)="onFilterChange($event)"></app-candidates-filter>
-  <app-candidates-list
-  [candidates]="candidatesService.candidatesList$ | async"
-  [selectedCandidate]="selectedCandidate"
-  (selectCandidate)="onCandidateSelect($event)">
+  <app-candidates-filter *ngIf="activeUser !== 'tech-interviewer'" (filterChanged)="onFilterChange($event)"></app-candidates-filter>
+  <app-candidates-list *ngIf="activeUser !=='tech-interviewer' else techBlock"
+    [candidates]="candidatesService.candidatesList$ | async"
+    [pageOfCandidates]="pageOfCandidates"
+    [selectedCandidate]="selectedCandidate"
+    (selectCandidate)="onCandidateSelect($event)"
+    (changePage)="onPageChange($event)">
   </app-candidates-list>
+  <ng-template #techBlock>
+    <app-candidates-list
+      [candidates]="candidatesService.candidatesList$ | async | filterByStatus: 'accepted'"
+      [pageOfCandidates]="pageOfCandidates"
+      [selectedCandidate]="selectedCandidate"
+      (selectCandidate)="onCandidateSelect($event)"
+      (changePage)="onPageChange($event)">
+    </app-candidates-list>
+  </ng-template>
 </div>

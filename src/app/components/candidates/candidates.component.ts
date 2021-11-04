@@ -1,9 +1,9 @@
+import { UserLoginService } from 'src/app/services/user-login.service';
 import { CandidatesFilter } from './../../types/candidate';
 import { Candidate } from '../../types/candidate';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { CandidatesService } from 'src/app/services/candidates.service';
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { CandidatesListComponent } from './candidates-list/candidates-list.component';
 
 @Component({
   selector: 'app-candidates',
@@ -12,13 +12,20 @@ import { map } from 'rxjs/operators';
 })
 export class CandidatesComponent implements OnInit {
 
-  candidates$: Observable<Candidate[]>;
+  // candidates$: Observable<Candidate[]>;
   selectedCandidate: Candidate
+  pageOfCandidates: Candidate[]
+  activeUser: string
+  startItem: number = 0
+  pageItems: number = 3
+  @ViewChild(CandidatesListComponent) list: CandidatesListComponent
 
-  constructor(public candidatesService: CandidatesService) { }
+  constructor(public candidatesService: CandidatesService, private userLoginService: UserLoginService) { }
 
   ngOnInit(): void {
     this.candidatesService.selectedCandidate.subscribe(candidate => this.selectedCandidate = candidate)
+    this.candidatesService.candidatesList$.subscribe(response => this.pageOfCandidates = response.slice(this.startItem, this.pageItems))
+    this.activeUser = this.userLoginService.activeUser.role
   }
 
   onCandidateSelect(candidate: Candidate) {
@@ -26,7 +33,20 @@ export class CandidatesComponent implements OnInit {
   }
 
   onFilterChange(filterValue: CandidatesFilter) {
+    this.list.dataSource.paginator.firstPage()
     this.candidatesService.loadCandidates(filterValue);
+  }
+
+  onPageChange(object) {
+    const startIndex = object.pageIndex * object.pageSize;
+    let length = 0;
+    this.candidatesService.candidatesList$.subscribe(array => length = array.length);
+    let endIndex = startIndex + object.pageSize;
+
+    if (endIndex > length) {
+      endIndex = length;
+    }
+    this.candidatesService.candidatesList$.subscribe(response => this.pageOfCandidates = response.slice(startIndex, endIndex))
   }
 
 }

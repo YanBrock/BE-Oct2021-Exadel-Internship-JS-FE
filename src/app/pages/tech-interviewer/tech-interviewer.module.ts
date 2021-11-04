@@ -12,7 +12,7 @@ import { CandidateDataComponent } from './candidate-data/candidate-data.componen
 import { RecruiterAssesmentComponent } from './recruiter-assesment/recruiter-assesment.component'
 import { MatButtonModule } from '@angular/material/button';
 import { FormsModule } from '@angular/forms';
-import { FilterByStatusPipe } from 'src/app/pipes/filter-by-status.pipe';
+// import { FilterByStatusPipe } from 'src/app/pipes/filter-by-status.pipe';
 
 @NgModule({
   declarations: [
@@ -21,7 +21,7 @@ import { FilterByStatusPipe } from 'src/app/pipes/filter-by-status.pipe';
     TechInterviewerWindowComponent,
     CandidateDataComponent,
     RecruiterAssesmentComponent,
-    FilterByStatusPipe
+    // FilterByStatusPipe
   ],
   imports: [
     FormsModule,
