@@ -15,6 +15,9 @@ import { CommonModule } from '@angular/common';
   imports: [
     CommonModule
   ],
-  exports: [CandidatesComponent]
+  exports: [
+    CandidatesComponent,
+    CandidatesListComponent,
+  ]
 })
 export class CandidatesModule { }

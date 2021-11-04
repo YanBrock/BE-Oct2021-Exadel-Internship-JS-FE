@@ -16,7 +16,9 @@ import { TranslateModule } from '@ngx-translate/core';
     CandidateDataComponent,
     RecruiterAssesmentComponent,
     RecruiterWindowComponent,
-    InterviewerAssesmentComponent],
+    InterviewerAssesmentComponent,
+
+  ],
   imports: [
     CommonModule,
     MatListModule,

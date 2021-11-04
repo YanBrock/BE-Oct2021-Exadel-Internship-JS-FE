@@ -1,1 +1,6 @@
-<p>tech-interviewer works!</p>
+<div>
+  <app-candidates-list [candidates]="candidates$ | async" [selectedCandidate]="selectedCandidate"
+    (selectCandidate)="onCandidateSelect($event)">
+  </app-candidates-list>
+</div>
+<app-tech-interviewer-window></app-tech-interviewer-window>
