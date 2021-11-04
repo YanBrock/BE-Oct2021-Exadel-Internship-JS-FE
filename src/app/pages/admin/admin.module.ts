@@ -6,6 +6,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { FormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
+import { MatButtonModule } from '@angular/material/button';
 
 
 
@@ -25,7 +26,9 @@ import { MatSelectModule } from '@angular/material/select';
     MatCheckboxModule,
     MatSelectModule,
     MatFormFieldModule,
-    FormsModule
+    FormsModule,
+    MatButtonModule
+
   ]
 })
 export class AdminModule { }

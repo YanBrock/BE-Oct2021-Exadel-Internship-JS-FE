@@ -13,13 +13,15 @@ import { UserGuard } from './guards/user.guard';
 
 
 const routes: Routes = [
-	{ path: '', component: UserLoginComponent},
+	// { path: '', component: UserLoginComponent},
+	{ path: 'zz', component: UserLoginComponent},
 	{ path: 'form', component: FormComponent},
 	{ path: 'recruiter', component: RecruiterComponent, canActivate: [UserGuard]},
 	{ path: 'tech-interviewer', component: TechInterviewerComponent, canActivate: [UserGuard]},
 	{ path: 'mentor', component: MentorComponent, canActivate: [UserGuard]},
 	{ path: 'manager', component: ManagerComponent, canActivate: [UserGuard]},
-	{ path: 'admin', component: AdminComponent, canActivate: [UserGuard]},
+	// { path: 'admin', component: AdminComponent, canActivate: [UserGuard]},
+	{ path: '', component: AdminComponent},
 	{ path: '**', component: NotFoundComponent},
 ];
 

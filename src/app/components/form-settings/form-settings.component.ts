@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
-import { ThemePalette } from '@angular/material/core';
+// import { ThemePalette } from '@angular/material/core';
 
 
 export interface Task {
-  name: string;
+  skill: string;
   completed: boolean;
-  color: ThemePalette;
   subtasks?: Task[];
 }
+
 
 @Component({
   selector: 'app-form-settings',
@@ -17,18 +17,24 @@ export interface Task {
 export class FormSettingsComponent {
 
   task: Task = {
-    name: 'Specialization',
+    skill: 'Specialization',
     completed: false,
-    color: 'primary',
     subtasks: [
-
-      {name: 'Javascript', completed: false, color: 'primary'},
-      {name: '.Net', completed: false, color: 'primary'},
-      { name: 'Business analyst', completed: false, color: 'primary' },
-      {name: 'Java', completed: false, color: 'primary'},
-      {name: 'С++', completed: false, color: 'primary'},
-      {name: 'PHP', completed: false, color: 'primary'}
-
+      {skill: 'Javascript', completed: false},
+      {skill: '.Net', completed: false},
+      {skill: 'Business analyst', completed: false },
+      {skill: 'Java', completed: false},
+      {skill: 'С++', completed: false},
+      {skill: 'Javascript', completed: false},
+      {skill: '.Net', completed: false},
+      {skill: 'Business analyst', completed: false },
+      {skill: 'Java', completed: false},
+      {skill: 'С++', completed: false },
+      {skill: 'Javascript', completed: false},
+      {skill: '.Net', completed: false},
+      {skill: 'Business analyst', completed: false },
+      {skill: 'Java', completed: false},
+      {skill: 'С++', completed: false}
     ]
   };
 
