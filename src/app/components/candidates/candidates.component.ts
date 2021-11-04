@@ -24,8 +24,12 @@ export class CandidatesComponent implements OnInit {
 
   ngOnInit(): void {
     this.candidatesService.selectedCandidate.subscribe(candidate => this.selectedCandidate = candidate)
-    this.candidatesService.candidatesList$.subscribe(response => this.pageOfCandidates = response.slice(this.startItem, this.pageItems))
     this.activeUser = this.userLoginService.activeUser.role
+    if (this.activeUser === 'tech-interviewer') {
+      this.candidatesService.candidatesList$.subscribe(response => this.pageOfCandidates = response.filter(c => c.status === 'accepted').slice(this.startItem, this.pageItems))
+    } else {
+      this.candidatesService.candidatesList$.subscribe(response => this.pageOfCandidates = response.slice(this.startItem, this.pageItems))
+    }
   }
 
   onCandidateSelect(candidate: Candidate) {
@@ -46,7 +50,12 @@ export class CandidatesComponent implements OnInit {
     if (endIndex > length) {
       endIndex = length;
     }
-    this.candidatesService.candidatesList$.subscribe(response => this.pageOfCandidates = response.slice(startIndex, endIndex))
+
+    if (this.activeUser === 'tech-interviewer') {
+      this.candidatesService.candidatesList$.subscribe(response => this.pageOfCandidates = response.filter(c => c.status === 'accepted').slice(startIndex, endIndex))
+    } else {
+      this.candidatesService.candidatesList$.subscribe(response => this.pageOfCandidates = response.slice(startIndex, endIndex))
+    }
   }
 
 }
