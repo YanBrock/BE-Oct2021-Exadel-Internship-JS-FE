@@ -1,6 +1,4 @@
 <div>
-  <app-candidates-list [candidates]="candidatesService.candidatesList$ | async | filterByStatus: 'accepted'" [selectedCandidate]="selectedCandidate"
-    (selectCandidate)="onCandidateSelect($event)">
-  </app-candidates-list>
+  <app-candidates></app-candidates>
 </div>
 <app-tech-interviewer-window></app-tech-interviewer-window>

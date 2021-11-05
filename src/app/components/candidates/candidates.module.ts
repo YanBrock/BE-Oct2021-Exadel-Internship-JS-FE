@@ -1,3 +1,4 @@
+import { FilterByStatusPipe } from 'src/app/pipes/filter-by-status.pipe';
 import { MatSelectModule } from '@angular/material/select';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { CandidatesComponent } from './candidates.component';
@@ -7,18 +8,21 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CandidatesFilterComponent } from './candidates-filter/candidates-filter.component';
 import { ReactiveFormsModule } from "@angular/forms";
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 
 @NgModule({
   declarations: [CandidateComponent,
     CandidatesListComponent,
     CandidatesComponent,
-    CandidatesFilterComponent],
+    CandidatesFilterComponent,
+    FilterByStatusPipe],
   imports: [
     CommonModule,
     MatFormFieldModule,
     MatSelectModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatPaginatorModule
   ],
   exports: [
     CandidatesComponent,
