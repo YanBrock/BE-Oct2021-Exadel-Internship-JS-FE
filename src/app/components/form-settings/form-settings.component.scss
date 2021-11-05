@@ -4,8 +4,14 @@
 ::-webkit-scrollbar-thumb {
   -webkit-border-radius: 0px;
   border-radius: 0px;
+  background-color: #cccccc;
+  scroll-snap-align: start;
+}
+
+.wrapper_settings_form.specialization:hover::-webkit-scrollbar-thumb {
   background-color: #3f51b5;
 }
+
 ::-webkit-scrollbar {
   width: 4px;
 }
