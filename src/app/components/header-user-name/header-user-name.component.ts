@@ -9,8 +9,27 @@ import { UserLoginService } from 'src/app/services/user-login.service';
 export class HeaderUserNameComponent implements OnInit {
 
 	title: string = "unknown user";
+	userRoleClicked: boolean = false;
 
 	constructor(private _userLoginService: UserLoginService) { }
+
+	showFeatures()
+	{
+		if(this.userRoleClicked === false && this.title === "unknown user")
+		{
+			return;
+		}
+		else if(this.userRoleClicked === false)
+		{
+			this.userRoleClicked = true;
+		}
+		else if(this.userRoleClicked === true)
+		{
+			this.userRoleClicked = false;
+		};
+		
+		console.log(this.userRoleClicked);
+	};
 
 	ngOnInit(): void 
 	{
