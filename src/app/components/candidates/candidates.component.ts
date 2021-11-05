@@ -12,7 +12,6 @@ import { CandidatesListComponent } from './candidates-list/candidates-list.compo
 })
 export class CandidatesComponent implements OnInit {
 
-  // candidates$: Observable<Candidate[]>;
   selectedCandidate: Candidate
   pageOfCandidates: Candidate[]
   activeUser: string
