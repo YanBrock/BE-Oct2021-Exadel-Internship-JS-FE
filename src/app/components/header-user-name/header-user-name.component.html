@@ -1,6 +1,6 @@
-<div class="header__user">
+<div class="header__user" *ngIf="title">
 	<div class="name" (click)="showFeatures()">{{title | uppercase}}
-		<div class="user__features" *ngIf="title !== 'unknown user' && userRoleClicked === true">
+		<div class="user__features" *ngIf="userRoleClicked === true">
 			<a href="http://localhost:4200/">Log Out</a>
 		</div>
 	</div>

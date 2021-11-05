@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { UserLoginService } from 'src/app/services/user-login.service';
 
 @Component({
@@ -8,18 +8,14 @@ import { UserLoginService } from 'src/app/services/user-login.service';
 })
 export class HeaderUserNameComponent implements OnInit {
 
-	title: string = "unknown user";
+	title: string;
 	userRoleClicked: boolean = false;
 
 	constructor(private _userLoginService: UserLoginService) { }
 
 	showFeatures()
 	{
-		if(this.userRoleClicked === false && this.title === "unknown user")
-		{
-			return;
-		}
-		else if(this.userRoleClicked === false)
+		if(this.userRoleClicked === false)
 		{
 			this.userRoleClicked = true;
 		}
@@ -27,8 +23,6 @@ export class HeaderUserNameComponent implements OnInit {
 		{
 			this.userRoleClicked = false;
 		};
-		
-		console.log(this.userRoleClicked);
 	};
 
 	ngOnInit(): void 
