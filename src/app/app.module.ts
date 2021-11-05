@@ -1,3 +1,4 @@
+// import { FilterByStatusPipe } from 'src/app/pipes/filter-by-status.pipe';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
@@ -31,6 +32,7 @@ import { TechInterviewerModule } from './pages/tech-interviewer/tech-interviewer
     ManagerComponent,
     AdminComponent,
     CalendarComponent,
+    // FilterByStatusPipe
   ],
   imports: [
     BrowserModule,

@@ -6,8 +6,8 @@ import { Candidate } from '../types/candidate';
 })
 export class FilterByStatusPipe implements PipeTransform {
 
-  transform(value: Candidate[], filterName: string): Candidate[] {
-    return value.filter(candidate => candidate.status === filterName);
+  transform(value: Candidate[]): Candidate[] {
+    return value.filter(candidate => !candidate.status && candidate.isInterviewedByHr === true);
   }
 
 }
