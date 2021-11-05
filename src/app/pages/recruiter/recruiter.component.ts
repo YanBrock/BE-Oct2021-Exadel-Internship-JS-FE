@@ -9,12 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RecruiterComponent implements OnInit {
 
-  selectedCandidate: Candidate
+  // selectedCandidate: Candidate
 
   constructor(private candidatesService: CandidatesService) { }
 
   ngOnInit(): void {
-    this.candidatesService.selectedCandidate.subscribe(candidate => this.selectedCandidate = candidate)
+    // this.candidatesService.selectedCandidate.subscribe(candidate => this.selectedCandidate = candidate)
   }
 
 }

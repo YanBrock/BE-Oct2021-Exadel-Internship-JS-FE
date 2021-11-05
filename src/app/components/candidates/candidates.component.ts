@@ -17,7 +17,7 @@ export class CandidatesComponent implements OnInit {
   pageOfCandidates: Candidate[]
   activeUser: string
   startItem: number = 0
-  pageItems: number = 3
+  pageItems: number = 7
   @ViewChild(CandidatesListComponent) list: CandidatesListComponent
 
   constructor(public candidatesService: CandidatesService, private userLoginService: UserLoginService) { }
@@ -26,7 +26,7 @@ export class CandidatesComponent implements OnInit {
     this.candidatesService.selectedCandidate.subscribe(candidate => this.selectedCandidate = candidate)
     this.activeUser = this.userLoginService.activeUser.role
     if (this.activeUser === 'tech-interviewer') {
-      this.candidatesService.candidatesList$.subscribe(response => this.pageOfCandidates = response.filter(c => c.status === 'accepted').slice(this.startItem, this.pageItems))
+      this.candidatesService.candidatesList$.subscribe(response => this.pageOfCandidates = response.filter(c => c.isInterviewedByHr === true && !c.status).slice(this.startItem, this.pageItems))
     } else {
       this.candidatesService.candidatesList$.subscribe(response => this.pageOfCandidates = response.slice(this.startItem, this.pageItems))
     }
@@ -52,7 +52,7 @@ export class CandidatesComponent implements OnInit {
     }
 
     if (this.activeUser === 'tech-interviewer') {
-      this.candidatesService.candidatesList$.subscribe(response => this.pageOfCandidates = response.filter(c => c.status === 'accepted').slice(startIndex, endIndex))
+      this.candidatesService.candidatesList$.subscribe(response => this.pageOfCandidates = response.filter(c => c.isInterviewedByHr === true && !c.status).slice(startIndex, endIndex))
     } else {
       this.candidatesService.candidatesList$.subscribe(response => this.pageOfCandidates = response.slice(startIndex, endIndex))
     }

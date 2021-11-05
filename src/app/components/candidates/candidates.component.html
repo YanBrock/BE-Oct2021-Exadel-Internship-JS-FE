@@ -9,7 +9,7 @@
   </app-candidates-list>
   <ng-template #techBlock>
     <app-candidates-list
-      [candidates]="candidatesService.candidatesList$ | async | filterByStatus: 'accepted'"
+      [candidates]="candidatesService.candidatesList$ | async | filterByStatus"
       [pageOfCandidates]="pageOfCandidates"
       [selectedCandidate]="selectedCandidate"
       (selectCandidate)="onCandidateSelect($event)"
