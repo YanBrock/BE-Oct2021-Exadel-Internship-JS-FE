@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserLoginService } from 'src/app/services/user-login.service';
 import { Router } from '@angular/router';
-import  jwt_decode  from 'jwt-decode';
+import jwt_decode from 'jwt-decode';
 
 
 @Component({
@@ -17,7 +17,7 @@ export class UserLoginComponent implements OnInit {
   errorLogIn = 'p_error';
   errorLogInTwo = 'p_error';
   iAmSuperMan = 'http://schemas.microsoft.com/ws/2008/06/identity/claims/role';
-  decoded:any;
+  decoded: any;
 
 
   userData = {
@@ -45,27 +45,26 @@ export class UserLoginComponent implements OnInit {
       this.errorLogIn = 'p_error';
 
       this.loginService.postData({ email: this.userData.email, password: this.userData.password })
-      .subscribe(
-        (data: any) => {
+        .subscribe(
+          (data: any) => {
 
-          this.decoded = jwt_decode(data.token);
-          console.log(this.decoded)
-          console.log(this.decoded[this.iAmSuperMan])
+            this.decoded = jwt_decode(data.token);
 
+            this.userData.token = data.token;
+            this.userData.role = this.decoded[this.iAmSuperMan];
 
-          this.userData.token = data.token;
-          this.userData.role = this.decoded[this.iAmSuperMan];
+            this.loginService.saveDataUser(this.userData);
+            this.router.navigate(['/', this.decoded[this.iAmSuperMan]]);
 
-          this.loginService.saveDataUser(this.userData);
-          this.router.navigate(['/', this.decoded[this.iAmSuperMan]]);
+          },
+          error => {
 
-        },
-        error => {
-          error.ok ?
-            this.errorLogInTwo = 'p_error' :
-            this.errorLogInTwo = 'p_error two active';
-        }
-      );
+            error.ok ?
+              this.errorLogInTwo = 'p_error' :
+              this.errorLogInTwo = 'p_error two active';
+
+          }
+        );
     }
   }
 }
