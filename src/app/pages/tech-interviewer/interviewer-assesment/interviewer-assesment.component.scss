@@ -23,6 +23,7 @@
     border: none;
     color: #1e90cf;
     background-color: #1e90cf;
+
   }
 
   .tech-div {
@@ -32,16 +33,17 @@
 
   form {
     display: flex;
-    justify-content: space-between;
-    max-height: 9rem;
+    justify-content: center;
+    max-height: 10rem;
 
 
     span {
-      margin-left: 1rem;
+      display: flex;
     }
 
     textarea {
-      height: 6.5rem;
+      height: 6rem;
+
     }
 
 
@@ -54,10 +56,20 @@
   .input-text {
     width: 20px;
     text-align: center;
+    margin: 0 5px 0 15px;
+
   }
 }
 
 .btn {
-  transform: translateY(145px) translateX(-150px);
-  height: 40px;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  transform: translateY(158px) translateX(-425px);
+  width: 500px;
+  height: 30px;
+  background: rgba(55, 139, 97, 0.1);
+  border-radius: 50px;
+  color: #378B61;
 }
