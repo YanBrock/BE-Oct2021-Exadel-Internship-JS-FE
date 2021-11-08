@@ -3,16 +3,12 @@
 	<div class="header__logo">
 		<img src="../assets/images/logo.png" alt="Logo">
 	</div>
-
-	<!-- <mat-slide-toggle class="slider" (click)="onClick()" color="primary">EN/RU</mat-slide-toggle> -->
-
 	<div class="header__wrapper">
-		
-		<mat-slide-toggle class="slider" (click)="onClick()" color="primary">en-ru</mat-slide-toggle>
-
+    <mat-form-field appearance="fill">
+      <mat-select [(value)]="selectedLanguage" (valueChange)="changeLanguage($event)">
+        <mat-option *ngFor="let option of languageOptions" [value]="option.value">{{option.label}}</mat-option>
+      </mat-select>
+    </mat-form-field>
 		<app-header-user-name></app-header-user-name>
 	</div>
-	
-
-	
 </div>
