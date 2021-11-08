@@ -21,6 +21,8 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { NotFoundModule } from './pages/not-found/not-found.module';
 import { HeaderUserNameModule } from './components/header-user-name/header-user-name.module';
 import { TechInterviewerModule } from './pages/tech-interviewer/tech-interviewer.module';
+import {MatSelectModule} from '@angular/material/select';
+
 
 @NgModule({
   declarations: [
@@ -47,6 +49,7 @@ import { TechInterviewerModule } from './pages/tech-interviewer/tech-interviewer
     NotFoundModule,
     HeaderUserNameModule,
     TechInterviewerModule,
+    MatSelectModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
