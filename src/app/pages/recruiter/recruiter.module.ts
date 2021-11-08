@@ -3,7 +3,6 @@ import { CandidatesModule } from './../../components/candidates/candidates.modul
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RecruiterComponent } from './recruiter.component';
-// import { CandidateDataComponent } from './candidate-data/candidate-data.component';
 import { RecruiterAssesmentComponent } from './recruiter-assesment/recruiter-assesment.component';
 import { RecruiterWindowComponent } from './recruiter-window/recruiter-window.component';
 import { InterviewerAssesmentComponent } from './interviewer-assesment/interviewer-assesment.component';
@@ -14,7 +13,6 @@ import { TranslateModule } from '@ngx-translate/core';
 @NgModule({
   declarations: [
     RecruiterComponent,
-    // CandidateDataComponent,
     RecruiterAssesmentComponent,
     RecruiterWindowComponent,
     InterviewerAssesmentComponent,

@@ -22,7 +22,6 @@ export class CandidatesListComponent implements OnInit {
 
   ngOnInit(): void {
     this.dataSource = this.candidates
-    console.log(this.pageOfCandidates)
   }
 
   ngAfterViewInit() {
