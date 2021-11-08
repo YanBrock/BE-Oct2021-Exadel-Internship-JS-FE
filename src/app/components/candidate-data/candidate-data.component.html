@@ -2,29 +2,29 @@
 <hr>
 <div>
   <mat-list role="list">
-    <mat-list-item role="listitem">{{"recruiter.candidate-data.firstName" | translate}}
-      <span>{{ candidate.firstName }}</span>
+    <mat-list-item role="listitem" (click)="onClick()">{{"recruiter.candidate-data.firstName" | translate}}
+      <span>{{ selectedCandidate.firstName }}</span>
     </mat-list-item>
     <mat-list-item role="listitem">{{"recruiter.candidate-data.location" | translate}}
-      <span>{{ candidate.location }}</span>
+      <span>{{ selectedCandidate.location }}</span>
     </mat-list-item>
     <mat-list-item role="listitem">{{"recruiter.candidate-data.phone" | translate}}
-      <span>{{ candidate.phone }}</span>
+      <span>{{ selectedCandidate.phone }}</span>
     </mat-list-item>
     <mat-list-item role="listitem">{{"recruiter.candidate-data.specialization" | translate}}
-      <span>{{ candidate.specialization }}</span>
+      <span>{{ selectedCandidate.specialization }}</span>
     </mat-list-item>
     <mat-list-item role="listitem">{{"recruiter.candidate-data.lastName" | translate}}
-      <span>{{ candidate.lastName }}</span>
+      <span>{{ selectedCandidate.lastName }}</span>
     </mat-list-item>
     <mat-list-item role="listitem">{{"recruiter.candidate-data.email" | translate}}
-      <span>{{ candidate.email }}</span>
+      <span>{{ selectedCandidate.email }}</span>
     </mat-list-item>
     <mat-list-item role="listitem">{{"recruiter.candidate-data.skype" | translate}}
-      <span>{{ candidate.skype }}</span>
+      <span>{{ selectedCandidate.skype }}</span>
     </mat-list-item>
     <mat-list-item role="listitem">{{"recruiter.candidate-data.englishLevel" | translate}}
-      <span>{{ candidate.englishLevel }}</span>
+      <span>{{ selectedCandidate.englishLevel }}</span>
     </mat-list-item>
   </mat-list>
 </div>
