@@ -14,7 +14,7 @@
   
   "recruiter": {
     "candidate-data": {
-      "label": "Form Date",
+      "label": "FORM DATA",
       "firstName": "First name",
       "location": "Location",
       "phone": "Phone",
