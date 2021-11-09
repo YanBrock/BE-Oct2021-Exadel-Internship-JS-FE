@@ -16,7 +16,7 @@ export class UserLoginComponent implements OnInit {
   validEmail = '^([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,6}$';
   errorLogIn = 'p_error';
   errorLogInTwo = 'p_error';
-  iAmSuperMan = 'http://schemas.microsoft.com/ws/2008/06/identity/claims/role';
+  isKeyRole = 'http://schemas.microsoft.com/ws/2008/06/identity/claims/role';
   decoded: any;
 
 
@@ -51,10 +51,10 @@ export class UserLoginComponent implements OnInit {
             this.decoded = jwt_decode(data.token);
 
             this.userData.token = data.token;
-            this.userData.role = this.decoded[this.iAmSuperMan];
+            this.userData.role = this.decoded[this.isKeyRole];
 
             this.loginService.saveDataUser(this.userData);
-            this.router.navigate(['/', this.decoded[this.iAmSuperMan]]);
+            this.router.navigate(['/', this.decoded[this.isKeyRole]]);
 
           },
           error => {
