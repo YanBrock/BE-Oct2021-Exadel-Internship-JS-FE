@@ -1,4 +1,4 @@
-import { Status, Specialization } from './../../../types/candidate';
+import { Status, Specialization } from '../../../types/candidate';
 import { Component, OnDestroy, OnInit, EventEmitter, Output } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Subscription } from 'rxjs';

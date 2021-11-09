@@ -1,9 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { UserLoginService } from 'src/app/services/user-login.service';
-
-
-
 
 @Component({
   selector: 'app-header',
@@ -19,7 +15,7 @@ export class HeaderComponent implements OnInit {
     { label: 'Russian', value: 'ru' },
   ];
 
-  constructor(private translateService: TranslateService, private _userLoginService: UserLoginService) {
+  constructor(private translateService: TranslateService) {
     this.translateService.setDefaultLang(this.selectedLanguage);
   }
 

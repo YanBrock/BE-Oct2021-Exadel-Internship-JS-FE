@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-root',
@@ -8,9 +7,9 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class AppComponent {
   title = 'Exadel lerning center';
-  user = "guest"; // отправная точка - от бэкенда сюда должен присваиваться итог проверки авторизации в приложении  (строка - recruter || interviewer || mentor || manager || admin)
+  user = "guest"; // recruiter || tech-interviewer || mentor || manager || admin
 
-  constructor(private translateService: TranslateService) {
+  constructor() {
 
   }
 

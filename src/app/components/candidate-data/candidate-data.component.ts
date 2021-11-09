@@ -1,4 +1,4 @@
-import { Candidate } from './../../types/candidate';
+import { Candidate } from '../../types/candidate';
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
@@ -9,7 +9,6 @@ import { Component, Input, OnInit } from '@angular/core';
 export class CandidateDataComponent implements OnInit {
 
   @Input() selectedCandidate: Candidate
-  
 
   constructor() { }
 

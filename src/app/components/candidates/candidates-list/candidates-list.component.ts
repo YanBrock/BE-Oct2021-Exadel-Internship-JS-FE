@@ -1,5 +1,4 @@
-import { Candidate } from './../../../types/candidate';
-import { CandidatesService } from 'src/app/services/candidates.service';
+import { Candidate } from '../../../types/candidate';
 import { Component, Input, OnInit, Output, EventEmitter, ViewChild } from '@angular/core';
 import { PageEvent, MatPaginator } from '@angular/material/paginator';
 
@@ -18,7 +17,7 @@ export class CandidatesListComponent implements OnInit {
   @ViewChild (MatPaginator) paginator: MatPaginator
   dataSource
 
-  constructor(public candidatesService: CandidatesService) { }
+  constructor() { }
 
   ngOnInit(): void {
     this.dataSource = this.candidates
@@ -33,7 +32,7 @@ export class CandidatesListComponent implements OnInit {
   }
 
   onPageChange(event: PageEvent) {
-    this.changePage.emit(event)   
+    this.changePage.emit(event)
   }
 
 }
