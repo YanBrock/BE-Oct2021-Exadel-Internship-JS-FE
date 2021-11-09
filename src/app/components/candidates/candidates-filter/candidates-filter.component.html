@@ -1,6 +1,6 @@
 <form class="candidate-form" [formGroup]="filterForm">
 
-  <mat-form-field>
+  <mat-form-field class="specialization-filter">
     <mat-label>Specialization</mat-label>
     <mat-select formControlName="specialization">
       <mat-option value="all">All</mat-option>
@@ -8,7 +8,7 @@
     </mat-select>
   </mat-form-field>
 
-  <mat-form-field>
+  <mat-form-field class="status-filter">
     <mat-label>Status</mat-label>
     <mat-select formControlName="status">
       <mat-option value="all">All</mat-option>
