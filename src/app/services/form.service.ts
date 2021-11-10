@@ -10,28 +10,22 @@ import { Observable, Subject, ReplaySubject } from 'rxjs';
 export class FormService {
 
   dataIntern: object = {}
-  // isSpecialization = ['Javascript', '.Net', 'Business analyst'];
-  isSpecialization$ = new Subject<string[]>();
-  // isSpecialization = this.isSpecialization$.asObservable();
-
-  isEnglishlevel = ['Elementary', 'Pre-Intermediate', 'Intermediate', 'Upper-Intermediate', 'Advanced', 'Proficiency']
-  isLocation = ['Belarus', 'Poland', 'Russia', 'Georgia', 'Ukraine', 'other...']
-  isLocationCity = ['Minsk', 'Warsaw', 'Moscow', 'Tbilisi', 'Kiev', 'other...']
+  isSpecialization = ['Javascript', '.Net', 'Business analyst'];
+  isEnglishlevel = ['Elementary', 'Pre-Intermediate', 'Intermediate', 'Upper-Intermediate', 'Advanced', 'Proficiency'];
+  isLocation = ['Belarus', 'Poland', 'Russia', 'Georgia', 'Ukraine', 'other...'];
+  isLocationCity = ['Minsk', 'Warsaw', 'Moscow', 'Tbilisi', 'Kiev', 'other...'];
+  urlPostSpecializationData = 'https://exadel3team.myapptechka.by';
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  getSpecializations(): Observable<string[]> {
-    return this.isSpecialization$.asObservable();
-  }
+
+  postSpecializationData(data: string[]) {
+    fetch('urlPostSpecializationData')
 
 
-  getSpecializationByAdmin(data: string[]) {
-    this.isSpecialization$.next(data);
-    console.log(data);
-    // console.log(console.log(this.isSpecialization$));
   }
 
 

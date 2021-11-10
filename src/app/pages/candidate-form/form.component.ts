@@ -32,14 +32,7 @@ export class FormComponent implements OnInit {
   constructor(private formService: FormService) { }
 
   ngOnInit(): void {
-    this.formService.getSpecializations().subscribe(data => {
-      this.isSpecialization = data;
-      console.log(this.isSpecialization);
-    })
-
-    // this.formService.isSpecialization$.subscribe(data=>console.log(data));
-    // console.log(this.formService.isSpecialization$.subscribe((data) => { this.isSpecialization = data }));
-
+    this.isSpecialization = this.formService.isSpecialization;
     this.isEnglishlevel = this.formService.isEnglishlevel;
     this.isLocation = this.formService.isLocation;
     this.isLocationCity = this.formService.isLocationCity;

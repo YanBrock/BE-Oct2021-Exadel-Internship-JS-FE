@@ -55,14 +55,16 @@ export class FormSettingsComponent {
     this.task.subtasks.forEach(t => t.completed = completed);
   }
 
-  zzz() {
+  saveChangesSpecializationData() {
 
     this.task.subtasks.forEach((el) => {
       if (el.completed) {
         this.isSpecializationData.push(el.skill)
       }
     });
-    this.formService.getSpecializationByAdmin(this.isSpecializationData);
+
+    this.formService.postSpecializationData(this.isSpecializationData);
+
   }
 
 }
