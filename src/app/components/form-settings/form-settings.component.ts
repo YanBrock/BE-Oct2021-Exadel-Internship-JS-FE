@@ -57,13 +57,20 @@ export class FormSettingsComponent {
 
   saveChangesSpecializationData() {
 
+    this.isSpecializationData = [];
+
     this.task.subtasks.forEach((el) => {
       if (el.completed) {
         this.isSpecializationData.push(el.skill)
       }
     });
 
-    this.formService.postSpecializationData(this.isSpecializationData);
+    console.log(this.isSpecializationData);
+
+    this.formService.postSpecializationData(this.isSpecializationData)
+        .subscribe((data: any) => console.log(data),
+          (error: Error) => console.log(error)
+        );
 
   }
 
