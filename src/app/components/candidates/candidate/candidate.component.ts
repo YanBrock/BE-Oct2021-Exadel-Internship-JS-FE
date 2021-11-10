@@ -1,4 +1,3 @@
-import { CandidatesService } from 'src/app/services/candidates.service';
 import { Candidate, Status } from 'src/app/types/candidate';
 import { Component, Input, OnInit} from '@angular/core';
 
@@ -13,7 +12,7 @@ export class CandidateComponent implements OnInit {
   @Input() first: boolean
   @Input() selectedCandidate: Candidate
 
-  constructor(public candidatesService: CandidatesService) { }
+  constructor() { }
 
   ngOnInit(): void {
   }

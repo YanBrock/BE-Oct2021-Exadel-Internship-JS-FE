@@ -1,5 +1,5 @@
 import { UserLoginService } from 'src/app/services/user-login.service';
-import { CandidatesFilter } from './../../types/candidate';
+import { CandidatesFilter } from '../../types/candidate';
 import { Candidate } from '../../types/candidate';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { CandidatesService } from 'src/app/services/candidates.service';
@@ -45,11 +45,9 @@ export class CandidatesComponent implements OnInit {
     let length = 0;
     this.candidatesService.candidatesList$.subscribe(array => length = array.length);
     let endIndex = startIndex + object.pageSize;
-
     if (endIndex > length) {
       endIndex = length;
     }
-
     if (this.activeUser === 'tech-interviewer') {
       this.candidatesService.candidatesList$.subscribe(response => this.pageOfCandidates = response.filter(c => c.isInterviewedByHr === true && !c.status).slice(startIndex, endIndex))
     } else {

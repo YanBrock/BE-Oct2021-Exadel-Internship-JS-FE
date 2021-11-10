@@ -10,7 +10,6 @@ import { CandidatesFilterComponent } from './candidates-filter/candidates-filter
 import { ReactiveFormsModule } from "@angular/forms";
 import { MatPaginatorModule } from '@angular/material/paginator';
 
-
 @NgModule({
   declarations: [CandidateComponent,
     CandidatesListComponent,

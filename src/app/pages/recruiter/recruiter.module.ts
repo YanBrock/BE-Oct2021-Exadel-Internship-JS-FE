@@ -1,5 +1,5 @@
-import { CandidateDataModule } from './../../components/candidate-data/candidate-data.module';
-import { CandidatesModule } from './../../components/candidates/candidates.module';
+import { CandidateDataModule } from '../../components/candidate-data/candidate-data.module';
+import { CandidatesModule } from '../../components/candidates/candidates.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RecruiterComponent } from './recruiter.component';

@@ -9,8 +9,8 @@ export type EnglishLevel = 'beginner' | 'pre-intermediate' | 'intermediate' | 'u
 export type Specialization = 'front-end' | 'back-end' | 'business analyst'
 
 export interface CandidatesFilter {
-  status: Status | 'all';  // ???
-  specialization: Specialization | 'all' // ???
+  status: Status | 'all';
+  specialization: Specialization | 'all'
 }
 
 export interface Candidate {

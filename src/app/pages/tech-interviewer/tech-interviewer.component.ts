@@ -11,7 +11,7 @@ export class TechInterviewerComponent implements OnInit {
 
   selectedCandidate: Candidate
 
-  constructor(public candidatesService: CandidatesService) { }
+  constructor(private candidatesService: CandidatesService) { }
 
   ngOnInit(): void {
     this.candidatesService.selectedCandidate.subscribe(candidate => this.selectedCandidate = candidate)

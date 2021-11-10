@@ -1,11 +1,10 @@
-import { CandidateDataModule } from './../../components/candidate-data/candidate-data.module';
+import { CandidateDataModule } from '../../components/candidate-data/candidate-data.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TechInterviewerComponent } from './tech-interviewer.component';
 import { MatListModule } from '@angular/material/list';
 import { MatInputModule } from '@angular/material/input';
-import { CandidatesModule } from './../../components/candidates/candidates.module';
-import { CandidatesService } from 'src/app/services/candidates.service';
+import { CandidatesModule } from '../../components/candidates/candidates.module';
 import { InterviewerAssesmentComponent } from './interviewer-assesment/interviewer-assesment.component';
 import { TranslateModule } from '@ngx-translate/core';
 import { TechInterviewerWindowComponent } from './tech-interviewer-window/tech-interviewer-window.component';
@@ -32,9 +31,6 @@ import { FormsModule } from '@angular/forms';
   ],
   exports: [
     TechInterviewerComponent
-  ],
-  providers: [
-    CandidatesService,
   ]
 })
 export class TechInterviewerModule { }

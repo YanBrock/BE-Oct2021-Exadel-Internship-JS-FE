@@ -2,13 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { UserLoginService } from 'src/app/services/user-login.service';
 import { Router } from '@angular/router';
 
-
 @Component({
   selector: 'app-user-login',
   templateUrl: './user-login.component.html',
   styleUrls: ['./user-login.component.scss'],
 })
-
 
 export class UserLoginComponent implements OnInit {
   hide = true;
@@ -17,7 +15,6 @@ export class UserLoginComponent implements OnInit {
   errorLogInTwo = 'p_error';
   validLogin = false;
   goUrl = '';
-
 
   userData = {
     email: '',
