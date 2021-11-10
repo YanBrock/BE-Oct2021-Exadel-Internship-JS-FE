@@ -62,7 +62,6 @@ export class FormSettingsComponent {
         this.isSpecializationData.push(el.skill)
       }
     });
-    
     this.formService.getSpecializationByAdmin(this.isSpecializationData);
   }
 

@@ -8,7 +8,7 @@ import { FormService } from '../../services/form.service';
   providers: [FormService],
 })
 export class FormComponent implements OnInit {
-  isSpecialization : [];
+  isSpecialization : string[];
   isEnglishlevel: string[] = [];
   isLocation: string[] = [];
   isLocationCity: string[] = [];
@@ -32,8 +32,14 @@ export class FormComponent implements OnInit {
   constructor(private formService: FormService) { }
 
   ngOnInit(): void {
-    this.formService.isSpecialization$.subscribe((data) => { this.isSpecialization = data});
-    console.log(this.formService.isSpecialization$.subscribe((data) => { this.isSpecialization = data }));
+    this.formService.getSpecializations().subscribe(data => {
+      this.isSpecialization = data;
+      console.log(this.isSpecialization);
+    })
+
+    // this.formService.isSpecialization$.subscribe(data=>console.log(data));
+    // console.log(this.formService.isSpecialization$.subscribe((data) => { this.isSpecialization = data }));
+
     this.isEnglishlevel = this.formService.isEnglishlevel;
     this.isLocation = this.formService.isLocation;
     this.isLocationCity = this.formService.isLocationCity;

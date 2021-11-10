@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Data } from '@angular/router';
-import {Observable, Subject} from 'rxjs';
+import { Observable, Subject, ReplaySubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -9,11 +9,11 @@ import {Observable, Subject} from 'rxjs';
 
 export class FormService {
 
-  dataIntern: object = { }
+  dataIntern: object = {}
   // isSpecialization = ['Javascript', '.Net', 'Business analyst'];
-  isSpecialization$ = new Subject<[]>();
-  isSpecialization = this.isSpecialization$.asObservable();
-  
+  isSpecialization$ = new Subject<string[]>();
+  // isSpecialization = this.isSpecialization$.asObservable();
+
   isEnglishlevel = ['Elementary', 'Pre-Intermediate', 'Intermediate', 'Upper-Intermediate', 'Advanced', 'Proficiency']
   isLocation = ['Belarus', 'Poland', 'Russia', 'Georgia', 'Ukraine', 'other...']
   isLocationCity = ['Minsk', 'Warsaw', 'Moscow', 'Tbilisi', 'Kiev', 'other...']
@@ -23,12 +23,21 @@ export class FormService {
   ngOnInit(): void {
   }
 
-  getSpecializationByAdmin(data){
-    this.isSpecialization$.next(data);
-    console.log(data);
+  getSpecializations(): Observable<string[]> {
+    return this.isSpecialization$.asObservable();
   }
 
-  saveDataIntern(dataIntern: object): any{
+
+  getSpecializationByAdmin(data: string[]) {
+    this.isSpecialization$.next(data);
+    console.log(data);
+    // console.log(console.log(this.isSpecialization$));
+  }
+
+
+
+
+  saveDataIntern(dataIntern: object): any {
     this.dataIntern = dataIntern
     console.log(this.dataIntern)
   }
