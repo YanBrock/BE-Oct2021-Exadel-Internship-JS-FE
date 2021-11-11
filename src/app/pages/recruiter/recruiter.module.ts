@@ -10,6 +10,8 @@ import { MatListModule } from '@angular/material/list';
 import { MatInputModule } from '@angular/material/input';
 import { TranslateModule } from '@ngx-translate/core';
 import { RecruiterAssessmentModule } from '../../components/recruiter-assessment/recruiter-assessment.module';
+import { TechInterviewerAssessmentModule } from '../../components/tech-interviewer-assessment/tech-interviewer-assessment.module';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { RecruiterAssessmentModule } from '../../components/recruiter-assessment
     TranslateModule,
     CandidatesModule,
     CandidateDataModule,
-    RecruiterAssessmentModule
+    RecruiterAssessmentModule,
+    TechInterviewerAssessmentModule,
+    MatButtonModule,
   ],
   exports: [RecruiterComponent]
 })

@@ -1,6 +1,9 @@
 <div *ngIf="selectedCandidate">
   <app-candidate-data [selectedCandidate]="selectedCandidate"></app-candidate-data>
-<!--  <app-recruiter-assesment></app-recruiter-assesment>-->
-  <app-recruiter-assessment></app-recruiter-assessment>
-  <app-interviewer-assesment></app-interviewer-assesment>
+  <app-recruiter-assessment (changingForm)="onFormChange($event)" [assessments]="assessments"></app-recruiter-assessment>
+  <app-tech-interviewer-assessment></app-tech-interviewer-assessment>
+  <div class="buttons">
+    <button class="decline-button" mat-stroked-button (click)="onClick()">ASSIGN DECLINE STATUS</button>
+    <button class="apply-button" mat-stroked-button (click)="onClick()">APPLY ASSESSMENTS AND COMMENTS</button>
+  </div>
 </div>

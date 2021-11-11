@@ -1,0 +1,37 @@
+<h3>{{"recruiter.interviewer-assesment.label" | translate}}:</h3>
+<hr>
+<div *ngIf="activeUser !=='recruiter' else recruiterBlock">
+  <form (change)="onChange()">
+    <mat-list role="list">
+      <mat-list-item role="listitem">
+        HTML: <input name="input" [(ngModel)]="assessments['html']" type="text">/4
+      </mat-list-item>
+      <mat-list-item role="listitem">
+        CSS: <input name="input" [(ngModel)]="assessments['css']" type="text">/4
+      </mat-list-item>
+      <mat-list-item role="listitem">
+        JavaScript: <input name="input" [(ngModel)]="assessments['javaScript']" type="text">/4
+      </mat-list-item>
+    </mat-list>
+    <mat-form-field appearance="outline">
+      <mat-label>{{"recruiter.interviewer-assesment.comment" | translate}}</mat-label>
+      <textarea name="text" [(ngModel)]="assessments['comment']" matInput></textarea>
+    </mat-form-field>
+  </form>
+</div>
+<ng-template #recruiterBlock>
+  <div>
+    <mat-list role="list">
+      <mat-list-item role="listitem">
+        HTML: <span>5/5</span>
+      </mat-list-item>
+      <mat-list-item role="listitem">
+        CSS: <span>4/5</span>
+      </mat-list-item>
+      <mat-list-item role="listitem">
+        JavaScript: <span>3/5</span>
+      </mat-list-item>
+    </mat-list>
+    <p>Tech-interviewer comment</p>
+  </div>
+</ng-template>

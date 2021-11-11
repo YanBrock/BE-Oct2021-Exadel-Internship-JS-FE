@@ -1,17 +1,16 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import { Candidate } from '../../types/candidate';
 import {UserLoginService} from '../../services/user-login.service';
 
 @Component({
-  selector: 'app-recruiter-assessment',
-  templateUrl: './recruiter-assessment.component.html',
-  styleUrls: ['./recruiter-assessment.component.scss']
+  selector: 'app-tech-interviewer-assessment',
+  templateUrl: './tech-interviewer-assessment.component.html',
+  styleUrls: ['./tech-interviewer-assessment.component.scss']
 })
-export class RecruiterAssessmentComponent implements OnInit {
+export class TechInterviewerAssessmentComponent implements OnInit {
 
   activeUser: string
   @Input() assessments
-  @Output() changingForm = new EventEmitter<object>()
+  @Output() changingForm = new EventEmitter<any>()
 
   constructor(private userLoginService: UserLoginService) { }
 
@@ -22,5 +21,4 @@ export class RecruiterAssessmentComponent implements OnInit {
   onChange() {
     this.changingForm.emit(this.assessments)
   }
-
 }

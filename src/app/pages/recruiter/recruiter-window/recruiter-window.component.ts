@@ -10,14 +10,32 @@ import { UserLoginService } from '../../../services/user-login.service';
 })
 export class RecruiterWindowComponent implements OnInit {
 
-  activeUser: string
   selectedCandidate: Candidate
+  assessments ={
+    englishLevel: '',
+    communicationSkills: '',
+    abilityToListen: '',
+    selfConfidence: ''
+  }
 
   constructor(private candidatesService: CandidatesService, private userLoginSevice: UserLoginService) { }
 
   ngOnInit(): void {
-    this.activeUser = this.userLoginSevice.activeUser.role
     this.candidatesService.selectedCandidate.subscribe(candidate => this.selectedCandidate = candidate)
+  }
+
+  onClick() {
+    console.log(this.assessments)
+    this.assessments = {
+      englishLevel: '',
+      communicationSkills: '',
+      abilityToListen: '',
+      selfConfidence: ''
+    }
+  }
+
+  onFormChange(object) {
+    this.assessments = object
   }
 
 }

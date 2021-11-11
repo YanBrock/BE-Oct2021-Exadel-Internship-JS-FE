@@ -2,7 +2,6 @@
   width: 100%;
 }
 
-
 div {
   display: flex;
   flex-direction: column;
@@ -17,5 +16,13 @@ div {
     height: .05rem;
   }
 
-
+  button {
+    margin-top: 2rem;
+    padding: .5rem 0;
+    width: 100%;
+    border: none;
+    border-radius: 2rem;
+    background: #f0f0f0;
+    color: #378b61;
+  }
 }

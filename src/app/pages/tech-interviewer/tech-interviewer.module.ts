@@ -12,6 +12,7 @@ import { RecruiterAssesmentComponent } from './recruiter-assesment/recruiter-ass
 import { MatButtonModule } from '@angular/material/button';
 import { FormsModule } from '@angular/forms';
 import { RecruiterAssessmentModule } from '../../components/recruiter-assessment/recruiter-assessment.module';
+import { TechInterviewerAssessmentModule } from '../../components/tech-interviewer-assessment/tech-interviewer-assessment.module';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { RecruiterAssessmentModule } from '../../components/recruiter-assessment
     TranslateModule,
     MatButtonModule,
     CandidateDataModule,
-    RecruiterAssessmentModule
+    RecruiterAssessmentModule,
+    TechInterviewerAssessmentModule
   ],
   exports: [
     TechInterviewerComponent
