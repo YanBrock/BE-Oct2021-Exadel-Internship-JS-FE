@@ -1,20 +1,23 @@
 ::-webkit-scrollbar-track {
   background-color: #ffffff;
 }
+
 ::-webkit-scrollbar-thumb {
-  -webkit-border-radius: 0px;
-  border-radius: 0px;
-  background-color: #cccccc;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  background-color: #cccccc00;
   scroll-snap-align: start;
 }
 
-.wrapper_settings_form.specialization:hover::-webkit-scrollbar-thumb {
-  background-color: #3f51b5;
+.example-section:hover::-webkit-scrollbar-thumb {
+  background-color: #cccccc;
 }
 
 ::-webkit-scrollbar {
-  width: 4px;
+  width: 3px;
 }
+
+
 
 .container_settings_form {
   width: 900px;
@@ -23,23 +26,33 @@
   margin: auto;
   align-items: center;
 
+  h3{
+    color:#0080CA;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
 
-
-  .wrapper_settings_form {
+  .border_wrapper{
     width: 32.33%;
-    height: 250px;
     border: 2px solid #cccccc;
     border-radius: 5px;
-    padding: 10px 20px;
-    overflow-y: scroll;
+    padding: 20px 0px;
+    margin-bottom: 20px;
+
+  }
+
+  .wrapper_settings_form {
+    height: 265px;
+    overflow-y: hidden;
     transition: 0.3s;
     margin: auto;
-    margin-bottom: 30px;
     background-color: #ffffff;
   }
 
-  .wrapper_settings_form.specialization:hover {
-    border: 2px solid #3f51b5;
+  .example-section{
+    overflow-y: scroll;
+    height: 245px;
+    padding: 10px 20px;
   }
 
   button {
@@ -47,16 +60,38 @@
     margin: auto;
   }
 
-  .example-section {
-    margin: 12px 0;
-  }
-
-  .example-margin {
-    margin: 0 12px;
-  }
-
   ul {
     list-style-type: none;
     margin-top: 4px;
+
   }
+
+  li {
+    border: 1px solid #cccccc;
+    margin-bottom: 10px;
+    padding: 5px 10px;
+    border-radius: 3px;
+    transition: .3s;
+  }
+
+  li:hover {
+    border-color: #0080CA;
+  }
+
+  ul>li:last-child {
+    margin-bottom: 0px;
+  }
+
+  button{
+    background-color: #0080CA;
+  }
+
+  .mat-checkbox>span{
+    color: #0080CA;
+  }
+
+  .example-margin {
+    margin-left: 50px;
+  }
+
 }

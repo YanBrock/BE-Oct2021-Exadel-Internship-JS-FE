@@ -13,7 +13,7 @@ export class FormSettingsComponent {
   isSpecializationData = [];
 
   task = {
-    skill: 'Specialization',
+    skill: 'All specialization',
     completed: false,
     subtasks: [
       {skill: 'Javascript', completed: false},
