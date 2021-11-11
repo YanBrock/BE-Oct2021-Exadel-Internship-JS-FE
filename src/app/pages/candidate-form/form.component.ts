@@ -8,7 +8,7 @@ import { FormService } from '../../services/form.service';
   providers: [FormService],
 })
 export class FormComponent implements OnInit {
-  isSpecialization: string[] = [];
+  isSpecialization : string[];
   isEnglishlevel: string[] = [];
   isLocation: string[] = [];
   isLocationCity: string[] = [];
