@@ -17,14 +17,11 @@ import { translateModuleConfig } from './app.i18n';
 import { HttpClientModule } from '@angular/common/http';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { NotFoundModule } from './pages/not-found/not-found.module';
-<<<<<<< HEAD
 import { AdminModule } from './pages/admin/admin.module';
-=======
 import { HeaderUserNameModule } from './components/header-user-name/header-user-name.module';
 import { TechInterviewerModule } from './pages/tech-interviewer/tech-interviewer.module';
 import {MatSelectModule} from '@angular/material/select';
 
->>>>>>> 87bac6f39fc0c8c5c001854574b8400d7ea454aa
 
 @NgModule({
   declarations: [
@@ -47,14 +44,11 @@ import {MatSelectModule} from '@angular/material/select';
     HttpClientModule,
     MatSlideToggleModule,
     TranslateModule.forRoot(translateModuleConfig),
-<<<<<<< HEAD
-    NotFoundModule
-=======
     NotFoundModule,
     HeaderUserNameModule,
     TechInterviewerModule,
     MatSelectModule,
->>>>>>> 87bac6f39fc0c8c5c001854574b8400d7ea454aa
+
   ],
   providers: [],
   bootstrap: [AppComponent]
