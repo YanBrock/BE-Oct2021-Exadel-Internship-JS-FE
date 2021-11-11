@@ -1,0 +1,52 @@
+.header__user
+{
+	display: flex;
+	align-items: center;
+	position: relative;
+	margin-left: 2rem;
+
+	&:hover
+	{
+		cursor: pointer;
+	}
+
+	.name
+	{
+		margin-right: 1rem;
+		color: #1E90CF;
+		font-weight: bold;
+	}
+
+	.avatar img
+	{
+		height: 2rem;
+		width: 100%;
+		border-radius: 50%;
+	}
+}
+
+.user__features
+{
+	position: absolute;
+
+	& a
+	{
+		text-decoration: none;
+		transition: linear .2s color;
+
+		&:visited 
+		{
+			color: #1E90CF;
+		}
+
+		&:hover
+		{
+			color: #76c7f3;
+		}
+	}
+
+	&:hover
+	{
+		cursor: pointer;
+	}
+}

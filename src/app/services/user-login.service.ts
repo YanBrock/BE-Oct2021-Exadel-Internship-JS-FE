@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -45,11 +46,13 @@ export class UserLoginService {
     token: null
   }
 
+  userRole$ = new Subject<string>()
+  userRole = this.userRole$.asObservable()
+
   constructor() { }
 
   saveDataUser(userData: any): any{
     this.activeUser = {...userData};
-
    }
 
   isAuthenticated(): boolean {
@@ -61,7 +64,7 @@ export class UserLoginService {
   }
 
   getRole() {
+	this.userRole$.next(this.activeUser.role)
     return this.activeUser.role;
   }
-
 }

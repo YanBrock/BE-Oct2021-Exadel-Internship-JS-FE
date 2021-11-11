@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { StatusFiltersComponent } from './status-filters.component';
+import { HeaderUserNameComponent } from './header-user-name.component';
 
-describe('StatusFiltersComponent', () => {
-  let component: StatusFiltersComponent;
-  let fixture: ComponentFixture<StatusFiltersComponent>;
+describe('HeaderUserNameComponent', () => {
+  let component: HeaderUserNameComponent;
+  let fixture: ComponentFixture<HeaderUserNameComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ StatusFiltersComponent ]
+      declarations: [ HeaderUserNameComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(StatusFiltersComponent);
+    fixture = TestBed.createComponent(HeaderUserNameComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

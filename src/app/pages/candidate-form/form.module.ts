@@ -8,8 +8,6 @@ import { MatInputModule } from '@angular/material/input';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatButtonModule } from '@angular/material/button';
 
-
-
 @NgModule({
   declarations: [
     FormComponent

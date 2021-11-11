@@ -1,0 +1,25 @@
+<div class="wrapper">
+  <h3>{{"recruiter.interviewer-assesment.label" | translate}}:</h3>
+  <hr>
+  <form class="tech-div" (ngSubmit)="onSubmit()">
+    <mat-list role="list">
+      <mat-list-item role="listitem">HTML:
+        <span><input name="input" [(ngModel)]="scores.html" class="input-text" type="text"
+            (keypress)="OnlyNumbersAllowed($event,'html')"> /4</span>
+      </mat-list-item>
+      <mat-list-item role="listitem">CSS:
+        <span><input name="input" [(ngModel)]="scores.css" class="input-text" type="text"
+            (keypress)="OnlyNumbersAllowed($event,'css')"> /4</span>
+      </mat-list-item>
+      <mat-list-item role="listitem">JavaScript:
+        <span><input name="input" [(ngModel)]="scores.javascript" class="input-text" type="text"
+            (keypress)="OnlyNumbersAllowed($event,'javascript')"> /4</span>
+      </mat-list-item>
+    </mat-list>
+    <mat-form-field appearance="outline">
+      <mat-label>{{"recruiter.interviewer-assesment.comment" | translate}}</mat-label>
+      <textarea name="text" [(ngModel)]="scores.review" matInput></textarea>
+    </mat-form-field>
+    <button type="submit" mat-raised-button color="primary" class="btn">PASS ON</button>
+  </form>
+</div>
