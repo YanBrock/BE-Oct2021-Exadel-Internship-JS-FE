@@ -1,5 +1,9 @@
-<div class="header__user">
-	<div class="name">{{title | uppercase}}</div>
+<div class="header__user" *ngIf="title">
+	<div class="name" (click)="showFeatures()">{{title | uppercase}}
+		<div class="user__features" *ngIf="userRoleClicked === true">
+			<a href="http://localhost:4200/">Log Out</a>
+		</div>
+	</div>
 
 	<div class="avatar">
 		<img src="../assets/images/avatar.jpg" alt="Avatar">

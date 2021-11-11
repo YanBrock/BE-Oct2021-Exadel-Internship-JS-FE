@@ -1,5 +1,5 @@
-import { Candidate } from './../../../types/candidate';
-import { Component, OnInit, Input } from '@angular/core';
+import { Candidate } from '../../types/candidate';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-candidate-data',
@@ -8,11 +8,12 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class CandidateDataComponent implements OnInit {
 
-  @Input() candidate: Candidate
+  @Input() selectedCandidate: Candidate
 
   constructor() { }
 
   ngOnInit(): void {
+
   }
 
 }

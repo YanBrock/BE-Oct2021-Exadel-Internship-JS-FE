@@ -5,7 +5,6 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { MainComponent } from './components/main/main.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { TechInterviewerComponent } from './pages/tech-interviewer/tech-interviewer.component';
 import { MentorComponent } from './pages/mentor/mentor.component';
 import { ManagerComponent } from './pages/manager/manager.component';
 import { AdminComponent } from './pages/admin/admin.component';
@@ -20,6 +19,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { NotFoundModule } from './pages/not-found/not-found.module';
 import { HeaderUserNameModule } from './components/header-user-name/header-user-name.module';
+import { TechInterviewerModule } from './pages/tech-interviewer/tech-interviewer.module';
+import {MatSelectModule} from '@angular/material/select';
+
 
 @NgModule({
   declarations: [
@@ -27,7 +29,6 @@ import { HeaderUserNameModule } from './components/header-user-name/header-user-
     HeaderComponent,
     MainComponent,
     FooterComponent,
-    TechInterviewerComponent,
     MentorComponent,
     ManagerComponent,
     AdminComponent,
@@ -43,8 +44,10 @@ import { HeaderUserNameModule } from './components/header-user-name/header-user-
     HttpClientModule,
     MatSlideToggleModule,
     TranslateModule.forRoot(translateModuleConfig),
-	NotFoundModule,
-	HeaderUserNameModule,
+    NotFoundModule,
+    HeaderUserNameModule,
+    TechInterviewerModule,
+    MatSelectModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

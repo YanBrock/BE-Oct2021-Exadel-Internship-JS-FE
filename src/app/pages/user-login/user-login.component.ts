@@ -3,13 +3,11 @@ import { UserLoginService } from 'src/app/services/user-login.service';
 import { Router } from '@angular/router';
 import jwt_decode from 'jwt-decode';
 
-
 @Component({
   selector: 'app-user-login',
   templateUrl: './user-login.component.html',
   styleUrls: ['./user-login.component.scss'],
 })
-
 
 export class UserLoginComponent implements OnInit {
   hide = true;
@@ -18,7 +16,6 @@ export class UserLoginComponent implements OnInit {
   errorLogInTwo = 'p_error';
   isKeyRole = 'http://schemas.microsoft.com/ws/2008/06/identity/claims/role';
   decoded: any;
-
 
   userData = {
     email: '',

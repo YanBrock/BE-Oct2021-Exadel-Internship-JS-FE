@@ -1,9 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { UserLoginService } from 'src/app/services/user-login.service';
-
-
-
 
 @Component({
   selector: 'app-header',
@@ -12,18 +8,23 @@ import { UserLoginService } from 'src/app/services/user-login.service';
 })
 export class HeaderComponent implements OnInit {
 
-  lang: string = 'en'
+  selectedLanguage: string = 'en'
 
-  constructor(private translateService: TranslateService, private _userLoginService: UserLoginService) {
-    this.translateService.setDefaultLang(this.lang);
+  languageOptions = [
+    { label: 'English', value: 'en' },
+    { label: 'Russian', value: 'ru' },
+  ];
+
+  constructor(private translateService: TranslateService) {
+    this.translateService.setDefaultLang(this.selectedLanguage);
   }
 
   ngOnInit() {
-    this.translateService.use(this.lang);
+    this.translateService.use(this.selectedLanguage);
   }
 
-  onClick() {
-    this.lang = this.translateService.currentLang === 'en' ? 'ru' : 'en';
-    this.translateService.use(this.lang);
+  changeLanguage(language) {
+    this.translateService.use(language)
   }
+
 }

@@ -1,4 +1,4 @@
-import { Candidate } from './../../../types/candidate';
+import { Candidate } from '../../../types/candidate';
 import { CandidatesService } from 'src/app/services/candidates.service';
 import { Component, OnInit } from '@angular/core';
 
