@@ -1,0 +1,37 @@
+<h3>{{"recruiter.recruiter-assesment.label" | translate}}:</h3>
+<hr>
+<div *ngIf="activeUser !=='tech-interviewer' else techBlock">
+  <mat-list role="list">
+    <mat-list-item role="listitem">{{"recruiter.recruiter-assesment.english" | translate}}: <input type="text">/4
+    </mat-list-item>
+    <mat-list-item role="listitem">{{"recruiter.recruiter-assesment.communicationSkills" | translate}}: <input
+      type="text">/4</mat-list-item>
+    <mat-list-item role="listitem">{{"recruiter.recruiter-assesment.abilityToListen" | translate}}: <input
+      type="text">/4</mat-list-item>
+    <mat-list-item role="listitem">{{"recruiter.recruiter-assesment.selfConfidence" | translate}}: <input type="text">/4
+    </mat-list-item>
+  </mat-list>
+  <mat-form-field appearance="outline">
+    <mat-label>{{"recruiter.interviewer-assesment.comment" | translate}}</mat-label>
+    <textarea matInput></textarea>
+  </mat-form-field>
+</div>
+<ng-template #techBlock>
+  <div>
+    <mat-list role="list">
+      <mat-list-item role="listitem">{{"recruiter.recruiter-assesment.english" | translate}}: 1/4
+      </mat-list-item>
+      <mat-list-item role="listitem">{{"recruiter.recruiter-assesment.communicationSkills" | translate}}: 2/4
+      </mat-list-item>
+      <mat-list-item role="listitem">{{"recruiter.recruiter-assesment.abilityToListen" | translate}}: 3/4
+      </mat-list-item>
+      <mat-list-item role="listitem">{{"recruiter.recruiter-assesment.selfConfidence" | translate}}: 4/4
+      </mat-list-item>
+    </mat-list>
+    <p>Recruiter comment</p>
+<!--    <mat-form-field appearance="outline">-->
+<!--      <mat-label>{{"recruiter.interviewer-assesment.comment" | translate}}</mat-label>-->
+<!--      <textarea matInput readonly></textarea>-->
+<!--    </mat-form-field>-->
+  </div>
+</ng-template>
