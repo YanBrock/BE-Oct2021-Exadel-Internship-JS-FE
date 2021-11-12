@@ -1,7 +1,8 @@
 {
-  "/api/*": {
+  "/Account/*": {
       "target": "https://exadel3team.myapptechka.by",
       "secure": false,
-      "logLevel": "debug"
+      "logLevel": "debug",
+      "changeOrigin": true
   }
 }

@@ -77,11 +77,11 @@
           "configurations": {
             "production": {
               "browserTarget": "exadel-lerning-front:build:production",
-              "proxyConfig": "./src/proxy.conf.json"
+              "proxyConfig": "src/proxy.conf.json"
             },
             "development": {
               "browserTarget": "exadel-lerning-front:build:development",
-              "proxyConfig": "./src/proxy.conf.json"
+              "proxyConfig": "src/proxy.conf.json"
             }
           },
           "defaultConfiguration": "development"

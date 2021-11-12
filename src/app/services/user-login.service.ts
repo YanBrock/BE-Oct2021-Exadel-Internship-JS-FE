@@ -1,7 +1,6 @@
-import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { Subject } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 
 
 @Injectable({
@@ -11,9 +10,7 @@ import { Subject } from 'rxjs';
 
 export class UserLoginService {
 
-  // baseURL: string = 'https://exadel3team.myapptechka.by/Account/Login';
-  baseURL: string = 'api/Account/Login';
-  getRoleURL: string = 'https://exadel3team.myapptechka.by/Home/Index';
+  baseURL: string = 'Account/Login';
 
   activeUser = {
     email: null,
@@ -30,12 +27,7 @@ export class UserLoginService {
     const httpOptions = {
       headers: new HttpHeaders({
         'accept': '*/*',
-        'Content-Type': 'application/json',
-        // 'Cache-Control': 'no-cache',
-        // 'Access-Control-Allow-Origin': '*',
-        // 'Access-Control-Allow-Credentials': 'true',
-        // 'Access-Control-Allow-Headers': 'Content-Type,X-Auth-Token,Origin',
-        // 'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE'
+        'Content-Type': 'application/json'
       }),
     };
     return this.http.post(this.baseURL, userDataJson, httpOptions);
