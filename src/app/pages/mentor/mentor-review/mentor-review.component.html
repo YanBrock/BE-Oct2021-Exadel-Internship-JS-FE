@@ -1,0 +1,16 @@
+<div class="wrapper">
+  <h3>ASSESSMENT</h3>
+  <hr>
+  <form class="form" (ngSubmit)="onSubmit()">
+
+    <span>GRADE: <input name="input" [(ngModel)]="scores.grade" class="input-text" type="text"
+        (keypress)="OnlyNumbersAllowed($event)">
+      /10</span>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Leave your review</mat-label>
+      <textarea cols="200" rows="30" name="text" matInput [(ngModel)]="scores.review"></textarea>
+    </mat-form-field>
+    <button type="submit" class="btn">SUBMIT</button>
+  </form>
+</div>

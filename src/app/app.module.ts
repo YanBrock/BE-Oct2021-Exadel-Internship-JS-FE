@@ -5,7 +5,6 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { MainComponent } from './components/main/main.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { MentorComponent } from './pages/mentor/mentor.component';
 import { ManagerComponent } from './pages/manager/manager.component';
 import { CalendarComponent } from './components/calendar/calendar.component';
 import { FormModule } from './pages/candidate-form/form.module';
@@ -20,8 +19,8 @@ import { NotFoundModule } from './pages/not-found/not-found.module';
 import { AdminModule } from './pages/admin/admin.module';
 import { HeaderUserNameModule } from './components/header-user-name/header-user-name.module';
 import { TechInterviewerModule } from './pages/tech-interviewer/tech-interviewer.module';
-import {MatSelectModule} from '@angular/material/select';
-
+import { MatSelectModule } from '@angular/material/select';
+import { MentorModule } from './pages/mentor/mentor.module'
 
 @NgModule({
   declarations: [
@@ -29,7 +28,6 @@ import {MatSelectModule} from '@angular/material/select';
     HeaderComponent,
     MainComponent,
     FooterComponent,
-    MentorComponent,
     ManagerComponent,
     CalendarComponent,
   ],
@@ -48,7 +46,7 @@ import {MatSelectModule} from '@angular/material/select';
     HeaderUserNameModule,
     TechInterviewerModule,
     MatSelectModule,
-
+    MentorModule
   ],
   providers: [],
   bootstrap: [AppComponent]
