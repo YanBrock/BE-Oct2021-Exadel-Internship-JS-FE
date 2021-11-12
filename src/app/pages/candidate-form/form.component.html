@@ -91,7 +91,7 @@
 
       <div class="wrapperCv">
         <input #csvInput hidden="true" type="file" onclick="this.value=null" (change)="csvInputChange($event)"
-          accept=".pdf" />
+          accept=".pdf, .doc, .jpg, .png" />
         <div class="buttonCv" mat-raised-button (click)="csvInput.click()">
           <p>Add your CV (PDF)</p>
         </div>

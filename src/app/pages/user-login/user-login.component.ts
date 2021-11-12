@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserLoginService } from 'src/app/services/user-login.service';
 import { Router } from '@angular/router';
+import jwt_decode from 'jwt-decode';
 
 @Component({
   selector: 'app-user-login',
@@ -13,14 +14,14 @@ export class UserLoginComponent implements OnInit {
   validEmail = '^([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,6}$';
   errorLogIn = 'p_error';
   errorLogInTwo = 'p_error';
-  validLogin = false;
-  goUrl = '';
+  isKeyRole = 'http://schemas.microsoft.com/ws/2008/06/identity/claims/role';
+  decoded: any;
 
   userData = {
     email: '',
     password: '',
     role: '',
-    token: 'bvdjjji439hgiiig55999999999999999'
+    token: ''
   }
 
   constructor(private loginService: UserLoginService, private router: Router) { }
@@ -30,7 +31,7 @@ export class UserLoginComponent implements OnInit {
   onFocus(userForm: any) {
     userForm.controls.input.value.length > 0 ?
       this.errorLogIn = 'p_error' :
-      (this.errorLogIn = 'p_error active',  this.errorLogInTwo = 'p_error');
+      (this.errorLogIn = 'p_error active', this.errorLogInTwo = 'p_error');
   }
 
   submit(userForm: any) {
@@ -40,26 +41,27 @@ export class UserLoginComponent implements OnInit {
     } else {
       this.errorLogIn = 'p_error';
 
-      this.loginService.users.find(person => {
-        if (person.email === this.userData.email && person.password === this.userData.password) {
-          this.validLogin = true;
-          this.userData.role = person.role;
-          this.goUrl = person.role;
-        }
-      })
+      this.loginService.postData({ email: this.userData.email, password: this.userData.password })
+        .subscribe(
+          (data: any) => {
 
-      if (this.validLogin) {
-        this.errorLogInTwo = 'p_error';
+            this.decoded = jwt_decode(data.token);
 
-        this.loginService.saveDataUser(this.userData);
-        this.router.navigate(['/', this.goUrl]);
+            this.userData.token = data.token;
+            this.userData.role = this.decoded[this.isKeyRole];
 
-      } else {
-        this.errorLogInTwo = 'p_error two active';
-      }
+            this.loginService.saveDataUser(this.userData);
+            this.router.navigate(['/', this.decoded[this.isKeyRole]]);
 
+          },
+          error => {
+
+            error.ok ?
+              this.errorLogInTwo = 'p_error' :
+              this.errorLogInTwo = 'p_error two active';
+
+          }
+        );
     }
-
   }
-
 }
