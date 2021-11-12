@@ -3,9 +3,7 @@ import { CandidatesModule } from '../../components/candidates/candidates.module'
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RecruiterComponent } from './recruiter.component';
-import { RecruiterAssesmentComponent } from './recruiter-assesment/recruiter-assesment.component';
 import { RecruiterWindowComponent } from './recruiter-window/recruiter-window.component';
-import { InterviewerAssesmentComponent } from './interviewer-assesment/interviewer-assesment.component';
 import { MatListModule } from '@angular/material/list';
 import { MatInputModule } from '@angular/material/input';
 import { TranslateModule } from '@ngx-translate/core';
@@ -16,9 +14,7 @@ import { MatButtonModule } from '@angular/material/button';
 @NgModule({
   declarations: [
     RecruiterComponent,
-    RecruiterAssesmentComponent,
-    RecruiterWindowComponent,
-    InterviewerAssesmentComponent,
+    RecruiterWindowComponent
   ],
   imports: [
     CommonModule,
