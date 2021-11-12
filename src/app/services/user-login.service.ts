@@ -11,7 +11,8 @@ import { Subject } from 'rxjs';
 
 export class UserLoginService {
 
-  baseURL: string = 'https://exadel3team.myapptechka.by/Account/Login';
+  // baseURL: string = 'https://exadel3team.myapptechka.by/Account/Login';
+  baseURL: string = 'api/Account/Login';
   getRoleURL: string = 'https://exadel3team.myapptechka.by/Home/Index';
 
   activeUser = {
@@ -30,11 +31,11 @@ export class UserLoginService {
       headers: new HttpHeaders({
         'accept': '*/*',
         'Content-Type': 'application/json',
-        'Cache-Control': 'no-cache',
-        'Access-Control-Allow-Origin': '*',
-        'Access-Control-Allow-Credentials': 'true',
-        'Access-Control-Allow-Headers': 'Content-Type,X-Auth-Token,Origin',
-        'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE'
+        // 'Cache-Control': 'no-cache',
+        // 'Access-Control-Allow-Origin': '*',
+        // 'Access-Control-Allow-Credentials': 'true',
+        // 'Access-Control-Allow-Headers': 'Content-Type,X-Auth-Token,Origin',
+        // 'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE'
       }),
     };
     return this.http.post(this.baseURL, userDataJson, httpOptions);
