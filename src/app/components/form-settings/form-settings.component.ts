@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, QueryList, ViewChildren } from '@angular/core';
 import { FormService } from '../../services/form.service';
 
 @Component({
@@ -8,6 +8,8 @@ import { FormService } from '../../services/form.service';
   providers: [FormService],
 })
 export class FormSettingsComponent {
+
+  @ViewChildren('li') list: QueryList<HTMLElement>
 
   constructor(private formService: FormService) { }
   isSpecializationData = [];
@@ -53,6 +55,12 @@ export class FormSettingsComponent {
     }
 
     this.task.subtasks.forEach(t => t.completed = completed);
+  }
+
+  deleteSpecialization(e: Event) {
+    if (e.target["className"]==='button_delete') {
+      e.target['parentElement'].remove();
+    }
   }
 
   saveChangesSpecializationData() {
