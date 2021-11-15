@@ -23,7 +23,7 @@ export class FormService {
   }
 
 
-  postSpecializationData(data: string[]): Observable<any> {
+  postSpecializationData(data: any): Observable<any> {
     let saveSpecializationDataJson = JSON.stringify(data)
     const httpOptions = {
       headers: new HttpHeaders({
@@ -36,8 +36,9 @@ export class FormService {
         'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE'
       }),
     };
-    return this.http.post(this.urlPostSpecializationData, saveSpecializationDataJson, httpOptions);
-
+    console.log(saveSpecializationDataJson);
+    // return this.http.post(this.urlPostSpecializationData, saveSpecializationDataJson, httpOptions);
+    return data;
   }
 
 

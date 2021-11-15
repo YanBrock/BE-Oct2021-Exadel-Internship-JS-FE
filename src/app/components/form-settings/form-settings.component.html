@@ -33,9 +33,13 @@
 
           <mat-form-field appearance="outline" id="addSpecialization">
             <mat-label>Add specialization</mat-label>
-            <input matInput type="text" name="name" id="">
+            <input matInput type="text" name="name" #inputValue = "ngModel"
+             [(ngModel)]="isInputValueAddSpecializationData">
           </mat-form-field>
-          <button mat-raised-button (click)="addSpecialization()">ADD</button>
+
+          <button mat-raised-button disabled="{{!inputValue.value}}"
+          (click)="addSpecialization()">ADD</button>
+
 
         </div>
 

@@ -2,6 +2,7 @@ import { Component, QueryList, ViewChildren } from '@angular/core';
 import { AdminService } from 'src/app/services/admin-service';
 import { FormService } from '../../services/form.service';
 
+
 @Component({
   selector: 'app-form-settings',
   templateUrl: './form-settings.component.html',
@@ -13,8 +14,8 @@ export class FormSettingsComponent {
   // @ViewChildren('li') list: QueryList<HTMLElement>
   isSpecializationData = [];
   allComplete: boolean = false;
+  isInputValueAddSpecializationData: string;
   skillForDelete: string;
-  // tests = [];
 
   dataSpecialization = {
     skill: '',
@@ -53,9 +54,19 @@ export class FormSettingsComponent {
     this.dataSpecialization.subtasks.forEach(t => t.completed = completed);
   }
 
+  addSpecialization() {
+    this.dataSpecialization.subtasks.push({
+      skill:
+        this.isInputValueAddSpecializationData.charAt(0).toUpperCase() +
+        this.isInputValueAddSpecializationData.slice(1)
+      , completed: false
+    });
+    this.isInputValueAddSpecializationData = '';
+  }
+
   deleteSpecialization(e: Event) {
 
-    if (e.target["className"]==='button_delete') {
+    if (e.target["className"] === 'button_delete') {
       e.target['parentElement'].remove();
 
       this.skillForDelete = e.target['parentElement'].__ngContext__[26];
@@ -66,9 +77,6 @@ export class FormSettingsComponent {
     }
   }
 
-  addSpecialization() {
-    
-  }
 
   saveChangesSpecializationData() {
 
@@ -83,9 +91,9 @@ export class FormSettingsComponent {
 
 
     this.formService.postSpecializationData(this.isSpecializationData)
-        .subscribe((data: any) => console.log(data),
-          (error: Error) => console.log(error)
-        );
+      .subscribe((data: any) => console.log(data),
+        (error: Error) => console.log(error)
+      );
 
   }
 
