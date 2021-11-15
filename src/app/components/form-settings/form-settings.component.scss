@@ -32,15 +32,18 @@ h2 {
   text-transform: uppercase;
 }
 
-.container_settings {
+.block_settings {
   width: 100%;
   display: flex;
+  flex-wrap: nowrap;
   margin: auto;
   justify-content: space-between;
 }
 
 
-.container_settings_form {
+.container_settings.form,
+.container_settings.users,
+.container_settings.candidate {
   width: 32%;
   display: flex;
   flex-direction: column;
@@ -77,16 +80,16 @@ h2 {
   }
 
   .wrapper_settings_form {
-    height: 270px;
-    overflow-y: hidden;
     transition: 0.3s;
     margin: auto;
     background-color: #ffffff;
+    padding-top: 10px;
+    margin-bottom: 30px;
   }
 
     .example-section {
       overflow-y: scroll;
-      height: 245px;
+      height: 235px;
       padding: 10px 20px;
     }
 
@@ -160,6 +163,30 @@ h2 {
     .example-margin {
       margin-left: 50px;
       margin-bottom: 10px;
+    }
+
+    .wrapper_add_form_data{
+      box-sizing: border-box;
+      padding: 0px 20px;
+      display: flex;
+      justify-content: space-between;
+
+      input{
+        width: 75%;
+        padding-left: 10px;
+        border: 1px solid #cccccc;
+        border-radius: 3px;
+        transition: .3s;
+      }
+
+      input:hover {
+        border-color: #0080ca;
+      }
+
+      button{
+        width: 20%;
+      }
+
     }
 
 
