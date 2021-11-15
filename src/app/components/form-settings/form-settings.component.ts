@@ -1,79 +1,82 @@
 import { Component, QueryList, ViewChildren } from '@angular/core';
+import { AdminService } from 'src/app/services/admin-service';
 import { FormService } from '../../services/form.service';
 
 @Component({
   selector: 'app-form-settings',
   templateUrl: './form-settings.component.html',
   styleUrls: ['./form-settings.component.scss'],
-  providers: [FormService],
+  providers: [FormService, AdminService],
 })
 export class FormSettingsComponent {
 
-  @ViewChildren('li') list: QueryList<HTMLElement>
-
-  constructor(private formService: FormService) { }
+  // @ViewChildren('li') list: QueryList<HTMLElement>
   isSpecializationData = [];
+  allComplete: boolean = false;
+  skillForDelete: string;
+  // tests = [];
 
-  task = {
-    skill: 'All specialization',
+  dataSpecialization = {
+    skill: '',
     completed: false,
-    subtasks: [
-      {skill: 'Javascript', completed: false},
-      {skill: '.Net', completed: false},
-      {skill: 'Business analyst', completed: false },
-      {skill: 'Java', completed: false},
-      {skill: 'С++', completed: false},
-      {skill: 'Javascript', completed: false},
-      {skill: '.Net', completed: false},
-      {skill: 'Business analyst', completed: false },
-      {skill: 'Java', completed: false},
-      {skill: 'С++', completed: false},
-    ]
+    subtasks: []
   };
 
 
-  allComplete: boolean = false;
+  constructor(private formService: FormService, private adminService: AdminService) { }
+
+  ngOnInit(): void {
+    this.dataSpecialization = this.adminService.dataSpecialization;
+  }
+
 
   updateAllComplete() {
-    this.allComplete = this.task.subtasks != null && this.task.subtasks.every(t => t.completed);
+    this.allComplete = this.dataSpecialization.subtasks != null && this.dataSpecialization.subtasks.every(t => t.completed);
 
   }
 
   someComplete(): boolean {
-    if (this.task.subtasks == null) {
+    if (this.dataSpecialization.subtasks == null) {
 
       return false;
     }
 
-    return this.task.subtasks.filter(t => t.completed).length > 0 && !this.allComplete;
+    return this.dataSpecialization.subtasks.filter(t => t.completed).length > 0 && !this.allComplete;
   }
 
   setAll(completed: boolean) {
     this.allComplete = completed;
-    if (this.task.subtasks == null) {
+    if (this.dataSpecialization.subtasks == null) {
       return;
     }
 
-    this.task.subtasks.forEach(t => t.completed = completed);
+    this.dataSpecialization.subtasks.forEach(t => t.completed = completed);
   }
 
   deleteSpecialization(e: Event) {
+
     if (e.target["className"]==='button_delete') {
       e.target['parentElement'].remove();
+
+      this.skillForDelete = e.target['parentElement'].__ngContext__[26];
+
+      this.dataSpecialization.subtasks = this.dataSpecialization.subtasks.filter(el => {
+        return el['skill'] !== this.skillForDelete && el
+      });
     }
   }
 
   saveChangesSpecializationData() {
 
+    this.adminService.saveNewDataSpecialization(this.dataSpecialization);
     this.isSpecializationData = [];
 
-    this.task.subtasks.forEach((el) => {
+    this.dataSpecialization.subtasks.forEach((el) => {
       if (el.completed) {
         this.isSpecializationData.push(el.skill)
       }
     });
 
-    console.log(this.isSpecializationData);
 
     this.formService.postSpecializationData(this.isSpecializationData)
         .subscribe((data: any) => console.log(data),
