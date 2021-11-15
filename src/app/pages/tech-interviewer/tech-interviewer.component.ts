@@ -9,15 +9,10 @@ import { CandidatesService } from 'src/app/services/candidates.service';
 })
 export class TechInterviewerComponent implements OnInit {
 
-  selectedCandidate: Candidate
-
   constructor(private candidatesService: CandidatesService) { }
 
   ngOnInit(): void {
-    this.candidatesService.selectedCandidate.subscribe(candidate => this.selectedCandidate = candidate)
+
   }
 
-  onCandidateSelect(candidate: Candidate) {
-    this.candidatesService.selectCandidate(candidate)
-  }
 }

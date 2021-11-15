@@ -10,6 +10,12 @@ import { Component, OnInit } from '@angular/core';
 export class TechInterviewerWindowComponent implements OnInit {
 
   selectedCandidate: Candidate
+  assessments = {
+    html: '',
+    css: '',
+    javaScript: '',
+    comment: ''
+  }
 
   constructor(private candidatesService: CandidatesService) { }
 
@@ -17,4 +23,17 @@ export class TechInterviewerWindowComponent implements OnInit {
     this.candidatesService.selectedCandidate.subscribe(candidate => this.selectedCandidate = candidate)
   }
 
+  onClick() {
+    console.log(this.assessments)
+    this.assessments = {
+      html: '',
+      css: '',
+      javaScript: '',
+      comment: ''
+    }
+  }
+
+  onFormChange(object) {
+    this.assessments = object
+  }
 }
