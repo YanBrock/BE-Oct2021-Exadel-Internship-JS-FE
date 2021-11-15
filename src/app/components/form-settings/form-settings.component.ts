@@ -66,6 +66,10 @@ export class FormSettingsComponent {
     }
   }
 
+  addSpecialization() {
+    
+  }
+
   saveChangesSpecializationData() {
 
     this.adminService.saveNewDataSpecialization(this.dataSpecialization);

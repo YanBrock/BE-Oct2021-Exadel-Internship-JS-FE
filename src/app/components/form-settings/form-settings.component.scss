@@ -24,7 +24,6 @@
   display: flex;
   flex-direction: column;
   margin: auto;
-
 }
 
 h2 {
@@ -40,7 +39,6 @@ h2 {
   justify-content: space-between;
 }
 
-
 .container_settings.form,
 .container_settings.users,
 .container_settings.candidate {
@@ -50,143 +48,161 @@ h2 {
   margin: auto;
 }
 
-  h3 {
+h3 {
+  color: #0080ca;
+  text-transform: uppercase;
+  font-weight: 500;
+  margin-left: 45px;
+  position: relative;
+}
+
+h3::before {
+  box-sizing: border-box;
+  position: absolute;
+  display: block;
+  content: "";
+  width: 30px;
+  height: 2px;
+  background-color: #0080ca;
+  top: 44%;
+  right: 104%;
+}
+
+.border_wrapper {
+  width: 100%;
+  border: 2px solid #cccccc;
+  border-radius: 5px;
+  padding: 20px 0px;
+  margin-bottom: 20px;
+  background-color: #ffffff;
+}
+
+.wrapper_settings_form {
+  transition: 0.3s;
+  margin: auto;
+  background-color: #ffffff;
+  padding-top: 10px;
+  margin-bottom: 30px;
+}
+
+.example-section {
+  overflow-y: scroll;
+  height: 235px;
+  padding: 10px 20px;
+}
+
+#button {
+  width: 150px;
+  margin: auto;
+  background-color: #0080ca;
+}
+
+ul {
+  list-style-type: none;
+  margin-top: 4px;
+}
+
+li {
+  border: 1px solid #cccccc;
+  margin-bottom: 10px;
+  padding: 5px 10px;
+  border-radius: 3px;
+  transition: 0.3s;
+  position: relative;
+}
+
+li:hover {
+  border-color: #0080ca;
+}
+
+.button_delete {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 50%;
+  right: 6%;
+  transform: translate(50%, -50%);
+  cursor: pointer;
+}
+
+.button_delete::before,
+.button_delete::after {
+  box-sizing: border-box;
+  position: absolute;
+  display: block;
+  content: "";
+  width: 20px;
+  height: 2px;
+  background-color: #cccccc;
+  top: 45%;
+  right: 0.5%;
+  transform: rotate(45deg);
+  border-radius: 2px;
+  transition: 0.3s;
+}
+
+.button_delete::after {
+  transform: rotate(-45deg);
+}
+
+.button_delete:hover::before,
+.button_delete:hover::after {
+  background-color: #aa2626;
+}
+
+ul > li:last-child {
+  margin-bottom: 0px;
+}
+
+.mat-checkbox > span {
+  color: #0080ca;
+}
+
+.example-margin {
+  margin-left: 50px;
+  margin-bottom: 10px;
+}
+
+.wrapper_add_form_data {
+  box-sizing: border-box;
+  padding: 0px 20px;
+  display: flex;
+  justify-content: space-between;
+
+  #addSpecialization {
+    width: 75%;
+  }
+  ::ng-deep .mat-form-field-wrapper {
+    margin: 0px;
+    padding: 0px;
+  }
+
+  ::ng-deep .mat-form-field-infix {
+    border-top: 1px;
+    margin-top: 7px;
+    padding-bottom: 12px;
+  }
+
+  ::ng-deep .mat-input-element {
+    caret-color: #0080ca;
+  }
+
+  ::ng-deep .mat-form-field.mat-focused .mat-form-field-label {
     color: #0080ca;
-    text-transform: uppercase;
-    font-weight: 500;
-    margin-left: 45px;
-    position: relative;
   }
 
-  h3::before {
-    box-sizing: border-box;
-    position: absolute;
-    display: block;
-    content: "";
-    width: 30px;
-    height: 2px;
-    background-color: #0080ca;
-    top: 44%;
-    right: 104%;
+  // #zz{
+  //   ::ng-deep .mat-checkbox-indeterminate.mat-primary .mat-checkbox-background,.mat-checkbox-checked.mat-primary .mat-checkbox-background {
+  //     background-color: #0080ca;
+
+  //   }
+  // }
+
+
+
+
+
+  button {
+    width: 20%;
   }
-
-  .border_wrapper {
-    width: 100%;
-    border: 2px solid #cccccc;
-    border-radius: 5px;
-    padding: 20px 0px;
-    margin-bottom: 20px;
-    background-color: #ffffff;
-  }
-
-  .wrapper_settings_form {
-    transition: 0.3s;
-    margin: auto;
-    background-color: #ffffff;
-    padding-top: 10px;
-    margin-bottom: 30px;
-  }
-
-    .example-section {
-      overflow-y: scroll;
-      height: 235px;
-      padding: 10px 20px;
-    }
-
-    #button {
-      width: 150px;
-      margin: auto;
-      background-color: #0080ca;
-    }
-
-    ul {
-      list-style-type: none;
-      margin-top: 4px;
-    }
-
-    li {
-      border: 1px solid #cccccc;
-      margin-bottom: 10px;
-      padding: 5px 10px;
-      border-radius: 3px;
-      transition: 0.3s;
-      position: relative;
-    }
-
-    li:hover {
-      border-color: #0080ca;
-    }
-
-    .button_delete{
-      width: 20px;
-      height: 20px;
-      position: absolute;
-      top: 50%;
-      right: 6%;
-      transform: translate(50%,-50%);
-      cursor: pointer;
-    }
-
-    .button_delete::before,
-    .button_delete::after  {
-      box-sizing: border-box;
-      position: absolute;
-      display: block;
-      content: "";
-      width: 20px;
-      height: 2px;
-      background-color: #cccccc;
-      top: 45%;
-      right: .5%;
-      transform: rotate(45deg);
-      border-radius: 2px;
-      transition: .3s;
-    }
-
-    .button_delete::after{
-      transform: rotate(-45deg);
-    }
-
-    .button_delete:hover::before,
-    .button_delete:hover::after  {
-      background-color: #AA2626;
-    }
-
-    ul > li:last-child {
-      margin-bottom: 0px;
-    }
-
-    .mat-checkbox > span {
-      color: #0080ca;
-    }
-
-    .example-margin {
-      margin-left: 50px;
-      margin-bottom: 10px;
-    }
-
-    .wrapper_add_form_data{
-      box-sizing: border-box;
-      padding: 0px 20px;
-      display: flex;
-      justify-content: space-between;
-
-      input{
-        width: 75%;
-        padding-left: 10px;
-        border: 1px solid #cccccc;
-        border-radius: 3px;
-        transition: .3s;
-      }
-
-      input:hover {
-        border-color: #0080ca;
-      }
-
-      button{
-        width: 20%;
-      }
-
-    }
-
-
+}
