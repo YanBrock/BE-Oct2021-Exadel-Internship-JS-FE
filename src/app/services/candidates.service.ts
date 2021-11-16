@@ -8,12 +8,12 @@ import { Observable, Subject } from 'rxjs';
   providedIn: 'root'
 })
 export class CandidatesService {
-  
+
   selectedCandidate$ = new Subject<Candidate>()
   selectedCandidate = this.selectedCandidate$.asObservable()
 
-  private _candidatesList$ = new BehaviorSubject([])
-  candidatesList$ = this._candidatesList$.asObservable()
+  // private _candidatesList$ = new BehaviorSubject([])
+  // candidatesList$ = this._candidatesList$.asObservable()
 
   constructor(private httpClient: HttpClient) { }
 
@@ -21,13 +21,13 @@ export class CandidatesService {
     this.selectedCandidate$.next(candidate);
   }
 
-  loadCandidates(filter?: CandidatesFilter) {
-    this._loadCandidates(filter).subscribe(result => {
-      this._candidatesList$.next(result);
-    });
-  }
+  // loadCandidates(filter?: CandidatesFilter) {
+  //   this._loadCandidates(filter).subscribe(result => {
+  //     this._candidatesList$.next(result);
+  //   });
+  // }
 
-  private _loadCandidates(filter?: CandidatesFilter): Observable<Candidate[]> {
+  loadCandidates(filter?: CandidatesFilter): Observable<Candidate[]> {
     // return this.httpClient.post<Candidate[]>('http://backend.com/candidates', {filter});
     const candidates = [
       {
@@ -443,7 +443,7 @@ export class CandidatesService {
       const fitsSpecialization = filter.specialization === 'all' ? candidate : filter.specialization === null || filter.specialization === candidate.specialization;
       return fitsStatus && fitsSpecialization;
     });
-    
+
     return of(candidates);
   }
 

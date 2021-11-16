@@ -4,6 +4,9 @@ import { Candidate } from '../../types/candidate';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { CandidatesService } from 'src/app/services/candidates.service';
 import { CandidatesListComponent } from './candidates-list/candidates-list.component';
+import { Observable } from 'rxjs';
+import { selectCandidatesList, selectCandidatesListLoading } from '../../store/candidates/selectors';
+import { Store } from '@ngrx/store';
 
 @Component({
   selector: 'app-candidates',
@@ -12,6 +15,9 @@ import { CandidatesListComponent } from './candidates-list/candidates-list.compo
 })
 export class CandidatesComponent implements OnInit {
 
+  candidatesList$: Observable<Candidate[]>;
+  candidatesListLoading$: Observable<boolean>
+
   selectedCandidate: Candidate
   pageOfCandidates: Candidate[]
   activeUser: string
@@ -19,15 +25,22 @@ export class CandidatesComponent implements OnInit {
   pageItems: number = 7
   @ViewChild(CandidatesListComponent) list: CandidatesListComponent
 
-  constructor(public candidatesService: CandidatesService, private userLoginService: UserLoginService) { }
+  constructor(private store: Store, private candidatesService: CandidatesService, private userLoginService: UserLoginService) {
+    // this.candidatesList$ = this.store.pipe(select(selectCandidatesList));
+    this.candidatesList$ = this.store.select(selectCandidatesList);
+    // this.candidatesListLoading$ = this.store.pipe(select(selectCandidatesListLoading));
+    this.candidatesListLoading$ = this.store.select(selectCandidatesListLoading);
+  }
+
+  // constructor(public candidatesService: CandidatesService, private userLoginService: UserLoginService) { }
 
   ngOnInit(): void {
     this.candidatesService.selectedCandidate.subscribe(candidate => this.selectedCandidate = candidate)
     this.activeUser = this.userLoginService.activeUser.role
     if (this.activeUser === 'tech-interviewer') {
-      this.candidatesService.candidatesList$.subscribe(response => this.pageOfCandidates = response.filter(c => c.isInterviewedByHr === true && !c.status).slice(this.startItem, this.pageItems))
+      this.candidatesList$.subscribe(response => this.pageOfCandidates = response.filter(c => c.isInterviewedByHr === true && !c.status).slice(this.startItem, this.pageItems))
     } else {
-      this.candidatesService.candidatesList$.subscribe(response => this.pageOfCandidates = response.slice(this.startItem, this.pageItems))
+      this.candidatesList$.subscribe(response => this.pageOfCandidates = response.slice(this.startItem, this.pageItems))
     }
   }
 
@@ -36,22 +49,22 @@ export class CandidatesComponent implements OnInit {
   }
 
   onFilterChange(filterValue: CandidatesFilter) {
-    this.list.dataSource.paginator.firstPage()
-    this.candidatesService.loadCandidates(filterValue);
+    // this.list.dataSource.paginator.firstPage()
+    // this.candidatesService.loadCandidates(filterValue);
   }
 
   onPageChange(object) {
     const startIndex = object.pageIndex * object.pageSize;
     let length = 0;
-    this.candidatesService.candidatesList$.subscribe(array => length = array.length);
+    this.candidatesList$.subscribe(array => length = array.length);
     let endIndex = startIndex + object.pageSize;
     if (endIndex > length) {
       endIndex = length;
     }
     if (this.activeUser === 'tech-interviewer') {
-      this.candidatesService.candidatesList$.subscribe(response => this.pageOfCandidates = response.filter(c => c.isInterviewedByHr === true && !c.status).slice(startIndex, endIndex))
+      this.candidatesList$.subscribe(response => this.pageOfCandidates = response.filter(c => c.isInterviewedByHr === true && !c.status).slice(startIndex, endIndex))
     } else {
-      this.candidatesService.candidatesList$.subscribe(response => this.pageOfCandidates = response.slice(startIndex, endIndex))
+      this.candidatesList$.subscribe(response => this.pageOfCandidates = response.slice(startIndex, endIndex))
     }
   }
 

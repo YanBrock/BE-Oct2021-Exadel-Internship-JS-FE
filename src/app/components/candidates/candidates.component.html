@@ -1,7 +1,7 @@
 <div>
   <app-candidates-filter *ngIf="activeUser !== 'tech-interviewer'" (filterChanged)="onFilterChange($event)"></app-candidates-filter>
   <app-candidates-list *ngIf="activeUser !=='tech-interviewer' else techBlock"
-    [candidates]="candidatesService.candidatesList$ | async"
+    [candidates]="candidatesList$ | async"
     [pageOfCandidates]="pageOfCandidates"
     [selectedCandidate]="selectedCandidate"
     (selectCandidate)="onCandidateSelect($event)"
@@ -9,11 +9,19 @@
   </app-candidates-list>
   <ng-template #techBlock>
     <app-candidates-list
-      [candidates]="candidatesService.candidatesList$ | async | filterByStatus"
+      [candidates]="candidatesList$ | async | filterByStatus"
       [pageOfCandidates]="pageOfCandidates"
       [selectedCandidate]="selectedCandidate"
       (selectCandidate)="onCandidateSelect($event)"
       (changePage)="onPageChange($event)">
     </app-candidates-list>
   </ng-template>
+<!--  <app-candidates-list-->
+<!--    *ngIf="(candidatesListLoading$ | async) === false"-->
+<!--    [selectedCandidate]="selectedCandidate"-->
+<!--    [candidates]="candidatesList$ | async"-->
+<!--    (selectCandidate)="onCandidateSelect($event)"-->
+<!--  >-->
+<!--  </app-candidates-list>-->
+<!--  <h3 *ngIf="(candidatesListLoading$ | async) === true">Loading candidates...</h3>-->
 </div>

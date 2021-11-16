@@ -4,17 +4,18 @@ import {
   RouterStateSnapshot,
   ActivatedRouteSnapshot
 } from '@angular/router';
-import { CandidatesService } from '../services/candidates.service';
+import { Store } from '@ngrx/store';
+import { loadCandidatesList } from '../store/candidates/actions';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CandidatesResolver implements Resolve<boolean> {
 
-  constructor(private candidatesService: CandidatesService) {}
+  constructor(private store: Store) {}
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
-    this.candidatesService.loadCandidates();
+    this.store.dispatch(loadCandidatesList());
     return true;
   }
 }

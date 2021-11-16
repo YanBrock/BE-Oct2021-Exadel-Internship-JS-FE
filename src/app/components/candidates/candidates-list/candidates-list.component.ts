@@ -20,11 +20,13 @@ export class CandidatesListComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    this.dataSource = this.candidates
+    // this.dataSource = this.candidates
+    // console.log(this.paginator)
   }
 
   ngAfterViewInit() {
-    this.dataSource.paginator = this.paginator;
+    // this.dataSource.paginator = this.paginator;
+    // console.log(this.dataSource)
   }
 
   onClick(candidate: Candidate) {
