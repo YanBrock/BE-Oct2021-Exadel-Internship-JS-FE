@@ -22,10 +22,25 @@ export class AdminService {
     ]
   };
 
+  isRole = [
+    'Recruiter',
+    'Tech-interviewer',
+    'Mentor',
+    'Manager',
+    'Admin'
+  ];
+
+  newUser = {};
+
   constructor() { }
 
   saveNewDataSpecialization(newDataSpecialization: any) {
     this.dataSpecialization = newDataSpecialization;
+  }
+
+  saveNewUser(newUser: Object) {
+    this.newUser = newUser;
+    console.log(this.newUser);
   }
 
 

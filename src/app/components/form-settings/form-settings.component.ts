@@ -13,9 +13,11 @@ export class FormSettingsComponent {
 
   // @ViewChildren('li') list: QueryList<HTMLElement>
   isSpecializationData = [];
+  isRole = [];
   allComplete: boolean = false;
   isInputValueAddSpecializationData: string;
   skillForDelete: string;
+
 
   dataSpecialization = {
     skill: '',
@@ -28,6 +30,7 @@ export class FormSettingsComponent {
 
   ngOnInit(): void {
     this.dataSpecialization = this.adminService.dataSpecialization;
+    this.isRole = this.adminService.isRole;
   }
 
 
@@ -77,6 +80,12 @@ export class FormSettingsComponent {
     }
   }
 
+  userSubmit(newUserForm: any) {
+    newUserForm.value.role = newUserForm.value.role.toLowerCase();
+    this.adminService.saveNewUser(newUserForm.value);
+    newUserForm.reset();
+  }
+
 
   saveChangesSpecializationData() {
 
@@ -89,12 +98,10 @@ export class FormSettingsComponent {
       }
     });
 
-
     this.formService.postSpecializationData(this.isSpecializationData)
       .subscribe((data: any) => console.log(data),
         (error: Error) => console.log(error)
       );
-
   }
 
 }

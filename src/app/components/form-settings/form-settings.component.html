@@ -52,25 +52,28 @@
       <h3>ADD/DELETE USER:</h3>
 
       <div class="border_wrapper user">
-      <form class="form_add_user">
+
+      <form #newUserForm="ngForm" class="form_add_user">
         <h4>ADD</h4>
 
         <mat-form-field appearance="outline">
           <mat-label>Email</mat-label>
-          <input matInput type="email" name="email">
+          <input matInput  [(ngModel)]="newUserForm.value.email" #email="ngModel" type="email" name="email" required>
         </mat-form-field>
 
         <mat-form-field appearance="outline">
           <mat-label>Password</mat-label>
-          <input matInput type="password" name="password">
+          <input matInput [(ngModel)]="newUserForm.value.password" #password="ngModel" type="text" name="password" required>
         </mat-form-field>
 
         <mat-form-field appearance="outline">
           <mat-label>Role</mat-label>
-          <input matInput type="text" name="text">
+          <mat-select [(ngModel)]="newUserForm.value.role" name="role" #role="ngModel" required>
+            <mat-option *ngFor='let key of isRole' [value]="key">{{key}}</mat-option>
+          </mat-select>
         </mat-form-field>
 
-        <button mat-raised-button disabled>SUBMIT</button>
+        <button mat-raised-button disabled="{{!newUserForm.valid}}" (click)="userSubmit(newUserForm)" >SUBMIT</button>
 
         <h4>DELETE</h4>
 
