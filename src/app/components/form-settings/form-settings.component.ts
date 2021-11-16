@@ -17,6 +17,7 @@ export class FormSettingsComponent {
   allComplete: boolean = false;
   isInputValueAddSpecializationData: string;
   skillForDelete: string;
+  validEmail = '^([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,6}$';
 
 
   dataSpecialization = {
@@ -80,10 +81,15 @@ export class FormSettingsComponent {
     }
   }
 
-  userSubmit(newUserForm: any) {
+  newUserSubmit(newUserForm: any) {
     newUserForm.value.role = newUserForm.value.role.toLowerCase();
     this.adminService.saveNewUser(newUserForm.value);
     newUserForm.reset();
+  }
+
+  deleteUserSubmit(deleteUserForm: any) {
+    this.adminService.deleteUser(deleteUserForm.value.email);
+    deleteUserForm.reset();
   }
 
 

@@ -31,6 +31,7 @@ export class AdminService {
   ];
 
   newUser = {};
+  delUser = '';
 
   constructor() { }
 
@@ -38,9 +39,14 @@ export class AdminService {
     this.dataSpecialization = newDataSpecialization;
   }
 
-  saveNewUser(newUser: Object) {
-    this.newUser = newUser;
+  saveNewUser(data: Object) {
+    this.newUser = data;
     console.log(this.newUser);
+  }
+
+  deleteUser(data: string) {
+    this.delUser = data;
+    console.log(this.delUser);
   }
 
 

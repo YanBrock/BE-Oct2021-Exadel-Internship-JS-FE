@@ -17,7 +17,7 @@
           <section class="example-section">
             <span class="example-list-section">
               <ul (click)="deleteSpecialization($event)">
-                <li *ngFor="let subtask of dataSpecialization.subtasks" #li >
+                <li *ngFor="let subtask of dataSpecialization.subtasks" #li>
                   <mat-checkbox color="primary" [(ngModel)]="subtask.completed" (ngModelChange)="updateAllComplete()">
                     {{subtask.skill}}
                   </mat-checkbox>
@@ -33,12 +33,11 @@
 
           <mat-form-field appearance="outline" id="addSpecialization">
             <mat-label>Add specialization</mat-label>
-            <input matInput type="text" name="specialization" #inputValue = "ngModel"
-             [(ngModel)]="isInputValueAddSpecializationData">
+            <input matInput type="text" name="specialization" #inputValue="ngModel"
+              [(ngModel)]="isInputValueAddSpecializationData">
           </mat-form-field>
 
-          <button mat-raised-button disabled="{{!inputValue.value}}"
-          (click)="addSpecialization()">ADD</button>
+          <button mat-raised-button disabled="{{!inputValue.value}}" (click)="addSpecialization()">ADD</button>
 
 
         </div>
@@ -53,38 +52,49 @@
 
       <div class="border_wrapper user">
 
-      <form #newUserForm="ngForm" class="form_add_user">
-        <h4>ADD</h4>
+        <form #newUserForm="ngForm" class="form_add_user">
+          <h4>ADD</h4>
 
-        <mat-form-field appearance="outline">
-          <mat-label>Email</mat-label>
-          <input matInput  [(ngModel)]="newUserForm.value.email" #email="ngModel" type="email" name="email" required>
-        </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Email</mat-label>
+            <input matInput [(ngModel)]="newUserForm.value.email"
+            #email="ngModel" type="text" name="email" required
+            [pattern]="validEmail"/>
+          </mat-form-field>
 
-        <mat-form-field appearance="outline">
-          <mat-label>Password</mat-label>
-          <input matInput [(ngModel)]="newUserForm.value.password" #password="ngModel" type="text" name="password" required>
-        </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Password</mat-label>
+            <input matInput [(ngModel)]="newUserForm.value.password"
+            #password="ngModel" type="text" name="password" required/>
+          </mat-form-field>
 
-        <mat-form-field appearance="outline">
-          <mat-label>Role</mat-label>
-          <mat-select [(ngModel)]="newUserForm.value.role" name="role" #role="ngModel" required>
-            <mat-option *ngFor='let key of isRole' [value]="key">{{key}}</mat-option>
-          </mat-select>
-        </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Role</mat-label>
+            <mat-select [(ngModel)]="newUserForm.value.role" name="role" #role="ngModel" required>
+              <mat-option
+              *ngFor='let key of isRole' [value]="key">{{key}}</mat-option>
+            </mat-select>
+          </mat-form-field>
 
-        <button mat-raised-button disabled="{{!newUserForm.valid}}" (click)="userSubmit(newUserForm)" >SUBMIT</button>
+          <button mat-raised-button disabled="{{!newUserForm.valid}}"
+          (click)="newUserSubmit(newUserForm)">SUBMIT</button>
 
-        <h4>DELETE</h4>
+        </form>
 
-        <mat-form-field appearance="outline">
-          <mat-label>Email</mat-label>
-          <input matInput type="email" name="email">
-        </mat-form-field>
+        <form #deleteUserForm="ngForm" class="form_add_user">
+          <h4>DELETE</h4>
 
-        <button mat-raised-button disabled >SUBMIT</button>
+          <mat-form-field appearance="outline">
+            <mat-label>Email</mat-label>
+            <input matInput [(ngModel)]="deleteUserForm.value.emailDeleteUser"
+            #emailDeleteUser="ngModel" type="email" name="email" required
+            [pattern]="validEmail"/>
+          </mat-form-field>
 
-      </form>
+          <button mat-raised-button disabled="{{!deleteUserForm.valid}}"
+          (click)="deleteUserSubmit(deleteUserForm)">SUBMIT</button>
+
+        </form>
 
       </div>
     </div>
