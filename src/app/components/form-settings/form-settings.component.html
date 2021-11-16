@@ -28,12 +28,12 @@
             </span>
           </section>
         </div>
-
+        <h4>ADD</h4>
         <div class="wrapper_add_form_data">
 
           <mat-form-field appearance="outline" id="addSpecialization">
             <mat-label>Add specialization</mat-label>
-            <input matInput type="text" name="name" #inputValue = "ngModel"
+            <input matInput type="text" name="specialization" #inputValue = "ngModel"
              [(ngModel)]="isInputValueAddSpecializationData">
           </mat-form-field>
 
@@ -48,8 +48,40 @@
 
 
     <div class="container_settings users">
+
       <h3>ADD/DELETE USER:</h3>
-      <div class="border_wrapper">
+
+      <div class="border_wrapper user">
+      <form class="form_add_user">
+        <h4>ADD</h4>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Email</mat-label>
+          <input matInput type="email" name="email">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Password</mat-label>
+          <input matInput type="password" name="password">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Role</mat-label>
+          <input matInput type="text" name="text">
+        </mat-form-field>
+
+        <button mat-raised-button disabled>SUBMIT</button>
+
+        <h4>DELETE</h4>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Email</mat-label>
+          <input matInput type="email" name="email">
+        </mat-form-field>
+
+        <button mat-raised-button disabled >SUBMIT</button>
+
+      </form>
 
       </div>
     </div>
@@ -68,5 +100,5 @@
 
   </div>
 
-  <button mat-raised-button color="primary" (click)='saveChangesSpecializationData()' id="button">SUBMIT</button>
+  <button mat-raised-button color="primary" (click)='saveChangesSpecializationData()' id="button">Save</button>
 </div>

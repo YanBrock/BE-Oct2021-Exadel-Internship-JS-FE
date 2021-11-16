@@ -34,9 +34,11 @@ h2 {
 .block_settings {
   width: 100%;
   display: flex;
-  flex-wrap: nowrap;
+  // flex-wrap: nowrap;
   margin: auto;
   justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 40px;
 }
 
 .container_settings.form,
@@ -45,7 +47,7 @@ h2 {
   width: 32%;
   display: flex;
   flex-direction: column;
-  margin: auto;
+  margin: 0px auto;
 }
 
 h3 {
@@ -70,10 +72,10 @@ h3::before {
 
 .border_wrapper {
   width: 100%;
+  height: 480px;
   border: 2px solid #cccccc;
   border-radius: 5px;
-  padding: 20px 0px;
-  margin-bottom: 20px;
+  padding: 20px 0px 40px 20px;
   background-color: #ffffff;
 }
 
@@ -87,8 +89,8 @@ h3::before {
 
 .example-section {
   overflow-y: scroll;
-  height: 235px;
-  padding: 10px 20px;
+  height: 265px;
+  padding: 10px 20px 10px 0px;
 }
 
 #button {
@@ -103,16 +105,17 @@ ul {
 }
 
 li {
-  border: 1px solid #cccccc;
+  border: 1px solid #ccccccaf;
   margin-bottom: 10px;
-  padding: 5px 10px;
-  border-radius: 3px;
+  padding: 8px 10px;
+  border-radius: 4px;
   transition: 0.3s;
   position: relative;
 }
 
 li:hover {
-  border-color: #0080ca;
+  border: 1px solid #000000;
+  transition: 0.3s;
 }
 
 .button_delete {
@@ -165,7 +168,7 @@ ul > li:last-child {
 
 .wrapper_add_form_data {
   box-sizing: border-box;
-  padding: 0px 20px;
+  padding: 0px 20px 0px 0px;
   display: flex;
   justify-content: space-between;
 
@@ -178,14 +181,15 @@ ul > li:last-child {
   }
 
   ::ng-deep .mat-form-field-infix {
-    border-top: 1px;
-    margin-top: 7px;
-    padding-bottom: 12px;
+    border-top: 0px;
+    margin-top: 6px;
+    padding: 10px 0px;
+    line-height: 1;
   }
 
-  ::ng-deep .mat-input-element {
-    caret-color: #0080ca;
-  }
+  // ::ng-deep .mat-input-element {
+  //   caret-color: #0080ca;
+  // }
 
   ::ng-deep .mat-form-field.mat-focused .mat-form-field-label {
     color: #0080ca;
@@ -198,11 +202,38 @@ ul > li:last-child {
   //   }
   // }
 
-
-
-
-
   button {
     width: 20%;
+  }
+}
+
+.border_wrapper.user {
+  padding: 20px;
+}
+
+.form_add_user {
+  display: flex;
+  flex-direction: column;
+  // align-items: center;
+}
+
+h4{
+  font-weight: 600;
+}
+
+
+.form_add_user{
+  button{
+    width: 150px;
+    margin: 20px auto;
+  }
+  ::ng-deep .mat-form-field-wrapper {
+    padding-bottom: 8px;
+  }
+  ::ng-deep .mat-form-field-infix {
+    border-top: 0px;
+    margin-top: 6px;
+    padding: 10px 0px;
+    line-height: 1;
   }
 }
