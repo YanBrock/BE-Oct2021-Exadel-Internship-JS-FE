@@ -25,16 +25,20 @@ export class HeaderUserNameComponent implements OnInit {
 		};
 	};
 
-	ngOnInit(): void 
+	ngOnInit(): void
 	{
-		this._userLoginService.userRole$.subscribe(role => 
+		this._userLoginService.userRole$.subscribe(role =>
 		{
 			if(role !== null)
 			{
 				this.title = role;
 			}
 		})
-			
+
 	};
+
+  logOut() {
+    localStorage.removeItem('authToken');
+  }
 
 }

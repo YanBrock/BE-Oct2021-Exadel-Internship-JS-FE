@@ -12,7 +12,7 @@ import { UserLoginComponent } from './pages/user-login/user-login.component';
 import { UserGuard } from './guards/user.guard';
 
 const routes: Routes = [
-	{ path: '', component: UserLoginComponent},
+	{ path: '', component: UserLoginComponent, canActivate: [UserGuard]},
 	{ path: 'form', component: FormComponent},
 	{ path: 'recruiter', component: RecruiterComponent, canActivate: [UserGuard], resolve: { candidates: CandidatesResolver }},
 	{ path: 'tech-interviewer', component: TechInterviewerComponent, canActivate: [UserGuard], resolve: { candidates: CandidatesResolver }},
