@@ -10,7 +10,7 @@ export class CandidatesEffects {
 
   loadCandidatesList$ = createEffect(() => this.actions$.pipe(
       ofType(loadCandidatesList.type),
-      mergeMap(() => this.candidateService.loadCandidates()
+      mergeMap(() => this.candidatesService.loadCandidates() // передать фильтр из стора ???????
         .pipe(
           map(candidatesList => loadCandidatesListSuccess({ candidatesList })),
           catchError(() => of(loadCandidatesListFail({ message: 'Loading candidates list failed' })))
@@ -21,6 +21,6 @@ export class CandidatesEffects {
 
   constructor(
     private actions$: Actions,
-    private candidateService: CandidatesService
+    private candidatesService: CandidatesService
   ) { }
 }

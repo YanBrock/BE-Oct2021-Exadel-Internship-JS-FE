@@ -5,8 +5,13 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { CandidatesService } from 'src/app/services/candidates.service';
 import { CandidatesListComponent } from './candidates-list/candidates-list.component';
 import { Observable } from 'rxjs';
-import { selectCandidatesList, selectCandidatesListLoading } from '../../store/candidates/selectors';
+import {
+  selectCandidatesList,
+  selectCandidatesListLoading,
+  selectSelectCandidate,
+} from '../../store/candidates/selectors';
 import { Store } from '@ngrx/store';
+import {changeFilters, loadCandidatesList} from '../../store/candidates/actions';
 
 @Component({
   selector: 'app-candidates',
@@ -17,8 +22,6 @@ export class CandidatesComponent implements OnInit {
 
   candidatesList$: Observable<Candidate[]>;
   candidatesListLoading$: Observable<boolean>
-
-  selectedCandidate: Candidate
   pageOfCandidates: Candidate[]
   activeUser: string
   startItem: number = 0
@@ -26,17 +29,12 @@ export class CandidatesComponent implements OnInit {
   @ViewChild(CandidatesListComponent) list: CandidatesListComponent
 
   constructor(private store: Store, private candidatesService: CandidatesService, private userLoginService: UserLoginService) {
-    // this.candidatesList$ = this.store.pipe(select(selectCandidatesList));
     this.candidatesList$ = this.store.select(selectCandidatesList);
-    // this.candidatesListLoading$ = this.store.pipe(select(selectCandidatesListLoading));
     this.candidatesListLoading$ = this.store.select(selectCandidatesListLoading);
   }
 
-  // constructor(public candidatesService: CandidatesService, private userLoginService: UserLoginService) { }
-
   ngOnInit(): void {
-    this.candidatesService.selectedCandidate.subscribe(candidate => this.selectedCandidate = candidate)
-    this.activeUser = this.userLoginService.activeUser.role
+    this.activeUser = this.userLoginService.activeUser.role;
     if (this.activeUser === 'tech-interviewer') {
       this.candidatesList$.subscribe(response => this.pageOfCandidates = response.filter(c => c.isInterviewedByHr === true && !c.status).slice(this.startItem, this.pageItems))
     } else {
@@ -44,12 +42,11 @@ export class CandidatesComponent implements OnInit {
     }
   }
 
-  onCandidateSelect(candidate: Candidate) {
-    this.candidatesService.selectCandidate(candidate)
-  }
-
   onFilterChange(filterValue: CandidatesFilter) {
-    // this.list.dataSource.paginator.firstPage()
+    this.list.dataSource.paginator.firstPage();
+    this.store.dispatch(changeFilters({ filters: filterValue }));
+    // this.store.dispatch(loadCandidatesList({ filters: filterValue }))
+    // this.candidatesList$ = this.store.select(selectFilteredCandidatesList, { filter: filterValue });
     // this.candidatesService.loadCandidates(filterValue);
   }
 

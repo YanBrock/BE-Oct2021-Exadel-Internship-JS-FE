@@ -15,7 +15,7 @@ export class CandidatesResolver implements Resolve<boolean> {
   constructor(private store: Store) {}
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
-    this.store.dispatch(loadCandidatesList());
+    this.store.dispatch(loadCandidatesList(null));
     return true;
   }
 }

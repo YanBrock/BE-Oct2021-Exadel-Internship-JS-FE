@@ -1,6 +1,8 @@
 import { Candidate } from '../../../types/candidate';
-import { CandidatesService } from 'src/app/services/candidates.service';
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import {Store} from '@ngrx/store';
+import { selectSelectCandidate } from '../../../store/candidates/selectors';
 
 @Component({
   selector: 'app-tech-interviewer-window',
@@ -9,7 +11,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TechInterviewerWindowComponent implements OnInit {
 
-  selectedCandidate: Candidate
+  selectedCandidate$: Observable<Candidate>;
   assessments = {
     html: '',
     css: '',
@@ -17,10 +19,12 @@ export class TechInterviewerWindowComponent implements OnInit {
     comment: ''
   }
 
-  constructor(private candidatesService: CandidatesService) { }
+  constructor(private store: Store) {
+    this.selectedCandidate$ = this.store.select(selectSelectCandidate);
+  }
 
   ngOnInit(): void {
-    this.candidatesService.selectedCandidate.subscribe(candidate => this.selectedCandidate = candidate)
+
   }
 
   onClick() {

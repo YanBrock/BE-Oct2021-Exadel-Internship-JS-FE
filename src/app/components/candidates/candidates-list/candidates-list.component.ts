@@ -3,6 +3,8 @@ import { Component, Input, OnInit, Output, EventEmitter, ViewChild } from '@angu
 import { PageEvent, MatPaginator } from '@angular/material/paginator';
 import {Store} from '@ngrx/store';
 import {selectCandidate} from '../../../store/candidates/actions';
+import {Observable} from 'rxjs';
+import {selectCandidatesList, selectSelectCandidate} from '../../../store/candidates/selectors';
 
 @Component({
   selector: 'app-candidates-list',
@@ -11,29 +13,29 @@ import {selectCandidate} from '../../../store/candidates/actions';
 })
 export class CandidatesListComponent implements OnInit {
 
-  @Input() pageOfCandidates: Candidate[]
-  @Input() candidates: Candidate[]
-  @Input() selectedCandidate: Candidate
-  @Output() selectCandidate = new EventEmitter<Candidate>()
-  @Output() changePage = new EventEmitter<PageEvent>()
-  @ViewChild (MatPaginator) paginator: MatPaginator
-  dataSource
+  candidatesList$: Observable<Candidate[]>;
+  selectedCandidate$: Observable<Candidate>;
+  @Input() pageOfCandidates: Candidate[];
+  @Input() candidates: Candidate[];
+  @Output() changePage = new EventEmitter<PageEvent>();
+  @ViewChild (MatPaginator) paginator: MatPaginator;
+  dataSource;
 
-  constructor(private store: Store) { }
+  constructor(private store: Store) {
+    this.candidatesList$ = this.store.select(selectCandidatesList);
+    this.selectedCandidate$ = this.store.select(selectSelectCandidate);
+  }
 
   ngOnInit(): void {
-    // this.dataSource = this.candidates
-    // console.log(this.paginator)
+    this.dataSource = this.candidatesList$;
   }
 
   ngAfterViewInit() {
-    // this.dataSource.paginator = this.paginator;
-    // console.log(this.dataSource)
+    this.dataSource.paginator = this.paginator;
   }
 
   onClick(candidate: Candidate) {
-    // this.selectCandidate.emit(candidate)
-    this.store.dispatch(selectCandidate(candidate))
+    this.store.dispatch(selectCandidate({ selectedCandidate: candidate }));
   }
 
   onPageChange(event: PageEvent) {
