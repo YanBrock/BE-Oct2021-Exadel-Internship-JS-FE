@@ -20,7 +20,7 @@ import { AdminModule } from './pages/admin/admin.module';
 import { HeaderUserNameModule } from './components/header-user-name/header-user-name.module';
 import { TechInterviewerModule } from './pages/tech-interviewer/tech-interviewer.module';
 import { MatSelectModule } from '@angular/material/select';
-import { MentorModule } from '../app/pages/mentor/mentor.module';
+import { MentorModule } from './pages/mentor/mentor.module';
 import { AppStoreModule } from './app-store.module';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 

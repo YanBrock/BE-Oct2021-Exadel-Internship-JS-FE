@@ -2,6 +2,10 @@ import { Candidate } from '../../../types/candidate';
 import { CandidatesService } from 'src/app/services/candidates.service';
 import { Component, OnInit } from '@angular/core';
 import { UserLoginService } from '../../../services/user-login.service';
+import {Store} from '@ngrx/store';
+import {Observable} from 'rxjs';
+import {selectCandidate} from '../../../store/candidates/actions';
+import {selectCandidatesList, selectSelectCandidate} from '../../../store/candidates/selectors';
 
 @Component({
   selector: 'app-recruiter-window',
@@ -11,6 +15,8 @@ import { UserLoginService } from '../../../services/user-login.service';
 export class RecruiterWindowComponent implements OnInit {
 
   selectedCandidate: Candidate
+  // selectedCandidate$: Observable<Candidate>;
+
   assessments ={
     englishLevel: '',
     communicationSkills: '',
@@ -18,7 +24,9 @@ export class RecruiterWindowComponent implements OnInit {
     selfConfidence: ''
   }
 
-  constructor(private candidatesService: CandidatesService, private userLoginSevice: UserLoginService) { }
+  constructor(private candidatesService: CandidatesService, private userLoginSevice: UserLoginService, private store: Store) {
+    // this.selectedCandidate$ = this.store.select(selectSelectCandidate);
+  }
 
   ngOnInit(): void {
     this.candidatesService.selectedCandidate.subscribe(candidate => this.selectedCandidate = candidate)
