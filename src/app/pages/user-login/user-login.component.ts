@@ -46,12 +46,13 @@ export class UserLoginComponent implements OnInit {
           (data: any) => {
 
             this.decoded = jwt_decode(data.token);
+            localStorage.setItem('authToken', data.token);
 
             this.userData.token = data.token;
             this.userData.role = this.decoded[this.isKeyRole];
 
             this.loginService.saveDataUser(this.userData);
-            this.router.navigate(['/', this.decoded[this.isKeyRole]]);
+            // this.router.navigate(['/', this.decoded[this.isKeyRole]]);
 
           },
           error => {
