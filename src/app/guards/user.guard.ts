@@ -24,11 +24,13 @@ export class UserGuard implements CanActivate {
     const rolePath = ROLE_TO_PATH_MAP[role];
     if (rolePath === undefined) {
       console.log('Unknown role');
+      // return this.routerService.parseUrl('');
     }
     if (rolePath === state.url) {
       return true;
     }
-    return this.routerService.parseUrl('');
+    // console.log(role)
+    return this.routerService.parseUrl(role);
   }
 }
 

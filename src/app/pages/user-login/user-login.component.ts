@@ -52,7 +52,7 @@ export class UserLoginComponent implements OnInit {
             this.userData.role = this.decoded[this.isKeyRole];
 
             this.loginService.saveDataUser(this.userData);
-            // this.router.navigate(['/', this.decoded[this.isKeyRole]]);
+            this.router.navigate(['/', this.decoded[this.isKeyRole]]);
 
           },
           error => {

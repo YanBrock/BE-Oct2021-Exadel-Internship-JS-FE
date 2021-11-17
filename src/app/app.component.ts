@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { UserLoginService } from './services/user-login.service';
+import jwt_decode from 'jwt-decode';
+
 
 @Component({
   selector: 'app-root',
@@ -9,6 +11,9 @@ import { UserLoginService } from './services/user-login.service';
 export class AppComponent {
   title = 'Exadel lerning center';
   user = "guest"; // recruiter || tech-interviewer || mentor || manager || admin
+  isKeyRole = 'http://schemas.microsoft.com/ws/2008/06/identity/claims/role';
+  decoded: any;
+
 
   constructor(private auth: UserLoginService) {
 
@@ -17,7 +22,8 @@ export class AppComponent {
   ngOnInit() {
     const potentialToken = localStorage.getItem('authToken');
     if (potentialToken !== null) {
-      this.auth.setToken(potentialToken);
+      this.decoded = jwt_decode(potentialToken);
+      this.auth.setReloadRole(this.decoded[this.isKeyRole]);
     }
   }
 

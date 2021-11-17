@@ -38,6 +38,7 @@ export class UserLoginService {
 
   saveDataUser(userData: any): any {
     this.activeUser = { ...userData };
+    console.log(this.activeUser)
   }
 
   isAuthenticated(): boolean {
@@ -48,12 +49,14 @@ export class UserLoginService {
     return this.activeUser.token;
   }
 
-  setToken(data) {
-     this.activeUser.token = data;
+  setReloadRole(data: any) {
+    this.activeUser.role = data;
+    // console.log(this.activeUser)
   }
 
   getRole() {
-    this.userRole$.next(this.activeUser.role)
+    this.userRole$.next(this.activeUser.role);
+    // console.log(this.activeUser.role)
     return this.activeUser.role;
   }
 }
