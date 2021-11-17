@@ -8,7 +8,8 @@ const ROLE_TO_PATH_MAP = {
   'mentor': '/mentor',
   'admin': '/admin',
   'form': '/form',
-  'recruiter': '/recruiter'
+  'recruiter': '/recruiter',
+  '': '/'
 }
 
 @Injectable({
@@ -20,16 +21,19 @@ export class UserGuard implements CanActivate {
 
   canActivate(route: ActivatedRouteSnapshot,  state: RouterStateSnapshot):  boolean | UrlTree {
     const role = this.userLoginService.getRole();
+    let rolePath = ROLE_TO_PATH_MAP[role];
 
-    const rolePath = ROLE_TO_PATH_MAP[role];
-    if (rolePath === undefined) {
+    if (state.url === '/'&& !role) {
+      rolePath = ROLE_TO_PATH_MAP[''];
+
+    }else if (rolePath === undefined) {
       console.log('Unknown role');
-      // return this.routerService.parseUrl('');
     }
+
     if (rolePath === state.url) {
       return true;
     }
-    // console.log(role)
+    
     return this.routerService.parseUrl(role);
   }
 }

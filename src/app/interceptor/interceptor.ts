@@ -8,19 +8,20 @@ import { UserLoginService } from "../services/user-login.service";
 @Injectable()
 export class Interceptor implements HttpInterceptor {
 
-  constructor(private auth: UserLoginService) {
-  }
-  intercept(req: HttpRequest<any>, next: HttpHandler) : Observable<HttpEvent<any>>{
+  constructor(private userLoginService: UserLoginService) { }
 
-    if (this.auth.isAuthenticated()) {
+  intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+
+    if (this.userLoginService.isAuthenticated()) {
 
       req = req.clone({
         setHeaders: {
-          Authorization: this.auth.getToken()
+          Authorization: this.userLoginService.getToken()
         }
       })
     }
-    return next.handle(req)
+
+    return next.handle(req);
   }
 
 }
