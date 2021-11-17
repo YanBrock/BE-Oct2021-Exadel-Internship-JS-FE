@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { UserLoginService } from './services/user-login.service';
 
 @Component({
   selector: 'app-root',
@@ -9,11 +10,15 @@ export class AppComponent {
   title = 'Exadel lerning center';
   user = "guest"; // recruiter || tech-interviewer || mentor || manager || admin
 
-  constructor() {
+  constructor(private auth: UserLoginService) {
 
   }
 
   ngOnInit() {
+    const potentialToken = localStorage.getItem('authToken');
+    if (potentialToken !== null) {
+      this.auth.setToken(potentialToken);
+    }
   }
 
 }

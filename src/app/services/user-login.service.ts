@@ -48,6 +48,10 @@ export class UserLoginService {
     return this.activeUser.token;
   }
 
+  setToken(data) {
+     this.activeUser.token = data;
+  }
+
   getRole() {
     this.userRole$.next(this.activeUser.role)
     return this.activeUser.role;
