@@ -3,19 +3,18 @@ import { CandidatesModule } from '../../components/candidates/candidates.module'
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RecruiterComponent } from './recruiter.component';
-import { RecruiterAssesmentComponent } from './recruiter-assesment/recruiter-assesment.component';
 import { RecruiterWindowComponent } from './recruiter-window/recruiter-window.component';
-import { InterviewerAssesmentComponent } from './interviewer-assesment/interviewer-assesment.component';
 import { MatListModule } from '@angular/material/list';
 import { MatInputModule } from '@angular/material/input';
 import { TranslateModule } from '@ngx-translate/core';
+import { RecruiterAssessmentModule } from '../../components/recruiter-assessment/recruiter-assessment.module';
+import { TechInterviewerAssessmentModule } from '../../components/tech-interviewer-assessment/tech-interviewer-assessment.module';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [
     RecruiterComponent,
-    RecruiterAssesmentComponent,
-    RecruiterWindowComponent,
-    InterviewerAssesmentComponent,
+    RecruiterWindowComponent
   ],
   imports: [
     CommonModule,
@@ -23,7 +22,10 @@ import { TranslateModule } from '@ngx-translate/core';
     MatInputModule,
     TranslateModule,
     CandidatesModule,
-    CandidateDataModule
+    CandidateDataModule,
+    RecruiterAssessmentModule,
+    TechInterviewerAssessmentModule,
+    MatButtonModule,
   ],
   exports: [RecruiterComponent]
 })

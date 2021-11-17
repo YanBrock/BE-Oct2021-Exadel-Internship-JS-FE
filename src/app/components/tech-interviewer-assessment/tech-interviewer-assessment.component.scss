@@ -1,16 +1,8 @@
 :host {
   position: relative;
+  margin-top: 2.3rem;
 }
 
-.example-form {
-  min-width: 150px;
-  max-width: 500px;
-  width: 100%;
-}
-
-.example-full-width {
-  width: 100%;
-}
 h3 {
   margin-left: 4rem;
   margin-bottom: 0;
@@ -32,7 +24,11 @@ hr {
 
 div {
   display: flex;
-  max-height: 12rem;
+  max-height: 9rem;
+
+  form {
+    display: flex;
+  }
 
   input {
     width: 1rem;
@@ -42,14 +38,23 @@ div {
     text-align: center;
   }
 
+  span {
+    margin-left: 1rem;
+  }
+
   textarea {
-    height: 8.4rem;
+    height: 5.1rem;
+  }
+
+  p {
+    width: 20rem;
+    margin-top: 1.2rem;
+    margin-left: 10.3rem;
   }
 }
 
 .mat-form-field {
   width: 20rem;
-
   margin-top: 1.2rem;
-  margin-left: 5rem;
+  margin-left: 10rem;
 }

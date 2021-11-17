@@ -1,0 +1,43 @@
+<h3>{{"recruiter.recruiter-assesment.label" | translate}}:</h3>
+<hr>
+<div *ngIf="(activeUser !=='tech-interviewer' && activeUser !== 'mentor') else techBlock">
+  <form (change)="onChange()">
+    <mat-list role="list">
+      <mat-list-item role="listitem">
+        {{"recruiter.recruiter-assesment.english" | translate}}: <input name="input" [(ngModel)]="assessments['englishLevel']" type="text">/4
+      </mat-list-item>
+      <mat-list-item role="listitem">
+        {{"recruiter.recruiter-assesment.communicationSkills" | translate}}: <input name="input" [(ngModel)]="assessments['communicationSkills']" type="text">/4
+      </mat-list-item>
+      <mat-list-item role="listitem">
+        {{"recruiter.recruiter-assesment.abilityToListen" | translate}}: <input name="input" [(ngModel)]="assessments['abilityToListen']" type="text">/4
+      </mat-list-item>
+      <mat-list-item role="listitem">
+        {{"recruiter.recruiter-assesment.selfConfidence" | translate}}: <input name="input" [(ngModel)]="assessments['selfConfidence']" type="text">/4
+      </mat-list-item>
+    </mat-list>
+    <mat-form-field appearance="outline">
+      <mat-label>{{"recruiter.interviewer-assesment.comment" | translate}}</mat-label>
+      <textarea name="text" [(ngModel)]="assessments['comment']" matInput></textarea>
+    </mat-form-field>
+  </form>
+</div>
+<ng-template #techBlock>
+  <div>
+    <mat-list role="list">
+      <mat-list-item role="listitem">
+        {{"recruiter.recruiter-assesment.english" | translate}}: <span>1/4</span>
+      </mat-list-item>
+      <mat-list-item role="listitem">
+        {{"recruiter.recruiter-assesment.communicationSkills" | translate}}: <span>2/4</span>
+      </mat-list-item>
+      <mat-list-item role="listitem">
+        {{"recruiter.recruiter-assesment.abilityToListen" | translate}}: <span>3/4</span>
+      </mat-list-item>
+      <mat-list-item role="listitem">
+        {{"recruiter.recruiter-assesment.selfConfidence" | translate}}: <span>4/4</span>
+      </mat-list-item>
+    </mat-list>
+    <p>Recruiter comment</p>
+  </div>
+</ng-template>
