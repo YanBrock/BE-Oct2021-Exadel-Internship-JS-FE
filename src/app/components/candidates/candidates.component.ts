@@ -31,7 +31,7 @@ export class CandidatesComponent implements OnInit {
 
   ngOnInit(): void {
     this.activeUser = this.userLoginService.activeUser.role;
-    if (this.activeUser === 'tech-interviewer') {
+    if (this.activeUser === 'techInterviewer') {
       this.candidatesList$.subscribe(response => this.pageOfCandidates = response.filter(c => c.isInterviewedByHr === true && !c.status).slice(this.startItem, this.pageItems))
     } else {
       this.candidatesList$.subscribe(response => this.pageOfCandidates = response.slice(this.startItem, this.pageItems))
@@ -51,7 +51,7 @@ export class CandidatesComponent implements OnInit {
     if (endIndex > length) {
       endIndex = length;
     }
-    if (this.activeUser === 'tech-interviewer') {
+    if (this.activeUser === 'techInterviewer') {
       this.candidatesList$.subscribe(response => this.pageOfCandidates = response.filter(c => c.isInterviewedByHr === true && !c.status).slice(startIndex, endIndex))
     } else {
       this.candidatesList$.subscribe(response => this.pageOfCandidates = response.slice(startIndex, endIndex))
