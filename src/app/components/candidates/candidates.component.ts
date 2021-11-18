@@ -7,8 +7,7 @@ import { CandidatesListComponent } from './candidates-list/candidates-list.compo
 import { Observable } from 'rxjs';
 import {
   selectCandidatesList,
-  selectCandidatesListLoading,
-  selectSelectCandidate,
+  selectCandidatesListLoading
 } from '../../store/candidates/selectors';
 import { Store } from '@ngrx/store';
 import {changeFilters, loadCandidatesList} from '../../store/candidates/actions';
@@ -45,9 +44,6 @@ export class CandidatesComponent implements OnInit {
   onFilterChange(filterValue: CandidatesFilter) {
     this.list.dataSource.paginator.firstPage();
     this.store.dispatch(changeFilters({ filters: filterValue }));
-    // this.store.dispatch(loadCandidatesList({ filters: filterValue }))
-    // this.candidatesList$ = this.store.select(selectFilteredCandidatesList, { filter: filterValue });
-    // this.candidatesService.loadCandidates(filterValue);
   }
 
   onPageChange(object) {

@@ -1,10 +1,10 @@
 import { Candidate } from '../../../types/candidate';
 import { Component, Input, OnInit, Output, EventEmitter, ViewChild } from '@angular/core';
 import { PageEvent, MatPaginator } from '@angular/material/paginator';
-import {Store} from '@ngrx/store';
-import {selectCandidate} from '../../../store/candidates/actions';
-import {Observable} from 'rxjs';
-import {selectCandidatesList, selectSelectCandidate} from '../../../store/candidates/selectors';
+import { Store } from '@ngrx/store';
+import { selectCandidate } from '../../../store/candidates/actions';
+import { Observable } from 'rxjs';
+import { selectCandidatesList, selectSelectCandidate } from '../../../store/candidates/selectors';
 
 @Component({
   selector: 'app-candidates-list',
