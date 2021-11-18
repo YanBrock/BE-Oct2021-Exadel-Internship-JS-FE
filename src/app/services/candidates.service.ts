@@ -421,7 +421,14 @@ export class CandidatesService {
         isInterviewedByTech: true,
         status: Status.Declined
       }
-    ];
+    ].filter(candidate => {
+      if (!filter) {
+        return true
+      }
+      const fitsStatus = filter.status === 'all' ? candidate : filter.status === null || filter.status === candidate.status;
+      const fitsSpecialization = filter.specialization === 'all' ? candidate : filter.specialization === null || filter.specialization === candidate.specialization;
+      return fitsStatus && fitsSpecialization;
+    });
 
     return of(candidates);
   }
