@@ -3,7 +3,7 @@ import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTr
 import { UserLoginService } from "../services/user-login.service";
 
 const ROLE_TO_PATH_MAP = {
-  'tech-interviewer': '/tech-interviewer',
+  'techInterviewer': '/techInterviewer',
   'manager': '/manager',
   'mentor': '/mentor',
   'admin': '/admin',
@@ -33,7 +33,7 @@ export class UserGuard implements CanActivate {
     if (rolePath === state.url) {
       return true;
     }
-    
+
     return this.routerService.parseUrl(role);
   }
 }

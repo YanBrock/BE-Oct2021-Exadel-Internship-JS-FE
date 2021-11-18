@@ -9,7 +9,7 @@ import { UserLoginService } from './services/user-login.service';
 })
 export class AppComponent {
   title = 'Exadel lerning center';
-  user = "guest"; // recruiter || tech-interviewer || mentor || manager || admin
+  user = "guest"; // recruiter || techInterviewer || mentor || manager || admin
   role = '';
 
 
