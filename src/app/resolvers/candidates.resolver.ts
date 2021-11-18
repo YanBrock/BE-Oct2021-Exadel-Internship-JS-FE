@@ -1,8 +1,7 @@
-import {Injectable} from '@angular/core';
-import {ActivatedRouteSnapshot, Resolve, RouterStateSnapshot} from '@angular/router';
-import {Store} from '@ngrx/store';
-import {loadCandidatesList} from '../store/candidates/actions';
-import {Status} from '../types/candidate';
+import { Injectable } from '@angular/core';
+import { ActivatedRouteSnapshot, Resolve, RouterStateSnapshot } from '@angular/router';
+import { Store } from '@ngrx/store';
+import { loadCandidatesList } from '../store/candidates/actions';
 
 @Injectable({
   providedIn: 'root'
