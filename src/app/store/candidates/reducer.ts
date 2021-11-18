@@ -1,19 +1,17 @@
 import { createReducer, on } from '@ngrx/store';
-import {changeFilters, loadCandidatesList, loadCandidatesListSuccess, selectCandidate} from './actions';
-import {Candidate, CandidatesFilter} from '../../types/candidate';
+import { loadCandidatesList, loadCandidatesListSuccess, selectCandidate } from './actions';
+import { Candidate } from '../../types/candidate';
 
 export interface CandidatesState {
   candidatesList: Candidate[];
   loading: boolean;
-  selectedCandidate: Candidate;
-  filters: CandidatesFilter
+  selectedCandidate: Candidate
 }
 
 export const initialState: CandidatesState = {
   candidatesList: [],
   loading: false,
-  selectedCandidate: null,
-  filters: null
+  selectedCandidate: null
 };
 
 const _candidatesReducer = createReducer(
@@ -35,12 +33,6 @@ const _candidatesReducer = createReducer(
     return {
       ...state,
       selectedCandidate
-    }
-  }),
-  on(changeFilters, (state, { filters }) => {
-    return {
-      ...state,
-      filters
     }
   })
 );
