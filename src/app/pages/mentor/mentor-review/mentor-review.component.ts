@@ -26,10 +26,7 @@ export class MentorReviewComponent implements OnInit {
 
   onSubmit() {
     console.log(this.scores)
-    this.scores = {
-      grade: '',
-      review: ''
-    }
+
   }
 
 }

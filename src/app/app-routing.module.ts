@@ -12,18 +12,18 @@ import { UserLoginComponent } from './pages/user-login/user-login.component';
 import { UserGuard } from './guards/user.guard';
 
 const routes: Routes = [
-	{ path: '', component: UserLoginComponent, canActivate: [UserGuard]},
-	{ path: 'form', component: FormComponent},
-	{ path: 'recruiter', component: RecruiterComponent, canActivate: [UserGuard], resolve: { candidates: CandidatesResolver }},
-	{ path: 'techInterviewer', component: TechInterviewerComponent, canActivate: [UserGuard], resolve: { candidates: CandidatesResolver }},
-	{ path: 'mentor', component: MentorComponent, canActivate: [UserGuard]},
-	{ path: 'manager', component: ManagerComponent, canActivate: [UserGuard]},
-	{ path: 'admin', component: AdminComponent, canActivate: [UserGuard]},
-	{ path: '**', component: NotFoundComponent},
+	{ path: '', component: UserLoginComponent, canActivate: [UserGuard] },
+	{ path: 'form', component: FormComponent },
+	{ path: 'recruiter', component: RecruiterComponent, canActivate: [UserGuard], resolve: { candidates: CandidatesResolver } },
+	{ path: 'techInterviewer', component: TechInterviewerComponent, canActivate: [UserGuard], resolve: { candidates: CandidatesResolver } },
+	{ path: 'mentor', component: MentorComponent, canActivate: [UserGuard], resolve: { candidates: CandidatesResolver } },
+	{ path: 'manager', component: ManagerComponent, canActivate: [UserGuard] },
+	{ path: 'admin', component: AdminComponent, canActivate: [UserGuard] },
+	{ path: '**', component: NotFoundComponent },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule,]
+	imports: [RouterModule.forRoot(routes)],
+	exports: [RouterModule,]
 })
 export class AppRoutingModule { }
