@@ -1,33 +1,17 @@
 import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject, of } from 'rxjs';
+import { of } from 'rxjs';
 import { Candidate, CandidatesFilter, Status, EnglishLevel, Specialization } from '../types/candidate';
 import { Injectable } from '@angular/core';
-import { Observable, Subject } from 'rxjs';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CandidatesService {
-  
-  selectedCandidate$ = new Subject<Candidate>()
-  selectedCandidate = this.selectedCandidate$.asObservable()
-
-  private _candidatesList$ = new BehaviorSubject([])
-  candidatesList$ = this._candidatesList$.asObservable()
 
   constructor(private httpClient: HttpClient) { }
 
-  selectCandidate(candidate: Candidate) {
-    this.selectedCandidate$.next(candidate);
-  }
-
-  loadCandidates(filter?: CandidatesFilter) {
-    this._loadCandidates(filter).subscribe(result => {
-      this._candidatesList$.next(result);
-    });
-  }
-
-  private _loadCandidates(filter?: CandidatesFilter): Observable<Candidate[]> {
+  loadCandidates(filter?: CandidatesFilter): Observable<Candidate[]> {
     // return this.httpClient.post<Candidate[]>('http://backend.com/candidates', {filter});
     const candidates = [
       {
@@ -437,13 +421,15 @@ export class CandidatesService {
         isInterviewedByTech: true,
         status: Status.Declined
       }
-    ].filter(candidate =>{
-      if (!filter) { return true }
+    ].filter(candidate => {
+      if (!filter) {
+        return true
+      }
       const fitsStatus = filter.status === 'all' ? candidate : filter.status === null || filter.status === candidate.status;
       const fitsSpecialization = filter.specialization === 'all' ? candidate : filter.specialization === null || filter.specialization === candidate.specialization;
       return fitsStatus && fitsSpecialization;
     });
-    
+
     return of(candidates);
   }
 

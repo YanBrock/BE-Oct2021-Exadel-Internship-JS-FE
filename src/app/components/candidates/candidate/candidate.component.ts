@@ -1,5 +1,6 @@
 import { Candidate, Status } from 'src/app/types/candidate';
 import { Component, Input, OnInit} from '@angular/core';
+import {Store} from '@ngrx/store';
 
 @Component({
   selector: 'app-candidate',
@@ -12,7 +13,7 @@ export class CandidateComponent implements OnInit {
   @Input() first: boolean
   @Input() selectedCandidate: Candidate
 
-  constructor() { }
+  constructor(private store: Store) { }
 
   ngOnInit(): void {
   }

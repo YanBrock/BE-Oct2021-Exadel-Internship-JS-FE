@@ -2,7 +2,7 @@
   <app-candidate
   *ngFor="let candidate of pageOfCandidates; let first = first"
   [candidate]="candidate"
-  [selectedCandidate]="selectedCandidate"
+  [selectedCandidate]="selectedCandidate$ | async"
   [first]="first"
   (click)="onClick(candidate)">
   </app-candidate>

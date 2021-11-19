@@ -2,6 +2,7 @@ import { Status, Specialization } from '../../../types/candidate';
 import { Component, OnDestroy, OnInit, EventEmitter, Output } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Subscription } from 'rxjs';
+import { Store } from '@ngrx/store';
 
 @Component({
   selector: 'app-candidates-filter',
@@ -31,7 +32,7 @@ export class CandidatesFilterComponent implements OnInit, OnDestroy {
 
   filterSubscription: Subscription
 
-  constructor() { }
+  constructor(private store: Store) { }
 
   ngOnInit(): void {
     this.filterSubscription = this.filterForm.valueChanges.subscribe(value => this.filterChanged.emit(value));

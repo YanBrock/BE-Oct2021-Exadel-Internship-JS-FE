@@ -1,5 +1,5 @@
-<div *ngIf="selectedCandidate">
-  <app-candidate-data [selectedCandidate]="selectedCandidate"></app-candidate-data>
+<div *ngIf="selectedCandidate$ | async">
+  <app-candidate-data [selectedCandidate]="selectedCandidate$ | async"></app-candidate-data>
   <app-recruiter-assessment (changingForm)="onFormChange($event)" [assessments]="assessments"></app-recruiter-assessment>
   <app-tech-interviewer-assessment></app-tech-interviewer-assessment>
   <div class="buttons">
