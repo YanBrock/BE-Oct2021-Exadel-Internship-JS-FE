@@ -13,14 +13,17 @@ import { UserLoginModule } from './pages/user-login/user-login.module';
 import { RecruiterModule } from './pages/recruiter/recruiter.module';
 import { TranslateModule } from '@ngx-translate/core';
 import { translateModuleConfig } from './app.i18n';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { NotFoundModule } from './pages/not-found/not-found.module';
 import { AdminModule } from './pages/admin/admin.module';
 import { HeaderUserNameModule } from './components/header-user-name/header-user-name.module';
 import { TechInterviewerModule } from './pages/tech-interviewer/tech-interviewer.module';
 import { MatSelectModule } from '@angular/material/select';
-import { MentorModule } from '../app/pages/mentor/mentor.module'
+import { MentorModule } from './pages/mentor/mentor.module';
+import { AppStoreModule } from './app-store.module';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { Interceptor } from './interceptor/interceptor';
 
 @NgModule({
   declarations: [
@@ -47,8 +50,16 @@ import { MentorModule } from '../app/pages/mentor/mentor.module'
     TechInterviewerModule,
     MatSelectModule,
     MentorModule,
+    AppStoreModule,
+    StoreDevtoolsModule.instrument({ name: 'Example' })
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      multi: true,
+      useClass: Interceptor
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

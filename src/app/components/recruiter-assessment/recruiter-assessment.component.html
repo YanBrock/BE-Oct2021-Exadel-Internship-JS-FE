@@ -1,6 +1,6 @@
 <h3>{{"recruiter.recruiter-assesment.label" | translate}}:</h3>
 <hr>
-<div *ngIf="(activeUser !=='tech-interviewer' && activeUser !== 'mentor') else techBlock">
+<div *ngIf="(activeUser !=='techInterviewer' && activeUser !== 'mentor') else techBlock">
   <form (change)="onChange()">
     <mat-list role="list">
       <mat-list-item role="listitem">

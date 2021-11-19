@@ -13,7 +13,6 @@ export class CandidateDataComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-
   }
 
 }
