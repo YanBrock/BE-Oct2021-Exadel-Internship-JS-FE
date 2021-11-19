@@ -27,6 +27,7 @@
 
             </span>
           </section>
+
         </div>
         <h4>ADD</h4>
         <div class="wrapper_add_form_data">
@@ -37,11 +38,17 @@
               [(ngModel)]="isInputValueAddSpecializationData">
           </mat-form-field>
 
-          <button mat-raised-button disabled="{{!inputValue.value}}" (click)="addSpecialization()">ADD</button>
+
+          <button mat-raised-button disabled="{{!inputValue.value}}" (click)="addSpecialization()"
+            #buttonAdd>ADD</button>
 
 
         </div>
 
+        <div class="wrapper_Specialization_button_submit">
+          <button mat-raised-button disabled="{{!inputValue.value}}" (click)='saveChangesSpecializationData()'
+            id="button">SUBMIT</button>
+        </div>
       </div>
     </div>
 
@@ -88,8 +95,8 @@
               name="email" required [pattern]="validEmail" />
           </mat-form-field>
 
-          <button mat-raised-button disabled="{{!deleteUserForm.valid}}"
-            (click)="deleteUserSubmit(deleteUserForm)">SUBMIT</button>
+          <button mat-raised-button disabled="{{!deleteUserForm.valid}}" id="button_delete_info"
+            (click)="deleteUserSubmit(deleteUserForm)">DELETE</button>
 
         </form>
 
@@ -136,8 +143,8 @@
               name="email" required [pattern]="validEmail" />
           </mat-form-field>
 
-          <button mat-raised-button disabled="{{!deleteUserForm.valid}}"
-            (click)="deleteUserSubmit(deleteUserForm)">SUBMIT</button>
+          <button mat-raised-button disabled="{{!deleteUserForm.valid}}" id="button_delete_info"
+            (click)="deleteUserSubmit(deleteUserForm)">DELETE</button>
 
         </form>
 
@@ -151,5 +158,5 @@
 
   </div>
 
-  <button mat-raised-button color="primary" (click)='saveChangesSpecializationData()' id="button">Save</button>
+
 </div>

@@ -81,28 +81,25 @@ h3::before {
   height: 480px;
   border: 2px solid #cccccc;
   border-radius: 5px;
-  padding: 20px 0px 40px 20px;
+  padding: 20px 0px 20px 20px;
   background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
 }
 
 .wrapper_settings_form {
+  width: 100%;
   transition: 0.3s;
   margin: auto;
   background-color: #ffffff;
-  padding-top: 10px;
   margin-bottom: 30px;
 }
 
 .example-section {
   overflow-y: scroll;
-  height: 265px;
-  padding: 10px 20px 10px 0px;
-}
-
-#button {
-  width: 150px;
-  margin: auto;
-  background-color: #0080ca;
+  height: 220px;
+  padding-right: 20px;
+  margin-top: 6px;
 }
 
 ul {
@@ -112,8 +109,8 @@ ul {
 
 li {
   border: 1px solid #ccccccaf;
-  margin-bottom: 10px;
-  padding: 8px 10px;
+  margin-bottom: 15px;
+  padding: 7px 10px;
   border-radius: 4px;
   transition: 0.3s;
   position: relative;
@@ -172,15 +169,23 @@ ul > li:last-child {
   margin-bottom: 10px;
 }
 
+#button_delete_info:enabled{
+  background-color: #aa2626;
+  color: #ffffff;
+}
+
+
 .wrapper_add_form_data {
   box-sizing: border-box;
   padding: 0px 20px 0px 0px;
   display: flex;
   justify-content: space-between;
+  margin-bottom: 30px;
 
   #addSpecialization {
     width: 75%;
   }
+
   ::ng-deep .mat-form-field-wrapper {
     margin: 0px;
     padding: 0px;
@@ -211,6 +216,16 @@ ul > li:last-child {
   button {
     width: 20%;
   }
+}
+
+.wrapper_Specialization_button_submit{
+  padding-right: 20px;
+  display: flex;
+}
+
+#button {
+  width: 150px;
+  margin: auto;
 }
 
 .border_wrapper.user {
