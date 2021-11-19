@@ -16,7 +16,7 @@ const routes: Routes = [
 	{ path: 'form', component: FormComponent },
 	{ path: 'recruiter', component: RecruiterComponent, canActivate: [UserGuard], resolve: { candidates: CandidatesResolver } },
 	{ path: 'techInterviewer', component: TechInterviewerComponent, canActivate: [UserGuard], resolve: { candidates: CandidatesResolver } },
-	{ path: 'mentor', component: MentorComponent, canActivate: [UserGuard] },
+	{ path: 'mentor', component: MentorComponent, canActivate: [UserGuard], resolve: { candidates: CandidatesResolver } },
 	{ path: 'manager', component: ManagerComponent, canActivate: [UserGuard] },
 	{ path: 'admin', component: AdminComponent, canActivate: [UserGuard] },
 	{ path: '**', component: NotFoundComponent },

@@ -1,7 +1,7 @@
-<div *ngIf="selectedCandidate">
+<div *ngIf="selectedCandidate$ | async">
   <div class="wrapper">
     <div class="review">
-      <app-candidate-data [selectedCandidate]="selectedCandidate"></app-candidate-data>
+      <app-candidate-data [selectedCandidate]="selectedCandidate$ | async"></app-candidate-data>
       <app-recruiter-assessment></app-recruiter-assessment> <br>
       <app-tech-interviewer-assessment></app-tech-interviewer-assessment>
     </div>
