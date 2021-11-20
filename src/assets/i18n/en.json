@@ -104,36 +104,9 @@
     "comment": "Leave your comment here"
   },
 
-  "recruiter": {
-    "candidate-data": {
-      "label": "FORM DATA",
-      "firstName": "First name",
-      "location": "Location",
-      "phone": "Phone",
-      "specialization": "Specialization",
-      "lastName": "Last name",
-      "email": "Email",
-      "skype": "Skype",
-      "englishLevel": "English Level"
-    },
-    "interviewer-assesment": {
-      "label": "TECH SKILLS",
-      "comment": "Leave your comment here"
-    },
-    "recruiter-assesment": {
-      "label": "SOFT SKILLS",
-      "english": "English",
-      "communicationSkills": "Communication skills",
-      "abilityToListen": "Ability to listen",
-      "selfConfidence": "Self-confidence"
-    }
-  },
-
-  "button": {
-    "lang": {
-      "en": "English",
-      "ru": "Русский"
-    }
+  "tech-interviewer-assessment": {
+    "title": "TECH SKILLS",
+    "comment": "Leave your comment here"
   },
 
    "footer": {

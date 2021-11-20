@@ -104,30 +104,10 @@
     "comment": "Оставь свой комментарий"
   },
 
-"recruiter": {
-  "candidate-data": {
-    "label": "Данные кандидата",
-    "firstName": "Имя",
-    "location": "Расположение",
-    "phone": "Телефон",
-    "specialization": "Специальность",
-    "lastName": "Фамилия",
-    "email": "Почта",
-    "skype": "Скайп",
-    "englishLevel": "Уровень английского языка"
-  },
-  "interviewer-assesment": {
-    "label": "Технические навыки",
+  "tech-interviewer-assessment": {
+    "title": "Профессиональные навыки",
     "comment": "Оставь свой комментарий"
   },
-  "recruiter-assesment": {
-    "label": "Профессиональные навыки",
-    "english": "Английский язык",
-    "communicationSkills": "Коммуникативные навыки",
-    "abilityToListen": "Умение слушать",
-    "selfConfidence": "Уверенность в себе"
-  }
-},
 
   "footer": {
     "label": "Povered by [Team3] Oct2021 Exadel Internship JS&.NET&BA"
