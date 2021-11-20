@@ -8,12 +8,7 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class HeaderComponent implements OnInit {
 
-  selectedLanguage: string = 'en'
-
-  languageOptions = [
-    { label: 'English', value: 'en' },
-    { label: 'Russian', value: 'ru' },
-  ];
+  selectedLanguage: string = 'en';
 
   constructor(private translateService: TranslateService) {
     this.translateService.setDefaultLang(this.selectedLanguage);

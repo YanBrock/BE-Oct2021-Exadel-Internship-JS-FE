@@ -9,9 +9,9 @@ import { FormService } from '../../services/form.service';
 })
 export class FormComponent implements OnInit {
   isSpecialization : string[];
-  isEnglishlevel: string[] = [];
-  isLocation: string[] = [];
-  isLocationCity: string[] = [];
+  isEnglishLevel: string[] = [];
+  // isLocation: string[] = [];
+  // isLocationCity: string[] = [];
   validEmail = '^([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,6}$';
   errorCheckBox = 'errorCheckBox';
   isCloseTermsClass = 'wrapper_terms disable';
@@ -33,9 +33,9 @@ export class FormComponent implements OnInit {
 
   ngOnInit(): void {
     this.isSpecialization = this.formService.isSpecialization;
-    this.isEnglishlevel = this.formService.isEnglishlevel;
-    this.isLocation = this.formService.isLocation;
-    this.isLocationCity = this.formService.isLocationCity;
+    this.isEnglishLevel = this.formService.isEnglishLevel;
+    // this.isLocation = this.formService.isLocation;
+    // this.isLocationCity = this.formService.isLocationCity;
   }
 
   csvInputChange(fileInputEvent: any) {
