@@ -83,6 +83,18 @@
     }
   },
 
+  "candidate-data": {
+    "title": "Данные кандидата",
+    "firstName": "Имя",
+    "lastName": "Фамилия",
+    "email": "Электронная почта",
+    "skype": "Скайп",
+    "location": "Расположение",
+    "phone": "Телефон",
+    "specialization": "Специализация",
+    "englishLevel": "Уровень английского языка"
+  },
+
 "recruiter": {
   "candidate-data": {
     "label": "Данные кандидата",

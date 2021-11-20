@@ -83,6 +83,18 @@
     }
   },
 
+  "candidate-data": {
+    "title": "FORM DATA",
+    "firstName": "First name",
+    "lastName": "Last name",
+    "location": "Location",
+    "phone": "Phone",
+    "specialization": "Specialization",
+    "email": "Email",
+    "skype": "Skype",
+    "englishLevel": "English level"
+  },
+
   "recruiter": {
     "candidate-data": {
       "label": "FORM DATA",
