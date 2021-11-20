@@ -95,18 +95,32 @@
     "englishLevel": "English level"
   },
 
-  "recruiter-assessment": {
-    "title": "SOFT SKILLS",
-    "english": "English",
-    "communicationSkills": "Communication skills",
-    "abilityToListen": "Ability to listen",
-    "selfConfidence": "Self-confidence",
-    "comment": "Leave your comment here"
-  },
-
   "tech-interviewer-assessment": {
     "title": "TECH SKILLS",
     "comment": "Leave your comment here"
+  },
+
+  "recruiter": {
+    "assessment": {
+      "title": "SOFT SKILLS",
+      "english": "English",
+      "communicationSkills": "Communication skills",
+      "abilityToListen": "Ability to listen",
+      "selfConfidence": "Self-confidence",
+      "comment": "Leave your comment here"
+    },
+    "buttons": {
+      "decline": "DECLINE",
+      "apply": "APPLY"
+    }
+  },
+
+  "tech-interviewer": {
+    "assessment": {
+      "title": "TECH SKILLS",
+      "comment": "Leave your comment here"
+    },
+    "button": "APPLY"
   },
 
    "footer": {

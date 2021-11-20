@@ -95,19 +95,29 @@
     "englishLevel": "Уровень английского языка"
   },
 
-  "recruiter-assessment": {
-    "title": "Личные навыки",
-    "english": "Английский язык",
-    "communicationSkills": "Навыки общения",
-    "abilityToListen": "Умение слушать",
-    "selfConfidence": "Уверенность в себе",
-    "comment": "Оставь свой комментарий"
+  "recruiter": {
+    "assessment": {
+      "title": "Личностные навыки",
+      "english": "Английский язык",
+      "communicationSkills": "Навыки общения",
+      "abilityToListen": "Умение слушать",
+      "selfConfidence": "Уверенность в себе",
+      "comment": "Оставь свой комментарий"
+    },
+    "buttons": {
+      "decline": "ОТКЛОНИТЬ",
+      "apply": "ПРИНЯТЬ"
+    }
   },
 
-  "tech-interviewer-assessment": {
-    "title": "Профессиональные навыки",
-    "comment": "Оставь свой комментарий"
+  "tech-interviewer": {
+    "assessment": {
+      "title": "Профессиональные навыки",
+      "comment": "Оставь свой комментарий"
+    },
+    "button": "ПРИНЯТЬ"
   },
+
 
   "footer": {
     "label": "Povered by [Team3] Oct2021 Exadel Internship JS&.NET&BA"
