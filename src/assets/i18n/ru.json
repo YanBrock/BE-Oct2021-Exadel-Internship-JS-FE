@@ -95,6 +95,15 @@
     "englishLevel": "Уровень английского языка"
   },
 
+  "recruiter-assessment": {
+    "title": "Личные навыки",
+    "english": "Английский язык",
+    "communicationSkills": "Навыки общения",
+    "abilityToListen": "Умение слушать",
+    "selfConfidence": "Уверенность в себе",
+    "comment": "Оставь свой комментарий"
+  },
+
 "recruiter": {
   "candidate-data": {
     "label": "Данные кандидата",

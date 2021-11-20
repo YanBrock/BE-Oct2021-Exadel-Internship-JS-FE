@@ -95,6 +95,15 @@
     "englishLevel": "English level"
   },
 
+  "recruiter-assessment": {
+    "title": "SOFT SKILLS",
+    "english": "English",
+    "communicationSkills": "Communication skills",
+    "abilityToListen": "Ability to listen",
+    "selfConfidence": "Self-confidence",
+    "comment": "Leave your comment here"
+  },
+
   "recruiter": {
     "candidate-data": {
       "label": "FORM DATA",
