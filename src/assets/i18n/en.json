@@ -123,6 +123,13 @@
     "button": "APPLY"
   },
 
+  "mentor": {
+    "assessment": "ASSESSMENT",
+    "grade": "GRADE",
+    "review": "Leave your review",
+    "button": "SUBMIT"
+  },
+
    "footer": {
      "label": "Povered by [Team3] Oct2021 Exadel Internship JS&.NET&BA"
    }

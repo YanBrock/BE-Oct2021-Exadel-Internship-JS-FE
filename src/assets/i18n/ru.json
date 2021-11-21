@@ -118,6 +118,13 @@
     "button": "ПРИНЯТЬ"
   },
 
+  "mentor": {
+    "assessment": "Оценка",
+    "grade": "Оценка",
+    "review": "Оставь свой отзыв",
+    "button": "ПРИМЕНИТЬ"
+  },
+
 
   "footer": {
     "label": "Povered by [Team3] Oct2021 Exadel Internship JS&.NET&BA"
