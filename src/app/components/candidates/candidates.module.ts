@@ -9,6 +9,7 @@ import { CommonModule } from '@angular/common';
 import { CandidatesFilterComponent } from './candidates-filter/candidates-filter.component';
 import { ReactiveFormsModule } from "@angular/forms";
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   declarations: [CandidateComponent,
@@ -21,7 +22,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     MatFormFieldModule,
     MatSelectModule,
     ReactiveFormsModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    TranslateModule
   ],
   exports: [
     CandidatesComponent,

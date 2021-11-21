@@ -95,6 +95,11 @@
     "englishLevel": "English level"
   },
 
+  "candidates-filter": {
+    "specialization": "Specialization",
+    "status": "Status"
+  },
+
   "tech-interviewer-assessment": {
     "title": "TECH SKILLS",
     "comment": "Leave your comment here"

@@ -95,6 +95,11 @@
     "englishLevel": "Уровень английского языка"
   },
 
+  "candidates-filter": {
+    "specialization": "Специализация",
+    "status": "Статус"
+  },
+
   "recruiter": {
     "assessment": {
       "title": "Личностные навыки",
