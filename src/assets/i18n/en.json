@@ -13,6 +13,10 @@
     ]
   },
 
+  "header": {
+    "log-out": "Log out"
+  },
+
   "login": {
     "title": "Please sign in",
     "email": {
@@ -115,8 +119,8 @@
       "comment": "Leave your comment here"
     },
     "buttons": {
-      "decline": "DECLINE",
-      "apply": "APPLY"
+      "decline": "ASSIGN DECLINE STATUS",
+      "apply": "APPLY ASSESSMENTS AND COMMENTS"
     }
   },
 
@@ -125,7 +129,7 @@
       "title": "TECH SKILLS",
       "comment": "Leave your comment here"
     },
-    "button": "APPLY"
+    "button": "APPLY ASSESSMENTS AND COMMENTS"
   },
 
   "mentor": {
@@ -136,7 +140,7 @@
   },
 
    "footer": {
-     "label": "Povered by [Team3] Oct2021 Exadel Internship JS&.NET&BA"
+     "label": "Powered by [Team3] Oct2021 Exadel Internship JS&.NET&BA"
    }
  }
 

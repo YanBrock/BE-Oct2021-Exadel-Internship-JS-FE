@@ -13,6 +13,10 @@
     ]
   },
 
+  "header": {
+    "log-out": "Выйти"
+  },
+
   "login": {
     "title": "Вход в личный кабинет",
     "email": {
@@ -110,8 +114,8 @@
       "comment": "Оставь свой комментарий"
     },
     "buttons": {
-      "decline": "ОТКЛОНИТЬ",
-      "apply": "ПРИНЯТЬ"
+      "decline": "ОТКАЗАТЬ",
+      "apply": "ПРИМЕНИТЬ ОЦЕНКИ И КОММЕНТАРИЙ"
     }
   },
 
@@ -120,11 +124,11 @@
       "title": "Профессиональные навыки",
       "comment": "Оставь свой комментарий"
     },
-    "button": "ПРИНЯТЬ"
+    "button": "ПРИМЕНИТЬ ОЦЕНКИ И КОММЕНТАРИЙ"
   },
 
   "mentor": {
-    "assessment": "Оценка",
+    "assessment": "Итоговый результат",
     "grade": "Оценка",
     "review": "Оставь свой отзыв",
     "button": "ПРИМЕНИТЬ"
@@ -132,7 +136,7 @@
 
 
   "footer": {
-    "label": "Povered by [Team3] Oct2021 Exadel Internship JS&.NET&BA"
+    "label": "Powered by [Team3] Oct2021 Exadel Internship JS&.NET&BA"
   }
 
  }

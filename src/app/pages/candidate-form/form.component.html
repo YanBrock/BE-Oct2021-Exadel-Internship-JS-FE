@@ -35,7 +35,7 @@
         <mat-form-field appearance="outline">
           <mat-label>{{'form.country.title' | translate}}</mat-label>
           <mat-select [(ngModel)]="intern.location" name="location" #location="ngModel" required>
-            <mat-option *ngFor="let key of ('form.country.data' | translate)" [value]="key">{{key}}</mat-option>
+            <mat-option *ngFor="let key of isLocation" [value]="key">{{key}}</mat-option>
           </mat-select>
           <mat-error *ngIf="location.hasError('required')">{{"form.country.required" | translate}}</mat-error>
         </mat-form-field>
@@ -46,7 +46,7 @@
           <mat-label>{{'form.city.title' | translate}}</mat-label>
           <mat-select [disabled]=!intern.location [(ngModel)]="intern.city" name="city" #locationCity="ngModel"
             required>
-            <mat-option *ngFor="let key of ('form.city.data' | translate)" [value]="key">{{key}}</mat-option>
+            <mat-option *ngFor="let key of isLocationCity" [value]="key">{{key}}</mat-option>
           </mat-select>
           <mat-error *ngIf="locationCity.hasError('required')">{{"form.city.required" | translate}}</mat-error>
         </mat-form-field>
