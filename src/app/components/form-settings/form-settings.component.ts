@@ -1,4 +1,4 @@
-import { Component, QueryList, ViewChildren } from '@angular/core';
+import { Component } from '@angular/core';
 import { AdminService } from 'src/app/services/admin-service';
 import { FormService } from '../../services/form.service';
 
@@ -11,12 +11,12 @@ import { FormService } from '../../services/form.service';
 })
 export class FormSettingsComponent {
 
-  // @ViewChildren('li') list: QueryList<HTMLElement>
-  isSpecializationData = [];
+  isSpecialization = [];
   isRole = [];
   allComplete: boolean = false;
   isInputValueAddSpecializationData: string;
   skillForDelete: string;
+  isDisabled = true;
   validEmail = '^([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,6}$';
 
 
@@ -50,6 +50,8 @@ export class FormSettingsComponent {
   }
 
   setAll(completed: boolean) {
+    this.isDisabled = false;
+
     this.allComplete = completed;
     if (this.dataSpecialization.subtasks == null) {
       return;
@@ -69,6 +71,7 @@ export class FormSettingsComponent {
   }
 
   deleteSpecialization(e: Event) {
+    this.isDisabled = false;
 
     if (e.target["className"] === 'button_delete') {
       e.target['parentElement'].remove();
@@ -94,20 +97,29 @@ export class FormSettingsComponent {
 
 
   saveChangesSpecializationData() {
+    this.isDisabled = true;
 
-    this.adminService.saveNewDataSpecialization(this.dataSpecialization);
-    this.isSpecializationData = [];
-
-    this.dataSpecialization.subtasks.forEach((el) => {
-      if (el.completed) {
-        this.isSpecializationData.push(el.skill)
-      }
-    });
-
-    this.formService.postSpecializationData(this.isSpecializationData)
+    this.adminService.postSettingRequest(this.dataSpecialization, 'https://exadel3team.myapptechka.by/setting/specialization')
       .subscribe((data: any) => console.log(data),
         (error: Error) => console.log(error)
       );
+
+
+    this.dataSpecialization.subtasks.forEach((el) => {
+      if (el.completed) {
+        this.isSpecialization.push(el.skill)
+      }
+    });
+
+
+    this.adminService.postSettingRequest(this.isSpecialization, 'https://exadel3team.myapptechka.by/form/specialization')
+      .subscribe((data: any) => console.log(data),
+        (error: Error) => console.log(error)
+      );
+
+
+    this.isSpecialization = [];
+
   }
 
 }

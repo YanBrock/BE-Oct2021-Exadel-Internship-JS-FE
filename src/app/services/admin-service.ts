@@ -1,4 +1,6 @@
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable, Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -33,10 +35,20 @@ export class AdminService {
   newUser = {};
   delUser = '';
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
-  saveNewDataSpecialization(newDataSpecialization: any) {
-    this.dataSpecialization = newDataSpecialization;
+
+  postSettingRequest(data: any, url: string): Observable<any> {
+    let dataJson = JSON.stringify(data);
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'accept': '*/*',
+        'Content-Type': 'application/json',
+      }),
+    };
+
+    console.log(dataJson);
+    return this.http.post(url, dataJson, httpOptions);
   }
 
   saveNewUser(data: Object) {
