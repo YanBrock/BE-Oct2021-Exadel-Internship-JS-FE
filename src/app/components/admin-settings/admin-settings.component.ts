@@ -4,12 +4,12 @@ import { FormService } from '../../services/form.service';
 
 
 @Component({
-  selector: 'app-form-settings',
-  templateUrl: './form-settings.component.html',
-  styleUrls: ['./form-settings.component.scss'],
+  selector: 'app-admin-settings',
+  templateUrl: './admin-settings.component.html',
+  styleUrls: ['./admin-settings.component.scss'],
   providers: [FormService, AdminService],
 })
-export class FormSettingsComponent {
+export class AdminSettingsComponent {
 
   isSpecialization = [];
   isRole = [];
