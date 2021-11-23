@@ -1,13 +1,12 @@
 import { Component } from '@angular/core';
 import { AdminService } from 'src/app/services/admin-service';
-import { FormService } from '../../services/form.service';
 
 
 @Component({
   selector: 'app-admin-settings',
   templateUrl: './admin-settings.component.html',
   styleUrls: ['./admin-settings.component.scss'],
-  providers: [FormService, AdminService],
+  providers: [AdminService],
 })
 export class AdminSettingsComponent {
 
@@ -27,7 +26,7 @@ export class AdminSettingsComponent {
   };
 
 
-  constructor(private formService: FormService, private adminService: AdminService) { }
+  constructor(private adminService: AdminService) { }
 
   ngOnInit(): void {
     this.dataSpecialization = this.adminService.dataSpecialization;
@@ -86,12 +85,23 @@ export class AdminSettingsComponent {
 
   newUserSubmit(newUserForm: any) {
     newUserForm.value.role = newUserForm.value.role.toLowerCase();
-    this.adminService.saveNewUser(newUserForm.value);
+    // this.adminService.saveNewUser(newUserForm.value);
+
+    this.adminService.postSettingRequest(newUserForm.value, 'https://exadel3team.myapptechka.by/setting/addUser')
+      // .subscribe((data: any) => console.log(data),
+      //   (error: Error) => console.log(error)
+      // );
+
     newUserForm.reset();
   }
 
   deleteUserSubmit(deleteUserForm: any) {
-    this.adminService.deleteUser(deleteUserForm.value.email);
+    // this.adminService.deleteUser(deleteUserForm.value.email);
+    
+    this.adminService.deleteSettingRequest(deleteUserForm.value.email, 'https://exadel3team.myapptechka.by/setting/deleteUser')
+      // .subscribe((data: any) => console.log(data),
+      //   (error: Error) => console.log(error)
+      // );
     deleteUserForm.reset();
   }
 
@@ -100,22 +110,18 @@ export class AdminSettingsComponent {
     this.isDisabled = true;
 
     this.adminService.postSettingRequest(this.dataSpecialization, 'https://exadel3team.myapptechka.by/setting/specialization')
-      .subscribe((data: any) => console.log(data),
-        (error: Error) => console.log(error)
-      );
-
+      // .subscribe((data: any) => console.log(data),
+      //   (error: Error) => console.log(error)
+      // );
 
     this.dataSpecialization.subtasks.forEach((el) => {
-      if (el.completed) {
-        this.isSpecialization.push(el.skill)
-      }
+      el.completed && this.isSpecialization.push(el.skill);
     });
 
-
     this.adminService.postSettingRequest(this.isSpecialization, 'https://exadel3team.myapptechka.by/form/specialization')
-      .subscribe((data: any) => console.log(data),
-        (error: Error) => console.log(error)
-      );
+      // .subscribe((data: any) => console.log(data),
+      //   (error: Error) => console.log(error)
+      // );
 
 
     this.isSpecialization = [];

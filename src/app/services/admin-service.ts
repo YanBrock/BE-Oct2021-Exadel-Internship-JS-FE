@@ -32,8 +32,8 @@ export class AdminService {
     'Admin'
   ];
 
-  newUser = {};
-  delUser = '';
+  // newUser = {};
+  // delUser = '';
 
   constructor(private http: HttpClient) { }
 
@@ -48,18 +48,35 @@ export class AdminService {
     };
 
     console.log(dataJson);
-    return this.http.post(url, dataJson, httpOptions);
+    // return this.http.post(url, dataJson, httpOptions); -------- do not delete
+    return data;
   }
 
-  saveNewUser(data: Object) {
-    this.newUser = data;
-    console.log(this.newUser);
+
+  deleteSettingRequest(data: any, url: string): Observable<any> {
+    let dataJson = JSON.stringify(data);
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'accept': '*/*',
+        'Content-Type': 'application/json',
+      }),
+    };
+
+    console.log(dataJson);
+    // return this.http.delete(url, dataJson, httpOptions); -------- do not delete
+    return data;
   }
 
-  deleteUser(data: string) {
-    this.delUser = data;
-    console.log(this.delUser);
-  }
+
+  // saveNewUser(data: Object) {
+  //   this.newUser = data;
+  //   console.log(this.newUser);
+  // }
+
+  // deleteUser(data: string) {
+  //   this.delUser = data;
+  //   console.log(this.delUser);
+  // }
 
 
 
