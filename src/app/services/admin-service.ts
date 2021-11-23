@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, Subject } from 'rxjs';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -11,9 +11,9 @@ export class AdminService {
     skill: 'All specialization',
     completed: false,
     subtasks: [
-      {skill: 'Javascript', completed: false},
-      {skill: '.Net', completed: false},
-      {skill: 'Business analyst', completed: false },
+      {skill: 'Javascript', completed: true},
+      {skill: '.Net', completed: true},
+      {skill: 'Business analyst', completed: true },
       {skill: 'Java', completed: false},
       {skill: 'С++', completed: false},
       {skill: 'Python', completed: false},
