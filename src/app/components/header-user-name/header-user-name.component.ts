@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserLoginService } from 'src/app/services/user-login.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header-user-name',
@@ -8,37 +9,39 @@ import { UserLoginService } from 'src/app/services/user-login.service';
 })
 export class HeaderUserNameComponent implements OnInit {
 
-	title: string;
-	userRoleClicked: boolean = false;
+  title: string;
+  userRoleClicked: boolean = false;
 
-	constructor(private _userLoginService: UserLoginService) { }
+  constructor(private _userLoginService: UserLoginService, private router: Router) { }
 
-	showFeatures()
-	{
-		if(this.userRoleClicked === false)
-		{
-			this.userRoleClicked = true;
-		}
-		else if(this.userRoleClicked === true)
-		{
-			this.userRoleClicked = false;
-		};
-	};
+  showFeatures() {
+    if (this.userRoleClicked === false) {
+      this.userRoleClicked = true;
+    }
+    else if (this.userRoleClicked === true) {
+      this.userRoleClicked = false;
+    };
+  };
 
-	ngOnInit(): void
-	{
-		this._userLoginService.userRole$.subscribe(role =>
-		{
-			if(role !== null)
-			{
-				this.title = role;
-			}
-		})
-
-	};
+  ngOnInit(): void {
+    this._userLoginService.userRole$.subscribe(role => {
+        this.title = role;
+    })
+  };
 
   logOut() {
-    localStorage.removeItem('authToken');
+
+    this._userLoginService.postLogOut()
+      .subscribe(
+        () => {
+
+          this._userLoginService.deleteActiveUser();
+          this.router.navigate(['/']);
+
+        },
+        error => console.log(error)
+     );
+
   }
 
 }

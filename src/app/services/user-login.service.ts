@@ -12,7 +12,8 @@ import jwt_decode from 'jwt-decode';
 
 export class UserLoginService {
 
-  baseURL: string = 'Account/Login';
+  logInURL: string = 'Account/Login';
+  logOutURL: string = 'Account/logout';
   isKeyRole = 'http://schemas.microsoft.com/ws/2008/06/identity/claims/role';
   decoded: any;
 
@@ -35,7 +36,16 @@ export class UserLoginService {
         'Content-Type': 'application/json'
       }),
     };
-    return this.http.post(this.baseURL, userDataJson, httpOptions);
+    return this.http.post(this.logInURL, userDataJson, httpOptions);
+  }
+
+  postLogOut(): Observable<any> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'accept': '*/*',
+      }),
+    };
+    return this.http.post(this.logOutURL, httpOptions);
   }
 
   userRole$ = new Subject<string>()
@@ -43,7 +53,6 @@ export class UserLoginService {
 
   saveDataUser(userData: any): any {
     this.activeUser = { ...userData };
-    console.log(this.activeUser)
   }
 
   isAuthenticated(): boolean {
@@ -71,4 +80,12 @@ export class UserLoginService {
     this.userRole$.next(this.activeUser.role);
     return this.activeUser.role;
   }
+
+  deleteActiveUser() {
+    for (var key in this.activeUser) {
+      this.activeUser[key] = null;
+    }
+    localStorage.removeItem('authToken');
+  }
+
 }
