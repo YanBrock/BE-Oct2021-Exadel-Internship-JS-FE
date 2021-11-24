@@ -91,12 +91,12 @@
     "title": "Данные кандидата",
     "firstName": "Имя",
     "lastName": "Фамилия",
-    "email": "Электронная почта",
+    "email": "Почта",
     "skype": "Скайп",
-    "location": "Расположение",
+    "location": "Локация",
     "phone": "Телефон",
     "specialization": "Специализация",
-    "englishLevel": "Уровень английского языка"
+    "englishLevel": "Английский"
   },
 
   "candidates-filter": {
