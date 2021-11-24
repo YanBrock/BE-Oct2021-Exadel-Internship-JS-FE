@@ -1,7 +1,7 @@
 <form class="candidate-form" [formGroup]="filterForm">
 
   <mat-form-field class="specialization-filter">
-    <mat-label>Specialization</mat-label>
+    <mat-label>{{"candidates-filter.specialization" | translate}}</mat-label>
     <mat-select formControlName="specialization">
       <mat-option value="all">All</mat-option>
       <mat-option *ngFor="let option of specializationOptions" [value]="option.value">{{option.label}}</mat-option>
@@ -9,7 +9,7 @@
   </mat-form-field>
 
   <mat-form-field class="status-filter">
-    <mat-label>Status</mat-label>
+    <mat-label>{{"candidates-filter.status" | translate}}</mat-label>
     <mat-select formControlName="status">
       <mat-option value="all">All</mat-option>
       <mat-option *ngFor="let option of statusOptions" [value]="option.value">{{option.label}}</mat-option>

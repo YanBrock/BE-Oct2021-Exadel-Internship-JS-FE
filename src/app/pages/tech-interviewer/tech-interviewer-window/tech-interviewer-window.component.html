@@ -2,5 +2,5 @@
   <app-candidate-data [selectedCandidate]="selectedCandidate$ | async"></app-candidate-data>
   <app-recruiter-assessment></app-recruiter-assessment>
   <app-tech-interviewer-assessment (changingForm)="onFormChange($event)" [assessments]="assessments"></app-tech-interviewer-assessment>
-  <button mat-stroked-button (click)="onClick()">APPLY ASSESSMENTS AND COMMENTS</button>
+  <button mat-stroked-button (click)="onClick()">{{"tech-interviewer.button" | translate}}</button>
 </div>

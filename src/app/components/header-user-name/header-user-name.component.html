@@ -1,7 +1,7 @@
 <div class="header__user" *ngIf="title">
 	<div class="name" (click)="showFeatures()">{{title | uppercase}}
 		<div class="user__features" *ngIf="userRoleClicked === true">
-			<div (click)="logOut()">Log Out</div>
+			<div (click)="logOut()">{{"header.log-out" | translate}}</div>
 		</div>
 	</div>
 

@@ -1,4 +1,4 @@
-<h3>{{"recruiter.interviewer-assesment.label" | translate}}:</h3>
+<h3>{{"tech-interviewer.assessment.title" | translate}}:</h3>
 <hr>
 <div *ngIf="(activeUser !=='recruiter' && activeUser !== 'mentor') else recruiterBlock">
   <form (change)="onChange()">
@@ -14,7 +14,7 @@
       </mat-list-item>
     </mat-list>
     <mat-form-field appearance="outline">
-      <mat-label>{{"recruiter.interviewer-assesment.comment" | translate}}</mat-label>
+      <mat-label>{{"tech-interviewer.assessment.comment" | translate}}</mat-label>
       <textarea name="text" [(ngModel)]="assessments['comment']" matInput></textarea>
     </mat-form-field>
   </form>
