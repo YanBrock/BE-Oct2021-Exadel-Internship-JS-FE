@@ -31,8 +31,13 @@ div {
     flex-wrap: wrap;
     min-width: 19rem;
 
-    span {
-      margin-left: 1rem;
+    .mat-list-item {
+      width: 20rem;
+
+      span {
+        margin-left: 1rem;
+      }
     }
+
   }
 }

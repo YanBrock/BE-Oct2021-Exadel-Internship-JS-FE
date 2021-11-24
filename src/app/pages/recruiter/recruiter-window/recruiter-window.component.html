@@ -1,4 +1,4 @@
-<div *ngIf="selectedCandidate$ | async">
+<div>
   <app-candidate-data [selectedCandidate]="selectedCandidate$ | async"></app-candidate-data>
   <app-recruiter-assessment (changingForm)="onFormChange($event)" [assessmentsRecruiter]="assessmentsRecruiter"></app-recruiter-assessment>
   <app-tech-interviewer-assessment></app-tech-interviewer-assessment>
