@@ -9,7 +9,7 @@ import {UserLoginService} from '../../services/user-login.service';
 export class TechInterviewerAssessmentComponent implements OnInit {
 
   activeUser: string
-  @Input() assessments
+  @Input() assessmentsTech
   @Output() changingForm = new EventEmitter<any>()
 
   constructor(private userLoginService: UserLoginService) { }
@@ -19,6 +19,6 @@ export class TechInterviewerAssessmentComponent implements OnInit {
   }
 
   onChange() {
-    this.changingForm.emit(this.assessments)
+    this.changingForm.emit(this.assessmentsTech)
   }
 }
