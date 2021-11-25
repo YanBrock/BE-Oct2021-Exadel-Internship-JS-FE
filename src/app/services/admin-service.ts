@@ -34,9 +34,6 @@ export class AdminService {
 	// newUser = {};
 	// delUser = '';
 
-	// selectedPage$ = new Subject<string>()
-	// selectedPage = this.selectedPage$.asObservable()
-
 	private adminStartPage: BehaviorSubject<string>
 
 	constructor(private http: HttpClient) {
@@ -50,13 +47,6 @@ export class AdminService {
 	setSelectedPage(value) {
 		this.adminStartPage.next(value);
 	};
-
-
-
-	// getSelectedPage() {
-	// 	this.selectedPage$.next(this.adminStartPage);
-	// 	return this.adminStartPage;
-	// }
 
 
 	postSettingRequest(data: any, url: string): Observable<any> {
