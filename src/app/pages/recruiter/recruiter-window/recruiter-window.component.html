@@ -1,6 +1,6 @@
 <div>
   <app-candidate-data [selectedCandidate]="selectedCandidate$ | async"></app-candidate-data>
-  <app-recruiter-assessment (changingForm)="onFormChange($event)" [assessments]="assessments"></app-recruiter-assessment>
+  <app-recruiter-assessment (changingForm)="onFormChange($event)" [assessmentsRecruiter]="assessmentsRecruiter"></app-recruiter-assessment>
   <app-tech-interviewer-assessment></app-tech-interviewer-assessment>
   <div class="buttons">
     <button class="decline-button" mat-stroked-button (click)="onClick()">{{"recruiter.buttons.decline" | translate}}</button>
