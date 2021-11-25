@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Observer } from 'rxjs';
 import { AdminService } from 'src/app/services/admin-service';
 
 @Component({
@@ -10,16 +9,13 @@ import { AdminService } from 'src/app/services/admin-service';
 export class AdminNavComponent implements OnInit {
 
 	selectedOption: string = "Home";
+	displayComponent: string = "admin"
+	
 
-	qwe: any;
-
-
-	constructor(private adminService: AdminService) {
-
-	}
+	constructor(private adminService: AdminService) { }
 
 	changeWindow() {
-		this.adminService.setSelectPage(this.selectedOption);
+		this.adminService.setSelectedPage(this.selectedOption);
 	};
 
 	ngOnInit(): void {

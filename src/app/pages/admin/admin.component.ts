@@ -13,7 +13,7 @@ export class AdminComponent implements OnInit {
 	constructor(private adminService: AdminService) { }
 
 	ngOnInit(): void {
-		this.adminService.getSelectPage().subscribe((value) => {
+		this.adminService.getSelectedPage().subscribe((value) => {
 			this.selectedPage = value;
 		})
 	};

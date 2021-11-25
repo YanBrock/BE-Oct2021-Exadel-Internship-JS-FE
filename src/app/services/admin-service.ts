@@ -43,11 +43,11 @@ export class AdminService {
 		this.adminStartPage = new BehaviorSubject<string>("Home");
 	}
 
-	getSelectPage(): Observable<string> {
+	getSelectedPage(): Observable<string> {
 		return this.adminStartPage.asObservable();
 	}
 
-	setSelectPage(value) {
+	setSelectedPage(value) {
 		this.adminStartPage.next(value);
 	};
 

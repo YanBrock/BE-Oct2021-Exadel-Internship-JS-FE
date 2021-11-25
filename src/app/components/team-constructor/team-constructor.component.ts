@@ -12,17 +12,16 @@ export class TeamConstructorComponent implements OnInit {
 
 	toppings = new FormControl();
 
-	allUsers: User[] = [];
+	selectedMentors: any;
 
-	mentors: User[] = [];
+	selectedCandidates: any;
+
+	mentors: User[] = this.usersServics.mentors;
 
 	constructor(private usersServics: UsersService) { }
 
-	getMentors() {
-		this.usersServics.getMentors().subscribe(data => this.allUsers = data);
-	}
-
 	setNotify(): void {
+		console.log(this.selectedMentors);
 	}
 
 	ngOnInit(): void {
