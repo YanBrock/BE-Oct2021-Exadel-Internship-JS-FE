@@ -7,10 +7,8 @@ import { Observable } from 'rxjs';
 })
 export class AdminService {
 
-  dataSpecialization = {
-    skill: 'All specialization',
-    completed: false,
-    subtasks: [
+
+    subtasks = [
       {skill: 'Javascript', completed: true},
       {skill: '.Net', completed: true},
       {skill: 'Business analyst', completed: true },
@@ -22,7 +20,7 @@ export class AdminService {
       {skill: 'TypeScript', completed: false},
       {skill: 'Delphi', completed: false},
     ]
-  };
+
 
   isRole = [
     'Recruiter',

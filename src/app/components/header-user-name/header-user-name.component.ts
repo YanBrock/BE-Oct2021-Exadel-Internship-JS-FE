@@ -25,7 +25,7 @@ export class HeaderUserNameComponent implements OnInit {
 
   ngOnInit(): void {
     this._userLoginService.userRole$.subscribe(role => {
-        this.title = role;
+      this.title = role;
     })
   };
 
@@ -39,8 +39,14 @@ export class HeaderUserNameComponent implements OnInit {
           this.router.navigate(['/']);
 
         },
-        error => console.log(error)
-     );
+        (error) => {
+          if (error.status === 401) {
+            this._userLoginService.deleteActiveUser();
+            this.router.navigate(['/']);
+
+          }
+        }
+      );
 
   }
 

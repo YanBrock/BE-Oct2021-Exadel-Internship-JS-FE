@@ -20,7 +20,7 @@ export class AdminSettingsComponent {
 
 
   dataSpecialization = {
-    skill: '',
+    skill: 'All specialization',
     completed: false,
     subtasks: []
   };
@@ -29,18 +29,20 @@ export class AdminSettingsComponent {
   constructor(private adminService: AdminService) { }
 
   ngOnInit(): void {
-    this.dataSpecialization = this.adminService.dataSpecialization;
+    console.log(this.adminService.subtasks)
+    this.dataSpecialization.subtasks = this.adminService.subtasks;
     this.isRole = this.adminService.isRole;
   }
 
 
+
   updateAllComplete() {
     this.allComplete = this.dataSpecialization.subtasks != null && this.dataSpecialization.subtasks.every(t => t.completed);
-
   }
 
   someComplete(): boolean {
     if (this.dataSpecialization.subtasks == null) {
+
 
       return false;
     }
@@ -53,6 +55,7 @@ export class AdminSettingsComponent {
 
     this.allComplete = completed;
     if (this.dataSpecialization.subtasks == null) {
+
       return;
     }
 
@@ -97,7 +100,7 @@ export class AdminSettingsComponent {
 
   deleteUserSubmit(deleteUserForm: any) {
     // this.adminService.deleteUser(deleteUserForm.value.email);
-    
+
     this.adminService.deleteSettingRequest(deleteUserForm.value.email, 'https://exadel3team.myapptechka.by/setting/deleteUser')
       // .subscribe((data: any) => console.log(data),
       //   (error: Error) => console.log(error)
