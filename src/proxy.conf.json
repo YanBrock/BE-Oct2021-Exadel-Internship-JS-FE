@@ -4,5 +4,11 @@
       "secure": false,
       "logLevel": "debug",
       "changeOrigin": true
+  },
+  "/admin/*": {
+      "target": "https://exadel3team.myapptechka.by",
+      "secure": false,
+      "logLevel": "debug",
+      "changeOrigin": true
   }
 }

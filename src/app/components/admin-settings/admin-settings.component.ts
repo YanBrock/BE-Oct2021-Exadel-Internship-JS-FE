@@ -89,10 +89,10 @@ export class AdminSettingsComponent {
     newUserForm.value.role = newUserForm.value.role.toLowerCase();
     // this.adminService.saveNewUser(newUserForm.value);
 
-    this.adminService.postSettingRequest(newUserForm.value, 'https://exadel3team.myapptechka.by/setting/addUser')
-      // .subscribe((data: any) => console.log(data),
-      //   (error: Error) => console.log(error)
-      // );
+    this.adminService.postSettingRequest(newUserForm.value, 'admin/addinguser')
+      .subscribe((data: any) => console.log(data),
+        (error: Error) => console.log(error)
+      );
 
     newUserForm.reset();
   }
