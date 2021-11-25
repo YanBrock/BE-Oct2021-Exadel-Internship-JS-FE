@@ -1,4 +1,8 @@
-<app-admin-settings></app-admin-settings>
-<!-- <app-candidates></app-candidates>
-<app-admin-window></app-admin-window> -->
+<app-admin-settings *ngIf="selectedPage === 'Settings'"></app-admin-settings>
+
+<div class="home" *ngIf="selectedPage === 'Home'">
+	<app-candidates></app-candidates>
+	<app-admin-window></app-admin-window>
+</div>
+
 

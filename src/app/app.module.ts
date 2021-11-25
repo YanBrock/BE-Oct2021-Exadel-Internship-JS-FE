@@ -24,6 +24,7 @@ import { MentorModule } from './pages/mentor/mentor.module';
 import { AppStoreModule } from './app-store.module';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { Interceptor } from './interceptor/interceptor';
+import { AdminNavModule } from './components/admin-nav/admin-nav.module';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import { Interceptor } from './interceptor/interceptor';
     MatSelectModule,
     MentorModule,
     AppStoreModule,
-    StoreDevtoolsModule.instrument({ name: 'Example' })
+    StoreDevtoolsModule.instrument({ name: 'Example' }),
+	AdminNavModule,
   ],
   providers: [
     {

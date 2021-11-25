@@ -4,8 +4,12 @@
 	<app-recruiter-assessment (changingForm)="onFormChange($event)" [assessmentsRecruiter]="assessmentsRecruiter">
 	</app-recruiter-assessment>
 
+	<br>
+
 	<app-tech-interviewer-assessment (changingForm)="onFormChange($event)" [assessmentsTech]="assessmentsTech">
 	</app-tech-interviewer-assessment>
+
+	<br>
 
 	<div class="buttons">
 		<button class="decline-button" mat-stroked-button (click)="onClick()">{{"recruiter.buttons.decline" |
