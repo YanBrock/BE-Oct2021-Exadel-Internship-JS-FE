@@ -29,7 +29,6 @@ export class AdminSettingsComponent {
   constructor(private adminService: AdminService) { }
 
   ngOnInit(): void {
-    console.log(this.adminService.subtasks)
     this.dataSpecialization.subtasks = this.adminService.subtasks;
     this.isRole = this.adminService.isRole;
   }
@@ -112,7 +111,7 @@ export class AdminSettingsComponent {
   saveChangesSpecializationData() {
     this.isDisabled = true;
 
-    this.adminService.postSettingRequest(this.dataSpecialization, 'https://exadel3team.myapptechka.by/setting/specialization')
+    this.adminService.postSettingRequest(this.dataSpecialization.subtasks, 'https://exadel3team.myapptechka.by/setting/specialization')
       // .subscribe((data: any) => console.log(data),
       //   (error: Error) => console.log(error)
       // );
