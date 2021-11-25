@@ -18,7 +18,7 @@ const routes: Routes = [
 	{ path: 'techInterviewer', component: TechInterviewerComponent, canActivate: [UserGuard], resolve: { candidates: CandidatesResolver } },
 	{ path: 'mentor', component: MentorComponent, canActivate: [UserGuard], resolve: { candidates: CandidatesResolver } },
 	{ path: 'manager', component: ManagerComponent, canActivate: [UserGuard] },
-	{ path: 'admin', component: AdminComponent, canActivate: [UserGuard] },
+	{ path: 'admin', component: AdminComponent, canActivate: [UserGuard], resolve: { candidates: CandidatesResolver } },
 	{ path: '**', component: NotFoundComponent },
 ];
 

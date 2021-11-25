@@ -12,7 +12,7 @@ import { selectSelectCandidate } from '../../../store/candidates/selectors';
 export class RecruiterWindowComponent implements OnInit {
 
   selectedCandidate$: Observable<Candidate>;
-  assessments ={
+  assessmentsRecruiter ={
     englishLevel: '',
     communicationSkills: '',
     abilityToListen: '',
@@ -28,8 +28,8 @@ export class RecruiterWindowComponent implements OnInit {
   }
 
   onClick() {
-    console.log(this.assessments)
-    this.assessments = {
+    console.log(this.assessmentsRecruiter)
+    this.assessmentsRecruiter = {
       englishLevel: '',
       communicationSkills: '',
       abilityToListen: '',
@@ -38,7 +38,7 @@ export class RecruiterWindowComponent implements OnInit {
   }
 
   onFormChange(object) {
-    this.assessments = object
+    this.assessmentsRecruiter = object
   }
 
 }

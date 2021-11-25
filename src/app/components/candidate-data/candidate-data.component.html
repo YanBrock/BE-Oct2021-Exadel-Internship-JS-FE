@@ -1,30 +1,30 @@
-<h3>{{"recruiter.candidate-data.label" | translate}}:</h3>
+<h3>{{"candidate-data.title" | translate}}:</h3>
 <hr>
 <div>
   <mat-list role="list">
-    <mat-list-item role="listitem">{{"recruiter.candidate-data.firstName" | translate}} :
-      <span><strong>{{ selectedCandidate.firstName }}</strong></span>
+    <mat-list-item role="listitem">{{"candidate-data.firstName" | translate}} :
+      <span *ngIf="selectedCandidate"><strong>{{ selectedCandidate.firstName }}</strong></span>
     </mat-list-item>
-    <mat-list-item role="listitem">{{"recruiter.candidate-data.location" | translate}} :
-      <span><strong>{{ selectedCandidate.location }}</strong></span>
+    <mat-list-item role="listitem">{{"candidate-data.lastName" | translate}} :
+      <span *ngIf="selectedCandidate"><strong>{{ selectedCandidate.lastName }}</strong></span>
     </mat-list-item>
-    <mat-list-item role="listitem">{{"recruiter.candidate-data.phone" | translate}} :
-      <span><strong>{{ selectedCandidate.phone }}</strong></span>
+    <mat-list-item role="listitem">{{"candidate-data.location" | translate}} :
+      <span *ngIf="selectedCandidate"><strong>{{ selectedCandidate.location }}</strong></span>
     </mat-list-item>
-    <mat-list-item role="listitem">{{"recruiter.candidate-data.specialization" | translate}} :
-      <span><strong>{{ selectedCandidate.specialization }}</strong></span>
+    <mat-list-item role="listitem">{{"candidate-data.phone" | translate}} :
+      <span *ngIf="selectedCandidate"><strong>{{ selectedCandidate.phone }}</strong></span>
     </mat-list-item>
-    <mat-list-item role="listitem">{{"recruiter.candidate-data.lastName" | translate}} :
-      <span><strong>{{ selectedCandidate.lastName }}</strong></span>
+    <mat-list-item role="listitem">{{"candidate-data.specialization" | translate}} :
+      <span *ngIf="selectedCandidate"><strong>{{ selectedCandidate.specialization }}</strong></span>
     </mat-list-item>
-    <mat-list-item role="listitem">{{"recruiter.candidate-data.email" | translate}} :
-      <span><strong>{{ selectedCandidate.email }}</strong></span>
+    <mat-list-item role="listitem">{{"candidate-data.englishLevel" | translate}} :
+      <span *ngIf="selectedCandidate"><strong>{{ selectedCandidate.englishLevel }}</strong></span>
     </mat-list-item>
-    <mat-list-item role="listitem">{{"recruiter.candidate-data.skype" | translate}} :
-      <span><strong>{{ selectedCandidate.skype }}</strong></span>
+    <mat-list-item role="listitem">{{"candidate-data.skype" | translate}} :
+      <span *ngIf="selectedCandidate"><strong>{{ selectedCandidate.skype }}</strong></span>
     </mat-list-item>
-    <mat-list-item role="listitem">{{"recruiter.candidate-data.englishLevel" | translate}} :
-      <span><strong>{{ selectedCandidate.englishLevel }}</strong></span>
+    <mat-list-item role="listitem">{{"candidate-data.email" | translate}} :
+      <span *ngIf="selectedCandidate"><strong>{{ selectedCandidate.email }}</strong></span>
     </mat-list-item>
   </mat-list>
 </div>

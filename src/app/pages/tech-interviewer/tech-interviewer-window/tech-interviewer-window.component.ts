@@ -12,7 +12,7 @@ import { selectSelectCandidate } from '../../../store/candidates/selectors';
 export class TechInterviewerWindowComponent implements OnInit {
 
   selectedCandidate$: Observable<Candidate>;
-  assessments = {
+  assessmentsTech = {
     html: '',
     css: '',
     javaScript: '',
@@ -28,8 +28,8 @@ export class TechInterviewerWindowComponent implements OnInit {
   }
 
   onClick() {
-    console.log(this.assessments)
-    this.assessments = {
+    console.log(this.assessmentsTech)
+    this.assessmentsTech = {
       html: '',
       css: '',
       javaScript: '',
@@ -38,6 +38,6 @@ export class TechInterviewerWindowComponent implements OnInit {
   }
 
   onFormChange(object) {
-    this.assessments = object
+    this.assessmentsTech = object
   }
 }

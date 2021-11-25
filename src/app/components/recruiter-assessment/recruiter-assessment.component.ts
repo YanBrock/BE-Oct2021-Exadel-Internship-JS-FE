@@ -10,7 +10,7 @@ import {UserLoginService} from '../../services/user-login.service';
 export class RecruiterAssessmentComponent implements OnInit {
 
   activeUser: string
-  @Input() assessments
+  @Input() assessmentsRecruiter
   @Output() changingForm = new EventEmitter<object>()
 
   constructor(private userLoginService: UserLoginService) { }
@@ -20,7 +20,7 @@ export class RecruiterAssessmentComponent implements OnInit {
   }
 
   onChange() {
-    this.changingForm.emit(this.assessments)
+    this.changingForm.emit(this.assessmentsRecruiter)
   }
 
 }

@@ -1,21 +1,21 @@
-<h3>{{"recruiter.interviewer-assesment.label" | translate}}:</h3>
+<h3>{{"tech-interviewer.assessment.title" | translate}}:</h3>
 <hr>
 <div *ngIf="(activeUser !=='recruiter' && activeUser !== 'mentor') else recruiterBlock">
   <form (change)="onChange()">
     <mat-list role="list">
       <mat-list-item role="listitem">
-        HTML: <input name="input" [(ngModel)]="assessments['html']" type="text">/4
+        HTML: <input name="input" [(ngModel)]="assessmentsTech['html']" type="text">/4
       </mat-list-item>
       <mat-list-item role="listitem">
-        CSS: <input name="input" [(ngModel)]="assessments['css']" type="text">/4
+        CSS: <input name="input" [(ngModel)]="assessmentsTech['css']" type="text">/4
       </mat-list-item>
       <mat-list-item role="listitem">
-        JavaScript: <input name="input" [(ngModel)]="assessments['javaScript']" type="text">/4
+        JavaScript: <input name="input" [(ngModel)]="assessmentsTech['javaScript']" type="text">/4
       </mat-list-item>
     </mat-list>
     <mat-form-field appearance="outline">
-      <mat-label>{{"recruiter.interviewer-assesment.comment" | translate}}</mat-label>
-      <textarea name="text" [(ngModel)]="assessments['comment']" matInput></textarea>
+      <mat-label>{{"tech-interviewer.assessment.comment" | translate}}</mat-label>
+      <textarea name="text" [(ngModel)]="assessmentsTech['comment']" matInput></textarea>
     </mat-form-field>
   </form>
 </div>
