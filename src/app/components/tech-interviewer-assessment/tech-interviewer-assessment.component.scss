@@ -32,14 +32,9 @@ div {
 
   input {
     width: 1rem;
-    margin-left: 1rem;
     border: none;
     outline: none;
     text-align: center;
-  }
-
-  span {
-    margin-left: 1rem;
   }
 
   textarea {
@@ -49,12 +44,20 @@ div {
   p {
     width: 20rem;
     margin-top: 1.2rem;
-    margin-left: 10.3rem;
+    margin-left: 4rem;
+  }
+
+  .mat-list-item {
+    width: 17rem;
   }
 }
 
 .mat-form-field {
   width: 20rem;
   margin-top: 1.2rem;
-  margin-left: 10rem;
+  margin-left: 4rem;
+}
+
+.mat-list-item ::ng-deep .mat-list-item-content {
+  justify-content: space-between;
 }
