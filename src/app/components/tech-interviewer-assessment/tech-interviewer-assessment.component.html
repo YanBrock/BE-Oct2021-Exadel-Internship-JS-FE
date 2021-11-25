@@ -4,13 +4,22 @@
   <form (change)="onChange()">
     <mat-list role="list">
       <mat-list-item role="listitem">
-        HTML: <input name="input" [(ngModel)]="assessments['html']" type="text">/4
+        HTML:
+        <span>
+          <input name="input" [(ngModel)]="assessments['html']" type="text">/4
+        </span>
       </mat-list-item>
       <mat-list-item role="listitem">
-        CSS: <input name="input" [(ngModel)]="assessments['css']" type="text">/4
+        CSS:
+        <span>
+          <input name="input" [(ngModel)]="assessments['css']" type="text">/4
+        </span>
       </mat-list-item>
       <mat-list-item role="listitem">
-        JavaScript: <input name="input" [(ngModel)]="assessments['javaScript']" type="text">/4
+        JavaScript:
+        <span>
+          <input name="input" [(ngModel)]="assessments['javaScript']" type="text">/4
+        </span>
       </mat-list-item>
     </mat-list>
     <mat-form-field appearance="outline">
@@ -23,13 +32,13 @@
   <div>
     <mat-list role="list">
       <mat-list-item role="listitem">
-        HTML: <span>5/5</span>
+        HTML: <span>4/4</span>
       </mat-list-item>
       <mat-list-item role="listitem">
-        CSS: <span>4/5</span>
+        CSS: <span>4/4</span>
       </mat-list-item>
       <mat-list-item role="listitem">
-        JavaScript: <span>3/5</span>
+        JavaScript: <span>3/4</span>
       </mat-list-item>
     </mat-list>
     <p>Tech-interviewer comment</p>
