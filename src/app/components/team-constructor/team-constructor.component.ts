@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { CandidatesService } from 'src/app/services/candidates.service';
 import { UsersService } from 'src/app/services/users.service';
@@ -15,14 +15,18 @@ export class TeamConstructorComponent implements OnInit {
 
 	selectedMentors: any;
 
-	selectedCandidates: any;
+	@Input() selectedCandidates: any;
 
 	mentors: User[] = this.usersServics.mentors;
 
 	constructor(private usersServics: UsersService, private candidatesService: CandidatesService) { }
 
 	setNotify(): void {
-		console.log(this.selectedMentors);
+		if(this.selectedMentors !== undefined) {
+			console.log(this.selectedMentors);
+			this.selectedMentors = undefined;
+		}
+		
 	}
 
 	ngOnInit(): void {

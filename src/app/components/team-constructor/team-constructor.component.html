@@ -8,7 +8,7 @@
 </mat-form-field>
 
 <mat-list role="list">
-	<mat-list-item role="listitem" *ngFor="let candidate of selectedCandidates">{{candidate}}</mat-list-item>
+	<mat-list-item role="listitem">{{selectedCandidates.firstName + " " + selectedCandidates.lastName}}</mat-list-item>
 </mat-list>
 
 <button mat-stroked-button (click)="setNotify()">SUBMIT & NOTIFY</button>
