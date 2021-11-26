@@ -89,7 +89,7 @@ export class AdminSettingsComponent {
     newUserForm.value.role = newUserForm.value.role.toLowerCase();
     // this.adminService.saveNewUser(newUserForm.value);
 
-    this.adminService.postSettingRequest({...newUserForm.value, firstName: "string", lastName: "string"}, 'admin/addinguser')
+    this.adminService.postSettingRequest(newUserForm.value, 'admin/addinguser')
       .subscribe((data: any) => console.log(data),
         (error: Error) => console.log(error)
       );
@@ -124,7 +124,6 @@ export class AdminSettingsComponent {
       // .subscribe((data: any) => console.log(data),
       //   (error: Error) => console.log(error)
       // );
-
 
     this.isSpecialization = [];
 
