@@ -12,5 +12,5 @@ const PROXY_CONFIG = [
   }
 ]
 
-export default PROXY_CONFIG;
-// module.exports = PROXY_CONFIG;
+// export default PROXY_CONFIG;
+module.exports = PROXY_CONFIG;
