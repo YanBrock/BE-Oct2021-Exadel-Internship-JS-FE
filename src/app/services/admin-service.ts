@@ -34,29 +34,19 @@ export class AdminService {
 	// newUser = {};
 	// delUser = '';
 
-	// selectedPage$ = new Subject<string>()
-	// selectedPage = this.selectedPage$.asObservable()
-
 	private adminStartPage: BehaviorSubject<string>
 
 	constructor(private http: HttpClient) {
 		this.adminStartPage = new BehaviorSubject<string>("Home");
 	}
 
-	getSelectPage(): Observable<string> {
+	getSelectedPage(): Observable<string> {
 		return this.adminStartPage.asObservable();
 	}
 
-	setSelectPage(value) {
+	setSelectedPage(value) {
 		this.adminStartPage.next(value);
 	};
-
-
-
-	// getSelectedPage() {
-	// 	this.selectedPage$.next(this.adminStartPage);
-	// 	return this.adminStartPage;
-	// }
 
 
 	postSettingRequest(data: any, url: string): Observable<any> {

@@ -4,16 +4,28 @@
   <form (change)="onChange()">
     <mat-list role="list">
       <mat-list-item role="listitem">
-        {{"recruiter.assessment.english" | translate}}: <input name="input" [(ngModel)]="assessmentsRecruiter['englishLevel']" type="text">/4
+        {{"recruiter.assessment.english" | translate}}:
+        <span>
+          <input name="input" [(ngModel)]="assessmentsRecruiter['englishLevel']" type="text">/4
+        </span>
       </mat-list-item>
       <mat-list-item role="listitem">
-        {{"recruiter.assessment.communicationSkills" | translate}}: <input name="input" [(ngModel)]="assessmentsRecruiter['communicationSkills']" type="text">/4
+        {{"recruiter.assessment.communicationSkills" | translate}}:
+        <span>
+          <input name="input" [(ngModel)]="assessmentsRecruiter['communicationSkills']" type="text">/4
+        </span>
       </mat-list-item>
       <mat-list-item role="listitem">
-        {{"recruiter.assessment.abilityToListen" | translate}}: <input name="input" [(ngModel)]="assessmentsRecruiter['abilityToListen']" type="text">/4
+        {{"recruiter.assessment.abilityToListen" | translate}}:
+        <span>
+          <input name="input" [(ngModel)]="assessmentsRecruiter['abilityToListen']" type="text">/4
+        </span>
       </mat-list-item>
       <mat-list-item role="listitem">
-        {{"recruiter.assessment.selfConfidence" | translate}}: <input name="input" [(ngModel)]="assessmentsRecruiter['selfConfidence']" type="text">/4
+        {{"recruiter.assessment.selfConfidence" | translate}}:
+        <span>
+          <input name="input" [(ngModel)]="assessmentsRecruiter['selfConfidence']" type="text">/4
+        </span>
       </mat-list-item>
     </mat-list>
     <mat-form-field appearance="outline">

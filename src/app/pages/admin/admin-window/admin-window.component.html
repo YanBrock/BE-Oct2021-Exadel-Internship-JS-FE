@@ -12,10 +12,14 @@
 	<br>
 
 	<div class="buttons">
+		<button mat-stroked-button>TO ARCHIVE</button>
+		<button mat-stroked-button (click)="toTeam()">TO TEAM</button>
+		<br>
 		<button class="decline-button" mat-stroked-button (click)="onClick()">{{"recruiter.buttons.decline" |
 			translate}}</button>
 		<button class="apply-button" mat-stroked-button (click)="onClick()">{{"recruiter.buttons.apply" |
 			translate}}</button>
+			
 	</div>
 </div>
 
@@ -27,6 +31,6 @@
 	</mat-button-toggle-group>
 
 	<app-datepicker *ngIf="datepicker.checked"></app-datepicker>
-	<app-team-constructor #constructor *ngIf="teamConstructor.checked" (click)="constructor.setNotify()"></app-team-constructor>
+	<app-team-constructor #constructor *ngIf="teamConstructor.checked" [selectedCandidates]="selectedCandidate"></app-team-constructor>
 	<app-archive *ngIf="archive.checked"></app-archive>
 </div>

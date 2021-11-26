@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { CandidatesService } from 'src/app/services/candidates.service';
 import { UsersService } from 'src/app/services/users.service';
 import { User } from 'src/app/types/user';
 
@@ -12,20 +13,28 @@ export class TeamConstructorComponent implements OnInit {
 
 	toppings = new FormControl();
 
-	allUsers: User[] = [];
+	selectedMentors: any;
 
-	mentors: User[] = [];
+	@Input() selectedCandidates: any;
 
-	constructor(private usersServics: UsersService) { }
+	mentors: User[] = this.usersServics.mentors;
 
-	getMentors() {
-		this.usersServics.getMentors().subscribe(data => this.allUsers = data);
-	}
+	constructor(private usersServics: UsersService, private candidatesService: CandidatesService) { }
 
 	setNotify(): void {
+		if(this.selectedMentors !== undefined) {
+			console.log(this.selectedMentors);
+			this.selectedMentors = undefined;
+		}
+		
 	}
 
 	ngOnInit(): void {
+		this.candidatesService.getSelectedCandidate().subscribe((value) => {
+			if(value !== null) {
+				this.selectedCandidates = value;
+			}
+		});
 	}
 
 }
