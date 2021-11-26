@@ -89,10 +89,10 @@ export class AdminSettingsComponent {
     newUserForm.value.role = newUserForm.value.role.toLowerCase();
     // this.adminService.saveNewUser(newUserForm.value);
 
-    this.adminService.postSettingRequest(newUserForm.value, 'https://exadel3team.myapptechka.by/setting/addUser')
-      // .subscribe((data: any) => console.log(data),
-      //   (error: Error) => console.log(error)
-      // );
+    this.adminService.postSettingRequest(newUserForm.value, 'admin/addinguser')
+      .subscribe((data: any) => console.log(data),
+        (error: Error) => console.log(error)
+      );
 
     newUserForm.reset();
   }
@@ -100,10 +100,10 @@ export class AdminSettingsComponent {
   deleteUserSubmit(deleteUserForm: any) {
     // this.adminService.deleteUser(deleteUserForm.value.email);
 
-    this.adminService.deleteSettingRequest(deleteUserForm.value.email, 'https://exadel3team.myapptechka.by/setting/deleteUser')
-      // .subscribe((data: any) => console.log(data),
-      //   (error: Error) => console.log(error)
-      // );
+    this.adminService.deleteSettingRequest(deleteUserForm.value.email, 'admin/deleteuser')
+      .subscribe((data: any) => console.log(data),
+        (error: Error) => console.log(error)
+      );
     deleteUserForm.reset();
   }
 
@@ -124,7 +124,6 @@ export class AdminSettingsComponent {
       // .subscribe((data: any) => console.log(data),
       //   (error: Error) => console.log(error)
       // );
-
 
     this.isSpecialization = [];
 

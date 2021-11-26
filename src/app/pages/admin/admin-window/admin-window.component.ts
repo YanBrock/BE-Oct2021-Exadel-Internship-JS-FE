@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
+import { CandidatesService } from 'src/app/services/candidates.service';
+import { selectCandidate } from 'src/app/store/candidates/actions';
 import { selectSelectCandidate } from 'src/app/store/candidates/selectors';
 import { Candidate } from 'src/app/types/candidate';
 
@@ -12,6 +14,7 @@ import { Candidate } from 'src/app/types/candidate';
 export class AdminWindowComponent implements OnInit {
 
 	selectedCandidate$: Observable<Candidate>;
+
 	assessmentsRecruiter = {
 		englishLevel: '',
 		communicationSkills: '',
@@ -25,16 +28,19 @@ export class AdminWindowComponent implements OnInit {
 		javaScript: ''
 	}
 
-	constructor(private store: Store) {
+	selectedCandidate: any;
+	transferCandidate: any;
+
+	constructor(private store: Store, private candidatesService: CandidatesService) {
 		this.selectedCandidate$ = this.store.select(selectSelectCandidate);
+		this.selectedCandidate$.subscribe( data => this.selectedCandidate = data );
 	}
 
 	ngOnInit(): void {
-
 	}
 
-	setNotice() {
-
+	toTeam() {
+		this.selectedCandidate$.subscribe( data => this.selectedCandidate = data )
 	}
 
 	onClick() {

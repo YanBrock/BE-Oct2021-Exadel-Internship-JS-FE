@@ -14,45 +14,46 @@ import { RecruiterAssessmentModule } from 'src/app/components/recruiter-assessme
 import { CandidateDataModule } from 'src/app/components/candidate-data/candidate-data.module';
 import { TranslateModule } from '@ngx-translate/core';
 import { CandidatesModule } from 'src/app/components/candidates/candidates.module';
-import {MatButtonToggleModule} from '@angular/material/button-toggle';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { DatepickerComponent } from 'src/app/components/datepicker/datepicker.component';
 import { TeamConstructorComponent } from 'src/app/components/team-constructor/team-constructor.component';
 import { ArchiveComponent } from 'src/app/components/archive/archive.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import {MatListModule} from '@angular/material/list';
 
 
 @NgModule({
-  declarations: [
-    AdminComponent,
-    AdminSettingsComponent,
-    AdminWindowComponent,
-    DatepickerComponent,
-    TeamConstructorComponent,
-    ArchiveComponent,
-  ],
-  exports: [
-    AdminComponent,
-    AdminSettingsComponent
-  ],
-  imports: [
-    CommonModule,
-    MatCheckboxModule,
-    MatSelectModule,
-    MatFormFieldModule,
-    FormsModule,
-    MatButtonModule,
-    MatInputModule,
+	declarations: [
+		AdminComponent,
+		AdminSettingsComponent,
+		AdminWindowComponent,
+		DatepickerComponent,
+		TeamConstructorComponent,
+		ArchiveComponent,
+	],
+	exports: [
+		AdminComponent,
+		AdminSettingsComponent
+	],
+	imports: [
+		CommonModule,
+		MatCheckboxModule,
+		MatSelectModule,
+		MatFormFieldModule,
+		FormsModule,
+		MatButtonModule,
+		MatInputModule,
 		TechInterviewerAssessmentModule,
-    RecruiterAssessmentModule,
-    CandidateDataModule,
-    TranslateModule,
-    CandidatesModule,
-    MatButtonToggleModule,
-    ReactiveFormsModule,
-
-  ]
+		RecruiterAssessmentModule,
+		CandidateDataModule,
+		TranslateModule,
+		CandidatesModule,
+		MatButtonToggleModule,
+		ReactiveFormsModule,
+		MatListModule,
+	]
 
 })
 
-export class AdminModule {}
+export class AdminModule { }
 
