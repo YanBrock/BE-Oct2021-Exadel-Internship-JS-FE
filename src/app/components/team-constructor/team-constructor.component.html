@@ -8,24 +8,25 @@
 				(+{{toppings.value.length - 1}} {{toppings.value?.length === 2 ? 'other' : 'others'}})
 			</span>
 		</mat-select-trigger> -->
-		
+
 		<mat-option *ngFor="let mentor of mentors" [value]="mentor">
 			{{mentor.email}}
 		</mat-option>
 	</mat-select>
 </mat-form-field>
 
-<!-- <mat-list role="list">
-	<mat-list-item role="listitem" *ngFor="let candidate of selectedCandidates">
-		{{candidate.firstName + " " + candidate.lastName}}
-	</mat-list-item>
-</mat-list> -->
 <div>Candidates in team:</div>
 
 <mat-selection-list #candidates [multiple]="false">
-	<mat-list-option *ngFor="let candidate of selectedCandidates" [value]="candidate">
-		{{candidate.firstName + " " + candidate.lastName}}
-	</mat-list-option>
+	<div *ngFor="let candidate of selectedCandidates" style="display: flex;">
+		<mat-list-option id="candidate"  [value]="candidate">
+			{{candidate.firstName + " " + candidate.lastName}}
+		</mat-list-option>
+		<button id="closeBtn" mat-icon-button color="warn" aria-label="close button for candidate in team-constructor" (click)="removeCandidate(candidate)">
+			<mat-icon>close</mat-icon>
+		</button>
+	</div>
+	
 </mat-selection-list>
 
 <!-- <p>
@@ -33,5 +34,4 @@
 </p> -->
 
 <button mat-stroked-button (click)="sendNotify()">SUBMIT & NOTIFY</button>
-<p>{{error}}</p>
-
+<!-- <p>{{error}}</p> -->
