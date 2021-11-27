@@ -23,8 +23,8 @@ export class TeamConstructorComponent implements OnInit {
 	constructor(private usersServics: UsersService, private candidatesService: CandidatesService) { }
 
 	removeCandidate(a: Candidate) {
-		for(let i = 0; i < this.selectedCandidates.length; i++) {
-			if(this.selectedCandidates[i] === a) {
+		for (let i = 0; i < this.selectedCandidates.length; i++) {
+			if (this.selectedCandidates[i] === a) {
 				let removingCandidste = this.selectedCandidates.splice(i, 1);
 			}
 		}
@@ -41,7 +41,7 @@ export class TeamConstructorComponent implements OnInit {
 			this.selectedCandidates = undefined;
 
 			console.log(this.team);
-			
+
 			this.error = "";
 		} else {
 			this.error = "The constructor is not completely filled";
@@ -52,13 +52,15 @@ export class TeamConstructorComponent implements OnInit {
 	ngOnInit(): void {
 		this.candidatesService.getSelectedCandidate().subscribe((value) => {
 			if (value !== null) {
-				if (this.selectedCandidates.length === 0) {
+				if (this.selectedCandidates.length === 5) {
+					alert("The maximum number of team members has been reached.");
+				} else if (this.selectedCandidates.length === 0) {
 					this.selectedCandidates.push(value);
-				} else if(this.selectedCandidates.length !== 0 && !this.selectedCandidates.includes(value)) {
+				} else if (this.selectedCandidates.length !== 0 && !this.selectedCandidates.includes(value)) {
 					this.selectedCandidates.push(value);
-				};
-			};
+				}
+			}
 		});
 	}
-		
+
 }
