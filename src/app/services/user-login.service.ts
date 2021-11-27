@@ -12,10 +12,11 @@ import jwt_decode from 'jwt-decode';
 
 export class UserLoginService {
 
-  logInURL: string = 'Account/Login';
-  logOutURL: string = 'Account/logout';
+  logInURL: string = 'account/Login';
+  logOutURL: string = 'account/logout';
   isKeyRole = 'http://schemas.microsoft.com/ws/2008/06/identity/claims/role';
   decoded: any;
+
 
 
   activeUser = {
