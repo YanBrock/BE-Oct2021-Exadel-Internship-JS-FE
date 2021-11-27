@@ -40,7 +40,7 @@ export class AdminWindowComponent implements OnInit {
 	}
 
 	toTeam() {
-		this.selectedCandidate$.subscribe( data => this.selectedCandidate = data )
+		this.candidatesService.setSelectedCandidate(this.selectedCandidate);
 	}
 
 	onClick() {

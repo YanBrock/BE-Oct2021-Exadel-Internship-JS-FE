@@ -9,13 +9,13 @@ import { Observable } from 'rxjs';
 })
 export class CandidatesService {
 
-	private candidatesInTeam: BehaviorSubject<object>
+	private candidatesInTeam: BehaviorSubject<Candidate>
 
 	constructor(private httpClient: HttpClient) { 
-		this.candidatesInTeam = new BehaviorSubject<object[]>([])
+		this.candidatesInTeam = new BehaviorSubject<Candidate>(null)
 	 }
 
-	 getSelectedCandidate(): Observable<object> {
+	 getSelectedCandidate(): Observable<Candidate> {
 		return this.candidatesInTeam.asObservable();
 	}
 
