@@ -22,6 +22,14 @@ export class TeamConstructorComponent implements OnInit {
 
 	constructor(private usersServics: UsersService, private candidatesService: CandidatesService) { }
 
+	removeCandidate(a: Candidate) {
+		for(let i = 0; i < this.selectedCandidates.length; i++) {
+			if(this.selectedCandidates[i] === a) {
+				let removingCandidste = this.selectedCandidates.splice(i, 1);
+			}
+		}
+	}
+
 	sendNotify(): void {
 		if (this.selectedMentors !== undefined && this.selectedCandidates !== undefined && this.selectedMentors.length !== 0 && this.selectedCandidates.length !== 0) {
 			this.team = {

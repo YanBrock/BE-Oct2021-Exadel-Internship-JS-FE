@@ -1,4 +1,9 @@
 :host {
 	display: flex;
 	flex-direction: column;
+
+	#candidate ::ng-deep mat-list-text {
+		display: flex;
+		flex-direction: row;
+	}
 }

@@ -19,7 +19,8 @@ import { DatepickerComponent } from 'src/app/components/datepicker/datepicker.co
 import { TeamConstructorComponent } from 'src/app/components/team-constructor/team-constructor.component';
 import { ArchiveComponent } from 'src/app/components/archive/archive.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import {MatListModule} from '@angular/material/list';
+import { MatListModule } from '@angular/material/list';
+import { MatIconModule } from '@angular/material/icon';
 
 
 @NgModule({
@@ -51,6 +52,7 @@ import {MatListModule} from '@angular/material/list';
 		MatButtonToggleModule,
 		ReactiveFormsModule,
 		MatListModule,
+		MatIconModule,
 	]
 
 })
