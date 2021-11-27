@@ -42,9 +42,10 @@ export class TeamConstructorComponent implements OnInit {
 
 			console.log(this.team);
 
-			this.error = "";
+			// this.error = "";
 		} else {
-			this.error = "The constructor is not completely filled";
+			// this.error = "The constructor is not completely filled";
+			alert("The constructor is not completely filled");
 		};
 
 	}
