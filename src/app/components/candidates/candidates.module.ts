@@ -10,6 +10,7 @@ import { CandidatesFilterComponent } from './candidates-filter/candidates-filter
 import { ReactiveFormsModule } from "@angular/forms";
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { TranslateModule } from '@ngx-translate/core';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [CandidateComponent,
@@ -23,7 +24,8 @@ import { TranslateModule } from '@ngx-translate/core';
     MatSelectModule,
     ReactiveFormsModule,
     MatPaginatorModule,
-    TranslateModule
+    TranslateModule,
+    MatProgressSpinnerModule,
   ],
   exports: [
     CandidatesComponent,

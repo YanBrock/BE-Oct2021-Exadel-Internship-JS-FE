@@ -11,7 +11,7 @@ export class CandidatesService {
 
 	private candidatesInTeam: BehaviorSubject<object>
 
-	constructor(private httpClient: HttpClient) { 
+	constructor(private httpClient: HttpClient) {
 		this.candidatesInTeam = new BehaviorSubject<object[]>([])
 	 }
 
@@ -450,6 +450,6 @@ export class CandidatesService {
 		return of(candidates);
 	}
 
-	
+
 
 }
