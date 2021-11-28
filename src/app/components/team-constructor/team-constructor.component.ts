@@ -15,7 +15,7 @@ export class TeamConstructorComponent implements OnInit {
 
 	toppings = new FormControl();
 	selectedMentors: User[] = [];
-	selectedCandidates: Candidate[] = [];
+	selectedCandidates?: Candidate[] = [];
 	mentors: User[] = this.usersServics.mentors;
 	team: SendboxTeam;
 	error: string;
@@ -31,14 +31,14 @@ export class TeamConstructorComponent implements OnInit {
 	}
 
 	sendNotify(): void {
-		if (this.selectedMentors !== undefined && this.selectedCandidates !== undefined && this.selectedMentors.length !== 0 && this.selectedCandidates.length !== 0) {
+		if (this.selectedMentors !== [] && this.selectedCandidates !== [] && this.selectedMentors.length !== 0 && this.selectedCandidates.length !== 0) {
 			this.team = {
 				mentors: this.selectedMentors,
 				candidates: this.selectedCandidates
 			}
 
-			this.selectedMentors = undefined;
-			this.selectedCandidates = undefined;
+			this.selectedMentors = [];
+			this.selectedCandidates = [];
 
 			console.log(this.team);
 
