@@ -26,7 +26,8 @@ const _candidatesReducer = createReducer(
     return {
       ...state,
       loading: false,
-      candidatesList
+      candidatesList,
+      selectedCandidate: candidatesList[0]
     }
   }),
   on(selectCandidate, (state, { selectedCandidate }) => {

@@ -1,7 +1,7 @@
 export enum Status {
-  Questionable = 'questionable',
-  Accepted = 'accepted',
-  Declined = 'declined'
+  Questionable = 'Questionable',
+  Accepted = 'Accepted',
+  Declined = 'Declined'
 }
 
 export type EnglishLevel = 'beginner' | 'pre-intermediate' | 'intermediate' | 'upper-intermediate' | 'advanced';
