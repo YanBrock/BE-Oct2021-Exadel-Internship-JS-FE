@@ -13,7 +13,7 @@
     </span>
     <span
       *ngIf="candidate.status"
-      [ngClass]="{'color-red': candidate.status === 'declined', 'color-green': candidate.status === 'accepted', 'color-blue': candidate.status === 'questionable'}">
+      [ngClass]="{'color-red': candidate.status === 'Declined', 'color-green': candidate.status === 'Accepted', 'color-blue': candidate.status === 'Questionable'}">
       {{ candidate.status }}
     </span>
   </div>
