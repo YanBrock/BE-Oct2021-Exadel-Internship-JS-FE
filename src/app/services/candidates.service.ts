@@ -11,7 +11,7 @@ export class CandidatesService {
 
 	private candidatesInTeam: BehaviorSubject<Candidate>
 
-	constructor(private httpClient: HttpClient) { 
+	constructor(private httpClient: HttpClient) {
 		this.candidatesInTeam = new BehaviorSubject<Candidate>(null)
 	 }
 
