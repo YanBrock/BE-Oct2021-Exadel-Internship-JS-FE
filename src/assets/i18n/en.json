@@ -78,7 +78,7 @@
       "link": "link to the terms",
       "required": "Need to accept the terms"
     },
-    "cv": "Add your CV (PDF)",
+    "cv": "Add your CV",
     "button": "Send",
     "terms": {
       "title": "Terms",

@@ -62,11 +62,9 @@ export class FormComponent implements OnInit {
     if (this.intern.checkbox) {
       if (internForm.valid) {
         this.formService.saveDataIntern(this.intern);
-        internForm.reset();
+        internForm.resetForm();
         this.errorCheckBox = 'errorCheckBox';
-
-        internForm.submitted = false;
-        internForm.$setPristine();
+        return internForm.$setPristine();
       }
     } else {
       this.errorCheckBox = 'errorCheckBox active';
