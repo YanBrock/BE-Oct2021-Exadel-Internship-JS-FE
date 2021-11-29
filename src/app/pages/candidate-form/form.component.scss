@@ -96,9 +96,9 @@ h2 {
   }
 
   .buttonCv:hover::after{
+    text-align: center;
     content: attr(data-title);
-    // width: 70%;
-    // margin: auto;
+    width: 70%;
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
@@ -158,3 +158,18 @@ h2 {
 .wrapper_terms.disable {
   display: none;
 }
+
+// .form.intern {
+
+//   ::ng-deep .mat-form-field-wrapper {
+//     padding-top: 6px;
+//     padding-bottom: 16px;
+//   }
+//   ::ng-deep .mat-form-field-infix {
+//     border-top: 0px;
+//     margin-top: 6px;
+//     padding: 10px 0px;
+//     line-height: 1;
+//   }
+// }
+
