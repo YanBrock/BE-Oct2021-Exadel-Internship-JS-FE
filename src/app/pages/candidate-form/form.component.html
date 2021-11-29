@@ -5,14 +5,15 @@
 
     <mat-form-field appearance="outline">
       <mat-label>{{'form.firstName.title' | translate}}</mat-label>
-      <input matInput placeholder="{{'form.firstName.title' | translate}}"  name="firstName" #firstName="ngModel" required
-        [(ngModel)]="intern.firstName" />
+      <input matInput placeholder="{{'form.firstName.title' | translate}}" name="firstName" #firstName="ngModel"
+        required [(ngModel)]="intern.firstName" />
       <mat-error *ngIf="firstName.hasError('required')">{{"form.firstName.required" | translate}}</mat-error>
     </mat-form-field>
 
     <mat-form-field appearance="outline">
       <mat-label>{{'form.lastName.title' | translate}}</mat-label>
-      <input matInput placeholder="{{'form.lastName.title' | translate}}" name="lastName" #lastName="ngModel" required [(ngModel)]="intern.lastName" />
+      <input matInput placeholder="{{'form.lastName.title' | translate}}" name="lastName" #lastName="ngModel" required
+        [(ngModel)]="intern.lastName" />
       <mat-error *ngIf="lastName.hasError('required')">{{"form.lastName.required" | translate}}</mat-error>
     </mat-form-field>
 
@@ -92,7 +93,7 @@
       <div class="wrapperCv">
         <input #csvInput hidden="true" type="file" onclick="this.value=null" (change)="csvInputChange($event)"
           accept=".pdf, .doc, .jpg, .png" />
-        <div class="buttonCv" mat-raised-button (click)="csvInput.click()">
+        <div class="buttonCv" data-title=".pdf, .doc, .jpg, .png" mat-raised-button (click)="csvInput.click()">
           <p>{{"form.cv" | translate}}</p>
         </div>
       </div>
