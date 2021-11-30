@@ -4,7 +4,7 @@
   [candidate]="candidate"
   [selectedCandidate]="selectedCandidate$ | async"
   [first]="first"
-  (click)="onClick(candidate)">
+  (click)="onClick(candidate.id)">
   </app-candidate>
 </div>
 <mat-paginator

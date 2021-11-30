@@ -2,7 +2,7 @@ import { Candidate } from '../../../types/candidate';
 import { Component, Input, OnInit, Output, EventEmitter, ViewChild } from '@angular/core';
 import { PageEvent, MatPaginator } from '@angular/material/paginator';
 import { Store } from '@ngrx/store';
-import { selectCandidate } from '../../../store/candidates/actions';
+import {selectCandidate, selectCandidateFromServer} from '../../../store/candidates/actions';
 import { Observable } from 'rxjs';
 import { selectCandidatesList, selectSelectCandidate } from '../../../store/candidates/selectors';
 
@@ -20,6 +20,7 @@ export class CandidatesListComponent implements OnInit {
   @Output() changePage = new EventEmitter<PageEvent>();
   @ViewChild (MatPaginator) paginator: MatPaginator;
   dataSource;
+  selected
 
   constructor(private store: Store) {
     this.candidatesList$ = this.store.select(selectCandidatesList);
@@ -34,8 +35,14 @@ export class CandidatesListComponent implements OnInit {
     this.dataSource.paginator = this.paginator;
   }
 
-  onClick(candidate: Candidate) {
-    this.store.dispatch(selectCandidate({ selectedCandidate: candidate }));
+  // onClick(candidate: Candidate) {
+  //   this.store.dispatch(selectCandidate({ selectedCandidate: candidate }));
+  // }
+
+  onClick(id: number) {
+    this.store.dispatch(selectCandidateFromServer({ id: id }));
+    this.selectedCandidate$.subscribe(data => this.selected = data)
+    console.log(this.selected)
   }
 
   onPageChange(event: PageEvent) {
