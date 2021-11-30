@@ -21,6 +21,17 @@ export class FormService {
 
   saveDataIntern(dataIntern: object): any {
     this.dataIntern = dataIntern;
-    console.log(this.dataIntern);
+
+    if (!localStorage.getItem('Candidate')) {
+      localStorage.setItem('Candidate', JSON.stringify([dataIntern]));
+
+    } else {
+      const candidateLocalStorage = JSON.parse(localStorage.getItem('Candidate'));
+      candidateLocalStorage.push(dataIntern);
+
+      localStorage.setItem('Candidate', JSON.stringify(candidateLocalStorage));
+    }
   }
+
+
 }

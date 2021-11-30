@@ -27,6 +27,7 @@ export class FormComponent implements OnInit {
     english: '',
     specialization: '',
     checkbox: false,
+    cv: null,
   };
 
   constructor(private formService: FormService) { }
@@ -38,8 +39,13 @@ export class FormComponent implements OnInit {
     this.isLocationCity = this.formService.isLocationCity;
   }
 
+  stop(event: Event) {
+    event.preventDefault();
+  }
+
   csvInputChange(fileInputEvent: any) {
     console.log(fileInputEvent.target.files[0]);
+    this.intern.cv = fileInputEvent.target.files[0];
   }
 
   closeTerms() {
@@ -62,9 +68,9 @@ export class FormComponent implements OnInit {
     if (this.intern.checkbox) {
       if (internForm.valid) {
         this.formService.saveDataIntern(this.intern);
-        internForm.resetForm();
+        internForm.reset();
         this.errorCheckBox = 'errorCheckBox';
-        return internForm.$setPristine();
+        internForm.$setPristine();
       }
     } else {
       this.errorCheckBox = 'errorCheckBox active';
