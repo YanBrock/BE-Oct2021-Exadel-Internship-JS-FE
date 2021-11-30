@@ -14,12 +14,10 @@ export class AdminNavComponent implements OnInit {
 
 
   constructor(private adminService: AdminService, private userLoginService: UserLoginService) {
-    // this.displayComponent = this.userLoginService.getRole();
-    this.displayComponent = this.userLoginService.activeUser.role;
-    // this.userLoginService.userRole$.subscribe(role => {
-    //   console.log(role)
-    //   this.displayComponent = role;
-    // });
+    this.userLoginService.userRole$.subscribe(role => {
+      console.log(role);
+      this.displayComponent = role;
+    });
   }
 
 
