@@ -12,10 +12,22 @@
 
 	.name
 	{
-		margin-right: 1rem;
+		margin-right: 3rem;
 		color: #1E90CF;
 		font-weight: bold;
+    position: relative;
 	}
+  
+  .name::after
+	{
+		content: '';
+    position: absolute;
+    left: 130%;
+    top: .4rem;
+    border: 5px solid transparent;
+    border-top: 5px solid #1E90CF;
+	}
+
 
 	.avatar img
 	{
@@ -29,12 +41,12 @@
 {
 	position: absolute;
 
-	& a
+	& div
 	{
-		text-decoration: none;
+    font-size: 13px;
 		transition: linear .2s color;
 
-		&:visited 
+		&:visited
 		{
 			color: #1E90CF;
 		}

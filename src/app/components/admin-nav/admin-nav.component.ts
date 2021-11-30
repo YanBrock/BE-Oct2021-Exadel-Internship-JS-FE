@@ -10,12 +10,11 @@ import { UserLoginService } from 'src/app/services/user-login.service';
 export class AdminNavComponent implements OnInit {
 
   selectedOption = "Home";
-  displayComponent = "admin";
+  displayComponent: string;
 
 
   constructor(private adminService: AdminService, private userLoginService: UserLoginService) {
     this.userLoginService.userRole$.subscribe(role => {
-      console.log(role);
       this.displayComponent = role;
     });
   }
@@ -26,7 +25,5 @@ export class AdminNavComponent implements OnInit {
   };
 
 
-  ngOnInit(): void {};
-
-
+  ngOnInit(): void { };
 }
