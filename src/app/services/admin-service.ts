@@ -58,7 +58,7 @@ export class AdminService {
 			}),
 		};
 
-		console.log(dataJson);
+		// console.log(dataJson);
 		return this.http.post(url, dataJson, httpOptions); // -------- do not delete
 	}
 

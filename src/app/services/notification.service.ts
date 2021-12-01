@@ -11,18 +11,25 @@ export class NotificationService {
   constructor(private snackBar: MatSnackBar) { }
 
   success(message: string) {
+
     this.snackBar.open(message, 'Close', {
       verticalPosition: this.verticalPosition,
       duration: this.isTimeOut,
       panelClass: 'app-snackbar-success',
-    })
+
+    });
+
   }
 
   error(message: string) {
+
     this.snackBar.open(message, 'Close', {
       verticalPosition: this.verticalPosition,
       duration: this.isTimeOut,
       panelClass: 'app-snackbar-error',
     });
+
   }
+
+  
 }
