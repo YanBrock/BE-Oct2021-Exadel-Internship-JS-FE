@@ -25,6 +25,7 @@ import { AppStoreModule } from './app-store.module';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { Interceptor } from './interceptor/interceptor';
 import { AdminNavModule } from './components/admin-nav/admin-nav.module';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,8 @@ import { AdminNavModule } from './components/admin-nav/admin-nav.module';
     MentorModule,
     AppStoreModule,
     StoreDevtoolsModule.instrument({ name: 'Example' }),
-	AdminNavModule,
+    AdminNavModule,
+    MatSnackBarModule,
   ],
   providers: [
     {

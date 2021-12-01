@@ -5,8 +5,6 @@
   padding: 0;
   font-size: 15px;
   font-family: 'Roboto', sans-serif;
-  // font-family: 'Roboto Mono', monospace;
-
   box-sizing: border-box;
 }
 
@@ -33,22 +31,22 @@
   align-items: center;
 }
 
-// html, body
-// {
-// 	height: 100%;
-// }
+.app-snackbar-success {
+  background-color: #1E90CF;
+  color: #ffffff;
 
-// body
-// {
-// 	margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;
-// }
+  .mat-simple-snackbar-action {
+    color: #ffffff9a;
 
-// html, body
-// {
-// 	height: 100%;
-// }
+  }
+}
 
-// body
-// {
-// 	margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;
-// }
+.app-snackbar-error {
+  background-color: #f0554a;
+  color: #ffffff;
+
+  .mat-simple-snackbar-action {
+    color: #ffffff9a;
+
+  }
+}
