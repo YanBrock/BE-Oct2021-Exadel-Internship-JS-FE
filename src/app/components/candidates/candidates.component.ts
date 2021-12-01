@@ -22,6 +22,7 @@ export class CandidatesComponent implements OnInit {
   activeUser: string
   startItem: number = 0
   pageItems: number = 7
+  candidates: any
   @ViewChild(CandidatesListComponent) list: CandidatesListComponent
 
   constructor(private store: Store, private candidatesService: CandidatesService, private userLoginService: UserLoginService) {
@@ -30,11 +31,28 @@ export class CandidatesComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    let candidatesFromLocalStorage;
+    if (localStorage['Candidate']) {
+      candidatesFromLocalStorage = this.candidatesService.getCandidateFromLocalStorage();
+      console.log(candidatesFromLocalStorage)
+      this.candidatesList$.subscribe(data => {
+        this.candidates = [...data, ...candidatesFromLocalStorage]
+      });
+    } else {
+      this.candidatesList$.subscribe(data => {
+        this.candidates = data
+      });
+    }
+
+
     this.activeUser = this.userLoginService.activeUser.role;
     if (this.activeUser === 'techInterviewer') {
-      this.candidatesList$.subscribe(response => this.pageOfCandidates = response.filter(c => c.isInterviewedByHr === true && !c.status).slice(this.startItem, this.pageItems))
+      this.pageOfCandidates = this.candidates.filter(c => c.isInterviewedByHr === true && !c.status).slice(this.startItem, this.pageItems);
+      // this.candidatesList$.subscribe(response => this.pageOfCandidates = response.filter(c => c.isInterviewedByHr === true && !c.status).slice(this.startItem, this.pageItems))
     } else {
-      this.candidatesList$.subscribe(response => this.pageOfCandidates = response.slice(this.startItem, this.pageItems))
+      // this.candidatesList$.subscribe(response => this.pageOfCandidates = response.slice(this.startItem, this.pageItems))
+      console.log(this.candidates)
+      this.pageOfCandidates = this.candidates.slice(this.startItem, this.pageItems)
     }
   }
 
@@ -45,16 +63,19 @@ export class CandidatesComponent implements OnInit {
 
   onPageChange(object) {
     const startIndex = object.pageIndex * object.pageSize;
-    let length = 0;
-    this.candidatesList$.subscribe(array => length = array.length);
+    let length = this.candidates.length;
+    // this.candidatesList$.subscribe(array => length = array.length);
     let endIndex = startIndex + object.pageSize;
     if (endIndex > length) {
       endIndex = length;
     }
     if (this.activeUser === 'techInterviewer') {
-      this.candidatesList$.subscribe(response => this.pageOfCandidates = response.filter(c => c.isInterviewedByHr === true && !c.status).slice(startIndex, endIndex))
+      // this.candidatesList$.subscribe(response => this.pageOfCandidates = response.filter(c => c.isInterviewedByHr === true && !c.status).slice(startIndex, endIndex))
+      this.pageOfCandidates = this.candidates.filter(c => c.isInterviewedByHr === true && !c.status).slice(startIndex, endIndex);
     } else {
-      this.candidatesList$.subscribe(response => this.pageOfCandidates = response.slice(startIndex, endIndex))
+      // this.candidatesList$.subscribe(response => this.pageOfCandidates = response.slice(startIndex, endIndex))
+      this.pageOfCandidates = this.candidates.slice(startIndex, endIndex);
+      console.log(this.pageOfCandidates)
     }
   }
 

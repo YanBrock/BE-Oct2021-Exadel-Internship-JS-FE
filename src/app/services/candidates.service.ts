@@ -24,6 +24,10 @@ export class CandidatesService {
 		this.candidatesInTeam.next(value);
 	};
 
+  getCandidateFromLocalStorage() {
+    return JSON.parse(localStorage.getItem('Candidate'));
+  }
+
   loadCandidates(filter?: CandidatesFilter): Observable<Candidate[]> {
     const candidates = [
       {

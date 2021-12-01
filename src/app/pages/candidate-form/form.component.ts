@@ -24,7 +24,7 @@ export class FormComponent implements OnInit {
     phone: '',
     location: '',
     city: '',
-    english: '',
+    englishLevel: '',
     specialization: '',
     checkbox: false,
     cv: null,

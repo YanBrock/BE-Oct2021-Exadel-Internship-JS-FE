@@ -73,7 +73,7 @@
 
     <mat-form-field appearance="outline">
       <mat-label>{{'form.englishLevel.title' | translate}}</mat-label>
-      <mat-select [(ngModel)]="intern.english" name="englishLevel" #englishLevel="ngModel" required>
+      <mat-select [(ngModel)]="intern.englishLevel" name="englishLevel" #englishLevel="ngModel" required>
         <mat-option *ngFor='let key of isEnglishLevel' [value]="key">{{key}}</mat-option>
       </mat-select>
       <mat-error *ngIf="englishLevel.hasError('required')">{{"form.englishLevel.required" | translate}}</mat-error>

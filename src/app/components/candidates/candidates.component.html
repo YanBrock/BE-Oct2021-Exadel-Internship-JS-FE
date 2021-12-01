@@ -1,7 +1,7 @@
 <div *ngIf="(candidatesListLoading$ | async) === false else spinner">
   <app-candidates-filter *ngIf="activeUser !== 'techInterviewer'" (filterChanged)="onFilterChange($event)">
   </app-candidates-filter>
-  <app-candidates-list *ngIf="activeUser !=='techInterviewer' else techBlock" [candidates]="candidatesList$ | async"
+  <app-candidates-list *ngIf="activeUser !=='techInterviewer' else techBlock" [candidates]="candidates"
                        [pageOfCandidates]="pageOfCandidates" (changePage)="onPageChange($event)">
   </app-candidates-list>
   <ng-template #techBlock>
