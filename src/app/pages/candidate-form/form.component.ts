@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NotificationService } from 'src/app/services/notification.service';
 import { FormService } from '../../services/form.service';
 
 @Component({
@@ -8,7 +9,7 @@ import { FormService } from '../../services/form.service';
   providers: [FormService],
 })
 export class FormComponent implements OnInit {
-  isSpecialization : string[];
+  isSpecialization: string[];
   isEnglishLevel: string[] = [];
   isLocation: string[] = [];
   isLocationCity: string[] = [];
@@ -30,7 +31,7 @@ export class FormComponent implements OnInit {
     cv: null,
   };
 
-  constructor(private formService: FormService) { }
+  constructor(private formService: FormService, private notificationService: NotificationService) { }
 
   ngOnInit(): void {
     this.isSpecialization = this.formService.isSpecialization;
@@ -65,13 +66,22 @@ export class FormComponent implements OnInit {
   }
 
   clickSubmit(internForm: any): void {
+
     if (this.intern.checkbox) {
+
       if (internForm.valid) {
+
+        this.notificationService.success(`${this.intern.firstName} your form has been submitted!`);
         this.formService.saveDataIntern(this.intern);
-        internForm.reset();
         this.errorCheckBox = 'errorCheckBox';
-        internForm.$setPristine();
+        internForm.reset();
+        internForm.setPristine();
+
+      } else {
+
+         this.notificationService.error('Oops, something went wrong!');
       }
+
     } else {
       this.errorCheckBox = 'errorCheckBox active';
     }
