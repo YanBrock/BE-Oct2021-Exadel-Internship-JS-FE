@@ -25,7 +25,7 @@ export class AdminService {
 
 	isRole = [
 		'Recruiter',
-		'Tech-interviewer',
+		'TechInterviewer',
 		'Mentor',
 		'Manager',
 		'Admin'

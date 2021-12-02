@@ -18,6 +18,7 @@ export class AdminSettingsComponent {
   skillForDelete: string;
   isDisabled = true;
   validEmail = '^([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,6}$';
+  validPassword = '(?=.*[0-9])(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z!@#$%^&*]{6,}';
   isEmailUser: string;
 
 
@@ -88,10 +89,13 @@ export class AdminSettingsComponent {
   }
 
   newUserSubmit(newUserForm: any) {
-    newUserForm.value.role = newUserForm.value.role.toLowerCase();
+    newUserForm.value.role = newUserForm.value.role === 'TechInterviewer' ?
+      'techInterviewer' :
+      newUserForm.value.role.toLowerCase();
+
     this.isEmailUser = newUserForm.value.email;
     // this.adminService.saveNewUser(newUserForm.value);
-
+    
     this.adminService.postSettingRequest(newUserForm.value, 'admin/addinguser')
       .subscribe((data: any) => {
         this.notificationService.success(`User ${this.isEmailUser} was added!`);
