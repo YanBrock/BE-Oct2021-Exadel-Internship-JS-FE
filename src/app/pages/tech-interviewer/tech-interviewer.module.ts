@@ -11,7 +11,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { FormsModule } from '@angular/forms';
 import { RecruiterAssessmentModule } from '../../components/recruiter-assessment/recruiter-assessment.module';
 import { TechInterviewerAssessmentModule } from '../../components/tech-interviewer-assessment/tech-interviewer-assessment.module';
-
+import { CalendarModule } from '../../components/calendar/calendar.module'
 @NgModule({
   declarations: [
     TechInterviewerComponent,
@@ -27,7 +27,8 @@ import { TechInterviewerAssessmentModule } from '../../components/tech-interview
     MatButtonModule,
     CandidateDataModule,
     RecruiterAssessmentModule,
-    TechInterviewerAssessmentModule
+    TechInterviewerAssessmentModule,
+    CalendarModule
   ],
   exports: [
     TechInterviewerComponent
