@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { NotificationService } from 'src/app/services/notification.service';
 import { FormService } from '../../services/form.service';
+import {Observable} from 'rxjs';
+import {Candidate} from '../../types/candidate';
+import {Store} from '@ngrx/store';
+import {selectAllSpecializations} from '../../store/directory/selectors';
 
 @Component({
   selector: 'app-form',
@@ -9,6 +13,7 @@ import { FormService } from '../../services/form.service';
   providers: [FormService],
 })
 export class FormComponent implements OnInit {
+  allSpecializations$: Observable<any[]>;
   isSpecialization: string[];
   isEnglishLevel: string[] = [];
   isLocation: string[] = [];
@@ -31,7 +36,9 @@ export class FormComponent implements OnInit {
     cv: null,
   };
 
-  constructor(private formService: FormService, private notificationService: NotificationService) { }
+  constructor(private formService: FormService, private notificationService: NotificationService, private store: Store) {
+    this.allSpecializations$ = this.store.select(selectAllSpecializations);
+  }
 
   ngOnInit(): void {
     this.isSpecialization = this.formService.isSpecialization;
