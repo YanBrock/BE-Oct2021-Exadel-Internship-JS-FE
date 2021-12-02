@@ -6,7 +6,6 @@ import { HeaderComponent } from './components/header/header.component';
 import { MainComponent } from './components/main/main.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { ManagerComponent } from './pages/manager/manager.component';
-import { CalendarComponent } from './components/calendar/calendar.component';
 import { FormModule } from './pages/candidate-form/form.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { UserLoginModule } from './pages/user-login/user-login.module';
@@ -25,7 +24,8 @@ import { AppStoreModule } from './app-store.module';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { Interceptor } from './interceptor/interceptor';
 import { AdminNavModule } from './components/admin-nav/admin-nav.module';
-import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { CalendarModule } from '../app/components/calendar/calendar.module'
 
 @NgModule({
   declarations: [
@@ -34,7 +34,6 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     MainComponent,
     FooterComponent,
     ManagerComponent,
-    CalendarComponent,
   ],
   imports: [
     BrowserModule,
@@ -56,6 +55,7 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     StoreDevtoolsModule.instrument({ name: 'Example' }),
     AdminNavModule,
     MatSnackBarModule,
+    CalendarModule,
   ],
   providers: [
     {
