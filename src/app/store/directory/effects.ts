@@ -1,9 +1,9 @@
 import { Injectable } from "@angular/core";
 import { Actions, createEffect, ofType } from "@ngrx/effects";
-import { CandidatesService } from "../../services/candidates.service";
 import { mergeMap, map, catchError } from 'rxjs/operators';
 import { of } from "rxjs";
-import {loadAllSpecializations, loadAllSpecializationsFail, loadAllSpecializationsSuccess} from './actions';
+import { loadAllSpecializations, loadAllSpecializationsFail, loadAllSpecializationsSuccess } from './actions';
+import { DirectoryService } from '../../services/directory.service';
 
 @Injectable()
 
@@ -11,7 +11,7 @@ export class DirectoryEffects {
 
   loadAllSpecialization$ = createEffect(() => this.actions$.pipe(
     ofType(loadAllSpecializations.type),
-    mergeMap(() => this.candidatesService.loadSpec()
+    mergeMap(() => this.directoryService.loadAllSpecializations()
       .pipe(
         map(allSpecializations => loadAllSpecializationsSuccess({ allSpecializations })),
         catchError(() => of(loadAllSpecializationsFail({ message: 'Loading specializations failed' })))
@@ -20,6 +20,6 @@ export class DirectoryEffects {
 
   constructor(
     private actions$: Actions,
-    private candidatesService: CandidatesService
+    private directoryService: DirectoryService
   ) { }
 }

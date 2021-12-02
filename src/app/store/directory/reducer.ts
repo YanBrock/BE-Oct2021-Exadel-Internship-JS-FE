@@ -22,7 +22,8 @@ const _directoryReducer = createReducer(
   on(loadAllSpecializationsSuccess, (state, { allSpecializations }) => {
     return {
       ...state,
-      allSpecializations
+      allSpecializations,
+      loading: false
     }
   })
 )

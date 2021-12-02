@@ -445,16 +445,6 @@ export class CandidatesService {
     return of(candidates);
   }
 
-  loadSpec() {
-    const httpOptions = {
-      headers: new HttpHeaders({
-        'accept': 'text/plain'
-      })
-    };
-
-    return this.httpClient.get<any[]>('directory/getallspecializations', httpOptions)
-  }
-
   // loadCandidates(filter?: CandidatesFilter): Observable<Candidate[]> {
   //   const httpOptions = {
   //     headers: new HttpHeaders({
