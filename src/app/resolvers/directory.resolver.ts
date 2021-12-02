@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Resolve, RouterStateSnapshot, ActivatedRouteSnapshot } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { loadAllSpecializations } from '../store/directory/actions';
+import {loadAllEnglishLevels, loadAllSpecializations} from '../store/directory/actions';
 
 @Injectable({
   providedIn: 'root'
@@ -12,6 +12,7 @@ export class DirectoryResolver implements Resolve<boolean> {
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
     this.store.dispatch(loadAllSpecializations());
+    this.store.dispatch(loadAllEnglishLevels());
     return true
   }
 }

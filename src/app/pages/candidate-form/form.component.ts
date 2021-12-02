@@ -4,7 +4,7 @@ import { FormService } from '../../services/form.service';
 import {Observable} from 'rxjs';
 import {Candidate} from '../../types/candidate';
 import {Store} from '@ngrx/store';
-import {selectAllSpecializations} from '../../store/directory/selectors';
+import {selectAllEnglishLevels, selectAllSpecializations} from '../../store/directory/selectors';
 
 @Component({
   selector: 'app-form',
@@ -14,8 +14,9 @@ import {selectAllSpecializations} from '../../store/directory/selectors';
 })
 export class FormComponent implements OnInit {
   allSpecializations$: Observable<any[]>;
-  isSpecialization: string[];
-  isEnglishLevel: string[] = [];
+  allEnglishLevels$: Observable<any[]>;
+  // isSpecialization: string[];
+  // isEnglishLevel: string[] = [];
   isLocation: string[] = [];
   isLocationCity: string[] = [];
   validEmail = '^([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,6}$';
@@ -30,7 +31,7 @@ export class FormComponent implements OnInit {
     phone: '',
     location: '',
     city: '',
-    english: '',
+    englishLevel: '',
     specialization: '',
     checkbox: false,
     cv: null,
@@ -38,11 +39,12 @@ export class FormComponent implements OnInit {
 
   constructor(private formService: FormService, private notificationService: NotificationService, private store: Store) {
     this.allSpecializations$ = this.store.select(selectAllSpecializations);
+    this.allEnglishLevels$ = this.store.select(selectAllEnglishLevels);
   }
 
   ngOnInit(): void {
-    this.isSpecialization = this.formService.isSpecialization;
-    this.isEnglishLevel = this.formService.isEnglishLevel;
+    // this.isSpecialization = this.formService.isSpecialization;
+    // this.isEnglishLevel = this.formService.isEnglishLevel;
     this.isLocation = this.formService.isLocation;
     this.isLocationCity = this.formService.isLocationCity;
   }

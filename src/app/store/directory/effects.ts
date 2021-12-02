@@ -2,7 +2,12 @@ import { Injectable } from "@angular/core";
 import { Actions, createEffect, ofType } from "@ngrx/effects";
 import { mergeMap, map, catchError } from 'rxjs/operators';
 import { of } from "rxjs";
-import { loadAllSpecializations, loadAllSpecializationsFail, loadAllSpecializationsSuccess } from './actions';
+import {
+  loadAllEnglishLevels, loadAllEnglishLevelsFail, loadAllEnglishLevelsSuccess,
+  loadAllSpecializations,
+  loadAllSpecializationsFail,
+  loadAllSpecializationsSuccess,
+} from './actions';
 import { DirectoryService } from '../../services/directory.service';
 
 @Injectable()
@@ -15,6 +20,15 @@ export class DirectoryEffects {
       .pipe(
         map(allSpecializations => loadAllSpecializationsSuccess({ allSpecializations })),
         catchError(() => of(loadAllSpecializationsFail({ message: 'Loading specializations failed' })))
+      ))
+  ))
+
+  loadAllEnglishLevels$ = createEffect(() => this.actions$.pipe(
+    ofType(loadAllEnglishLevels.type),
+    mergeMap(() => this.directoryService.loadAllEnglishLevels()
+      .pipe(
+        map(allEnglishLevels => loadAllEnglishLevelsSuccess({ allEnglishLevels })),
+        catchError(() => of(loadAllEnglishLevelsFail({ message: 'Loading english levels failed' })))
       ))
   ))
 
