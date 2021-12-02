@@ -21,7 +21,15 @@ import { ArchiveComponent } from 'src/app/components/archive/archive.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { FullCalendarModule } from '@fullcalendar/angular'; // must go before plugins
+import dayGridPlugin from '@fullcalendar/daygrid'; // a plugin!
+import interactionPlugin from '@fullcalendar/interaction'; // a plugin!
 
+FullCalendarModule.registerPlugins([ // register FullCalendar plugins
+	dayGridPlugin,
+	interactionPlugin,
+]);
 
 @NgModule({
 	declarations: [
@@ -53,7 +61,11 @@ import { MatIconModule } from '@angular/material/icon';
 		ReactiveFormsModule,
 		MatListModule,
 		MatIconModule,
-	]
+		MatSlideToggleModule,
+		FullCalendarModule,
+	],
+	providers: [],
+	bootstrap: []
 
 })
 

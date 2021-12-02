@@ -24,6 +24,7 @@ import { AppStoreModule } from './app-store.module';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { Interceptor } from './interceptor/interceptor';
 import { AdminNavModule } from './components/admin-nav/admin-nav.module';
+import { FullCalendarModule } from '@fullcalendar/angular'; // must go before plugins
 
 @NgModule({
   declarations: [

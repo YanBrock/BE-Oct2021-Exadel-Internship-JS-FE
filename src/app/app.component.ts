@@ -8,7 +8,7 @@ import { UserLoginService } from './services/user-login.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'Exadel lerning center';
+  title = 'Exadel training department';
   user = "guest"; // recruiter || techInterviewer || mentor || manager || admin
   role = '';
 
