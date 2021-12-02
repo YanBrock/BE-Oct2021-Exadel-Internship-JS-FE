@@ -3,6 +3,7 @@ import { Actions, createEffect, ofType } from "@ngrx/effects";
 import { mergeMap, map, catchError } from 'rxjs/operators';
 import { of } from "rxjs";
 import {
+  loadAllCountries, loadAllCountriesFail, loadAllCountriesSuccess,
   loadAllEnglishLevels, loadAllEnglishLevelsFail, loadAllEnglishLevelsSuccess,
   loadAllSpecializations,
   loadAllSpecializationsFail,
@@ -21,7 +22,7 @@ export class DirectoryEffects {
         map(allSpecializations => loadAllSpecializationsSuccess({ allSpecializations })),
         catchError(() => of(loadAllSpecializationsFail({ message: 'Loading specializations failed' })))
       ))
-  ))
+  ));
 
   loadAllEnglishLevels$ = createEffect(() => this.actions$.pipe(
     ofType(loadAllEnglishLevels.type),
@@ -30,7 +31,16 @@ export class DirectoryEffects {
         map(allEnglishLevels => loadAllEnglishLevelsSuccess({ allEnglishLevels })),
         catchError(() => of(loadAllEnglishLevelsFail({ message: 'Loading english levels failed' })))
       ))
-  ))
+  ));
+
+  loadAllCountries$ = createEffect(() => this.actions$.pipe(
+    ofType(loadAllCountries.type),
+    mergeMap(() => this.directoryService.loadAllCountries()
+      .pipe(
+        map(allCountries => loadAllCountriesSuccess({ allCountries })),
+        catchError(() => of(loadAllCountriesFail({ message: 'Loading countries failed' })))
+      ))
+  ));
 
   constructor(
     private actions$: Actions,

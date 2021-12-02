@@ -17,7 +17,7 @@ export class DirectoryService {
       })
     };
 
-    return this.httpClient.get<any[]>('directory/getallspecializations', httpOptions)
+    return this.httpClient.get<any[]>('directory/getallspecializations', httpOptions);
   }
 
   loadAllEnglishLevels(): Observable<any[]> {
@@ -28,6 +28,17 @@ export class DirectoryService {
       })
     };
 
-    return this.httpClient.get<any[]>('directory/getallenglishlevels', httpOptions)
+    return this.httpClient.get<any[]>('directory/getallenglishlevels', httpOptions);
+  }
+
+  loadAllCountries(): Observable<any[]> {
+
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'accept': 'text/plain'
+      })
+    };
+
+    return this.httpClient.get<any[]>('directory/getallcountries', httpOptions);
   }
 }

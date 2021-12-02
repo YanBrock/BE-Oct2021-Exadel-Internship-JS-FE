@@ -36,7 +36,7 @@
         <mat-form-field appearance="outline">
           <mat-label>{{'form.country.title' | translate}}</mat-label>
           <mat-select [(ngModel)]="intern.location" name="location" #location="ngModel" required>
-            <mat-option *ngFor="let key of isLocation" [value]="key">{{key}}</mat-option>
+            <mat-option *ngFor="let key of allCountries$ | async" [value]="key.id">{{key.countryName}}</mat-option>
           </mat-select>
           <mat-error *ngIf="location.hasError('required')">{{"form.country.required" | translate}}</mat-error>
         </mat-form-field>
