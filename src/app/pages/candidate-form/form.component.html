@@ -35,7 +35,7 @@
       <div class="wrapper_country">
         <mat-form-field appearance="outline">
           <mat-label>{{'form.country.title' | translate}}</mat-label>
-          <mat-select [(ngModel)]="intern.location" name="location" #location="ngModel" required>
+          <mat-select [(ngModel)]="intern.countryID" name="location" #location="ngModel" required (valueChange)="getCountryId($event)">
             <mat-option *ngFor="let key of allCountries$ | async" [value]="key.id">{{key.countryName}}</mat-option>
           </mat-select>
           <mat-error *ngIf="location.hasError('required')">{{"form.country.required" | translate}}</mat-error>
@@ -45,9 +45,9 @@
       <div class="wrapper_city">
         <mat-form-field appearance="outline">
           <mat-label>{{'form.city.title' | translate}}</mat-label>
-          <mat-select [disabled]=!intern.location [(ngModel)]="intern.city" name="city" #locationCity="ngModel"
+          <mat-select [disabled]=!intern.countryID [(ngModel)]="intern.cityID" name="city" #locationCity="ngModel"
             required>
-            <mat-option *ngFor="let key of isLocationCity" [value]="key">{{key}}</mat-option>
+            <mat-option *ngFor="let key of citiesByCountryId$ | async" [value]="key.id">{{key.cityName}}</mat-option>
           </mat-select>
           <mat-error *ngIf="locationCity.hasError('required')">{{"form.city.required" | translate}}</mat-error>
         </mat-form-field>
@@ -65,7 +65,7 @@
 
     <mat-form-field appearance="outline">
       <mat-label>{{'form.specialization.title' | translate}}</mat-label>
-      <mat-select [(ngModel)]="intern.specialization" name="specialization" #specialization="ngModel" required>
+      <mat-select [(ngModel)]="intern.specializationID" name="specialization" #specialization="ngModel" required>
         <mat-option *ngFor='let key of allSpecializations$ | async' [value]="key.id">{{key.name}}</mat-option>
       </mat-select>
       <mat-error *ngIf="specialization.hasError('required')">{{"form.specialization.required" | translate}}</mat-error>
@@ -73,7 +73,7 @@
 
     <mat-form-field appearance="outline">
       <mat-label>{{'form.englishLevel.title' | translate}}</mat-label>
-      <mat-select [(ngModel)]="intern.englishLevel" name="englishLevel" #englishLevel="ngModel" required>
+      <mat-select [(ngModel)]="intern.englishLevelID" name="englishLevel" #englishLevel="ngModel" required>
         <mat-option *ngFor='let key of allEnglishLevels$ | async' [value]="key.id">{{key.levelName}}</mat-option>
       </mat-select>
       <mat-error *ngIf="englishLevel.hasError('required')">{{"form.englishLevel.required" | translate}}</mat-error>

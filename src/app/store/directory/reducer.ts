@@ -4,13 +4,14 @@ import {
   loadAllEnglishLevels,
   loadAllEnglishLevelsSuccess,
   loadAllSpecializations,
-  loadAllSpecializationsSuccess,
+  loadAllSpecializationsSuccess, loadCitiesByCountryId, loadCitiesByCountryIdSuccess,
 } from './actions';
 
 export interface DirectoryState {
   allSpecializations: any[];
   allEnglishLevels: any[];
   allCountries: any[];
+  citiesByCountryId: any[];
   loading: boolean
 }
 
@@ -18,6 +19,7 @@ export const initialState: DirectoryState = {
   allSpecializations: [],
   allEnglishLevels: [],
   allCountries: [],
+  citiesByCountryId: [],
   loading: false
 }
 
@@ -59,6 +61,19 @@ const _directoryReducer = createReducer(
     return {
       ...state,
       allCountries,
+      loading: false
+    }
+  }),
+  on(loadCitiesByCountryId, state => {
+    return {
+      ...state,
+      loading: true
+    }
+  }),
+  on(loadCitiesByCountryIdSuccess, (state, { citiesByCountryId }) => {
+    return {
+      ...state,
+      citiesByCountryId,
       loading: false
     }
   })

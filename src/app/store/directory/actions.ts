@@ -11,3 +11,8 @@ export const loadAllEnglishLevelsFail = createAction('[Directory] Load english l
 export const loadAllCountries = createAction('[Directory] Load countries');
 export const loadAllCountriesSuccess = createAction('[Directory] Load countries success', props<{ allCountries: any[] }>());
 export const loadAllCountriesFail = createAction('[Directory] Load countries fail', props<{ message: string }>());
+
+export const loadCitiesByCountryId = createAction('[Directory] Load cities', props<{ countryId: number }>());
+export const loadCitiesByCountryIdSuccess = createAction('[Directory] Load cities success', props<{ citiesByCountryId: any[] }>());
+export const loadCitiesByCountryIdFail = createAction('[Directory] Load cities fail', props<{ message: string }>());
+

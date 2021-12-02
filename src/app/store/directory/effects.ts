@@ -7,7 +7,7 @@ import {
   loadAllEnglishLevels, loadAllEnglishLevelsFail, loadAllEnglishLevelsSuccess,
   loadAllSpecializations,
   loadAllSpecializationsFail,
-  loadAllSpecializationsSuccess,
+  loadAllSpecializationsSuccess, loadCitiesByCountryId, loadCitiesByCountryIdFail, loadCitiesByCountryIdSuccess,
 } from './actions';
 import { DirectoryService } from '../../services/directory.service';
 
@@ -39,6 +39,15 @@ export class DirectoryEffects {
       .pipe(
         map(allCountries => loadAllCountriesSuccess({ allCountries })),
         catchError(() => of(loadAllCountriesFail({ message: 'Loading countries failed' })))
+      ))
+  ));
+
+  selectCandidate$ = createEffect(() => this.actions$.pipe(
+    ofType(loadCitiesByCountryId.type),
+    mergeMap(({ countryId }) => this.directoryService.loadCitiesByCountryId(countryId)
+      .pipe(
+        map(citiesByCountryId => loadCitiesByCountryIdSuccess({ citiesByCountryId })),
+        catchError(() => of(loadCitiesByCountryIdFail({ message: 'Loading cities failed' })))
       ))
   ));
 

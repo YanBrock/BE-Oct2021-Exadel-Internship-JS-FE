@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import {HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import {Observable} from 'rxjs';
 
 @Injectable({
@@ -40,5 +40,15 @@ export class DirectoryService {
     };
 
     return this.httpClient.get<any[]>('directory/getallcountries', httpOptions);
+  }
+
+  loadCitiesByCountryId(id): Observable<any[]> {
+    const headers = new HttpHeaders({
+      'accept': 'text/plain'
+    })
+    const httpParams = new HttpParams()
+      .set('countryId', id);
+
+    return this.httpClient.get<any>('directory/getallcitiesbycountryid', {headers: headers, params: httpParams});
   }
 }
