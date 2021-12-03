@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NotificationService } from 'src/app/services/notification.service';
 import { FormService } from '../../services/form.service';
-import {Observable} from 'rxjs';
-import {Candidate} from '../../types/candidate';
-import {Store} from '@ngrx/store';
+import { Observable } from 'rxjs';
+import { Store } from '@ngrx/store';
 import {
   selectAllCountries,
   selectAllEnglishLevels,
@@ -23,10 +22,6 @@ export class FormComponent implements OnInit {
   allEnglishLevels$: Observable<any[]>;
   allCountries$: Observable<any[]>;
   citiesByCountryId$: Observable<any[]>;
-  // isSpecialization: string[];
-  // isEnglishLevel: string[] = [];
-  // isLocation: string[] = [];
-  // isLocationCity: string[] = [];
   validEmail = '^([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,6}$';
   errorCheckBox = 'errorCheckBox';
   isCloseTermsClass = 'wrapper_terms disable';
@@ -53,10 +48,6 @@ export class FormComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // this.isSpecialization = this.formService.isSpecialization;
-    // this.isEnglishLevel = this.formService.isEnglishLevel;
-    // this.isLocation = this.formService.isLocation;
-    // this.isLocationCity = this.formService.isLocationCity;
   }
 
   stop(event: Event) {
@@ -95,7 +86,12 @@ export class FormComponent implements OnInit {
       if (internForm.valid) {
 
         this.notificationService.success(`${this.intern.firstName} your form has been submitted!`);
-        this.formService.saveDataIntern(this.intern);
+        // this.formService.saveDataIntern(this.intern);
+        this.formService.postData(this.intern).subscribe(
+          (data:any) => {
+            console.log('registered')
+          }
+        )
         this.errorCheckBox = 'errorCheckBox';
         internForm.reset();
         internForm.setPristine();

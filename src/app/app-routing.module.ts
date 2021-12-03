@@ -10,16 +10,16 @@ import { RecruiterComponent } from './pages/recruiter/recruiter.component';
 import { TechInterviewerComponent } from './pages/tech-interviewer/tech-interviewer.component';
 import { UserLoginComponent } from './pages/user-login/user-login.component';
 import { UserGuard } from './guards/user.guard';
-import {DirectoryResolver} from './resolvers/directory.resolver';
+import { DirectoryResolver } from './resolvers/directory.resolver';
 
 const routes: Routes = [
 	{ path: '', component: UserLoginComponent, canActivate: [UserGuard] },
 	{ path: 'form', component: FormComponent, resolve: { directory: DirectoryResolver } },
 	{ path: 'recruiter', component: RecruiterComponent, canActivate: [UserGuard], resolve: { candidates: CandidatesResolver, directory: DirectoryResolver } },
-	{ path: 'techInterviewer', component: TechInterviewerComponent, canActivate: [UserGuard], resolve: { candidates: CandidatesResolver } },
-	{ path: 'mentor', component: MentorComponent, canActivate: [UserGuard], resolve: { candidates: CandidatesResolver } },
+	{ path: 'techInterviewer', component: TechInterviewerComponent, canActivate: [UserGuard], resolve: { candidates: CandidatesResolver, directory: DirectoryResolver } },
+	{ path: 'mentor', component: MentorComponent, canActivate: [UserGuard], resolve: { candidates: CandidatesResolver, directory: DirectoryResolver } },
 	{ path: 'manager', component: ManagerComponent, canActivate: [UserGuard] },
-	{ path: 'admin', component: AdminComponent, canActivate: [UserGuard], resolve: { candidates: CandidatesResolver } },
+	{ path: 'admin', component: AdminComponent, canActivate: [UserGuard], resolve: { candidates: CandidatesResolver, directory: DirectoryResolver } },
 	{ path: '**', component: NotFoundComponent },
 ];
 
