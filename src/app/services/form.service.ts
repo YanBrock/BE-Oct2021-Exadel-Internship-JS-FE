@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -9,12 +10,8 @@ import { Injectable } from '@angular/core';
 export class FormService {
 
   dataIntern: object = {}
-  isSpecialization = ['Javascript', '.Net', 'Business analyst'];
-  isEnglishLevel = ['Elementary', 'Pre-Intermediate', 'Intermediate', 'Upper-Intermediate', 'Advanced', 'Proficiency'];
-  isLocation = ['Belarus', 'Poland', 'Russia', 'Georgia', 'Ukraine', 'other...'];
-  isLocationCity = ['Minsk', 'Warsaw', 'Moscow', 'Tbilisi', 'Kiev', 'other...'];
 
-  constructor() { }
+  constructor(private httpClient: HttpClient) { }
 
   ngOnInit(): void {
   }
@@ -31,6 +28,20 @@ export class FormService {
 
       localStorage.setItem('Candidate', JSON.stringify(candidateLocalStorage));
     }
+  }
+
+  postData(userData): Observable<any> {
+
+    const userDataJson = JSON.stringify({...userData});
+
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'accept': '*/*',
+        'Content-Type': 'application/json'
+      }),
+    };
+
+    return this.httpClient.post('api/candidate/registercandidate', userDataJson, httpOptions);
   }
 
 }
