@@ -1,6 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { NotificationService } from 'src/app/services/notification.service';
 import { FormService } from '../../services/form.service';
+import { Observable } from 'rxjs';
+import { Store } from '@ngrx/store';
+import {
+  selectAllCountries,
+  selectAllEnglishLevels,
+  selectAllSpecializations,
+  selectCitiesByCountryId,
+} from '../../store/directory/selectors';
+import {loadCitiesByCountryId} from '../../store/directory/actions';
 
 @Component({
   selector: 'app-form',
@@ -9,10 +18,10 @@ import { FormService } from '../../services/form.service';
   providers: [FormService],
 })
 export class FormComponent implements OnInit {
-  isSpecialization: string[];
-  isEnglishLevel: string[] = [];
-  isLocation: string[] = [];
-  isLocationCity: string[] = [];
+  allSpecializations$: Observable<any[]>;
+  allEnglishLevels$: Observable<any[]>;
+  allCountries$: Observable<any[]>;
+  citiesByCountryId$: Observable<any[]>;
   validEmail = '^([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,6}$';
   errorCheckBox = 'errorCheckBox';
   isCloseTermsClass = 'wrapper_terms disable';
@@ -23,21 +32,22 @@ export class FormComponent implements OnInit {
     email: '',
     skype: '',
     phone: '',
-    location: '',
-    city: '',
-    english: '',
-    specialization: '',
+    countryID: '',
+    cityID: '',
+    englishLevelID: '',
+    specializationID: '',
     checkbox: false,
     cv: null,
   };
 
-  constructor(private formService: FormService, private notificationService: NotificationService) { }
+  constructor(private formService: FormService, private notificationService: NotificationService, private store: Store) {
+    this.allSpecializations$ = this.store.select(selectAllSpecializations);
+    this.allEnglishLevels$ = this.store.select(selectAllEnglishLevels);
+    this.allCountries$ = this.store.select(selectAllCountries);
+    this.citiesByCountryId$ = this.store.select(selectCitiesByCountryId);
+  }
 
   ngOnInit(): void {
-    this.isSpecialization = this.formService.isSpecialization;
-    this.isEnglishLevel = this.formService.isEnglishLevel;
-    this.isLocation = this.formService.isLocation;
-    this.isLocationCity = this.formService.isLocationCity;
   }
 
   stop(event: Event) {
@@ -65,6 +75,10 @@ export class FormComponent implements OnInit {
     }
   }
 
+  getCountryId(value) {
+    this.store.dispatch(loadCitiesByCountryId({countryId: value}));
+  }
+
   clickSubmit(internForm: any): void {
 
     if (this.intern.checkbox) {
@@ -72,7 +86,12 @@ export class FormComponent implements OnInit {
       if (internForm.valid) {
 
         this.notificationService.success(`${this.intern.firstName} your form has been submitted!`);
-        this.formService.saveDataIntern(this.intern);
+        // this.formService.saveDataIntern(this.intern);
+        this.formService.postData(this.intern).subscribe(
+          (data:any) => {
+            console.log('registered')
+          }
+        )
         this.errorCheckBox = 'errorCheckBox';
         internForm.reset();
         internForm.setPristine();

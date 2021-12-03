@@ -3,7 +3,8 @@ const PROXY_CONFIG = [
     context: [
       "/account",
       "/admin",
-      "/api"
+      "/api",
+      "/directory"
     ],
     target: "https://exadel3team.myapptechka.by/",
     secure: false,
