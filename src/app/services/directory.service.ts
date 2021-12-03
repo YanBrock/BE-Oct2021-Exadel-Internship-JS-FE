@@ -51,4 +51,15 @@ export class DirectoryService {
 
     return this.httpClient.get<any>('directory/getallcitiesbycountryid', {headers: headers, params: httpParams});
   }
+
+  loadAllSkills(): Observable<any[]> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'accept': 'text/plain'
+      })
+    };
+
+    return this.httpClient.get<any[]>('directory/getallskills', httpOptions);
+  }
+
 }

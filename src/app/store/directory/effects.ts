@@ -3,11 +3,21 @@ import { Actions, createEffect, ofType } from "@ngrx/effects";
 import { mergeMap, map, catchError } from 'rxjs/operators';
 import { of } from "rxjs";
 import {
-  loadAllCountries, loadAllCountriesFail, loadAllCountriesSuccess,
-  loadAllEnglishLevels, loadAllEnglishLevelsFail, loadAllEnglishLevelsSuccess,
+  loadAllCountries,
+  loadAllCountriesFail,
+  loadAllCountriesSuccess,
+  loadAllEnglishLevels,
+  loadAllEnglishLevelsFail,
+  loadAllEnglishLevelsSuccess,
+  loadAllSkills,
+  loadAllSkillsFail,
+  loadAllSkillsSuccess,
   loadAllSpecializations,
   loadAllSpecializationsFail,
-  loadAllSpecializationsSuccess, loadCitiesByCountryId, loadCitiesByCountryIdFail, loadCitiesByCountryIdSuccess,
+  loadAllSpecializationsSuccess,
+  loadCitiesByCountryId,
+  loadCitiesByCountryIdFail,
+  loadCitiesByCountryIdSuccess,
 } from './actions';
 import { DirectoryService } from '../../services/directory.service';
 
@@ -42,12 +52,21 @@ export class DirectoryEffects {
       ))
   ));
 
-  selectCandidate$ = createEffect(() => this.actions$.pipe(
+  loadCities$ = createEffect(() => this.actions$.pipe(
     ofType(loadCitiesByCountryId.type),
     mergeMap(({ countryId }) => this.directoryService.loadCitiesByCountryId(countryId)
       .pipe(
         map(citiesByCountryId => loadCitiesByCountryIdSuccess({ citiesByCountryId })),
         catchError(() => of(loadCitiesByCountryIdFail({ message: 'Loading cities failed' })))
+      ))
+  ));
+
+  loadAllSkills$ = createEffect(() => this.actions$.pipe(
+    ofType(loadAllSkills.type),
+    mergeMap(() => this.directoryService.loadAllSkills()
+      .pipe(
+        map(allSkills => loadAllSkillsSuccess({ allSkills })),
+        catchError(() => of(loadAllSkillsFail({ message: 'Loading skills failed' })))
       ))
   ));
 
