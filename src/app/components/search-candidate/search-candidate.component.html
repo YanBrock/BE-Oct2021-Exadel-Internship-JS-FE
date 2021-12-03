@@ -1,5 +1,8 @@
 <mat-form-field appearance="fill">
 	<mat-label>Search candidate</mat-label>
-	<input #search matInput >
-	<mat-icon>magnifier</mat-icon>
+	<input matInput [(ngModel)]="name" placeholder="Enter name...">
 </mat-form-field>
+
+<button mat-icon-button aria-label="Example icon button with a heart icon" (click)="searchCandidate()">
+	<mat-icon>search</mat-icon>
+</button>

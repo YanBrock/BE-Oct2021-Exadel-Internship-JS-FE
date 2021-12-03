@@ -21,6 +21,7 @@ import { ArchiveComponent } from 'src/app/components/archive/archive.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
+// import { SearchCandidateComponent } from 'src/app/components/search-candidate/search-candidate.component';
 
 
 @NgModule({
@@ -31,6 +32,7 @@ import { MatIconModule } from '@angular/material/icon';
 		DatepickerComponent,
 		TeamConstructorComponent,
 		ArchiveComponent,
+		// SearchCandidateComponent,
 	],
 	exports: [
 		AdminComponent,

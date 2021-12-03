@@ -10,7 +10,7 @@ import { map } from 'rxjs/operators';
 })
 export class CandidatesService {
 
-	private candidatesInTeam: BehaviorSubject<Candidate>
+	private candidatesInTeam: BehaviorSubject<Candidate>;
 
 	constructor(private httpClient: HttpClient) {
 		this.candidatesInTeam = new BehaviorSubject<Candidate>(null)
@@ -18,7 +18,7 @@ export class CandidatesService {
 
 	 getSelectedCandidate(): Observable<Candidate> {
 		return this.candidatesInTeam.asObservable();
-	}
+	};
 
 	setSelectedCandidate(value) {
 		this.candidatesInTeam.next(value);

@@ -11,25 +11,32 @@ import { ReactiveFormsModule } from "@angular/forms";
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { TranslateModule } from '@ngx-translate/core';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { SearchCandidateModule } from '../search-candidate/search-candidate.module';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
-  declarations: [CandidateComponent,
-    CandidatesListComponent,
-    CandidatesComponent,
-    CandidatesFilterComponent,
-    FilterByStatusPipe],
-  imports: [
-    CommonModule,
-    MatFormFieldModule,
-    MatSelectModule,
-    ReactiveFormsModule,
-    MatPaginatorModule,
-    TranslateModule,
-    MatProgressSpinnerModule,
-  ],
-  exports: [
-    CandidatesComponent,
-    CandidatesListComponent,
-  ]
+	declarations: [CandidateComponent,
+		CandidatesListComponent,
+		CandidatesComponent,
+		CandidatesFilterComponent,
+		FilterByStatusPipe,
+	],
+	imports: [
+		CommonModule,
+		MatFormFieldModule,
+		MatSelectModule,
+		ReactiveFormsModule,
+		MatPaginatorModule,
+		TranslateModule,
+		MatProgressSpinnerModule,
+		SearchCandidateModule,
+		MatIconModule,
+		MatButtonModule,
+	],
+	exports: [
+		CandidatesComponent,
+		CandidatesListComponent,
+	]
 })
 export class CandidatesModule { }

@@ -7,7 +7,7 @@ import { BehaviorSubject, Observable, Subject } from 'rxjs';
 })
 export class AdminService {
 
-
+	// mainUrl: string = "https://exadel3team.myapptechka.by"
 
 	subtasks = [
 		{ skill: 'Javascript', completed: true },
@@ -76,6 +76,19 @@ export class AdminService {
 		return this.http.post(url, dataJson, httpOptions); // -------- do not delete
 		// return data;
 	}
+
+	// searchCandidate(data: string): Observable<any> { //the postSettingRequest method is used here
+	// 	let dataJson = JSON.stringify(data);
+	// 	const httpOptions = {
+	// 		headers: new HttpHeaders({
+	// 			'accept': '*/*',
+	// 			'Content-Type': 'application/json',
+	// 		}),
+	// 	};
+
+	// 	console.log(dataJson);
+	// 	return this.http.post("admin/searchcandidates", dataJson, httpOptions); 
+	// }
 
 
 	// saveNewUser(data: Object) {
