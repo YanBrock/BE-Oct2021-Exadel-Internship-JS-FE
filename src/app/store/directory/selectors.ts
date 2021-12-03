@@ -6,3 +6,4 @@ export const selectAllSpecializations = createSelector(selectFeature, ({ allSpec
 export const selectAllEnglishLevels = createSelector(selectFeature, ({ allEnglishLevels }) => allEnglishLevels);
 export const selectAllCountries = createSelector(selectFeature, ({ allCountries }) => allCountries);
 export const selectCitiesByCountryId = createSelector(selectFeature, ({ citiesByCountryId }) => citiesByCountryId);
+export const selectAllSkills = createSelector(selectFeature, ({ allSkills }) => allSkills);

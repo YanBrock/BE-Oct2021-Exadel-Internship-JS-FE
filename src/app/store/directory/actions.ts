@@ -16,3 +16,7 @@ export const loadCitiesByCountryId = createAction('[Directory] Load cities', pro
 export const loadCitiesByCountryIdSuccess = createAction('[Directory] Load cities success', props<{ citiesByCountryId: any[] }>());
 export const loadCitiesByCountryIdFail = createAction('[Directory] Load cities fail', props<{ message: string }>());
 
+export const loadAllSkills = createAction('[Directory] Load skills');
+export const loadAllSkillsSuccess = createAction('[Directory] Load skills success', props<{ allSkills: any[] }>());
+export const loadAllSkillsFail = createAction('[Directory] Load skills', props<{ message: string }>());
+

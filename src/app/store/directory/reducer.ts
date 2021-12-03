@@ -2,7 +2,7 @@ import { createReducer, on } from '@ngrx/store';
 import {
   loadAllCountries, loadAllCountriesSuccess,
   loadAllEnglishLevels,
-  loadAllEnglishLevelsSuccess,
+  loadAllEnglishLevelsSuccess, loadAllSkills, loadAllSkillsSuccess,
   loadAllSpecializations,
   loadAllSpecializationsSuccess, loadCitiesByCountryId, loadCitiesByCountryIdSuccess,
 } from './actions';
@@ -12,6 +12,7 @@ export interface DirectoryState {
   allEnglishLevels: any[];
   allCountries: any[];
   citiesByCountryId: any[];
+  allSkills: any[];
   loading: boolean
 }
 
@@ -20,6 +21,7 @@ export const initialState: DirectoryState = {
   allEnglishLevels: [],
   allCountries: [],
   citiesByCountryId: [],
+  allSkills: [],
   loading: false
 }
 
@@ -75,6 +77,19 @@ const _directoryReducer = createReducer(
       ...state,
       citiesByCountryId,
       loading: false
+    }
+  }),
+  on(loadAllSkills, state => {
+    return {
+      ...state,
+      loading: true
+    }
+  }),
+  on(loadAllSkillsSuccess, (state, { allSkills }) => {
+    return {
+      ...state,
+      loading: false,
+      allSkills
     }
   })
 )
