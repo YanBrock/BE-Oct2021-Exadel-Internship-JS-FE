@@ -3,28 +3,10 @@
 <div *ngIf="(activeUser !=='techInterviewer' && activeUser !== 'mentor') else techBlock">
   <form (change)="onChange()">
     <mat-list role="list">
-      <mat-list-item role="listitem">
-        {{"recruiter.assessment.english" | translate}}:
+      <mat-list-item role="listitem" *ngFor="let skill of softSkills; let index = index">
+        {{skill.description}}:
         <span>
-          <input name="input" [(ngModel)]="assessmentsRecruiter['englishLevel']" type="text">/4
-        </span>
-      </mat-list-item>
-      <mat-list-item role="listitem">
-        {{"recruiter.assessment.communicationSkills" | translate}}:
-        <span>
-          <input name="input" [(ngModel)]="assessmentsRecruiter['communicationSkills']" type="text">/4
-        </span>
-      </mat-list-item>
-      <mat-list-item role="listitem">
-        {{"recruiter.assessment.abilityToListen" | translate}}:
-        <span>
-          <input name="input" [(ngModel)]="assessmentsRecruiter['abilityToListen']" type="text">/4
-        </span>
-      </mat-list-item>
-      <mat-list-item role="listitem">
-        {{"recruiter.assessment.selfConfidence" | translate}}:
-        <span>
-          <input name="input" [(ngModel)]="assessmentsRecruiter['selfConfidence']" type="text">/4
+          <input name="input" [(ngModel)]="assessmentsRecruiter[skill.id]" type="text">/4
         </span>
       </mat-list-item>
     </mat-list>

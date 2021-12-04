@@ -3,8 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { selectSelectCandidate } from '../../../store/candidates/selectors';
-import {loadAllSpecializations, loadCitiesByCountryId} from '../../../store/directory/actions';
-import {selectAllSpecializations} from '../../../store/directory/selectors';
+import { selectAllSkills } from '../../../store/directory/selectors';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-recruiter-window',
@@ -14,32 +14,28 @@ import {selectAllSpecializations} from '../../../store/directory/selectors';
 export class RecruiterWindowComponent implements OnInit {
 
   selectedCandidate$: Observable<Candidate>;
-  assessmentsRecruiter ={
-    englishLevel: '',
-    communicationSkills: '',
-    abilityToListen: '',
-    selfConfidence: ''
-  }
+  softSkills$: Observable<any[]>;
+  assessmentsRecruiter = {}
 
   constructor(private store: Store) {
     this.selectedCandidate$ = this.store.select(selectSelectCandidate);
+    this.softSkills$ = this.store.select(selectAllSkills).pipe(
+      map(skills => skills.filter(skill => skill.type === 0))
+    )
   }
 
   ngOnInit(): void {
-
   }
 
   onClick() {
+    let id;
+    this.selectedCandidate$.subscribe(candidate => id = candidate.id);
+    this.assessmentsRecruiter['id'] = id;
     console.log(this.assessmentsRecruiter)
-    this.assessmentsRecruiter = {
-      englishLevel: '',
-      communicationSkills: '',
-      abilityToListen: '',
-      selfConfidence: ''
-    }
+    this.assessmentsRecruiter = {}
   }
 
-  onFormChange(object) {
+  onRecruiterFormChange(object) {
     this.assessmentsRecruiter = object
   }
 
