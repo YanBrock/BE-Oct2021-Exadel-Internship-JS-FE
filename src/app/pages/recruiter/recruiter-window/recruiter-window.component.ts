@@ -15,7 +15,7 @@ export class RecruiterWindowComponent implements OnInit {
 
   selectedCandidate$: Observable<Candidate>;
   softSkills$: Observable<any[]>;
-  assessmentsRecruiter = {}
+  assessmentsRecruiter = {};
 
   constructor(private store: Store) {
     this.selectedCandidate$ = this.store.select(selectSelectCandidate);
