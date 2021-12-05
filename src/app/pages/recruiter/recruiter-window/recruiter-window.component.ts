@@ -30,8 +30,24 @@ export class RecruiterWindowComponent implements OnInit {
   onClick() {
     let id;
     this.selectedCandidate$.subscribe(candidate => id = candidate.id);
-    this.assessmentsRecruiter['id'] = id;
-    console.log(this.assessmentsRecruiter)
+    const data = {
+      dateOfInterview: new Date(),
+      candidateID: id,
+      marks: [],
+      comment: this.assessmentsRecruiter['comment']
+    }
+    let result = []
+    for (let key in this.assessmentsRecruiter) {
+      if (key == 'comment') {
+        continue;
+      } else {
+        result.push({skillID: key, skillLevel: this.assessmentsRecruiter[key]})
+      }
+
+    }
+    data.marks.push(result)
+    console.log(data)
+    console.log(JSON.stringify(data))
     this.assessmentsRecruiter = {}
   }
 
