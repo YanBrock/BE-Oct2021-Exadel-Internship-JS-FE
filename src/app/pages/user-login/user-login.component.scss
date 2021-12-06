@@ -50,3 +50,10 @@ form {
     background-color: #1e90cf;
   }
 }
+
+
+@media (max-width: 800px) {
+  form {
+    width: 100%;
+  }
+}

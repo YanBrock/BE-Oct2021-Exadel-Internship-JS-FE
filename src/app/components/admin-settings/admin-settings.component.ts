@@ -15,15 +15,16 @@ export class AdminSettingsComponent {
   isRole = [];
   allComplete: boolean = false;
   isInputValueAddSpecializationData: string;
-  skillForDelete: string;
+  nameForDelete: string;
   isDisabled = true;
   validEmail = '^([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,6}$';
+  validPassword = '(?=.*[0-9])(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z!@#$%^&*]{6,}';
   isEmailUser: string;
 
 
   dataSpecialization = {
     skill: 'All specialization',
-    completed: false,
+    isActive: false,
     subtasks: []
   };
 
@@ -31,14 +32,21 @@ export class AdminSettingsComponent {
   constructor(private adminService: AdminService, private notificationService: NotificationService) { }
 
   ngOnInit(): void {
-    this.dataSpecialization.subtasks = this.adminService.subtasks;
+    this.adminService.getSettingRequest('admin/getallspecializations')
+      .subscribe((data: any) => {
+        console.log(data)
+        this.dataSpecialization.subtasks = [...data];
+      });
+    console.log(this.dataSpecialization);
+
+    // this.dataSpecialization.subtasks = this.adminService.subtasks;
     this.isRole = this.adminService.isRole;
   }
 
 
 
   updateAllComplete() {
-    this.allComplete = this.dataSpecialization.subtasks != null && this.dataSpecialization.subtasks.every(t => t.completed);
+    this.allComplete = this.dataSpecialization.subtasks != null && this.dataSpecialization.subtasks.every(t => t.isActive);
   }
 
   someComplete(): boolean {
@@ -48,30 +56,46 @@ export class AdminSettingsComponent {
       return false;
     }
 
-    return this.dataSpecialization.subtasks.filter(t => t.completed).length > 0 && !this.allComplete;
+    return this.dataSpecialization.subtasks.filter(t => t.isActive).length > 0 && !this.allComplete;
   }
 
-  setAll(completed: boolean) {
+  setAll(isActive: boolean) {
     this.isDisabled = false;
 
-    this.allComplete = completed;
+    this.allComplete = isActive;
     if (this.dataSpecialization.subtasks == null) {
 
       return;
     }
 
-    this.dataSpecialization.subtasks.forEach(t => t.completed = completed);
+    this.dataSpecialization.subtasks.forEach(t => t.isActive = isActive);
   }
 
   addSpecialization() {
-    this.dataSpecialization.subtasks.push({
-      skill:
-        this.isInputValueAddSpecializationData.charAt(0).toUpperCase() +
-        this.isInputValueAddSpecializationData.slice(1)
-      , completed: false
+
+    let hasSpecialization = this.dataSpecialization.subtasks.find(el => {
+      return el.name.toUpperCase() === this.isInputValueAddSpecializationData.toUpperCase();
     });
-    this.isInputValueAddSpecializationData = '';
+
+
+    if (hasSpecialization) {
+      this.notificationService.error('This specialization already exists!');
+    } else {
+
+      const id = (this.dataSpecialization.subtasks[this.dataSpecialization.subtasks.length - 1].id) + 1;
+
+      this.dataSpecialization.subtasks.push({
+        id: id,
+        name:
+          this.isInputValueAddSpecializationData.charAt(0).toUpperCase() +
+          this.isInputValueAddSpecializationData.slice(1),
+        isActive: false,
+      });
+      this.isInputValueAddSpecializationData = '';
+
+    }
   }
+
 
   deleteSpecialization(e: Event) {
     this.isDisabled = false;
@@ -79,16 +103,20 @@ export class AdminSettingsComponent {
     if (e.target["className"] === 'button_delete') {
       e.target['parentElement'].remove();
 
-      this.skillForDelete = e.target['parentElement'].__ngContext__[26];
+      this.nameForDelete = e.target['parentElement'].__ngContext__[26];
 
       this.dataSpecialization.subtasks = this.dataSpecialization.subtasks.filter(el => {
-        return el['skill'] !== this.skillForDelete && el
+        return el['name'] !== this.nameForDelete && el
       });
+
     }
   }
 
   newUserSubmit(newUserForm: any) {
-    newUserForm.value.role = newUserForm.value.role.toLowerCase();
+    newUserForm.value.role = newUserForm.value.role === 'TechInterviewer' ?
+      'techInterviewer' :
+      newUserForm.value.role.toLowerCase();
+
     this.isEmailUser = newUserForm.value.email;
     // this.adminService.saveNewUser(newUserForm.value);
 
@@ -124,24 +152,25 @@ export class AdminSettingsComponent {
 
   saveChangesSpecializationData() {
     this.isDisabled = true;
-    this.notificationService.success(`The data has been saved!`);
-
-    this.adminService.postSettingRequest(this.dataSpecialization.subtasks, 'https://exadel3team.myapptechka.by/setting/specialization')
-    // .subscribe((data: any) => {
     // this.notificationService.success(`The data has been saved!`);
-    // console.log(data);
-    // },
-    //   (error: Error) => {
-    // console.log(error);
-    //  this.notificationService.error(`The data was not saved!`);
-    // }
-    // );
+    console.log(this.dataSpecialization.subtasks);
 
-    this.dataSpecialization.subtasks.forEach((el) => {
-      el.completed && this.isSpecialization.push(el.skill);
-    });
+    this.adminService.postSettingRequest(this.dataSpecialization.subtasks, 'admin/savespecializations')
+      .subscribe((data: any) => {
+        console.log(data);
+        this.notificationService.success(`The data has been saved!`);
+      },
+        (error: Error) => {
+          console.log(error);
+          this.notificationService.error(`The data was not saved!`);
+        }
+      );
 
-    this.adminService.postSettingRequest(this.isSpecialization, 'https://exadel3team.myapptechka.by/form/specialization')
+    // this.dataSpecialization.subtasks.forEach((el) => {
+    //   el.isActive && this.isSpecialization.push(el.skill);
+    // });
+
+    // this.adminService.postSettingRequest(this.isSpecialization, 'https://exadel3team.myapptechka.by/form/specialization')
     // .subscribe((data: any) => console.log(data),
     //   (error: Error) => console.log(error)
     // );
