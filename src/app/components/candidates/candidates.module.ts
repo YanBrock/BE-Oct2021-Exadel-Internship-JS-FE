@@ -1,4 +1,3 @@
-import { FilterByStatusPipe } from 'src/app/pipes/filter-by-status.pipe';
 import { MatSelectModule } from '@angular/material/select';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { CandidatesComponent } from './candidates.component';
@@ -16,8 +15,7 @@ import { MentorService } from '../../services/mentor.service'
   declarations: [CandidateComponent,
     CandidatesListComponent,
     CandidatesComponent,
-    CandidatesFilterComponent,
-    FilterByStatusPipe],
+    CandidatesFilterComponent],
   imports: [
     CommonModule,
     MatFormFieldModule,

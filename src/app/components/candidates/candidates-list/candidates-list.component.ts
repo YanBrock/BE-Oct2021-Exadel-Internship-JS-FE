@@ -24,7 +24,6 @@ export class CandidatesListComponent implements OnInit {
   constructor(private store: Store) {
     this.candidatesList$ = this.store.select(selectCandidatesList);
     this.selectedCandidate$ = this.store.select(selectSelectCandidate);
-    console.log(this.candidates)
   }
 
   ngOnInit(): void {

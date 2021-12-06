@@ -1,14 +1,13 @@
-import { UserLoginService } from 'src/app/services/user-login.service';
 import { CandidatesFilter } from '../../types/candidate';
 import { Candidate } from '../../types/candidate';
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { CandidatesService } from 'src/app/services/candidates.service';
 import { CandidatesListComponent } from './candidates-list/candidates-list.component';
 import { Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
 import { selectCandidatesList, selectCandidatesListLoading } from '../../store/candidates/selectors';
 import { loadCandidatesList } from '../../store/candidates/actions';
-import { MentorService } from '../../services/mentor.service'
+import { UserLoginService } from '../../services/user-login.service';
+
 @Component({
   selector: 'app-candidates',
   templateUrl: './candidates.component.html',
@@ -19,27 +18,20 @@ export class CandidatesComponent implements OnInit {
   candidatesList$: Observable<Candidate[]>;
   candidatesListLoading$: Observable<boolean>
   pageOfCandidates: Candidate[]
-  activeUser: string
+  length: number
+  activeUserRole: string
   startItem: number = 0
   pageItems: number = 7
   @ViewChild(CandidatesListComponent) list: CandidatesListComponent
 
-  constructor(private store: Store, private candidatesService: CandidatesService, private userLoginService: UserLoginService, private mentorService: MentorService) {
+  constructor(private store: Store, private userLoginService: UserLoginService) {
     this.candidatesList$ = this.store.select(selectCandidatesList);
     this.candidatesListLoading$ = this.store.select(selectCandidatesListLoading);
   }
 
   ngOnInit(): void {
-    this.activeUser = this.userLoginService.activeUser.role;
-    if (this.activeUser === 'techInterviewer') {
-      this.candidatesList$.subscribe(response => this.pageOfCandidates = response.filter(c => c.isInterviewedByHr === true && !c.status).slice(this.startItem, this.pageItems))
-    }
-
-
-
-    else {
-      this.candidatesList$.subscribe(response => this.pageOfCandidates = response.slice(this.startItem, this.pageItems))
-    }
+    this.activeUserRole = this.userLoginService.activeUser.role;
+    this.candidatesList$.subscribe(response => this.pageOfCandidates = response.slice(this.startItem, this.pageItems));
   }
 
   onFilterChange(filterValue: CandidatesFilter) {
@@ -49,17 +41,13 @@ export class CandidatesComponent implements OnInit {
 
   onPageChange(object) {
     const startIndex = object.pageIndex * object.pageSize;
-    let length = 0;
-    this.candidatesList$.subscribe(array => length = array.length);
+    this.candidatesList$.subscribe(array => this.length = array.length);
     let endIndex = startIndex + object.pageSize;
-    if (endIndex > length) {
-      endIndex = length;
+    if (endIndex > this.length) {
+      endIndex = this.length;
     }
-    if (this.activeUser === 'techInterviewer') {
-      this.candidatesList$.subscribe(response => this.pageOfCandidates = response.filter(c => c.isInterviewedByHr === true && !c.status).slice(startIndex, endIndex))
-    } else {
-      this.candidatesList$.subscribe(response => this.pageOfCandidates = response.slice(startIndex, endIndex))
-    }
+
+    this.candidatesList$.subscribe(response => this.pageOfCandidates = response.slice(startIndex, endIndex))
   }
 
 }
