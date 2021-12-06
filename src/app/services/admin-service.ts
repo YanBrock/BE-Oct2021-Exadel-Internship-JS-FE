@@ -3,88 +3,90 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, Subject } from 'rxjs';
 
 @Injectable({
-	providedIn: 'root'
+  providedIn: 'root'
 })
 export class AdminService {
 
 
-
-	subtasks = [
-		{ skill: 'Javascript', completed: true },
-		{ skill: '.Net', completed: true },
-		{ skill: 'Business analyst', completed: true },
-		{ skill: 'Java', completed: false },
-		{ skill: 'С++', completed: false },
-		{ skill: 'Python', completed: false },
-		{ skill: 'C#', completed: false },
-		{ skill: 'PHP', completed: false },
-		{ skill: 'TypeScript', completed: false },
-		{ skill: 'Delphi', completed: false },
-	]
-
-
-	isRole = [
-		'Recruiter',
-		'TechInterviewer',
-		'Mentor',
-		'Manager',
-		'Admin'
-	];
-
-	// newUser = {};
-	// delUser = '';
-
-	private adminStartPage: BehaviorSubject<string>
-
-	constructor(private http: HttpClient) {
-		this.adminStartPage = new BehaviorSubject<string>("Home");
-	}
-
-	getSelectedPage(): Observable<string> {
-		return this.adminStartPage.asObservable();
-	}
-
-	setSelectedPage(value) {
-		this.adminStartPage.next(value);
-	};
+  // subtasks = [
+  //   { skill: 'Javascript', completed: true },
+  //   { skill: '.Net', completed: true },
+  //   { skill: 'Business analyst', completed: true },
+  //   { skill: 'Java', completed: false },
+  //   { skill: 'С++', completed: false },
+  //   { skill: 'Python', completed: false },
+  //   { skill: 'C#', completed: false },
+  //   { skill: 'PHP', completed: false },
+  //   { skill: 'TypeScript', completed: false },
+  //   { skill: 'Delphi', completed: false },
+  // ]
 
 
-	postSettingRequest(data: any, url: string): Observable<any> {
-		let dataJson = JSON.stringify(data);
-		const httpOptions = {
-			headers: new HttpHeaders({
-				'accept': '*/*',
-				'Content-Type': 'application/json',
-			}),
-		};
+  isRole = [
+    'Recruiter',
+    'TechInterviewer',
+    'Mentor',
+    'Manager',
+    'Admin'
+  ];
 
-		// console.log(dataJson);
-		return this.http.post(url, dataJson, httpOptions); // -------- do not delete
-	}
+  // newUser = {};
+  // delUser = '';
 
+  private adminStartPage: BehaviorSubject<string>
 
-	deleteSettingRequest(data: any, url: string): Observable<any> {
-		let dataJson = JSON.stringify(data);
-		const httpOptions = {
-			headers: new HttpHeaders({
-				'accept': '*/*',
-				'Content-Type': 'application/json',
-			}),
-		};
+  constructor(private http: HttpClient) {
+    this.adminStartPage = new BehaviorSubject<string>("Home");
+  }
 
-		console.log(dataJson);
-		return this.http.post(url, dataJson, httpOptions); // -------- do not delete
-		// return data;
-	}
+  getSelectedPage(): Observable<string> {
+    return this.adminStartPage.asObservable();
+  }
+
+  setSelectedPage(value: any) {
+    this.adminStartPage.next(value);
+  };
 
 
-	// saveNewUser(data: Object) {
-	//   this.newUser = data;
-	//   console.log(this.newUser);
-	// }
+  postSettingRequest(data: any, url: string): Observable<any> {
+    let dataJson = JSON.stringify(data);
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'accept': '*/*',
+        'Content-Type': 'application/json',
+      }),
+    };
 
-	// deleteUser(data: string) {
-	//   this.delUser = data;
-	//   console.log(this.delUser);
-	// }
+    // console.log(dataJson);
+    return this.http.post(url, dataJson, httpOptions); // -------- do not delete
+  }
+
+
+  deleteSettingRequest(data: any, url: string): Observable<any> {
+    let dataJson = JSON.stringify(data);
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'accept': '*/*',
+        'Content-Type': 'application/json',
+      }),
+    };
+
+    console.log(dataJson);
+    return this.http.post(url, dataJson, httpOptions); // -------- do not delete
+  }
+
+  getSettingRequest(url: string): Observable<any> {
+    return this.http.get(url); // -------- do not delete
+  }
+
+
+  // saveNewUser(data: Object) {
+  //   this.newUser = data;
+  //   console.log(this.newUser);
+  // }
+
+  // deleteUser(data: string) {
+  //   this.delUser = data;
+  //   console.log(this.delUser);
+  // }
 }
