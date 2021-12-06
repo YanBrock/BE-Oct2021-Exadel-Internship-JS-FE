@@ -152,24 +152,25 @@ export class AdminSettingsComponent {
 
   saveChangesSpecializationData() {
     this.isDisabled = true;
-    this.notificationService.success(`The data has been saved!`);
-
-    this.adminService.postSettingRequest(this.dataSpecialization.subtasks, 'https://exadel3team.myapptechka.by/setting/specialization')
-    // .subscribe((data: any) => {
     // this.notificationService.success(`The data has been saved!`);
-    // console.log(data);
-    // },
-    //   (error: Error) => {
-    // console.log(error);
-    //  this.notificationService.error(`The data was not saved!`);
-    // }
-    // );
+    console.log(this.dataSpecialization.subtasks);
 
-    this.dataSpecialization.subtasks.forEach((el) => {
-      el.isActive && this.isSpecialization.push(el.skill);
-    });
+    this.adminService.postSettingRequest(this.dataSpecialization.subtasks, 'admin/savespecializations')
+      .subscribe((data: any) => {
+        console.log(data);
+        this.notificationService.success(`The data has been saved!`);
+      },
+        (error: Error) => {
+          console.log(error);
+          this.notificationService.error(`The data was not saved!`);
+        }
+      );
 
-    this.adminService.postSettingRequest(this.isSpecialization, 'https://exadel3team.myapptechka.by/form/specialization')
+    // this.dataSpecialization.subtasks.forEach((el) => {
+    //   el.isActive && this.isSpecialization.push(el.skill);
+    // });
+
+    // this.adminService.postSettingRequest(this.isSpecialization, 'https://exadel3team.myapptechka.by/form/specialization')
     // .subscribe((data: any) => console.log(data),
     //   (error: Error) => console.log(error)
     // );
