@@ -11,7 +11,8 @@ import { RecruiterAssessmentModule } from '../../components/recruiter-assessment
 import { MentorWindowComponent } from './mentor-window/mentor-window.component';
 import { TranslateModule } from '@ngx-translate/core';
 import { CandidateDataModule } from '../../components/candidate-data/candidate-data.module';
-
+import { MentorService } from 'src/app/services/mentor.service';
+import { CandidatesService } from '../../services/candidates.service'
 @NgModule({
   declarations: [
     MentorReviewComponent,
@@ -32,6 +33,9 @@ import { CandidateDataModule } from '../../components/candidate-data/candidate-d
   ],
   exports: [
     MentorComponent
-  ]
+  ],
+  providers: [
+    MentorService,
+    CandidatesService]
 })
 export class MentorModule { }

@@ -18,12 +18,13 @@ export class CandidatesListComponent implements OnInit {
   @Input() pageOfCandidates: Candidate[];
   @Input() candidates: Candidate[];
   @Output() changePage = new EventEmitter<PageEvent>();
-  @ViewChild (MatPaginator) paginator: MatPaginator;
+  @ViewChild(MatPaginator) paginator: MatPaginator;
   dataSource;
 
   constructor(private store: Store) {
     this.candidatesList$ = this.store.select(selectCandidatesList);
     this.selectedCandidate$ = this.store.select(selectSelectCandidate);
+    console.log(this.candidates)
   }
 
   ngOnInit(): void {

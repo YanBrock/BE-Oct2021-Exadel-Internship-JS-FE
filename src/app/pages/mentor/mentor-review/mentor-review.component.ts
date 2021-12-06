@@ -1,18 +1,26 @@
 import { Component, OnInit } from '@angular/core';
-
+import { MentorService } from 'src/app/services/mentor.service';
+import { Candidate } from 'src/app/types/candidate';
+import { CandidatesService } from '../../../services/candidates.service'
 @Component({
   selector: 'app-mentor-review',
   templateUrl: './mentor-review.component.html',
   styleUrls: ['./mentor-review.component.scss']
 })
 export class MentorReviewComponent implements OnInit {
+
+  candidate: null | Candidate;
+
   scores = {
     grade: '',
     review: ''
   }
-  constructor() { }
+  constructor(private mentorService: MentorService, private cadidatesService: CandidatesService) { }
 
   ngOnInit(): void {
+    this.cadidatesService.getSelectedCandidate().subscribe(candidate => {
+      this.candidate = candidate
+    })
   }
 
 
@@ -25,8 +33,7 @@ export class MentorReviewComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.scores)
-
+    this.mentorService.addMentorAssessment(this.candidate.id, this.scores)
   }
 
 }
