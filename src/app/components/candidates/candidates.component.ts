@@ -7,8 +7,8 @@ import { CandidatesListComponent } from './candidates-list/candidates-list.compo
 import { Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
 import { selectCandidatesList, selectCandidatesListLoading } from '../../store/candidates/selectors';
-import { loadCandidatesList} from '../../store/candidates/actions';
-
+import { loadCandidatesList } from '../../store/candidates/actions';
+import { MentorService } from '../../services/mentor.service'
 @Component({
   selector: 'app-candidates',
   templateUrl: './candidates.component.html',
@@ -24,7 +24,7 @@ export class CandidatesComponent implements OnInit {
   pageItems: number = 7
   @ViewChild(CandidatesListComponent) list: CandidatesListComponent
 
-  constructor(private store: Store, private candidatesService: CandidatesService, private userLoginService: UserLoginService) {
+  constructor(private store: Store, private candidatesService: CandidatesService, private userLoginService: UserLoginService, private mentorService: MentorService) {
     this.candidatesList$ = this.store.select(selectCandidatesList);
     this.candidatesListLoading$ = this.store.select(selectCandidatesListLoading);
   }
@@ -33,7 +33,11 @@ export class CandidatesComponent implements OnInit {
     this.activeUser = this.userLoginService.activeUser.role;
     if (this.activeUser === 'techInterviewer') {
       this.candidatesList$.subscribe(response => this.pageOfCandidates = response.filter(c => c.isInterviewedByHr === true && !c.status).slice(this.startItem, this.pageItems))
-    } else {
+    }
+
+
+
+    else {
       this.candidatesList$.subscribe(response => this.pageOfCandidates = response.slice(this.startItem, this.pageItems))
     }
   }

@@ -11,7 +11,7 @@ import { ReactiveFormsModule } from "@angular/forms";
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { TranslateModule } from '@ngx-translate/core';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-
+import { MentorService } from '../../services/mentor.service'
 @NgModule({
   declarations: [CandidateComponent,
     CandidatesListComponent,
@@ -30,6 +30,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
   exports: [
     CandidatesComponent,
     CandidatesListComponent,
-  ]
+  ],
+  providers: [MentorService]
 })
 export class CandidatesModule { }
