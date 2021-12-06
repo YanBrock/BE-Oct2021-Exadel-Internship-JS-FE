@@ -17,8 +17,8 @@
             <span class="example-list-section">
               <ul (click)="deleteSpecialization($event)">
                 <li *ngFor="let subtask of dataSpecialization.subtasks" #li>
-                  <mat-checkbox color="primary" [(ngModel)]="subtask.completed" (ngModelChange)="updateAllComplete()">
-                    {{subtask.skill}}
+                  <mat-checkbox color="primary" [(ngModel)]="subtask.isActive" (ngModelChange)="updateAllComplete()">
+                    {{subtask.name}}
                   </mat-checkbox>
                   <div class="button_delete"></div>
                 </li>
@@ -74,7 +74,8 @@
           <mat-form-field appearance="outline">
             <mat-label>Password</mat-label>
             <input matInput [(ngModel)]="newUserForm.value.password" #password="ngModel" type="text" name="password"
-              required />
+            [pattern]="validPassword"
+            required />
           </mat-form-field>
 
           <mat-form-field appearance="outline">
