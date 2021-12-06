@@ -1,6 +1,5 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import { Candidate } from '../../types/candidate';
-import {UserLoginService} from '../../services/user-login.service';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { UserLoginService } from '../../services/user-login.service';
 
 @Component({
   selector: 'app-recruiter-assessment',
@@ -11,6 +10,7 @@ export class RecruiterAssessmentComponent implements OnInit {
 
   activeUser: string
   @Input() assessmentsRecruiter
+  @Input() softSkills
   @Output() changingForm = new EventEmitter<object>()
 
   constructor(private userLoginService: UserLoginService) { }
