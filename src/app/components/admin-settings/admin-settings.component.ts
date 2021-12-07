@@ -32,14 +32,16 @@ export class AdminSettingsComponent {
   constructor(private adminService: AdminService, private notificationService: NotificationService) { }
 
   ngOnInit(): void {
-    this.adminService.getSettingRequest('admin/getallspecializations')
-      .subscribe((data: any) => {
-        console.log(data)
-        this.dataSpecialization.subtasks = [...data];
-      });
-    console.log(this.dataSpecialization);
 
-    // this.dataSpecialization.subtasks = this.adminService.subtasks;
+    // this.adminService.getSettingRequest('admin/getallspecializations')  //Backend data
+    //   .subscribe((data: any) => {
+    //     console.log(data)
+    //     this.dataSpecialization.subtasks = [...data];
+    //   });
+
+    localStorage.getItem('Subtask') && this.adminService.getSubtaskLocalStorage(); //moced data
+    this.dataSpecialization.subtasks = this.adminService.subtasks;
+    
     this.isRole = this.adminService.isRole;
   }
 
@@ -81,6 +83,8 @@ export class AdminSettingsComponent {
     if (hasSpecialization) {
       this.notificationService.error('This specialization already exists!');
     } else {
+      this.notificationService.success('Specialization added!');
+      this.isDisabled = false;
 
       const id = (this.dataSpecialization.subtasks[this.dataSpecialization.subtasks.length - 1].id) + 1;
 
@@ -152,19 +156,22 @@ export class AdminSettingsComponent {
 
   saveChangesSpecializationData() {
     this.isDisabled = true;
-    // this.notificationService.success(`The data has been saved!`);
-    console.log(this.dataSpecialization.subtasks);
+    this.notificationService.success(`The data has been saved!`);
+    // console.log(this.dataSpecialization.subtasks);
+    this.adminService.setSubtaskLocalStorage(this.dataSpecialization.subtasks);
 
-    this.adminService.postSettingRequest(this.dataSpecialization.subtasks, 'admin/savespecializations')
-      .subscribe((data: any) => {
-        console.log(data);
-        this.notificationService.success(`The data has been saved!`);
-      },
-        (error: Error) => {
-          console.log(error);
-          this.notificationService.error(`The data was not saved!`);
-        }
-      );
+    // this.adminService.postSettingRequest(this.dataSpecialization.subtasks, 'admin/savespecializations')
+    //   .subscribe((data: any) => {
+    //     console.log(data);
+    //     this.notificationService.success(`The data has been saved!`);
+    //   },
+    //     (error: Error) => {
+    //       console.log(error);
+    //       this.notificationService.error(`The data was not saved!`);
+    //     }
+    //   );
+
+
 
     // this.dataSpecialization.subtasks.forEach((el) => {
     //   el.isActive && this.isSpecialization.push(el.skill);

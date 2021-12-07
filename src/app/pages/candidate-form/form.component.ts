@@ -47,7 +47,10 @@ export class FormComponent implements OnInit {
     private store: Store, private adminService: AdminService) {
 
     // this.allSpecializations$ = this.store.select(selectAllSpecializations);
+
+    localStorage.getItem('Subtask') && this.adminService.getSubtaskLocalStorage(); // moced data
     this.allSpecializations = this.adminService.subtasks.filter(el => el.isActive);
+
     this.allEnglishLevels$ = this.store.select(selectAllEnglishLevels);
     this.allCountries$ = this.store.select(selectAllCountries);
     this.citiesByCountryId$ = this.store.select(selectCitiesByCountryId);

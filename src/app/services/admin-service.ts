@@ -74,6 +74,15 @@ export class AdminService {
     return this.http.get(url); // -------- do not delete
   }
 
+  setSubtaskLocalStorage(data: any[]) {
+    localStorage.setItem('Subtask', JSON.stringify(data));
+  }
+
+  getSubtaskLocalStorage() {
+    this.subtasks = JSON.parse(localStorage.getItem('Subtask'));
+  }
+
+
 
   // saveNewUser(data: Object) {
   //   this.newUser = data;
