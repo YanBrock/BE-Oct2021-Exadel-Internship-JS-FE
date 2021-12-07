@@ -15,8 +15,8 @@ import { CandidateDataModule } from 'src/app/components/candidate-data/candidate
 import { TranslateModule } from '@ngx-translate/core';
 import { CandidatesModule } from 'src/app/components/candidates/candidates.module';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
-import { DatepickerComponent } from 'src/app/components/datepicker/datepicker.component';
-import { TeamConstructorComponent } from 'src/app/components/team-constructor/team-constructor.component';
+import { DatepickerModule } from 'src/app/components/datepicker/datepicker.module';
+import { TeamConstructorModule } from 'src/app/components/team-constructor/team-constructor.module'
 import { ArchiveComponent } from 'src/app/components/archive/archive.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatListModule } from '@angular/material/list';
@@ -28,8 +28,6 @@ import { MatIconModule } from '@angular/material/icon';
 		AdminComponent,
 		AdminSettingsComponent,
 		AdminWindowComponent,
-		DatepickerComponent,
-		TeamConstructorComponent,
 		ArchiveComponent,
 	],
 	exports: [
@@ -53,6 +51,8 @@ import { MatIconModule } from '@angular/material/icon';
 		ReactiveFormsModule,
 		MatListModule,
 		MatIconModule,
+		DatepickerModule,
+		TeamConstructorModule
 	]
 
 })

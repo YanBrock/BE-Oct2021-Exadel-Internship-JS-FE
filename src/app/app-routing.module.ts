@@ -18,7 +18,7 @@ const routes: Routes = [
 	{ path: 'recruiter', component: RecruiterComponent, canActivate: [UserGuard], resolve: { candidates: CandidatesResolver, directory: DirectoryResolver } },
 	{ path: 'techInterviewer', component: TechInterviewerComponent, canActivate: [UserGuard], resolve: { candidates: CandidatesResolver, directory: DirectoryResolver } },
 	{ path: 'mentor', component: MentorComponent, canActivate: [UserGuard], resolve: { candidates: CandidatesResolver, directory: DirectoryResolver } },
-	{ path: 'manager', component: ManagerComponent, canActivate: [UserGuard] },
+	{ path: 'manager', component: ManagerComponent, canActivate: [UserGuard], resolve: { candidates: CandidatesResolver, directory: DirectoryResolver } },
 	{ path: 'admin', component: AdminComponent, canActivate: [UserGuard], resolve: { candidates: CandidatesResolver, directory: DirectoryResolver } },
 	{ path: '**', component: NotFoundComponent },
 ];
