@@ -1,4 +1,4 @@
-import { CandidatesFilter } from '../../types/candidate';
+import {CandidatesFilter, Status} from '../../types/candidate';
 import { Candidate } from '../../types/candidate';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { CandidatesListComponent } from './candidates-list/candidates-list.component';
@@ -19,7 +19,7 @@ export class CandidatesComponent implements OnInit {
   candidatesList$: Observable<any[]>;
   candidatesListLoading$: Observable<boolean>;
   pageOfCandidates: any[];
-  candidatesList: any
+  candidatesList: any;
   // length: number;
   activeUserRole: string;
   startItem: number = 0;
@@ -34,6 +34,7 @@ export class CandidatesComponent implements OnInit {
   ngOnInit(): void {
 
     const candidatesFromLocalStorage = this.candidatesService.getCandidatesFromLocalStorage();
+
     if (localStorage['Candidate']) {
       this.candidatesList$.subscribe(candidates => {
         this.candidatesList = [...candidates, ...candidatesFromLocalStorage]

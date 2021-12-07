@@ -28,6 +28,16 @@ export class CandidatesService {
   };
 
   getCandidatesFromLocalStorage() {
+    this.activeUserRole = this.userLoginService.activeUser.role;
+
+    if (this.activeUserRole === 'techInterviewer') {
+      return JSON.parse(localStorage.getItem('Candidate')).filter(candidate => candidate.isInterviewedByHr === true && !candidate.status);
+    }
+
+    if (this.activeUserRole === 'mentor') {
+      return JSON.parse(localStorage.getItem('Candidate')).filter(candidate => candidate.status === Status.Accepted);
+    }
+
     return JSON.parse(localStorage.getItem('Candidate'));
   }
 

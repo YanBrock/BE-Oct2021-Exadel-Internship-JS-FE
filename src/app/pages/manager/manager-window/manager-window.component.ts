@@ -3,7 +3,7 @@ import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { CandidatesService } from 'src/app/services/candidates.service';
 import { selectSelectCandidate } from 'src/app/store/candidates/selectors';
-import { Candidate } from 'src/app/types/candidate';
+import { Candidate, Status } from 'src/app/types/candidate';
 import { selectAllSkills } from '../../../store/directory/selectors';
 import { map } from 'rxjs/operators';
 
@@ -64,5 +64,13 @@ export class ManagerWindowComponent implements OnInit {
 
   onFormChange(object) {
     this.assessmentsTech = object
+  }
+
+  setAcceptStatus() {
+    this.selectedCandidate = { ...this.selectedCandidate, status: Status.Accepted};
+    const candidatesFromLocalStorage = JSON.parse(localStorage.getItem('Candidate'));
+    const index = candidatesFromLocalStorage.findIndex(candidate => candidate.firstName === this.selectedCandidate.firstName && candidate.lastName === this.selectedCandidate.lastName);
+    candidatesFromLocalStorage[index] = this.selectedCandidate;
+    localStorage.setItem('Candidate', JSON.stringify(candidatesFromLocalStorage));
   }
 }
