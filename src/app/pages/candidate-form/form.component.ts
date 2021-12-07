@@ -9,7 +9,8 @@ import {
   selectAllSpecializations,
   selectCitiesByCountryId,
 } from '../../store/directory/selectors';
-import {loadCitiesByCountryId} from '../../store/directory/actions';
+import { loadCitiesByCountryId } from '../../store/directory/actions';
+import { AdminService } from 'src/app/services/admin-service';
 
 @Component({
   selector: 'app-form',
@@ -18,13 +19,15 @@ import {loadCitiesByCountryId} from '../../store/directory/actions';
   providers: [FormService],
 })
 export class FormComponent implements OnInit {
-  allSpecializations$: Observable<any[]>;
+  // allSpecializations$: Observable<any[]>;
+  allSpecializations:any[];
   allEnglishLevels$: Observable<any[]>;
   allCountries$: Observable<any[]>;
   citiesByCountryId$: Observable<any[]>;
   validEmail = '^([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,6}$';
   errorCheckBox = 'errorCheckBox';
   isCloseTermsClass = 'wrapper_terms disable';
+
 
   intern = {
     firstName: '',
@@ -37,11 +40,18 @@ export class FormComponent implements OnInit {
     englishLevelID: '',
     specializationID: '',
     checkbox: false,
-    cv: null,
+    cv: [],
   };
 
-  constructor(private formService: FormService, private notificationService: NotificationService, private store: Store) {
-    this.allSpecializations$ = this.store.select(selectAllSpecializations);
+  constructor(private formService: FormService,
+    private notificationService: NotificationService,
+    private store: Store, private adminService: AdminService) {
+
+    // this.allSpecializations$ = this.store.select(selectAllSpecializations);
+
+    localStorage.getItem('Subtask') && this.adminService.getSubtaskLocalStorage(); // moced data
+    this.allSpecializations = this.adminService.subtasks.filter(el => el.isActive);
+
     this.allEnglishLevels$ = this.store.select(selectAllEnglishLevels);
     this.allCountries$ = this.store.select(selectAllCountries);
     this.citiesByCountryId$ = this.store.select(selectCitiesByCountryId);
@@ -55,8 +65,9 @@ export class FormComponent implements OnInit {
   }
 
   csvInputChange(fileInputEvent: any) {
+
     console.log(fileInputEvent.target.files[0]);
-    this.intern.cv = fileInputEvent.target.files[0];
+    this.intern.cv.push(...fileInputEvent.target.files[0]);
   }
 
   closeTerms() {
@@ -76,7 +87,7 @@ export class FormComponent implements OnInit {
   }
 
   getCountryId(value) {
-    this.store.dispatch(loadCitiesByCountryId({countryId: value}));
+    this.store.dispatch(loadCitiesByCountryId({ countryId: value }));
   }
 
   clickSubmit(internForm: any): void {
@@ -86,19 +97,22 @@ export class FormComponent implements OnInit {
       if (internForm.valid) {
 
         this.notificationService.success(`${this.intern.firstName} your form has been submitted!`);
-        // this.formService.saveDataIntern(this.intern);
-        this.formService.postData(this.intern).subscribe(
-          (data:any) => {
-            console.log('registered')
-          }
-        )
+
+        this.formService.saveDataIntern(this.intern); // data to local storage;
+
+        // this.formService.postData(this.intern).subscribe(
+        //   (data: any) => {
+        //     console.log('registered')
+        //   }
+        // )
+
         this.errorCheckBox = 'errorCheckBox';
         internForm.reset();
         internForm.setPristine();
 
       } else {
 
-         this.notificationService.error('Oops, something went wrong!');
+        this.notificationService.error('Oops, something went wrong!');
       }
 
     } else {

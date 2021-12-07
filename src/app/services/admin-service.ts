@@ -8,18 +8,13 @@ import { BehaviorSubject, Observable, Subject } from 'rxjs';
 export class AdminService {
 
 
-  // subtasks = [
-  //   { skill: 'Javascript', completed: true },
-  //   { skill: '.Net', completed: true },
-  //   { skill: 'Business analyst', completed: true },
-  //   { skill: 'Java', completed: false },
-  //   { skill: 'С++', completed: false },
-  //   { skill: 'Python', completed: false },
-  //   { skill: 'C#', completed: false },
-  //   { skill: 'PHP', completed: false },
-  //   { skill: 'TypeScript', completed: false },
-  //   { skill: 'Delphi', completed: false },
-  // ]
+  subtasks = [
+    { id: 1, name: 'Javascript', isActive: true },
+    { id: 2, name: '.Net', isActive: true },
+    { id: 3, name: 'Business analyst', isActive: true },
+    { id: 4, name: 'Java', isActive: false },
+    { id: 5, name: 'С++', isActive: false },
+  ]
 
 
   isRole = [
@@ -78,6 +73,15 @@ export class AdminService {
   getSettingRequest(url: string): Observable<any> {
     return this.http.get(url); // -------- do not delete
   }
+
+  setSubtaskLocalStorage(data: any[]) {
+    localStorage.setItem('Subtask', JSON.stringify(data));
+  }
+
+  getSubtaskLocalStorage() {
+    this.subtasks = JSON.parse(localStorage.getItem('Subtask'));
+  }
+
 
 
   // saveNewUser(data: Object) {
