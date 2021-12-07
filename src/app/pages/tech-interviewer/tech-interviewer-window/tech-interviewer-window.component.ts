@@ -14,13 +14,9 @@ import {map} from 'rxjs/operators';
 export class TechInterviewerWindowComponent implements OnInit {
 
   selectedCandidate$: Observable<Candidate>;
+  selectedCandidate: any;
   softSkills$: Observable<any[]>;
-  assessmentsTech = {
-    html: '',
-    css: '',
-    javaScript: '',
-    comment: ''
-  };
+  assessmentsTech = {};
 
   constructor(private store: Store) {
     this.selectedCandidate$ = this.store.select(selectSelectCandidate);
@@ -33,13 +29,12 @@ export class TechInterviewerWindowComponent implements OnInit {
   }
 
   onClick() {
-    console.log(this.assessmentsTech)
-    this.assessmentsTech = {
-      html: '',
-      css: '',
-      javaScript: '',
-      comment: ''
-    }
+    this.selectedCandidate$.subscribe(candidate => this.selectedCandidate = candidate);
+    this.selectedCandidate = { ...this.selectedCandidate, isInterviewedByTech: true, assessmentsTech: this.assessmentsTech};
+    const candidatesFromLocalStorage = JSON.parse(localStorage.getItem('Candidate'));
+    const index = candidatesFromLocalStorage.findIndex(candidate => candidate.firstName === this.selectedCandidate.firstName && candidate.lastName === this.selectedCandidate.lastName);
+    candidatesFromLocalStorage[index] = this.selectedCandidate;
+    localStorage.setItem('Candidate', JSON.stringify(candidatesFromLocalStorage));
   }
 
   onFormChange(object) {

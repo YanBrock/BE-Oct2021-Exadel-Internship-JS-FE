@@ -1,4 +1,4 @@
-<div [ngClass]="first ? '' : 'margin-top'" class="candidate" [class.active]="candidate?.id===selectedCandidate?.id">
+<div [ngClass]="first ? '' : 'margin-top'" class="candidate" [class.active]="candidate===selectedCandidate">
   {{ candidate.firstName }} {{ candidate.lastName }}
   <div class="status">
     <span

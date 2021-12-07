@@ -13,10 +13,10 @@ import { selectCandidatesList, selectSelectCandidate } from '../../../store/cand
 })
 export class CandidatesListComponent implements OnInit {
 
-  candidatesList$: Observable<Candidate[]>;
-  selectedCandidate$: Observable<Candidate>;
-  @Input() pageOfCandidates: Candidate[];
-  @Input() candidates: Candidate[];
+  candidatesList$: Observable<any[]>;
+  selectedCandidate$: Observable<any>;
+  @Input() pageOfCandidates: any[];
+  @Input() candidates: any[];
   @Output() changePage = new EventEmitter<PageEvent>();
   @ViewChild(MatPaginator) paginator: MatPaginator;
   dataSource;
