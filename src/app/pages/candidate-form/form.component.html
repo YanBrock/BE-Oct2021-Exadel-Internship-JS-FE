@@ -47,7 +47,7 @@
           <mat-label>{{'form.city.title' | translate}}</mat-label>
           <mat-select [disabled]=!intern.countryID [(ngModel)]="intern.cityID" name="city" #locationCity="ngModel"
             required>
-            <mat-option *ngFor="let key of citiesByCountryId$ | async" [value]="key.id">{{key.cityName}}</mat-option>
+            <mat-option *ngFor="let key of citiesByCountryId$ | async" [value]="key.cityName">{{key.cityName}}</mat-option>
           </mat-select>
           <mat-error *ngIf="locationCity.hasError('required')">{{"form.city.required" | translate}}</mat-error>
         </mat-form-field>
@@ -75,7 +75,7 @@
       <!-- --------------------------data from locale storage--------------------- -->
 
       <mat-select [(ngModel)]="intern.specializationID" name="specialization" #specialization="ngModel" required>
-        <mat-option *ngFor='let key of allSpecializations' [value]="key">{{key.name}}</mat-option>
+        <mat-option *ngFor='let key of allSpecializations' [value]="key.name">{{key.name}}</mat-option>
       </mat-select>
 
       <mat-error *ngIf="specialization.hasError('required')">{{"form.specialization.required" | translate}}</mat-error>
@@ -84,7 +84,7 @@
     <mat-form-field appearance="outline">
       <mat-label>{{'form.englishLevel.title' | translate}}</mat-label>
       <mat-select [(ngModel)]="intern.englishLevelID" name="englishLevel" #englishLevel="ngModel" required>
-        <mat-option *ngFor='let key of allEnglishLevels$ | async' [value]="key.id">{{key.levelName}}</mat-option>
+        <mat-option *ngFor='let key of allEnglishLevels$ | async' [value]="key.levelName">{{key.levelName}}</mat-option>
       </mat-select>
       <mat-error *ngIf="englishLevel.hasError('required')">{{"form.englishLevel.required" | translate}}</mat-error>
     </mat-form-field>

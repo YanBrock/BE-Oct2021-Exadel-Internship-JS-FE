@@ -40,7 +40,7 @@ export class FormComponent implements OnInit {
     englishLevelID: '',
     specializationID: '',
     checkbox: false,
-    cv: [],
+    cv: null,
   };
 
   constructor(private formService: FormService,
@@ -65,9 +65,8 @@ export class FormComponent implements OnInit {
   }
 
   csvInputChange(fileInputEvent: any) {
-
     console.log(fileInputEvent.target.files[0]);
-    this.intern.cv.push(...fileInputEvent.target.files[0]);
+    this.intern.cv = fileInputEvent.target.files[0].name;
   }
 
   closeTerms() {
@@ -97,7 +96,6 @@ export class FormComponent implements OnInit {
       if (internForm.valid) {
 
         this.notificationService.success(`${this.intern.firstName} your form has been submitted!`);
-
         this.formService.saveDataIntern(this.intern); // data to local storage;
 
         // this.formService.postData(this.intern).subscribe(
