@@ -21,9 +21,10 @@ export interface Candidate {
   skype: string
   phone: string
   specialization: string
-  location: string
+  country: number
   englishLevel: string
   isInterviewedByHr?: boolean
   isInterviewedByTech?: boolean
-  status?: Status
+  status?: Status,
+  assessmentsRecruiter
 }

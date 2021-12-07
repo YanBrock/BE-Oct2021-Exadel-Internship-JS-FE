@@ -31,6 +31,8 @@ export class RecruiterWindowComponent implements OnInit {
 
   onClick() {
     this.selectedCandidate$.subscribe(candidate => this.selectedCandidate = candidate);
+    this.assessmentsRecruiter = this.selectedCandidate.assessmentsRecruiter;
+    console.log(this.assessmentsRecruiter)
     this.selectedCandidate = { ...this.selectedCandidate, isInterviewedByHr: true, assessmentsRecruiter: this.assessmentsRecruiter};
     const candidatesFromLocalStorage = JSON.parse(localStorage.getItem('Candidate'));
     const index = candidatesFromLocalStorage.findIndex(candidate => candidate.firstName === this.selectedCandidate.firstName && candidate.lastName === this.selectedCandidate.lastName);

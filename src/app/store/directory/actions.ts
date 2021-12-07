@@ -20,3 +20,7 @@ export const loadAllSkills = createAction('[Directory] Load skills');
 export const loadAllSkillsSuccess = createAction('[Directory] Load skills success', props<{ allSkills: any[] }>());
 export const loadAllSkillsFail = createAction('[Directory] Load skills', props<{ message: string }>());
 
+export const loadCountryById = createAction('[Directory] Load country', props<{ countryId: number }>());
+export const loadCountryByIdSuccess = createAction('[Directory] Load country success', props<{ country }>());
+export const loadCountryByIdFail = createAction('[Directory] Load country fail', props<{ message: string }>());
+

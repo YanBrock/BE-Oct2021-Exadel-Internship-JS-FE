@@ -17,7 +17,7 @@ import {
   loadAllSpecializationsSuccess,
   loadCitiesByCountryId,
   loadCitiesByCountryIdFail,
-  loadCitiesByCountryIdSuccess,
+  loadCitiesByCountryIdSuccess, loadCountryById, loadCountryByIdFail, loadCountryByIdSuccess,
 } from './actions';
 import { DirectoryService } from '../../services/directory.service';
 
@@ -69,6 +69,24 @@ export class DirectoryEffects {
         catchError(() => of(loadAllSkillsFail({ message: 'Loading skills failed' })))
       ))
   ));
+
+  loadCountryById$ = createEffect(() => this.actions$.pipe(
+    ofType(loadCountryById.type),
+    mergeMap(({ countryId }) => this.directoryService.loadCountryById(countryId)
+      .pipe(
+        map(country => loadCountryByIdSuccess({ country })),
+        catchError(() => of(loadCountryByIdFail({ message: 'Loading country failed' })))
+      ))
+  ));
+
+  // loadCountryById$ = createEffect(() => this.actions$.pipe(
+  //   ofType(loadCountryById.type),
+  //   mergeMap(({ countryId }) => this.directoryService.loadCountryById(countryId)
+  //     .pipe(
+  //       map(country => loadCountryByIdSuccess({ country })),
+  //       catchError(() => of(loadCountryByIdFail({ message: 'Loading country failed' })))
+  //     ))
+  // ));
 
   constructor(
     private actions$: Actions,

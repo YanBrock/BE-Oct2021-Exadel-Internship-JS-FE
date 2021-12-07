@@ -12,6 +12,7 @@ export class RecruiterAssessmentComponent implements OnInit {
   @Input() assessmentsRecruiter
   @Input() softSkills
   @Output() changingForm = new EventEmitter<object>()
+  @Input() selectedCandidate: any
 
   constructor(private userLoginService: UserLoginService) { }
 
