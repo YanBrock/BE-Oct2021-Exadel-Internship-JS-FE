@@ -65,9 +65,19 @@
 
     <mat-form-field appearance="outline">
       <mat-label>{{'form.specialization.title' | translate}}</mat-label>
-      <mat-select [(ngModel)]="intern.specializationID" name="specialization" #specialization="ngModel" required>
+
+      <!-- --------------------------if the backend gives data--------------------- -->
+
+      <!-- <mat-select [(ngModel)]="intern.specializationID" name="specialization" #specialization="ngModel" required>
         <mat-option *ngFor='let key of allSpecializations$ | async' [value]="key.id">{{key.name}}</mat-option>
+      </mat-select> -->
+
+      <!-- --------------------------data from locale storage--------------------- -->
+
+      <mat-select [(ngModel)]="intern.specializationID" name="specialization" #specialization="ngModel" required>
+        <mat-option *ngFor='let key of allSpecializations' [value]="key">{{key.name}}</mat-option>
       </mat-select>
+
       <mat-error *ngIf="specialization.hasError('required')">{{"form.specialization.required" | translate}}</mat-error>
     </mat-form-field>
 
