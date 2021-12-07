@@ -28,6 +28,7 @@ export class FormComponent implements OnInit {
   errorCheckBox = 'errorCheckBox';
   isCloseTermsClass = 'wrapper_terms disable';
 
+
   intern = {
     firstName: '',
     lastName: '',
@@ -39,7 +40,7 @@ export class FormComponent implements OnInit {
     englishLevelID: '',
     specializationID: '',
     checkbox: false,
-    cv: null,
+    cv: [],
   };
 
   constructor(private formService: FormService,
@@ -64,8 +65,9 @@ export class FormComponent implements OnInit {
   }
 
   csvInputChange(fileInputEvent: any) {
+
     console.log(fileInputEvent.target.files[0]);
-    this.intern.cv = fileInputEvent.target.files[0];
+    this.intern.cv.push(...fileInputEvent.target.files[0]);
   }
 
   closeTerms() {
