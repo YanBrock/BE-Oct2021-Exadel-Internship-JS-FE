@@ -15,11 +15,11 @@ import { MatInputModule } from '@angular/material/input';
 import { TranslateModule } from '@ngx-translate/core';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { DatepickerModule } from 'src/app/components/datepicker/datepicker.module';
-import { TeamConstructorModule } from 'src/app/components/team-constructor/team-constructor.module';
+import { TeamConstructorModule } from '../../components/team-constructor/team-constructor.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
-import { MultitoolsModule } from 'src/app/components/multitools/multitools.module';
+import { MultitoolsModule } from '../../components/multitools/multitools.module';
 
 
 @NgModule({

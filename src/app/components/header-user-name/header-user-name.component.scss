@@ -14,17 +14,17 @@
 		margin-right: 2rem;
 		color: #1E90CF;
 		font-weight: bold;
-    position: relative;
+    	position: relative;
 	}
 
   .name::after
 	{
 		content: '';
-    position: absolute;
-    left: 120%;
-    top: .4rem;
-    border: 5px solid transparent;
-    border-top: 5px solid #1E90CF;
+		position: absolute;
+		margin-left: .5rem;
+		top: 40%;
+		border: 5px solid transparent;
+		border-top: 5px solid #1E90CF;
 	}
 
 

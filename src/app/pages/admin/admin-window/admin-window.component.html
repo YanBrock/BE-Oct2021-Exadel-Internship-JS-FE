@@ -1,7 +1,8 @@
 <div *ngIf="selectedCandidate$ | async">
 	<app-candidate-data [selectedCandidate]="selectedCandidate$ | async"></app-candidate-data>
 
-	<app-recruiter-assessment (changingForm)="onRecruiterFormChange($event)" [assessmentsRecruiter]="assessmentsRecruiter" [softSkills]="softSkills$ | async">
+	<app-recruiter-assessment (changingForm)="onRecruiterFormChange($event)"
+		[assessmentsRecruiter]="assessmentsRecruiter" [softSkills]="softSkills$ | async">
 	</app-recruiter-assessment>
 
 	<br>
@@ -12,12 +13,17 @@
 	<br>
 
 	<div class="buttons">
-		<button mat-stroked-button>TO ARCHIVE</button>
-		<button mat-stroked-button (click)="toTeam()">TO TEAM</button>
-		<br>
-		<button class="decline-button" mat-stroked-button (click)="onClick()">{{"recruiter.buttons.decline" |
-			translate}}</button>
-		<button class="apply-button" mat-stroked-button (click)="onClick()">{{"recruiter.buttons.apply" |
-			translate}}</button>
+		<div>
+			<button mat-stroked-button>TO ARCHIVE</button>
+			<button mat-stroked-button (click)="toTeam()">TO TEAM</button>
+		</div>
+
+		<div>
+			<button class="decline-button" mat-stroked-button (click)="onClick()">{{"recruiter.buttons.decline" |
+				translate}}</button>
+			<button class="apply-button" mat-stroked-button (click)="onClick()">{{"recruiter.buttons.apply" |
+				translate}}</button>
+		</div>
+
 	</div>
 </div>

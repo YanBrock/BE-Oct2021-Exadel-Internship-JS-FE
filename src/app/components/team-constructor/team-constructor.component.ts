@@ -25,20 +25,25 @@ export class TeamConstructorComponent implements OnInit {
 	removeCandidate(a: Candidate) {
 		for (let i = 0; i < this.selectedCandidates.length; i++) {
 			if (this.selectedCandidates[i] === a) {
-				let removedCandidste = this.selectedCandidates.splice(i, 1);
+				this.selectedCandidates.splice(i, 1);
+				if(this.selectedCandidates.length === 0) {
+					this.selectedCandidates = [];
+				}
 			}
 		}
+
+		console.log(this.selectedCandidates);
 	}
 
 	sendNotify(): void {
-		if (this.selectedMentors !== undefined && this.selectedCandidates !== undefined && this.selectedMentors.length !== 0 && this.selectedCandidates.length !== 0) {
+		if (this.selectedMentors !== [] && this.selectedCandidates !== [] && this.selectedMentors.length !== 0 && this.selectedCandidates.length !== 0) {
 			this.team = {
 				mentors: this.selectedMentors,
 				candidates: this.selectedCandidates
 			}
 
-			this.selectedMentors = undefined;
-			this.selectedCandidates = undefined;
+			this.selectedMentors = [];
+			this.selectedCandidates = [];
 
 			console.log(this.team);
 		} else {
@@ -59,6 +64,8 @@ export class TeamConstructorComponent implements OnInit {
 				}
 			}
 		});
+
+		console.log(this.selectedCandidates);
 	}
 
 }
