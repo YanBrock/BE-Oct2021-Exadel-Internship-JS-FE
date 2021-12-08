@@ -21,9 +21,11 @@
   <div>
     <mat-list role="list">
       <mat-list-item role="listitem" *ngFor="let skill of softSkills">
-        {{skill.description}}: <span>/4</span>
+        {{skill.description}}: <span>
+          <span *ngIf="(selectedCandidate$ | async).assessmentsRecruiter">{{(selectedCandidate$ | async).assessmentsRecruiter[skill.id]}}</span>/4
+        </span>
       </mat-list-item>
     </mat-list>
-    <p>Recruiter comment</p>
+    <p *ngIf="(selectedCandidate$ | async).assessmentsRecruiter">{{(selectedCandidate$ | async).assessmentsRecruiter.comment}}</p>
   </div>
 </ng-template>

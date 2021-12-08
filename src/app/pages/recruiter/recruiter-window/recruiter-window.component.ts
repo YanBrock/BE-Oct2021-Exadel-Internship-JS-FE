@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 import { selectSelectCandidate } from '../../../store/candidates/selectors';
 import { selectAllSkills } from '../../../store/directory/selectors';
 import { map } from 'rxjs/operators';
-import { selectCandidate } from '../../../store/candidates/actions';
+import {loadCandidatesList, selectCandidate} from '../../../store/candidates/actions';
 import { updateCandidate } from 'src/app/store/candidates/actions';
 
 @Component({

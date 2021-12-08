@@ -1,5 +1,8 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { UserLoginService } from '../../services/user-login.service';
+import {Observable} from 'rxjs';
+import {Store} from '@ngrx/store';
+import {selectSelectCandidate} from '../../store/candidates/selectors';
 
 @Component({
   selector: 'app-recruiter-assessment',
@@ -8,21 +11,19 @@ import { UserLoginService } from '../../services/user-login.service';
 })
 export class RecruiterAssessmentComponent implements OnInit {
 
+  selectedCandidate$: Observable<any>;
+  @Input() selectedCandidate: any;
   activeUser: string
   @Input() assessmentsRecruiter
   @Input() softSkills
   @Output() changingForm = new EventEmitter<object>()
-  @Input() selectedCandidate: any
-
-  constructor(private userLoginService: UserLoginService) {
-    console.log(this.assessmentsRecruiter)
+  constructor(private userLoginService: UserLoginService, private store: Store) {
+    this.selectedCandidate$ = this.store.select(selectSelectCandidate);
 
   }
 
   ngOnInit(): void {
     this.activeUser = this.userLoginService.activeUser.role
-    console.log(this.softSkills)
-    console.log(this.assessmentsRecruiter)
   }
 
   onChange() {
