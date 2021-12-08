@@ -1,24 +1,23 @@
-.container
-{
-	justify-content: space-between;
-  	align-items: center;
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 
-	.header__logo
-	{
-		display: inherit;
+  .header__logo {
+    display: inherit;
 
-		& img
-		{
-			height: 2rem;
-			width: 100%;
-		}
-	}
+    & img {
+      height: 2rem;
+      width: 83px;
+      margin-right: 10px;
+    }
+  }
 
-	.header__wrapper
-	{
-		display: inherit;
-		align-items: center;
-	}
+  .header__wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 }
 .mat-form-field {
   width: 7rem;
@@ -36,3 +35,9 @@
   }
 }
 
+@media (max-width: 800px) {
+  .container {
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+}
