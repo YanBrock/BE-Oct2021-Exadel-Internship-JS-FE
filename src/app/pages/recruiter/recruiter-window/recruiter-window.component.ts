@@ -5,8 +5,8 @@ import { Observable } from 'rxjs';
 import { selectSelectCandidate } from '../../../store/candidates/selectors';
 import { selectAllSkills } from '../../../store/directory/selectors';
 import { map } from 'rxjs/operators';
-import {loadCandidatesList, selectCandidate} from '../../../store/candidates/actions';
 import { updateCandidate } from 'src/app/store/candidates/actions';
+import { NotificationService } from 'src/app/services/notification.service';
 
 @Component({
   selector: 'app-recruiter-window',
@@ -20,7 +20,8 @@ export class RecruiterWindowComponent implements OnInit {
   assessmentsRecruiter = {};
   selectedCandidate: any;
 
-  constructor(private store: Store) {
+  constructor(private store: Store,
+    private notificationService: NotificationService) {
     this.selectedCandidate$ = this.store.select(selectSelectCandidate);
     this.softSkills$ = this.store.select(selectAllSkills).pipe(
       map(skills => skills.filter(skill => skill.type === 0))
@@ -40,7 +41,8 @@ export class RecruiterWindowComponent implements OnInit {
   onClick() {
     this.selectedCandidate$.subscribe(candidate => this.selectedCandidate = candidate);
     this.selectedCandidate = { ...this.selectedCandidate, isInterviewedByHr: true, assessmentsRecruiter: this.assessmentsRecruiter };
-    this.store.dispatch(updateCandidate({ candidate: this.selectedCandidate }))
+    this.store.dispatch(updateCandidate({ candidate: this.selectedCandidate }));
+    this.notificationService.success('Operation was successfully completed');
 
     console.log(this.assessmentsRecruiter)
 

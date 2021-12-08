@@ -6,6 +6,7 @@ import { selectSelectCandidate } from '../../../store/candidates/selectors';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { updateCandidate } from 'src/app/store/candidates/actions';
+import { NotificationService } from 'src/app/services/notification.service';
 @Component({
   selector: 'app-mentor-review',
   templateUrl: './mentor-review.component.html',
@@ -21,7 +22,8 @@ export class MentorReviewComponent implements OnInit {
     grade: null,
     review: null
   }
-  constructor(private store: Store, private mentorService: MentorService, private cadidatesService: CandidatesService) {
+  constructor(private store: Store, private mentorService: MentorService, private cadidatesService: CandidatesService,
+    private notificationService: NotificationService) {
     this.selectedCandidate$ = this.store.select(selectSelectCandidate);
     this.selectedCandidate$.subscribe((data) => {
       if (data.scores) {
@@ -53,7 +55,7 @@ export class MentorReviewComponent implements OnInit {
     this.selectedCandidate$.subscribe(candidate => this.selectedCandidate = candidate);
     this.selectedCandidate = { ...this.selectedCandidate, scores: this.scores };
     this.store.dispatch(updateCandidate({ candidate: this.selectedCandidate }))
-
+    this.notificationService.success('Operation was successfully completed');
   }
 
 }

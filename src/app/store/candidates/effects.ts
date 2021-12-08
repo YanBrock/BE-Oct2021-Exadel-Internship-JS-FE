@@ -5,6 +5,7 @@ import { mergeMap, map, catchError } from 'rxjs/operators';
 import { of } from "rxjs";
 import { updateCandidate, loadCandidatesList, loadCandidatesListFail, loadCandidatesListSuccess, updateCandidateSuccess } from "./actions";
 
+
 @Injectable()
 export class CandidatesEffects {
 
@@ -33,7 +34,8 @@ export class CandidatesEffects {
 
   constructor(
     private actions$: Actions,
-    private candidatesService: CandidatesService
+    private candidatesService: CandidatesService,
+
   ) { }
 
 }
