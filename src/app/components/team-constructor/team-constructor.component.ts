@@ -25,7 +25,7 @@ export class TeamConstructorComponent implements OnInit {
 	removeCandidate(a: Candidate) {
 		for (let i = 0; i < this.selectedCandidates.length; i++) {
 			if (this.selectedCandidates[i] === a) {
-				let removingCandidste = this.selectedCandidates.splice(i, 1);
+				let removedCandidste = this.selectedCandidates.splice(i, 1);
 			}
 		}
 	}
@@ -41,10 +41,7 @@ export class TeamConstructorComponent implements OnInit {
 			this.selectedCandidates = undefined;
 
 			console.log(this.team);
-
-			// this.error = "";
 		} else {
-			// this.error = "The constructor is not completely filled";
 			alert("The constructor is not completely filled");
 		};
 

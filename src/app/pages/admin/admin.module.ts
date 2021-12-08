@@ -17,10 +17,10 @@ import { CandidatesModule } from 'src/app/components/candidates/candidates.modul
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { DatepickerModule } from 'src/app/components/datepicker/datepicker.module';
 import { TeamConstructorModule } from 'src/app/components/team-constructor/team-constructor.module'
-import { ArchiveComponent } from 'src/app/components/archive/archive.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
+import { MultitoolsModule } from 'src/app/components/multitools/multitools.module';
 
 
 @NgModule({
@@ -28,7 +28,6 @@ import { MatIconModule } from '@angular/material/icon';
 		AdminComponent,
 		AdminSettingsComponent,
 		AdminWindowComponent,
-		ArchiveComponent,
 	],
 	exports: [
 		AdminComponent,
@@ -52,7 +51,8 @@ import { MatIconModule } from '@angular/material/icon';
 		MatListModule,
 		MatIconModule,
 		DatepickerModule,
-		TeamConstructorModule
+		TeamConstructorModule,
+		MultitoolsModule,
 	]
 
 })

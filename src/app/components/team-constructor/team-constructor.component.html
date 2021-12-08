@@ -1,40 +1,30 @@
-<div class="wrapper">
-  <mat-form-field appearance="fill">
-    <mat-label id="mentor-list">Select mentor...</mat-label>
-    <mat-select multiple [(value)]="selectedMentors">
+<mat-form-field appearance="fill">
+	<mat-label id="mentor-list">Select mentor...</mat-label>
+	<mat-select multiple [(value)]="selectedMentors">
 
-      <!-- <mat-select-trigger>
-				{{toppings.value ? toppings.value[0] : ''}}
-				<span *ngIf="toppings.value?.length > 1" class="example-additional-selection">
-					(+{{toppings.value.length - 1}} {{toppings.value?.length === 2 ? 'other' : 'others'}})
-				</span>
-			</mat-select-trigger> -->
+		<mat-option *ngFor="let mentor of mentors" [value]="mentor">
+			{{mentor.email}}
+		</mat-option>
+	</mat-select>
+</mat-form-field>
 
-      <mat-option *ngFor="let mentor of mentors" [value]="mentor">
-        {{mentor.email}}
-      </mat-option>
-    </mat-select>
-  </mat-form-field>
+<div>Candidates in team: {{selectedCandidates.length}} / 5</div>
 
-  <div>Candidates in team:</div>
+<mat-selection-list class="candidates" #candidates [multiple]="false">
+	<div *ngFor="let candidate of selectedCandidates" style="display: flex;">
+		<mat-list-option id="candidate" [value]="candidate">
+			{{candidate.firstName + " " + candidate.lastName}}
+		</mat-list-option>
+		<button id="closeBtn" mat-icon-button color="warn" aria-label="close button for candidate in team-constructor"
+			(click)="removeCandidate(candidate)">
+			<mat-icon>close</mat-icon>
+		</button>
+	</div>
 
-  <mat-selection-list #candidates [multiple]="false">
-    <div *ngFor="let candidate of selectedCandidates" style="display: flex;">
-      <mat-list-option id="candidate" [value]="candidate">
-        {{candidate.firstName + " " + candidate.lastName}}
-      </mat-list-option>
-      <button id="closeBtn" mat-icon-button color="warn" aria-label="close button for candidate in team-constructor"
-        (click)="removeCandidate(candidate)">
-        <mat-icon>close</mat-icon>
-      </button>
-    </div>
+</mat-selection-list>
 
-  </mat-selection-list>
-
-  <!-- <p>
+<!-- <p>
 		Option selected: {{candidates.selectedOptions.selected[0]?.value.firstName}}
 	</p> -->
 
-  <button mat-stroked-button (click)="sendNotify()">SUBMIT & NOTIFY</button>
-  <!-- <p>{{error}}</p> -->
-</div>
+<button class="submit" mat-stroked-button (click)="sendNotify()">SUBMIT & NOTIFY</button>
