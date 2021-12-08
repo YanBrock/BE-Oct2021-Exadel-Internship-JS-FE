@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-multitoolse',
+  selector: 'app-multitools',
   templateUrl: './multitools.component.html',
   styleUrls: ['./multitools.component.scss']
 })

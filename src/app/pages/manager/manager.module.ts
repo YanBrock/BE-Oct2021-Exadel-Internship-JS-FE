@@ -19,35 +19,35 @@ import { TeamConstructorModule } from 'src/app/components/team-constructor/team-
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
+import { MultitoolsModule } from 'src/app/components/multitools/multitools.module';
 
 
 @NgModule({
-  declarations: [
-    ManagerComponent,
-    ManagerWindowComponent,
-
-  ],
-  imports: [
-    CommonModule,
-    MatCheckboxModule,
-    MatSelectModule,
-    MatFormFieldModule,
-    FormsModule,
-    MatButtonModule,
-    MatInputModule,
-    CandidatesModule,
-    CandidateDataModule,
-    RecruiterAssessmentModule,
-    TechInterviewerAssessmentModule,
-    TranslateModule,
-    CandidatesModule,
-    MatButtonToggleModule,
-    ReactiveFormsModule,
-    MatListModule,
-    MatIconModule,
-    DatepickerModule,
-    TeamConstructorModule
-
-  ]
+	declarations: [
+		ManagerComponent,
+		ManagerWindowComponent,
+	],
+	imports: [
+		CommonModule,
+		MatCheckboxModule,
+		MatSelectModule,
+		MatFormFieldModule,
+		FormsModule,
+		MatButtonModule,
+		MatInputModule,
+		CandidatesModule,
+		CandidateDataModule,
+		RecruiterAssessmentModule,
+		TechInterviewerAssessmentModule,
+		TranslateModule,
+		CandidatesModule,
+		MatButtonToggleModule,
+		ReactiveFormsModule,
+		MatListModule,
+		MatIconModule,
+		DatepickerModule,
+		TeamConstructorModule,
+		MultitoolsModule,
+	]
 })
 export class ManagerModule { }

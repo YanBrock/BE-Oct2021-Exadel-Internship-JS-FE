@@ -8,7 +8,7 @@
 	</mat-select>
 </mat-form-field>
 
-<div>Candidates in team: {{selectedCandidates.length}} / 5</div>
+<label>Candidates in team: {{selectedCandidates.length}} / 5</label>
 
 <mat-selection-list class="candidates" #candidates [multiple]="false">
 	<div *ngFor="let candidate of selectedCandidates" style="display: flex;">

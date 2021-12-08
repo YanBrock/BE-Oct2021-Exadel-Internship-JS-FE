@@ -13,29 +13,31 @@ import { TranslateModule } from '@ngx-translate/core';
 import { CandidateDataModule } from '../../components/candidate-data/candidate-data.module';
 import { MentorService } from 'src/app/services/mentor.service';
 import { CandidatesService } from '../../services/candidates.service'
+import { MultitoolsModule } from 'src/app/components/multitools/multitools.module';
 @NgModule({
-  declarations: [
-    MentorReviewComponent,
-    MentorComponent,
-    MentorWindowComponent
-  ],
-  imports: [
-    CommonModule,
-    FormsModule,
-    MatInputModule,
-    MatFormFieldModule,
-    CandidatesModule,
-    TechInterviewerAssessmentModule,
-    RecruiterAssessmentModule,
-    TranslateModule,
-    CandidateDataModule
+	declarations: [
+		MentorReviewComponent,
+		MentorComponent,
+		MentorWindowComponent
+	],
+	imports: [
+		CommonModule,
+		FormsModule,
+		MatInputModule,
+		MatFormFieldModule,
+		CandidatesModule,
+		TechInterviewerAssessmentModule,
+		RecruiterAssessmentModule,
+		TranslateModule,
+		CandidateDataModule,
+		MultitoolsModule,
 
-  ],
-  exports: [
-    MentorComponent
-  ],
-  providers: [
-    MentorService,
-    CandidatesService]
+	],
+	exports: [
+		MentorComponent
+	],
+	providers: [
+		MentorService,
+		CandidatesService]
 })
 export class MentorModule { }
