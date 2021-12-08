@@ -2,9 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { MentorService } from 'src/app/services/mentor.service';
 import { Candidate } from 'src/app/types/candidate';
 import { CandidatesService } from '../../../services/candidates.service'
-import {selectSelectCandidate} from '../../../store/candidates/selectors';
-import {Store} from '@ngrx/store';
-import {Observable} from 'rxjs';
+import { selectSelectCandidate } from '../../../store/candidates/selectors';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
+import { updateCandidate } from 'src/app/store/candidates/actions';
 @Component({
   selector: 'app-mentor-review',
   templateUrl: './mentor-review.component.html',
@@ -17,11 +18,18 @@ export class MentorReviewComponent implements OnInit {
   selectedCandidate: any;
 
   scores = {
-    grade: '',
-    review: ''
+    grade: null,
+    review: null
   }
   constructor(private store: Store, private mentorService: MentorService, private cadidatesService: CandidatesService) {
     this.selectedCandidate$ = this.store.select(selectSelectCandidate);
+    this.selectedCandidate$.subscribe((data) => {
+      if (data.scores) {
+        this.scores = { ...data.scores }
+      } else {
+        this.scores = { grade: 0, review: '' }
+      }
+    })
   }
 
   ngOnInit(): void {
@@ -43,12 +51,9 @@ export class MentorReviewComponent implements OnInit {
     // this.mentorService.addMentorAssessment(this.candidate.id, this.scores)
 
     this.selectedCandidate$.subscribe(candidate => this.selectedCandidate = candidate);
-    this.selectedCandidate = { ...this.selectedCandidate, mentorAssessment: this.scores};
-    const candidatesFromLocalStorage = JSON.parse(localStorage.getItem('Candidate'));
-    const index = candidatesFromLocalStorage.findIndex(candidate => candidate.firstName === this.selectedCandidate.firstName && candidate.lastName === this.selectedCandidate.lastName);
-    candidatesFromLocalStorage[index] = this.selectedCandidate;
-    console.log(candidatesFromLocalStorage)
-    localStorage.setItem('Candidate', JSON.stringify(candidatesFromLocalStorage));
+    this.selectedCandidate = { ...this.selectedCandidate, scores: this.scores };
+    this.store.dispatch(updateCandidate({ candidate: this.selectedCandidate }))
+
   }
 
 }

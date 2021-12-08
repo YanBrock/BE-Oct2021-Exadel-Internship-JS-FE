@@ -5,7 +5,8 @@ import { Observable } from 'rxjs';
 import { selectSelectCandidate } from '../../../store/candidates/selectors';
 import { selectAllSkills } from '../../../store/directory/selectors';
 import { map } from 'rxjs/operators';
-import {selectCandidate} from '../../../store/candidates/actions';
+import { selectCandidate } from '../../../store/candidates/actions';
+import { updateCandidate } from 'src/app/store/candidates/actions';
 
 @Component({
   selector: 'app-recruiter-window',
@@ -23,7 +24,14 @@ export class RecruiterWindowComponent implements OnInit {
     this.selectedCandidate$ = this.store.select(selectSelectCandidate);
     this.softSkills$ = this.store.select(selectAllSkills).pipe(
       map(skills => skills.filter(skill => skill.type === 0))
-    )
+    );
+    // this.selectedCandidate$.subscribe((data) => {
+    //   if (data.scores) {
+    //     this.assessmentsRecruiter = { ...data.assessmentsRecruiter }
+    //   } else {
+    //     this.assessmentsRecruiter = {  }
+    //   }
+    // })
   }
 
   ngOnInit(): void {
@@ -33,11 +41,18 @@ export class RecruiterWindowComponent implements OnInit {
     this.selectedCandidate$.subscribe(candidate => this.selectedCandidate = candidate);
     this.assessmentsRecruiter = this.selectedCandidate.assessmentsRecruiter;
     console.log(this.assessmentsRecruiter)
-    this.selectedCandidate = { ...this.selectedCandidate, isInterviewedByHr: true, assessmentsRecruiter: this.assessmentsRecruiter};
-    const candidatesFromLocalStorage = JSON.parse(localStorage.getItem('Candidate'));
-    const index = candidatesFromLocalStorage.findIndex(candidate => candidate.firstName === this.selectedCandidate.firstName && candidate.lastName === this.selectedCandidate.lastName);
-    candidatesFromLocalStorage[index] = this.selectedCandidate;
-    localStorage.setItem('Candidate', JSON.stringify(candidatesFromLocalStorage));
+    this.selectedCandidate = { ...this.selectedCandidate, isInterviewedByHr: true, assessmentsRecruiter: this.assessmentsRecruiter };
+
+
+
+
+
+
+
+
+
+
+
     // localStorage.removeItem('Candidate');
     // localStorage.setItem('Candidate', JSON.stringify(this.selectedCandidate))
     // let id;

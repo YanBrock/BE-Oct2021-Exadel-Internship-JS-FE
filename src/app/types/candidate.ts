@@ -13,6 +13,10 @@ export interface CandidatesFilter {
   specialization: Specialization | 'all'
 }
 
+export interface Scores {
+  grade: number,
+  review: string
+}
 export interface Candidate {
   id: number
   firstName: string
@@ -26,5 +30,6 @@ export interface Candidate {
   isInterviewedByHr?: boolean
   isInterviewedByTech?: boolean
   status?: Status,
-  assessmentsRecruiter
+  // assessmentsRecruiter: {}
+  scores?: Scores
 }

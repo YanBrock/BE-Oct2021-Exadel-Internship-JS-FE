@@ -137,6 +137,7 @@ export class CandidatesService {
         isInterviewedByTech: true,
         status: Status.Accepted,
         assessmentsRecruiter: {}
+
       },
       {
         id: 5,
@@ -171,6 +172,15 @@ export class CandidatesService {
       return of(candidates.filter(candidate => candidate.status === Status.Accepted))
     }
     return of(candidates);
+  }
+
+  updateCandidate(candidate: Candidate) {
+    const candidatesFromLocalStorage = JSON.parse(localStorage.getItem('Candidate'));
+    const index = candidatesFromLocalStorage.findIndex(c => c.firstName === candidate.firstName && c.lastName === candidate.lastName);
+    candidatesFromLocalStorage[index] = candidate;
+    console.log(candidatesFromLocalStorage)
+    localStorage.setItem('Candidate', JSON.stringify(candidatesFromLocalStorage));
+    return of();
   }
 
 }
