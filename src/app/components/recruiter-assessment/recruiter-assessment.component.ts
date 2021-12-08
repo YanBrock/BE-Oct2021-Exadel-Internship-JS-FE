@@ -14,14 +14,23 @@ export class RecruiterAssessmentComponent implements OnInit {
   @Output() changingForm = new EventEmitter<object>()
   @Input() selectedCandidate: any
 
-  constructor(private userLoginService: UserLoginService) { }
+  constructor(private userLoginService: UserLoginService) {
+    console.log(this.assessmentsRecruiter)
+
+  }
 
   ngOnInit(): void {
     this.activeUser = this.userLoginService.activeUser.role
+    console.log(this.softSkills)
+    console.log(this.assessmentsRecruiter)
   }
 
   onChange() {
     this.changingForm.emit(this.assessmentsRecruiter)
   }
 
+  handler(event, id) {
+
+    return /^([0-4])$/.test(event.key) && !this.assessmentsRecruiter[id]
+  }
 }

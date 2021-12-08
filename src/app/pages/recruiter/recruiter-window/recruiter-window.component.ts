@@ -25,13 +25,13 @@ export class RecruiterWindowComponent implements OnInit {
     this.softSkills$ = this.store.select(selectAllSkills).pipe(
       map(skills => skills.filter(skill => skill.type === 0))
     );
-    // this.selectedCandidate$.subscribe((data) => {
-    //   if (data.scores) {
-    //     this.assessmentsRecruiter = { ...data.assessmentsRecruiter }
-    //   } else {
-    //     this.assessmentsRecruiter = {  }
-    //   }
-    // })
+    this.selectedCandidate$.subscribe((data) => {
+      if (data.assessmentsRecruiter) {
+        this.assessmentsRecruiter = { ...data.assessmentsRecruiter }
+      } else {
+        this.assessmentsRecruiter = {}
+      }
+    });
   }
 
   ngOnInit(): void {
@@ -39,11 +39,10 @@ export class RecruiterWindowComponent implements OnInit {
 
   onClick() {
     this.selectedCandidate$.subscribe(candidate => this.selectedCandidate = candidate);
-    this.assessmentsRecruiter = this.selectedCandidate.assessmentsRecruiter;
-    console.log(this.assessmentsRecruiter)
     this.selectedCandidate = { ...this.selectedCandidate, isInterviewedByHr: true, assessmentsRecruiter: this.assessmentsRecruiter };
+    this.store.dispatch(updateCandidate({ candidate: this.selectedCandidate }))
 
-
+    console.log(this.assessmentsRecruiter)
 
 
 

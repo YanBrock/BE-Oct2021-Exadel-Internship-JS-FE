@@ -1,5 +1,5 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {UserLoginService} from '../../services/user-login.service';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { UserLoginService } from '../../services/user-login.service';
 
 @Component({
   selector: 'app-tech-interviewer-assessment',
@@ -20,5 +20,10 @@ export class TechInterviewerAssessmentComponent implements OnInit {
 
   onChange() {
     this.changingForm.emit(this.assessmentsTech)
+  }
+
+  handler(event, id) {
+
+    return /^([0-4])$/.test(event.key) && !this.assessmentsTech[id]
   }
 }

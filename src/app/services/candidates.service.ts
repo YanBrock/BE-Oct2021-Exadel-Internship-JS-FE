@@ -93,7 +93,7 @@ export class CandidatesService {
         isInterviewedByHr: true,
         isInterviewedByTech: true,
         status: Status.Accepted,
-        assessmentsRecruiter: {}
+
       },
       {
         id: 2,
@@ -107,7 +107,7 @@ export class CandidatesService {
         englishLevel: 'intermediate' as EnglishLevel,
         isInterviewedByHr: false,
         isInterviewedByTech: false,
-        assessmentsRecruiter: {}
+
       },
       {
         id: 3,
@@ -121,7 +121,7 @@ export class CandidatesService {
         englishLevel: 'pre-intermediate' as EnglishLevel,
         isInterviewedByHr: true,
         isInterviewedByTech: false,
-        assessmentsRecruiter: {}
+
       },
       {
         id: 4,
@@ -136,7 +136,7 @@ export class CandidatesService {
         isInterviewedByHr: true,
         isInterviewedByTech: true,
         status: Status.Accepted,
-        assessmentsRecruiter: {}
+
 
       },
       {
@@ -152,9 +152,7 @@ export class CandidatesService {
         isInterviewedByHr: true,
         isInterviewedByTech: true,
         status: Status.Questionable,
-        assessmentsRecruiter: {
-          1: "3", 2: "3", 3: "3", 4: "3"
-        }
+
       }
     ].filter(candidate => {
       if (!filter) {
