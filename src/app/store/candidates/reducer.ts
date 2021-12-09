@@ -1,5 +1,5 @@
 import { createReducer, on } from '@ngrx/store';
-import { loadCandidatesList, loadCandidatesListSuccess, selectCandidate } from './actions';
+import { loadCandidatesList, loadCandidatesListSuccess, selectCandidate, updateCandidateSuccess } from './actions';
 import { Candidate } from '../../types/candidate';
 
 export interface CandidatesState {
@@ -35,8 +35,17 @@ const _candidatesReducer = createReducer(
       ...state,
       selectedCandidate
     }
+  }),
+  on(updateCandidateSuccess, (state, { candidate }) => {
+    return {
+      ...state,
+      candidatesList: state.candidatesList.map(el => {
+        return el.firstName === candidate.firstName && candidate
+      })
+    }
   })
 );
+
 
 export function candidatesReducer(state, action) {
   return _candidatesReducer(state, action);

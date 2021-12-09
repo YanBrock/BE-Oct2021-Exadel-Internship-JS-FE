@@ -6,7 +6,8 @@
       <mat-list-item role="listitem" *ngFor="let skill of softSkills">
         {{skill.description}}:
         <span>
-          <input name="input" [(ngModel)]="assessmentsRecruiter[skill.id]" type="text">/4
+          <input [name]="'input'+skill.id" [(ngModel)]="assessmentsRecruiter[skill.id]" type="text"
+            (keypress)="handler($event, skill.id)">/4
         </span>
       </mat-list-item>
     </mat-list>
@@ -20,9 +21,11 @@
   <div>
     <mat-list role="list">
       <mat-list-item role="listitem" *ngFor="let skill of softSkills">
-        {{skill.description}}: <span>1/4</span>
+        {{skill.description}}: <span>
+          <span *ngIf="(selectedCandidate$ | async).assessmentsRecruiter">{{(selectedCandidate$ | async).assessmentsRecruiter[skill.id]}}</span>/4
+        </span>
       </mat-list-item>
     </mat-list>
-    <p>Recruiter comment</p>
+    <p *ngIf="(selectedCandidate$ | async).assessmentsRecruiter">{{(selectedCandidate$ | async).assessmentsRecruiter.comment}}</p>
   </div>
 </ng-template>

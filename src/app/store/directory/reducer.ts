@@ -1,10 +1,17 @@
 import { createReducer, on } from '@ngrx/store';
 import {
-  loadAllCountries, loadAllCountriesSuccess,
+  loadAllCountries,
+  loadAllCountriesSuccess,
   loadAllEnglishLevels,
-  loadAllEnglishLevelsSuccess, loadAllSkills, loadAllSkillsSuccess,
+  loadAllEnglishLevelsSuccess,
+  loadAllSkills,
+  loadAllSkillsSuccess,
   loadAllSpecializations,
-  loadAllSpecializationsSuccess, loadCitiesByCountryId, loadCitiesByCountryIdSuccess,
+  loadAllSpecializationsSuccess,
+  loadCitiesByCountryId,
+  loadCitiesByCountryIdSuccess,
+  loadCountryById,
+  loadCountryByIdSuccess,
 } from './actions';
 
 export interface DirectoryState {
@@ -13,6 +20,7 @@ export interface DirectoryState {
   allCountries: any[];
   citiesByCountryId: any[];
   allSkills: any[];
+  country: any
   loading: boolean
 }
 
@@ -22,6 +30,7 @@ export const initialState: DirectoryState = {
   allCountries: [],
   citiesByCountryId: [],
   allSkills: [],
+  country: null,
   loading: false
 }
 
@@ -90,6 +99,19 @@ const _directoryReducer = createReducer(
       ...state,
       loading: false,
       allSkills
+    }
+  }),
+  on(loadCountryById, state => {
+    return {
+      ...state,
+      loading: true
+    }
+  }),
+  on(loadCountryByIdSuccess, (state, { country }) => {
+    return {
+      ...state,
+      loading: false,
+      country
     }
   })
 )

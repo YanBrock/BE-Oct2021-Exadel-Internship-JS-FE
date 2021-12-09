@@ -1,4 +1,4 @@
-import { CandidatesFilter } from '../../types/candidate';
+import {CandidatesFilter, Status} from '../../types/candidate';
 import { Candidate } from '../../types/candidate';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { CandidatesListComponent } from './candidates-list/candidates-list.component';
@@ -7,6 +7,7 @@ import { Store } from '@ngrx/store';
 import { selectCandidatesList, selectCandidatesListLoading } from '../../store/candidates/selectors';
 import { loadCandidatesList } from '../../store/candidates/actions';
 import { UserLoginService } from '../../services/user-login.service';
+import { CandidatesService } from '../../services/candidates.service';
 
 @Component({
   selector: 'app-candidates',
@@ -15,23 +16,38 @@ import { UserLoginService } from '../../services/user-login.service';
 })
 export class CandidatesComponent implements OnInit {
 
-  candidatesList$: Observable<Candidate[]>;
-  candidatesListLoading$: Observable<boolean>
-  pageOfCandidates: Candidate[]
-  length: number
-  activeUserRole: string
-  startItem: number = 0
-  pageItems: number = 7
+  candidatesList$: Observable<any[]>;
+  candidatesListLoading$: Observable<boolean>;
+  pageOfCandidates: any[];
+  candidatesList: any;
+  // length: number;
+  activeUserRole: string;
+  startItem: number = 0;
+  pageItems: number = 7;
   @ViewChild(CandidatesListComponent) list: CandidatesListComponent
 
-  constructor(private store: Store, private userLoginService: UserLoginService) {
+  constructor(private store: Store, private userLoginService: UserLoginService, private candidatesService: CandidatesService) {
     this.candidatesList$ = this.store.select(selectCandidatesList);
     this.candidatesListLoading$ = this.store.select(selectCandidatesListLoading);
   }
 
   ngOnInit(): void {
+
+    const candidatesFromLocalStorage = this.candidatesService.getCandidatesFromLocalStorage();
+
+    if (localStorage['Candidate']) {
+      this.candidatesList$.subscribe(candidates => {
+        this.candidatesList = [...candidates, ...candidatesFromLocalStorage]
+      });
+    } else {
+      this.candidatesList$.subscribe(candidates => {
+        this.candidatesList = candidates
+      });
+    }
+
     this.activeUserRole = this.userLoginService.activeUser.role;
-    this.candidatesList$.subscribe(response => this.pageOfCandidates = response.slice(this.startItem, this.pageItems));
+    // this.candidatesList$.subscribe(response => this.pageOfCandidates = response.slice(this.startItem, this.pageItems));
+    this.pageOfCandidates = this.candidatesList.slice(this.startItem, this.pageItems)
   }
 
   onFilterChange(filterValue: CandidatesFilter) {
@@ -40,14 +56,16 @@ export class CandidatesComponent implements OnInit {
   }
 
   onPageChange(object) {
+    let length;
     const startIndex = object.pageIndex * object.pageSize;
-    this.candidatesList$.subscribe(array => this.length = array.length);
+    length = this.candidatesList.length;
     let endIndex = startIndex + object.pageSize;
-    if (endIndex > this.length) {
-      endIndex = this.length;
+    if (endIndex > length) {
+      endIndex = length;
     }
 
-    this.candidatesList$.subscribe(response => this.pageOfCandidates = response.slice(startIndex, endIndex))
+    this.pageOfCandidates = this.candidatesList.slice(startIndex, endIndex);
+    // this.candidatesList$.subscribe(response => this.pageOfCandidates = response.slice(startIndex, endIndex))
   }
 
 }

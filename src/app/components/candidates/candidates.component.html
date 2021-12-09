@@ -2,7 +2,7 @@
   <app-candidates-filter *ngIf="activeUserRole !== 'techInterviewer' && activeUserRole !== 'mentor'"
     (filterChanged)="onFilterChange($event)">
   </app-candidates-filter>
-  <app-candidates-list [candidates]="candidatesList$ | async"
+  <app-candidates-list [candidates]="candidatesList"
     [pageOfCandidates]="pageOfCandidates" (changePage)="onPageChange($event)">
   </app-candidates-list>
 </div>

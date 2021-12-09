@@ -1,11 +1,11 @@
 :host {
-	display: flex;
-	flex-direction: column;
-	flex: 1 1;
-	width: 100%;	
-	padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1 1;
+  width: 400px;
+  padding: 1rem;
 
-	mat-button-toggle-group {
-		border: none;
-	}
+  mat-button-toggle-group {
+    border: none;
+  }
 }

@@ -1,3 +1,5 @@
+import { MatInputModule } from "@angular/material/input";
+
 export enum Status {
   Questionable = 'Questionable',
   Accepted = 'Accepted',
@@ -13,6 +15,17 @@ export interface CandidatesFilter {
   specialization: Specialization | 'all'
 }
 
+export interface Scores {
+  grade: number,
+  review: string
+}
+
+export interface ScoresForRecruiter {
+  id: number
+  description: string
+  comment: string
+  type?: number
+}
 export interface Candidate {
   id: number
   firstName: string
@@ -21,9 +34,11 @@ export interface Candidate {
   skype: string
   phone: string
   specialization: string
-  location: string
+  country: number
   englishLevel: string
   isInterviewedByHr?: boolean
   isInterviewedByTech?: boolean
   status?: Status
+  scores?: Scores
+  assessmentsRecruiter?: ScoresForRecruiter
 }

@@ -9,7 +9,7 @@
       <span *ngIf="selectedCandidate"><strong>{{ selectedCandidate.lastName }}</strong></span>
     </mat-list-item>
     <mat-list-item role="listitem">{{"candidate-data.location" | translate}} :
-      <span *ngIf="selectedCandidate"><strong>{{ selectedCandidate.location }}</strong></span>
+      <span *ngIf="selectedCandidate"><strong *ngIf="country$ | async">{{ (country$ | async).countryName }}</strong></span>
     </mat-list-item>
     <mat-list-item role="listitem">{{"candidate-data.phone" | translate}} :
       <span *ngIf="selectedCandidate"><strong>{{ selectedCandidate.phone }}</strong></span>

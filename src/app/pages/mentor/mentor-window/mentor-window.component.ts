@@ -16,13 +16,9 @@ export class MentorWindowComponent implements OnInit {
 
 
   selectedCandidate$: Observable<Candidate>;
+  selectedCandidate: any;
   softSkills$: Observable<any[]>;
-  assessments = {
-    englishLevel: '',
-    communicationSkills: '',
-    abilityToListen: '',
-    selfConfidence: ''
-  };
+  finalAssessment = {};
 
   constructor(private store: Store) {
     this.selectedCandidate$ = this.store.select(selectSelectCandidate);
@@ -34,18 +30,7 @@ export class MentorWindowComponent implements OnInit {
   ngOnInit(): void {
   };
 
-  onClick() {
-    console.log(this.assessments)
-
-    this.assessments = {
-      englishLevel: '',
-      communicationSkills: '',
-      abilityToListen: '',
-      selfConfidence: ''
-    }
-  };
-
   onFormChange(object) {
-    this.assessments = object
+    this.finalAssessment = object
   }
 }

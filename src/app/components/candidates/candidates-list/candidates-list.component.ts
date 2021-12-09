@@ -5,6 +5,7 @@ import { Store } from '@ngrx/store';
 import { selectCandidate } from '../../../store/candidates/actions';
 import { Observable } from 'rxjs';
 import { selectCandidatesList, selectSelectCandidate } from '../../../store/candidates/selectors';
+import {loadCountryById} from '../../../store/directory/actions';
 
 @Component({
   selector: 'app-candidates-list',
@@ -13,10 +14,10 @@ import { selectCandidatesList, selectSelectCandidate } from '../../../store/cand
 })
 export class CandidatesListComponent implements OnInit {
 
-  candidatesList$: Observable<Candidate[]>;
-  selectedCandidate$: Observable<Candidate>;
-  @Input() pageOfCandidates: Candidate[];
-  @Input() candidates: Candidate[];
+  candidatesList$: Observable<any[]>;
+  selectedCandidate$: Observable<any>;
+  @Input() pageOfCandidates: any[];
+  @Input() candidates: any[];
   @Output() changePage = new EventEmitter<PageEvent>();
   @ViewChild(MatPaginator) paginator: MatPaginator;
   dataSource;
@@ -35,7 +36,10 @@ export class CandidatesListComponent implements OnInit {
   }
 
   onClick(candidate: Candidate) {
+    let id;
+    this.selectedCandidate$.subscribe(data => id = data.country);
     this.store.dispatch(selectCandidate({ selectedCandidate: candidate }));
+    this.store.dispatch(loadCountryById({ countryId: id }));
   }
 
   onPageChange(event: PageEvent) {
