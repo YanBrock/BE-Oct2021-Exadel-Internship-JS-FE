@@ -26,6 +26,7 @@ import { AdminNavModule } from './components/admin-nav/admin-nav.module';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { CalendarModule } from '../app/components/calendar/calendar.module';
 import { ManagerModule } from './pages/manager/manager.module';
+import { MultitoolsModule } from './components/multitools/multitools.module';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,6 @@ import { ManagerModule } from './pages/manager/manager.module';
     HeaderComponent,
     MainComponent,
     FooterComponent,
-
   ],
   imports: [
     BrowserModule,
@@ -57,6 +57,7 @@ import { ManagerModule } from './pages/manager/manager.module';
     MatSnackBarModule,
     CalendarModule,
     ManagerModule,
+	MultitoolsModule,
   ],
   providers: [
     {

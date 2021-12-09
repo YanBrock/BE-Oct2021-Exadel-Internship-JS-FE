@@ -15,39 +15,39 @@ import { MatInputModule } from '@angular/material/input';
 import { TranslateModule } from '@ngx-translate/core';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { DatepickerModule } from 'src/app/components/datepicker/datepicker.module';
-import { TeamConstructorModule } from 'src/app/components/team-constructor/team-constructor.module';
+import { TeamConstructorModule } from '../../components/team-constructor/team-constructor.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
+import { MultitoolsModule } from '../../components/multitools/multitools.module';
 
 
 @NgModule({
-  declarations: [
-    ManagerComponent,
-    ManagerWindowComponent,
-
-  ],
-  imports: [
-    CommonModule,
-    MatCheckboxModule,
-    MatSelectModule,
-    MatFormFieldModule,
-    FormsModule,
-    MatButtonModule,
-    MatInputModule,
-    CandidatesModule,
-    CandidateDataModule,
-    RecruiterAssessmentModule,
-    TechInterviewerAssessmentModule,
-    TranslateModule,
-    CandidatesModule,
-    MatButtonToggleModule,
-    ReactiveFormsModule,
-    MatListModule,
-    MatIconModule,
-    DatepickerModule,
-    TeamConstructorModule
-
-  ]
+	declarations: [
+		ManagerComponent,
+		ManagerWindowComponent,
+	],
+	imports: [
+		CommonModule,
+		MatCheckboxModule,
+		MatSelectModule,
+		MatFormFieldModule,
+		FormsModule,
+		MatButtonModule,
+		MatInputModule,
+		CandidatesModule,
+		CandidateDataModule,
+		RecruiterAssessmentModule,
+		TechInterviewerAssessmentModule,
+		TranslateModule,
+		CandidatesModule,
+		MatButtonToggleModule,
+		ReactiveFormsModule,
+		MatListModule,
+		MatIconModule,
+		DatepickerModule,
+		TeamConstructorModule,
+		MultitoolsModule,
+	]
 })
 export class ManagerModule { }

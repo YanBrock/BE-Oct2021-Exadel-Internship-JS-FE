@@ -1,8 +1,11 @@
 <div class="container">
+
 	<div class="header__logo">
 		<img src="../assets/images/logo.png" alt="Logo">
 	</div>
+
 	<div class="header__wrapper">
+
 		<mat-form-field appearance="fill">
 			<mat-label>{{"translate.label" | translate}}</mat-label>
 			<mat-select [(value)]="selectedLanguage" (valueChange)="changeLanguage($event)">
@@ -10,8 +13,9 @@
 				</mat-option>
 			</mat-select>
 		</mat-form-field>
-		
+
 		<app-admin-nav></app-admin-nav>
 		<app-header-user-name></app-header-user-name>
 	</div>
+
 </div>

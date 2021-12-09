@@ -10,7 +10,11 @@ import { TranslateModule } from '@ngx-translate/core';
 import { RecruiterAssessmentModule } from '../../components/recruiter-assessment/recruiter-assessment.module';
 import { TechInterviewerAssessmentModule } from '../../components/tech-interviewer-assessment/tech-interviewer-assessment.module';
 import { MatButtonModule } from '@angular/material/button';
+<<<<<<< HEAD
 import { CalendarModule } from 'src/app/components/calendar/calendar.module';
+=======
+import { MultitoolsModule } from 'src/app/components/multitools/multitools.module';
+>>>>>>> 9cd64f55ab87cd920c58446c41883c924f191dd4
 
 @NgModule({
   declarations: [
@@ -27,7 +31,11 @@ import { CalendarModule } from 'src/app/components/calendar/calendar.module';
     RecruiterAssessmentModule,
     TechInterviewerAssessmentModule,
     MatButtonModule,
+<<<<<<< HEAD
     CalendarModule
+=======
+	MultitoolsModule,
+>>>>>>> 9cd64f55ab87cd920c58446c41883c924f191dd4
   ],
   exports: [RecruiterComponent]
 })

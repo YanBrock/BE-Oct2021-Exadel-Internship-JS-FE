@@ -12,26 +12,28 @@ import { FormsModule } from '@angular/forms';
 import { RecruiterAssessmentModule } from '../../components/recruiter-assessment/recruiter-assessment.module';
 import { TechInterviewerAssessmentModule } from '../../components/tech-interviewer-assessment/tech-interviewer-assessment.module';
 import { CalendarModule } from '../../components/calendar/calendar.module'
+import { MultitoolsModule } from 'src/app/components/multitools/multitools.module';
 @NgModule({
-  declarations: [
-    TechInterviewerComponent,
-    TechInterviewerWindowComponent
-  ],
-  imports: [
-    FormsModule,
-    CommonModule,
-    CandidatesModule,
-    MatListModule,
-    MatInputModule,
-    TranslateModule,
-    MatButtonModule,
-    CandidateDataModule,
-    RecruiterAssessmentModule,
-    TechInterviewerAssessmentModule,
-    CalendarModule
-  ],
-  exports: [
-    TechInterviewerComponent
-  ]
+	declarations: [
+		TechInterviewerComponent,
+		TechInterviewerWindowComponent
+	],
+	imports: [
+		FormsModule,
+		CommonModule,
+		CandidatesModule,
+		MatListModule,
+		MatInputModule,
+		TranslateModule,
+		MatButtonModule,
+		CandidateDataModule,
+		RecruiterAssessmentModule,
+		TechInterviewerAssessmentModule,
+		CalendarModule,
+		MultitoolsModule,
+	],
+	exports: [
+		TechInterviewerComponent
+	]
 })
 export class TechInterviewerModule { }
