@@ -6,6 +6,7 @@ import { selectSelectCandidate } from 'src/app/store/candidates/selectors';
 import { Candidate, Status } from 'src/app/types/candidate';
 import { selectAllSkills } from '../../../store/directory/selectors';
 import { map } from 'rxjs/operators';
+import { NotificationService } from 'src/app/services/notification.service';
 
 @Component({
   selector: 'app-manager-window',
@@ -29,7 +30,8 @@ export class ManagerWindowComponent implements OnInit {
   selectedCandidate: any;
   transferCandidate: any;
 
-  constructor(private store: Store, private candidatesService: CandidatesService) {
+  constructor(private store: Store, private candidatesService: CandidatesService,
+    private notificationService: NotificationService) {
     this.selectedCandidate$ = this.store.select(selectSelectCandidate);
     this.selectedCandidate$.subscribe(data => this.selectedCandidate = data);
     this.softSkills$ = this.store.select(selectAllSkills).pipe(
@@ -67,10 +69,11 @@ export class ManagerWindowComponent implements OnInit {
   }
 
   setAcceptStatus() {
-    this.selectedCandidate = { ...this.selectedCandidate, status: Status.Accepted};
+    this.selectedCandidate = { ...this.selectedCandidate, status: Status.Accepted };
     const candidatesFromLocalStorage = JSON.parse(localStorage.getItem('Candidate'));
     const index = candidatesFromLocalStorage.findIndex(candidate => candidate.firstName === this.selectedCandidate.firstName && candidate.lastName === this.selectedCandidate.lastName);
     candidatesFromLocalStorage[index] = this.selectedCandidate;
     localStorage.setItem('Candidate', JSON.stringify(candidatesFromLocalStorage));
+    this.notificationService.success('Operation was successfully completed');
   }
 }

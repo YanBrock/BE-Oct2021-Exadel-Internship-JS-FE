@@ -12,15 +12,22 @@
 
   <br>
 
-  <div class="buttons">
-    <button mat-stroked-button>TO ARCHIVE</button>
-    <button mat-stroked-button (click)="toTeam()">TO TEAM</button>
-    <button mat-stroked-button (click)="setAcceptStatus()">ASSIGN APPLY STATUS</button>
-    <br>
-    <button class="decline-button" mat-stroked-button (click)="onClick()">{{"recruiter.buttons.decline" |
-			translate}}</button>
-    <button class="apply-button" mat-stroked-button (click)="onClick()">{{"recruiter.buttons.apply" |
-			translate}}</button>
 
+  <div class="buttons">
+    <div>
+      <button mat-stroked-button>TO ARCHIVE</button>
+      <button mat-stroked-button (click)="toTeam()">TO TEAM</button>
+      <button mat-stroked-button (click)="setAcceptStatus()">ASSIGN APPLY STATUS</button>
+    </div>
+    <br>
+
+
+
+    <div>
+      <button class="decline-button" mat-stroked-button (click)="onClick()">{{"recruiter.buttons.decline" |
+				translate}}</button>
+      <button class="apply-button" mat-stroked-button (click)="onClick()">{{"recruiter.buttons.apply" |
+				translate}}</button>
+    </div>
   </div>
 </div>
